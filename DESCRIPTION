@@ -1,0 +1,12 @@
+Package: RelDists
+Title: Reliability distributions
+Version: 0.0.0.9000
+Authors@R: person("Olga", "Usuga", email = "olga.usuga@udea.edu.co", role = c("aut", "cre"))
+Description: Reliability distributions and estimation parameters within GAMLSS framework.
+Depends: R (>= 3.2.3)
+License: GPL-3
+LazyData: true
+Imports: gamlss
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
