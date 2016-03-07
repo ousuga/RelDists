@@ -6,5 +6,5 @@ To install the `RelDists` package you need to install `devtools` package before,
 ```{r}
 install.packages("devtools")
 library(devtools)
-install_github("RelDists", username="ousuga")
+install_github(repo = "ousuga/RelDists")
 ```
