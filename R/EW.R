@@ -21,11 +21,11 @@
 #' The Exponentiated Weibull Distribution with parameters \code{alpha}, 
 #' \code{theta} and \code{lambda} has density given by
 #' 
-#' f(x)=lambda*alpha*theta*x^(theta-1)*exp(-alpha*(x^theta))*(1-exp(-alpha*(x^theta)))^(lambda-1)
+#' \eqn{f(x)=\lambda \alpha \theta x^{\theta-1} \exp(-\alpha x^\theta) (1-\exp(-\alpha x^\theta))^{\lambda-1},}
 #' 
 #' for x > 0. 
 #' 
-#' #' @return 
+#' @return 
 #' \code{dEW} gives the density, \code{pEW} gives the distribution 
 #' function, \code{qEW} gives the quantile function, \code{rEW}
 #' generates random deviates and \code{hEW} gives the hazard function.
