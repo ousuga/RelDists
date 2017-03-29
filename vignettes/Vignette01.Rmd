@@ -1,0 +1,57 @@
+---
+title: "Distributions"
+author: "Olga Usuga, Freddy Hernández, Catherine Rincón y Mauricio Barrientos"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document: 
+    number_sections: yes
+    toc: yes
+vignette: >
+  %\VignetteIndexEntry{hola}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+require(RelDists)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Exponentiated Weibull distribution
+
+## Probability density function 
+The exponentiated Weibull distribution (EW) has three parameters. The pdf of the EW distribution is:
+
+$$f(x)=\lambda\alpha\theta x^{\theta-1} e^{-\alpha x^{\theta}}
+      (1-e^{-\alpha x^{\theta}})^{\lambda-1}, \quad x>0,$$
+      
+where $\alpha$ is a scale parameter, $\theta$ and $\lambda> 0$ are shape parameters.
+
+## Particular cases
+When $\alpha$, $\theta$ and $\lambda$ parameters assume some values we can obtain known probability density functions, in the next table we present the cases.
+
+|$\alpha$   |  $\lambda$  |   $\theta$  |     *Distribution*               |
+|:----------|:----------: | :---------: |   ----------------------------   |
+|1          |             |             |      Weibull                     | 
+|           |             |        2    |      Generalized Rayleigh (GR)   |
+|           |             |        1    |      Generalized Exponential(GE) |
+|           |      1      |        1    |      Exponential                 |
+|           |      1      |        2    |      Rayleigh                    |
+            
+The figure shows possible shapes for the pdf.
+
+```{r fig.cap='Pdf shapes for EW distribution.', fig.asp=0.7, fig.width=5}
+curve(dEW(x,5,0.5,10), from=0, to=2, ylim=c(0,3), col="red",
+      ylab="Probability density function", las=1)
+curve(dEW(x,0.7,0.5,0.15), col="green", add=T)
+curve(dEW(x,1,3,1), col="purple", add=T)
+
+legend("topright",
+       legend=c(expression(paste(alpha, " = ", 5,"        " ,
+                                 theta,"=",0.5,"     ",lambda," = ", 10)),
+                expression(paste(alpha, " = ", 0.7,"     ",theta,"=",0.5,"     ",lambda," = ", 0.15)),
+expression(paste(alpha, " = ", 1,"        " ,theta,"=",3,"        " ,lambda," = ", 1))), 
+       col=c("red","green","purple"),lty=c(1,1,1), bty="n")
+```      
+
+            

@@ -3,7 +3,7 @@ In this package are available reliability distributions and it is possible to es
 
 To install the `RelDists` package you need to install `devtools` package before, follow the next instructions:
 
-```{r}
+```s
 if (!require('devtools')) install.packages('devtools')
 install_github('ousuga/RelDists', force=TRUE)
 require(RelDists)
