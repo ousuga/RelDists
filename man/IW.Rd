@@ -9,22 +9,24 @@
 \alias{hIW}
 \title{The Inverse Weibull Distribution}
 \usage{
-dIW(x, alpha, theta, log = FALSE)
+IW(mu.link = "log", sigma.link = "log")
 
-pIW(q, alpha, theta, lower.tail = TRUE, log.p = FALSE)
+dIW(x, mu, sigma, log = FALSE)
 
-qIW(p, alpha, theta, lower.tail = TRUE, log.p = FALSE)
+pIW(q, mu, sigma, lower.tail = TRUE, log.p = FALSE)
 
-rIW(n, alpha, theta)
+qIW(p, mu, sigma, lower.tail = TRUE, log.p = FALSE)
 
-hIW(x, alpha, theta)
+rIW(n, mu, sigma)
+
+hIW(x, mu, sigma)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
 
-\item{alpha}{parameter one.}
+\item{mu}{parameter one.}
 
-\item{theta}{parameter two.}
+\item{sigma}{parameter two.}
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
@@ -43,35 +45,35 @@ generates random deviates and \code{hIW} gives the hazard function.
 \description{
 Density, distribution function, quantile function, 
 random generation and hazard function for the inverse weibull distribution with
-parameters \code{alpha} and \code{theta}.
+parameters \code{mu} and \code{sigma}.
 }
 \details{
-The inverse weibull distribution with parameters \code{alpha} and
-\code{theta} has density given by
+The inverse weibull distribution with parameters \code{mu} and
+\code{sigma} has density given by
 
-f(x) = alpha*theta*x^(-theta-1)*exp(-alpha*(x^-theta)),
+f(x) = mu*sigma*x^(-sigma-1)*exp(-mu*(x^-sigma)),
 
 for x > 0.
 }
 \examples{
  
 ## The probability density function 
-curve(dIW(x, alpha = 5, theta = 2.5), from = 0, to = 10, ylim = c(0, 0.55), col = "red", las = 1, ylab = "The probability density function")
+curve(dIW(x, mu = 5, sigma = 2.5), from = 0, to = 10, ylim = c(0, 0.55), col = "red", las = 1, ylab = "The probability density function")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
-curve(pIW(x, alpha = 5, theta = 2.5), from = 0, to = 10, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
-curve(pIW(x, alpha = 5, theta = 2.5, lower.tail = FALSE), from = 0, to = 10, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
+curve(pIW(x, mu = 5, sigma = 2.5), from = 0, to = 10, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
+curve(pIW(x, mu = 5, sigma = 2.5, lower.tail = FALSE), from = 0, to = 10, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
 
 ## The quantile function
 p <- seq(from = 0, to = 0.998, length.out = 100)
-plot(x = qIW(p, alpha = 5, theta = 2.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pIW(x, alpha = 5, theta = 2.5),  from = 0, add = TRUE, col = "red")
+plot(x = qIW(p, mu = 5, sigma = 2.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
+curve(pIW(x, mu = 5, sigma = 2.5),  from = 0, add = TRUE, col = "red")
 
 ## The random function
-hist(rIW(n = 1000, alpha = 5, theta = 2.5), freq = FALSE, xlab = "x", ylim = c(0, 0.55), las = 1, main = "")
-curve(dIW(x, alpha = 5, theta = 2.5),  from = 0, to = 10, add = TRUE, ylim = c(0, 0.55), col = "red")
+hist(rIW(n = 1000, mu = 5, sigma = 2.5), freq = FALSE, xlab = "x", ylim = c(0, 0.55), las = 1, main = "")
+curve(dIW(x, mu = 5, sigma = 2.5),  from = 0, to = 10, add = TRUE, ylim = c(0, 0.55), col = "red")
 
 ## The Hazard function
-curve(hIW(x, alpha = 5, theta = 2.5), from = 0, to = 15, ylim = c(0, 1), col = "red", las = 1, ylab = "The Hazard function")
+curve(hIW(x, mu = 5, sigma = 2.5), from = 0, to = 15, ylim = c(0, 1), col = "red", las = 1, ylab = "The Hazard function")
 }
