@@ -49,7 +49,7 @@ parameters \code{alpha}, \code{theta} and \code{lambda}.
 The Exponentiated Weibull Distribution with parameters \code{alpha}, 
 \code{theta} and \code{lambda} has density given by
 
-\eqn{f(x)=\lambda \alpha \theta x^{\theta-1} \exp(-\alpha x^\theta) (1-\exp(-\alpha x^\theta))^{\lambda-1}}
+\eqn{f(x)=\lambda \alpha \theta x^{\theta-1} \exp(-\alpha x^\theta) (1-\exp(-\alpha x^\theta))^{\lambda-1},}
 
 for x > 0.
 }
