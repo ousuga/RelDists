@@ -9,24 +9,27 @@
 \alias{hGMW}
 \title{The Generalized modified Weibull Distribution}
 \usage{
-dGMW(y, beta, theta, gamma, lambda, log = FALSE)
+GMW(mu.link = "log", sigma.link = "log", nu.link = "log",
+  tau.link = "log")
 
-pGMW(q, beta, theta, gamma, lambda, lower.tail = TRUE, log.p = FALSE)
+dGMW(y, mu, sigma, nu, tau, log = FALSE)
 
-qGMW(p, beta, theta, gamma, lambda, lower.tail = TRUE, log.p = FALSE)
+pGMW(q, mu, sigma, nu, tau, lower.tail = TRUE, log.p = FALSE)
 
-rGMW(n, beta, theta, gamma, lambda)
+qGMW(p, mu, sigma, nu, tau, lower.tail = TRUE, log.p = FALSE)
 
-hGMW(x, beta, theta, gamma, lambda, log = FALSE)
+rGMW(n, mu, sigma, nu, tau)
+
+hGMW(x, mu, sigma, nu, tau, log = FALSE)
 }
 \arguments{
-\item{beta}{parameter one.}
+\item{mu}{parameter one.}
 
-\item{theta}{parameter two.}
+\item{sigma}{parameter two.}
 
-\item{gamma}{parameter three.}
+\item{nu}{parameter three.}
 
-\item{lambda}{parameter four.}
+\item{tau}{parameter four.}
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
@@ -41,14 +44,14 @@ P[X <= x], otherwise, P[X > x].}
 }
 \description{
 Density, distribution function, quantile function, random generation and hazard function for the generalized 
-modified weibull distribution with parameters \code{beta}, \code{theta}, \code{gamma} and \code{lambda}.
+modified weibull distribution with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 }
 \details{
-The generalized modified weibull with parameters \code{beta}, \code{theta}, 
-\code{gamma} and \code{lambda} has density given by
+The generalized modified weibull with parameters \code{mu}, \code{sigma}, 
+\code{nu} and \code{tau} has density given by
 
-f(x)= beta*theta*x^(gamma-1)*(gamma+lambda*x)*exp(lambda*x-beta*x^(gamma)*exp(lambda*x))*
-(1-exp(beta*x^(gamma)*exp(lambda*x)))^(theta-1)
+f(x)= mu*sigma*x^(nu-1)*(nu+tau*x)*exp(tau*x-mu*x^(nu)*exp(tau*x))*
+(1-exp(mu*x^(nu)*exp(tau*x)))^(sigma-1)
 
 for x>0.
 
@@ -60,22 +63,22 @@ generates random deviates and \code{hGMW} gives the hazard function.
 \examples{
  
 ## The probability density function
-curve(dGMW(x, beta = 2, theta = 0.5, gamma = 2, lambda = 1.5), from = 0, to = 0.8, ylim = c(0, 6), col = "red", las = 1, ylab = "The probability density function") 
+curve(dGMW(x, mu = 2, sigma = 0.5, nu = 2, tau = 1.5), from = 0, to = 0.8, ylim = c(0, 6), col = "red", las = 1, ylab = "The probability density function") 
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
-curve(pGMW(x, beta = 2, theta = 0.5, gamma = 2, lambda = 1.5), from = 0, to = 1.2, col = "red", las = 1, ylab = "The cumulative distribution function")
-curve(pGMW(x, beta = 2, theta = 0.5, gamma = 2, lambda = 1.5, lower.tail = FALSE), from = 0, to = 1.2, col = "red", las = 1, ylab = "The Reliability function")
+curve(pGMW(x, mu = 2, sigma = 0.5, nu = 2, tau = 1.5), from = 0, to = 1.2, col = "red", las = 1, ylab = "The cumulative distribution function")
+curve(pGMW(x, mu = 2, sigma = 0.5, nu = 2, tau = 1.5, lower.tail = FALSE), from = 0, to = 1.2, col = "red", las = 1, ylab = "The Reliability function")
 ## The quantile function
 p <- seq(from = 0, to = 0.99999, length.out = 100)
-plot(x = qGMW(p, beta = 2, theta = 0.5, gamma = 2, lambda = 0.3), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pGMW(x, beta = 2, theta = 0.5, gamma = 2, lambda = 0.3),  from = 0, add = TRUE, col="red")
+plot(x = qGMW(p, mu = 2, sigma = 0.5, nu = 2, tau = 0.3), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
+curve(pGMW(x, mu = 2, sigma = 0.5, nu = 2, tau = 0.3),  from = 0, add = TRUE, col="red")
 
 ## The random function
-hist(rGMW(n = 1000, beta = 2, theta = 0.5, gamma = 2,lambda = 0.3), freq = FALSE, xlab = "x", main ="", las = 1)
-curve(dGMW(x, beta = 2, theta = 0.5, gamma = 2, lambda = 0.3),  from = 0, add = TRUE, col = "red")
+hist(rGMW(n = 1000, mu = 2, sigma = 0.5, nu = 2,tau = 0.3), freq = FALSE, xlab = "x", main ="", las = 1)
+curve(dGMW(x, mu = 2, sigma = 0.5, nu = 2, tau = 0.3),  from = 0, add = TRUE, col = "red")
 
 ## The Hazard function
-curve(hGMW(x, beta = 2, theta = 1.5, gamma = 2, lambda = 0.8), from = 0, to = 1, ylim = c(0, 16), col = "red", ylab = "The Hazard function", las = 1)
+curve(hGMW(x, mu = 2, sigma = 1.5, nu = 2, tau = 0.8), from = 0, to = 1, ylim = c(0, 16), col = "red", ylab = "The Hazard function", las = 1)
 
 }

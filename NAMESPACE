@@ -2,6 +2,7 @@
 
 export(EW)
 export(FWE)
+export(GMW)
 export(GPW)
 export(IW)
 export(LW)
