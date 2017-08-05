@@ -9,24 +9,26 @@
 \alias{hMWEx}
 \title{The Modified Weibull Extension Distribution}
 \usage{
-dMWEx(x, alpha, beta, lambda, log = FALSE)
+MWEx(mu.link = "log", sigma.link = "log", nu.link = "log")
 
-pMWEx(q, alpha, beta, lambda, lower.tail = TRUE, log.p = FALSE)
+dMWEx(x, mu, sigma, nu, log = FALSE)
 
-qMWEx(p, alpha, beta, lambda, lower.tail = TRUE, log.p = FALSE)
+pMWEx(q, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE)
 
-rMWEx(n, alpha, beta, lambda)
+qMWEx(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE)
 
-hMWEx(x, alpha, beta, lambda)
+rMWEx(n, mu, sigma, nu)
+
+hMWEx(x, mu, sigma, nu)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
 
-\item{alpha}{parameter one.}
+\item{mu}{parameter one.}
 
-\item{beta}{parameter two.}
+\item{sigma}{parameter two.}
 
-\item{lambda}{parameter three.}
+\item{nu}{parameter three.}
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
@@ -45,35 +47,35 @@ generates random deviates and \code{hMWEx} gives the hazard function.
 \description{
 Density, distribution function, quantile function, 
 random generation and hazard function for the modified weibull extension distribution with
-parameters \code{alpha}, \code{beta} and \code{lambda}.
+parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The modified weibull extension distribution with parameters \code{alpha}, \code{beta}
-and \code{lambda} has density given by
+The modified weibull extension distribution with parameters \code{mu}, \code{sigma}
+and \code{nu} has density given by
 
-f(x) = lambda*beta*((x/alpha)^(beta-1))*exp((x/alpha)^beta + lambda*alpha*(1-exp((x/alpha)^beta)))
+f(x) = nu*sigma*((x/mu)^(sigma-1))*exp((x/mu)^sigma + nu*mu*(1-exp((x/mu)^sigma)))
 
 for x > 0.
 }
 \examples{
  
 ## The probability density function  
-curve(dMWEx(x, alpha = 1/0.5, beta = 3, lambda = 2), from = 0, to = 2.5, ylim = c(0, 1.5), col = "red", las = 1, ylab = "The probability density function")
+curve(dMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), from = 0, to = 2.5, ylim = c(0, 1.5), col = "red", las = 1, ylab = "The probability density function")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
-curve(pMWEx(x, alpha = 1/0.5, beta = 3, lambda = 2), from = 0, to = 2.5, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
-curve(pMWEx(x, alpha = 1/0.5, beta = 3, lambda = 2,  lower.tail = FALSE), from = 0, to = 2.5, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
+curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), from = 0, to = 2.5, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
+curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2,  lower.tail = FALSE), from = 0, to = 2.5, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
 
 ## The quantile function
 p <- seq(from = 0, to = 0.998, length.out = 100)
-plot(x = qMWEx(p, alpha = 1/0.5, beta = 3, lambda = 2), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pMWEx(x, alpha = 1/0.5, beta = 3, lambda = 2), from = 0, add = TRUE, col = "red")
+plot(x = qMWEx(p, mu = 1/0.5, sigma = 3, nu = 2), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
+curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), from = 0, add = TRUE, col = "red")
 
 ## The random function
-hist(rMWEx(n = 10000, alpha = 1/0.5, beta = 3, lambda = 2), freq = FALSE, ylim = c(0, 1.5), xlab = "x", las = 1, main = "")
-curve(dMWEx(x, alpha = 1/0.5, beta = 3, lambda = 2),  from = 0, ylim = c(0, 2.5), add = T, col = "red")
+hist(rMWEx(n = 10000, mu = 1/0.5, sigma = 3, nu = 2), freq = FALSE, ylim = c(0, 1.5), xlab = "x", las = 1, main = "")
+curve(dMWEx(x, mu = 1/0.5, sigma = 3, nu = 2),  from = 0, ylim = c(0, 2.5), add = T, col = "red")
 
 ## The Hazard function
-curve(hMWEx(x, alpha = 1/0.5, beta = 3, lambda = 2), from = 0, to = 1.7, ylim = c(0, 12), col = "red", ylab = "The hazard function", las = 1)
+curve(hMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), from = 0, to = 1.7, ylim = c(0, 12), col = "red", ylab = "The hazard function", las = 1)
 }
