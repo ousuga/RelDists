@@ -3,6 +3,7 @@
 export(FWE)
 export(IW)
 export(LW)
+export(WG)
 export(dEW)
 export(dFWE)
 export(dGMW)
