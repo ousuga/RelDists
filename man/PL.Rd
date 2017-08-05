@@ -9,22 +9,24 @@
 \alias{hPL}
 \title{The Power Lindley Distribution}
 \usage{
-dPL(x, alpha, beta, log = FALSE)
+PL(mu.link = "log", sigma.link = "log")
 
-pPL(q, alpha, beta, lower.tail = TRUE, log.p = FALSE)
+dPL(x, mu, sigma, log = FALSE)
 
-qPL(p, alpha, beta, lower.tail = TRUE, log.p = FALSE)
+pPL(q, mu, sigma, lower.tail = TRUE, log.p = FALSE)
 
-rPL(n, alpha, beta)
+qPL(p, mu, sigma, lower.tail = TRUE, log.p = FALSE)
 
-hPL(x, alpha, beta)
+rPL(n, mu, sigma)
+
+hPL(x, mu, sigma)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
 
-\item{alpha}{shape parameter.}
+\item{mu}{shape parameter.}
 
-\item{beta}{scale parameter.}
+\item{sigma}{scale parameter.}
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
@@ -43,35 +45,35 @@ generates random deviates and \code{hPL} gives the hazard function.
 \description{
 Density, distribution function, quantile function, 
 random generation and hazard function for the power Lindley distribution with
-parameters \code{alpha} and \code{beta}.
+parameters \code{mu} and \code{sigma}.
 }
 \details{
-The power Lindley distribution with parameters \code{alpha} and
-\code{beta} has density given by
+The power Lindley distribution with parameters \code{mu} and
+\code{sigma} has density given by
 
-f(x) = ((alpha*beta^2)/(beta+1))*(1+x^(alpha))*x^(alpha-1)*exp(-beta*(x^alpha))
+f(x) = ((mu*sigma^2)/(sigma+1))*(1+x^(mu))*x^(mu-1)*exp(-sigma*(x^mu))
 
 for x > 0.
 }
 \examples{
  
 ## The probability density function 
-curve(dPL(x, alpha = 1, beta = 0.5), from = 0, to = 15, ylim = c(0, 0.25), col = "red", las = 1, ylab = "The probability density function")
+curve(dPL(x, mu = 1, sigma = 0.5), from = 0, to = 15, ylim = c(0, 0.25), col = "red", las = 1, ylab = "The probability density function")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
-curve(pPL(x, alpha = 1, beta = 0.5), from = 0, to = 15,  ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
-curve(pPL(x, alpha = 1, beta = 0.5, lower.tail = FALSE), from = 0, to = 15,  ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
+curve(pPL(x, mu = 1, sigma = 0.5), from = 0, to = 15,  ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
+curve(pPL(x, mu = 1, sigma = 0.5, lower.tail = FALSE), from = 0, to = 15,  ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
 
 ## The quantile function
 p <- seq(from = 0, to = 0.998, length.out = 100)
-plot(x=qPL(p=p, alpha = 1, beta = 0.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pPL(x, alpha = 1, beta = 0.5), from = 0, add = TRUE, col = "red")
+plot(x=qPL(p=p, mu = 1, sigma = 0.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
+curve(pPL(x, mu = 1, sigma = 0.5), from = 0, add = TRUE, col = "red")
 
 ## The random function
-hist(rPL(n = 1000, alpha = 1, beta = 0.5), freq = FALSE, , ylim = c(0, 0.25), xlab = "x", las = 1, main = "")
-curve(dPL(x, alpha = 1, beta = 0.5),  from = 0, add = T, col = "red", ylim = c(0, 0.25))
+hist(rPL(n = 1000, mu = 1, sigma = 0.5), freq = FALSE, , ylim = c(0, 0.25), xlab = "x", las = 1, main = "")
+curve(dPL(x, mu = 1, sigma = 0.5),  from = 0, add = T, col = "red", ylim = c(0, 0.25))
 
 ## The Hazard function
-curve(hPL(x, alpha = 1, beta = 0.5), from = 0, to = 10, ylim = c(0, 0.5), col = "red", las = 1, ylab = "The Hazard function")
+curve(hPL(x, mu = 1, sigma = 0.5), from = 0, to = 10, ylim = c(0, 0.5), col = "red", las = 1, ylab = "The Hazard function")
 }
