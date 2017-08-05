@@ -9,22 +9,24 @@
 \alias{hEW}
 \title{The Exponentiated Weibull Distribution}
 \usage{
-dEW(x, alpha, theta, lambda, log = FALSE)
+EW(mu.link = "log", sigma.link = "log", nu.link = "log")
 
-pEW(q, alpha, theta, lambda, lower.tail = TRUE, log.p = FALSE)
+dEW(x, mu, sigma, nu, log = FALSE)
 
-qEW(p, alpha, theta, lambda, lower.tail = TRUE, log.p = FALSE)
+pEW(q, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE)
 
-rEW(n, alpha, theta, lambda)
+qEW(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE)
 
-hEW(x, alpha, theta, lambda)
+rEW(n, mu, sigma, nu)
+
+hEW(x, mu, sigma, nu)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
 
-\item{alpha}{scale parameter.}
+\item{mu}{scale parameter.}
 
-\item{theta, lambda}{shape parameters.}
+\item{sigma, nu}{shape parameters.}
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
@@ -43,36 +45,36 @@ generates random deviates and \code{hEW} gives the hazard function.
 \description{
 Density, distribution function, quantile function, 
 random generation  and hazard function for the exponentiated weibull  distribution with
-parameters \code{alpha}, \code{theta} and \code{lambda}.
+parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Exponentiated Weibull Distribution with parameters \code{alpha}, 
-\code{theta} and \code{lambda} has density given by
+The Exponentiated Weibull Distribution with parameters \code{mu}, 
+\code{sigma} and \code{nu} has density given by
 
-\eqn{f(x)=\lambda \alpha \theta x^{\theta-1} \exp(-\alpha x^\theta) (1-\exp(-\alpha x^\theta))^{\lambda-1},}
+\eqn{f(x)=\nu \mu \sigma x^{\sigma-1} \exp(-\mu x^\sigma) (1-\exp(-\mu x^\sigma))^{\nu-1},}
 
 for x > 0.
 }
 \examples{
  
 ## The probability density function
-curve(dEW(x, alpha = 2, theta = 1.5, lambda = 0.5), from = 0, to = 2, ylim = c(0, 2.5), col = "red", las = 1, ylab = "The probability density function") 
+curve(dEW(x, mu = 2, sigma = 1.5, nu = 0.5), from = 0, to = 2, ylim = c(0, 2.5), col = "red", las = 1, ylab = "The probability density function") 
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
-curve(pEW(x, alpha = 2, theta = 1.5, lambda = 0.5), from = 0, to = 2,  col = "red", las = 1, ylab = "The cumulative distribution function")
-curve(pEW(x, alpha = 2, theta = 1.5, lambda = 0.5, lower.tail = FALSE), from = 0, to = 2,  col = "red", las = 1, ylab = "The Reliability function")
+curve(pEW(x, mu = 2, sigma = 1.5, nu = 0.5), from = 0, to = 2,  col = "red", las = 1, ylab = "The cumulative distribution function")
+curve(pEW(x, mu = 2, sigma = 1.5, nu = 0.5, lower.tail = FALSE), from = 0, to = 2,  col = "red", las = 1, ylab = "The Reliability function")
 
 ## The quantile function
 p <- seq(from = 0, to = 0.99999, length.out = 100)
-plot(x = qEW(p, alpha = 2, theta = 1.5, lambda = 0.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pEW(x, alpha = 2, theta = 1.5, lambda = 0.5),  from = 0, add = TRUE, col = "red")
+plot(x = qEW(p, mu = 2, sigma = 1.5, nu = 0.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
+curve(pEW(x, mu = 2, sigma = 1.5, nu = 0.5),  from = 0, add = TRUE, col = "red")
 
 ## The random function
-hist(rEW(n = 10000, alpha = 2, theta = 1.5, lambda = 0.5), freq = FALSE, xlab = "x", las = 1, main = "")
-curve(dEW(x, alpha = 2, theta = 1.5, lambda = 0.5),  from = 0, add = TRUE, col = "red") 
+hist(rEW(n = 10000, mu = 2, sigma = 1.5, nu = 0.5), freq = FALSE, xlab = "x", las = 1, main = "")
+curve(dEW(x, mu = 2, sigma = 1.5, nu = 0.5),  from = 0, add = TRUE, col = "red") 
 
 ## The Hazard function
-curve(hEW(x, alpha = 2,theta = 1.5, lambda = 0.5), from = 0, to = 2, ylim = c(0, 7), col = "red", ylab = "The Hazard function")
+curve(hEW(x, mu = 2,sigma = 1.5, nu = 0.5), from = 0, to = 2, ylim = c(0, 7), col = "red", ylab = "The Hazard function")
 
 }
