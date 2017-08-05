@@ -52,6 +52,61 @@
 #' ## The Hazard function
 #' curve(hFWE(x, mu = 0.75, sigma = 0.5), from = 0, to = 2, ylim = c(0, 2.5), col = "red", ylab = "The Hazard function", las = 1)
 #' 
+FWE <- function (mu.link="log", sigma.link="log") 
+{
+  mstats <- checklink("mu.link", "Flexible Weibull Extension", substitute(mu.link), c("log", "identity"))
+  dstats <- checklink("sigma.link", "Flexible Weibull Extension", substitute(sigma.link), c("log", "identity"))
+  
+  structure(list(family = c("FEW", "Flexible Weibull Extension"),
+                 parameters = list(mu=TRUE, sigma=TRUE), 
+                 nopar = 2, 
+                 type = "Continuous",
+                 
+                 mu.link = as.character(substitute(mu.link)), 
+                 sigma.link = as.character(substitute(sigma.link)), 
+                 
+                 mu.linkfun = mstats$linkfun, 
+                 sigma.linkfun = dstats$linkfun, 
+                 
+                 mu.linkinv = mstats$linkinv, 
+                 sigma.linkinv = dstats$linkinv,
+                 
+                 mu.dr = mstats$mu.eta, 
+                 sigma.dr = dstats$mu.eta,
+                 
+                 dldm = function(y,mu,sigma) (y-y*exp(mu*y-sigma/y)+y^2/(mu*y^2+sigma)),
+                 
+                 d2ldm2 = function(y,mu,sigma) {
+                   dldm = function(y,mu,sigma) (y-y*exp(mu*y-sigma/y)+y^2/(mu*y^2+sigma))
+                   ans <- dldm(y,mu,sigma)
+                   ans <- -ans^2
+                 },
+                 
+                 dldd = function(y,mu,sigma) (1/(mu*y^2+sigma)-1/y+exp(mu*y-sigma/y)/y),
+                 
+                 d2ldd2 = function(y,mu,sigma) {
+                   dldd = function(y,mu,sigma) (1/(mu*y^2+sigma)-1/y+exp(mu*y-sigma/y)/y)
+                   ans <- dldd(y,mu,sigma)
+                   ans <- -ans^2
+                 },
+                 
+                 d2ldmdd = function(y,mu,sigma) -(-y^2/(mu*y^2+sigma)^2+exp(mu*y-sigma/y))^2,
+                 
+                 G.dev.incr  = function(y,mu,sigma,...) -2*dFWE(y, mu, sigma, log=TRUE), 
+                 rqres = expression(rqres(pfun="pFWE", type="Continuous", y=y, mu=mu, sigma=sigma)),
+                 
+                 mu.initial = expression( mu <-  rep(0.5, length(y)) ),     
+                 sigma.initial = expression( sigma <- rep(0.5, length(y)) ), 
+                 
+                 mu.valid = function(mu) all(mu > 0) , 
+                 sigma.valid = function(sigma)  all(sigma > 0), 
+                 
+                 y.valid = function(y)  all(y > 0)
+  ),
+  class = c("gamlss.family","family"))
+}
+#' @export
+#' @rdname FWE
 dFWE<-function(x,mu,sigma,log = FALSE){
   if (any(x<0)) 
     stop(paste("x must be positive", "\n", ""))

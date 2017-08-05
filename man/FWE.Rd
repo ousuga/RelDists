@@ -9,6 +9,8 @@
 \alias{hFWE}
 \title{The Flexible Weibull Extension Distribution}
 \usage{
+FWE(mu.link = "log", sigma.link = "log")
+
 dFWE(x, mu, sigma, log = FALSE)
 
 pFWE(q, mu, sigma, lower.tail = TRUE, log.p = FALSE)
