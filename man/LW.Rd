@@ -9,22 +9,24 @@
 \alias{hLW}
 \title{The Log-Weibull Distribution}
 \usage{
-dLW(x, a, b, log = FALSE)
+LW(mu.link = "identity", sigma.link = "log")
 
-pLW(q, a, b, lower.tail = TRUE, log.p = FALSE)
+dLW(x, mu, sigma, log = FALSE)
 
-qLW(p, a, b, lower.tail = TRUE, log.p = FALSE)
+pLW(q, mu, sigma, lower.tail = TRUE, log.p = FALSE)
 
-rLW(n, a, b)
+qLW(p, mu, sigma, lower.tail = TRUE, log.p = FALSE)
 
-hLW(x, a, b)
+rLW(n, mu, sigma)
+
+hLW(x, mu, sigma)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
 
-\item{a}{parameter one.}
+\item{mu}{parameter one.}
 
-\item{b}{parameter two.}
+\item{sigma}{parameter two.}
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
@@ -43,36 +45,36 @@ generates random deviates and \code{hLW} gives the hazard function.
 \description{
 Density, distribution function, quantile function, 
 random generation and hazard function for the log-weibull distribution with
-parameters \code{a} and \code{b}.
+parameters \code{mu} and \code{sigma}.
 }
 \details{
-The log-weibull distribution with parameters \code{a} and 
-\code{b} has density given by
+The log-weibull distribution with parameters \code{mu} and 
+\code{sigma} has density given by
 
-f(x)= (1/b)*exp((x-a)/b)*exp(-exp((x-a)/b))
+f(x)= (1/sigma)*exp((x-mu)/sigma)*exp(-exp((x-mu)/sigma))
 
 for -Inf < x < Inf.
 }
 \examples{
  
 ## The probability density function 
-curve(dLW(x, a = 0, b = 1), from = -20, to = 10, ylim = c(0, 0.4), col = "red", las = 1, ylab = "The probability density function")
+curve(dLW(x, mu = 0, sigma = 1), from = -20, to = 10, ylim = c(0, 0.4), col = "red", las = 1, ylab = "The probability density function")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
-curve(pLW(x, a = 0, b = 1), from = 0, to = 10, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
-curve(pLW(x, a = 0, b = 1, lower.tail = FALSE), from = 0, to = 10, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
+curve(pLW(x, mu = 0, sigma = 1), from = 0, to = 10, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
+curve(pLW(x, mu = 0, sigma = 1, lower.tail = FALSE), from = 0, to = 10, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
 
 ## The quantile function
 p <- seq(from = 0, to = 0.998, length.out = 100)
-plot(x=qLW(p, a = 0, b = 1), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pLW(x, a = 0, b = 1), from = -6, add = TRUE, col = "red")
+plot(x=qLW(p, mu = 0, sigma = 1), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
+curve(pLW(x, mu = 0, sigma = 1), from = -6, add = TRUE, col = "red")
 
 ## The random function
-hist(rLW(10000, a = 0, b = 1), freq = FALSE,  ylim = c(0, 0.4), xlab = "x", las = 1, main = "")
-curve(dLW(x, a = 0, b = 1),  from = -20, to = 10,  ylim = c(0, 0.4), add = TRUE, col = "red") 
+hist(rLW(10000, mu = 0, sigma = 1), freq = FALSE,  ylim = c(0, 0.4), xlab = "x", las = 1, main = "")
+curve(dLW(x, mu = 0, sigma = 1),  from = -20, to = 10,  ylim = c(0, 0.4), add = TRUE, col = "red") 
 
 ## The Hazard function
-curve(hLW(x, a = 0, b = 1), from = -20, to = 0, ylim = c(0, 0.3), col = "red", ylab = "The hazard function", las = 1)
+curve(hLW(x, mu = 0, sigma = 1), from = -20, to = 0, ylim = c(0, 0.3), col = "red", ylab = "The hazard function", las = 1)
 
 }
