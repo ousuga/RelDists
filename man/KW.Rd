@@ -9,26 +9,29 @@
 \alias{hKW}
 \title{The Kumaraswamy Weibull Distribution}
 \usage{
-dKW(x, alpha, theta, a, b, log = FALSE)
+KW(mu.link = "log", sigma.link = "log", nu.link = "log",
+  tau.link = "log")
 
-pKW(q, alpha, theta, a, b, lower.tail = TRUE, log.p = FALSE)
+dKW(x, mu, sigma, nu, tau, log = FALSE)
 
-qKW(p, alpha, theta, a, b, lower.tail = TRUE, log.p = FALSE)
+pKW(q, mu, sigma, nu, tau, lower.tail = TRUE, log.p = FALSE)
 
-rKW(n, alpha, theta, a, b)
+qKW(p, mu, sigma, nu, tau, lower.tail = TRUE, log.p = FALSE)
 
-hKW(x, alpha, theta, a, b)
+rKW(n, mu, sigma, nu, tau)
+
+hKW(x, mu, sigma, nu, tau)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
 
-\item{alpha}{parameter one.}
+\item{mu}{parameter one.}
 
-\item{theta}{parameter two.}
+\item{sigma}{parameter two.}
 
-\item{a}{parameter three.}
+\item{nu}{parameter three.}
 
-\item{b}{parameter four.}
+\item{tau}{parameter four.}
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
@@ -47,35 +50,35 @@ generates random deviates and \code{hKW} gives the hazard function.
 \description{
 Density, distribution function, quantile function, 
 random generation and hazard function for the kumaraswamy weibull distribution with
-parameters \code{alpha}, \code{theta}, \code{a} and \code{b}.
+parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 }
 \details{
-The kumaraswamy weibull with parameters \code{alpha}, \code{theta}, \code{a} and \code{b}
+The kumaraswamy weibull with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}
 has density given by
 
-f(x)=a*b*alpha*theta*x^(theta-1)*exp(-alpha*x^theta)*(1-exp(-alpha*x^theta))^(a-1)*
-(1-(1-exp(-aplha*x^theta))^a)^(b-1)
+f(x)=nu*tau*mu*sigma*x^(sigma-1)*exp(-mu*x^sigma)*(1-exp(-mu*x^sigma))^(nu-1)*
+(1-(1-exp(-aplha*x^sigma))^nu)^(tau-1)
 
 for x>0.
 }
 \examples{
 ## The probability density function  
-curve(dKW(x, alpha = 3, theta = 0.8, a = 2, b = 1.5), from = 0, to = 3, ylim = c(0, 2.5), col = "red", las = 1, ylab = "The probability density function")
+curve(dKW(x, mu = 3, sigma = 0.8, nu = 2, tau = 1.5), from = 0, to = 3, ylim = c(0, 2.5), col = "red", las = 1, ylab = "The probability density function")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
-curve(pKW(x, alpha = 3, theta = 0.8, a = 2, b = 1.5), from = 0, to = 3, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
-curve(pKW(x, alpha = 3, theta = 0.8, a = 2, b = 1.5, lower.tail = FALSE), from = 0, to = 3, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
+curve(pKW(x, mu = 3, sigma = 0.8, nu = 2, tau = 1.5), from = 0, to = 3, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
+curve(pKW(x, mu = 3, sigma = 0.8, nu = 2, tau = 1.5, lower.tail = FALSE), from = 0, to = 3, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
 
 ## The quantile function
 p <- seq(0,0.99999, length.out=100)
-plot(x=qKW(p, alpha = 3, theta = 0.8, a = 2, b = 1.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pKW(x, alpha = 3, theta = 0.8, a = 2, b = 1.5), from = 0, add = TRUE, col = "red")
+plot(x=qKW(p, mu = 3, sigma = 0.8, nu = 2, tau = 1.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
+curve(pKW(x, mu = 3, sigma = 0.8, nu = 2, tau = 1.5), from = 0, add = TRUE, col = "red")
 
 ## The random function
-hist(rKW(10000, alpha = 3, theta = 0.8, a = 2, b = 1.5), freq = FALSE, xlab = "x", las = 1, ylim = c(0, 2.5), main = "")
-curve(dKW(x, alpha = 3, theta = 0.8, a = 2, b = 1.5),  from = 0, add = TRUE, col = "red" )
+hist(rKW(10000, mu = 3, sigma = 0.8, nu = 2, tau = 1.5), freq = FALSE, xlab = "x", las = 1, ylim = c(0, 2.5), main = "")
+curve(dKW(x, mu = 3, sigma = 0.8, nu = 2, tau = 1.5),  from = 0, add = TRUE, col = "red" )
 
 ## The Hazard function
-curve(hKW(x, alpha = 3, theta = 0.8, a = 2, b = 1.5), from = 0, to = 2.1, ylim = c(0, 4), col = "red", ylab = "The Hazard function", las = 1)
+curve(hKW(x, mu = 3, sigma = 0.8, nu = 2, tau = 1.5), from = 0, to = 2.1, ylim = c(0, 4), col = "red", ylab = "The Hazard function", las = 1)
 }
