@@ -8,3 +8,5 @@ if (!require('devtools')) install.packages('devtools')
 install_github('ousuga/RelDists', force=TRUE)
 require(RelDists)
 ```
+
+Hola, esto es una prueba.
