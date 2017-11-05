@@ -34,21 +34,35 @@
 #' @export
 #' @examples  
 #' ## The probability density function  
-#' curve(dMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), from = 0, to = 2.5, ylim = c(0, 1.5), col = "red", las = 1, ylab = "The probability density function")
+#' curve(dMWEx(x, mu = 1/0.5, sigma = 3, nu = 2),
+#'       from = 0, to = 2.5, ylim = c(0, 1.5), 
+#'       col = "red", las = 1, 
+#'       ylab = "The probability density function")
 #' 
 #' ## The cumulative distribution and the Reliability function
 #' par(mfrow = c(1, 2))
-#' curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), from = 0, to = 2.5, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
-#' curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2,  lower.tail = FALSE), from = 0, to = 2.5, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
+#' curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), 
+#'       from = 0, to = 2.5, ylim = c(0, 1), 
+#'       col = "red", las = 1, 
+#'       ylab = "The cumulative distribution function")
+#' curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2,  lower.tail = FALSE), 
+#'       from = 0, to = 2.5, ylim = c(0, 1), 
+#'       col = "red", las = 1, ylab = "The Reliability function")
 #' 
 #' ## The quantile function
 #' p <- seq(from = 0, to = 0.998, length.out = 100)
-#' plot(x = qMWEx(p, mu = 1/0.5, sigma = 3, nu = 2), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-#' curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), from = 0, add = TRUE, col = "red")
+#' plot(x = qMWEx(p, mu = 1/0.5, sigma = 3, nu = 2), 
+#'      y = p, xlab = "Quantile", las = 1, 
+#'      ylab = "Probability")
+#' curve(pMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), 
+#'       from = 0, add = TRUE, col = "red")
 #' 
 #' ## The random function
-#' hist(rMWEx(n = 10000, mu = 1/0.5, sigma = 3, nu = 2), freq = FALSE, ylim = c(0, 1.5), xlab = "x", las = 1, main = "")
-#' curve(dMWEx(x, mu = 1/0.5, sigma = 3, nu = 2),  from = 0, ylim = c(0, 2.5), add = T, col = "red")
+#' hist(rMWEx(n = 10000, mu = 1/0.5, sigma = 3, nu = 2), 
+#'      freq = FALSE, ylim = c(0, 1.5), 
+#'      xlab = "x", las = 1, main = "")
+#' curve(dMWEx(x, mu = 1/0.5, sigma = 3, nu = 2),  
+#'       from = 0, ylim = c(0, 2.5), add = T, col = "red")
 #' 
 #' ## The Hazard function
 #' curve(hMWEx(x, mu = 1/0.5, sigma = 3, nu = 2), from = 0, to = 1.7, ylim = c(0, 12), col = "red", ylab = "The hazard function", las = 1)
@@ -160,7 +174,7 @@ MWEx <- function (mu.link = "log", sigma.link = "log", nu.link = "log")
                    d2ldddv
                  }, 
                  
-                 G.dev.incr = function(y, mu, sigma, nu, ...) -2*dMWEx(y, mu, sigma, nu, ,log = TRUE), 
+                 G.dev.incr = function(y, mu, sigma, nu, ...) -2*dMWEx(y, mu, sigma, nu, log = TRUE), 
                  rqres = expression(rqres(pfun = "pMWEx", type = "Continuous",  y = y, mu = mu, sigma = sigma, nu = nu)), 
                  
                  mu.initial = expression( mu <-  rep(0.5, length(y)) ), 
