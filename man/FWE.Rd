@@ -61,17 +61,16 @@ for x>0.
  
 ## The probability density function
 curve(dFWE(x, mu=0.75, sigma=0.5), from=0, to=3, 
-      ylim=c(0, 1.7), col="red", las=1, 
-      ylab="The probability density function")
+      ylim=c(0, 1.7), col="red", las=1, ylab="Density")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow=c(1, 2))
 curve(pFWE(x, mu=0.75, sigma=0.5), from=0, to=3, 
       col="red", las=1, 
-      ylab="The cumulative distribution function")
+      ylab="Cumulative distribution function")
 curve(pFWE(x, mu=0.75, sigma=0.5, lower.tail=FALSE), 
       from=0, to=3, col="red", las=1, 
-      ylab="The Reliability function")
+      ylab="Reliability function")
 
 ## The quantile function
 p <- seq(from=0, to=0.99999, length.out=100)
