@@ -15,15 +15,12 @@ exp(coef(mod, "mu"))
 exp(coef(mod, "sigma"))
 
 ## Estimating parameters using covariates
-n <- 50
+n <- 500
 x1 <- runif(n)
 x2 <- rpois(n, lambda=3)
 mu    <- exp(-1 + 3.5 * x1)
 sigma <- exp(-4.9 + 2 * x2)
 y <- rFWE(n=n, mu=mu, sigma=sigma)
-mod0 <- gamlss(y ~ 1, sigma.fo= ~ 1, family=FWE)
-exp(coef(mod0, "mu"))
-exp(coef(mod0, "sigma"))
 
 mod <- NULL
 mod <- gamlss(y ~ x1, sigma.fo= ~ x2, family=FWE,
@@ -31,4 +28,4 @@ mod <- gamlss(y ~ x1, sigma.fo= ~ x2, family=FWE,
               i.control=glim.control(cyc=50, glm.trace=FALSE))
 summary(mod)
 
-
+mod <- gamlss(y ~ x1, sigma.fo= ~ x2, family=FWE)
