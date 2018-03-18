@@ -21,7 +21,7 @@
 #' The reflected weibull distribution with parameters \code{mu} and
 #' \code{sigma} has density given by
 #' 
-#' f(x) = mu*sigma*(-x)^(sigma-1)*exp(-mu*(-x)^mu)
+#' f(x) = mu*sigma*(-x)^(sigma-1)*exp(-mu*(-x)^sigma)
 #' 
 #' for - inf < x < 0.  
 #' 
