@@ -216,7 +216,6 @@ pGPW <- function(q,mu,sigma,nu, lower.tail=TRUE, log.p = FALSE){
 #' @export
 #' @rdname GPW
 qGPW <- function(p,mu,sigma,nu, lower.tail = TRUE, log.p = FALSE){
-  
   if (any(mu<=0 )) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma<=0)) 
