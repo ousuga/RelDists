@@ -23,7 +23,7 @@
 #' \code{nu} and \code{tau} has density given by
 #' 
 #' f(x)= mu*sigma*x^(nu-1)*(nu+tau*x)*exp(tau*x-mu*x^(nu)*exp(tau*x))*
-#' (1-exp(mu*x^(nu)*exp(tau*x)))^(sigma-1)
+#' (1-exp(-mu*x^(nu)*exp(tau*x)))^(sigma-1)
 #' 
 #' for x>0.
 #' 
