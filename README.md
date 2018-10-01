@@ -1,7 +1,6 @@
- <img src="man/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
+ RelDists <img src="man/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
 ======================
 
-# RelDists
 In this package are available several distributions useful for reliability analysis. With this package it is possible to estimate parameters and fit regression models within GAMLSS framework.
 
 To install the `RelDists` package you need to install `devtools` package before, follow the instructions below:
