@@ -1,4 +1,4 @@
- RelDists <img src="man/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
+ <img src="man/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
 ======================
 
 # RelDists
