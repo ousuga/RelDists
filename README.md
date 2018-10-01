@@ -10,3 +10,4 @@ if (!require('devtools')) install.packages('devtools')
 devtools::install_github('ousuga/RelDists', force=TRUE)
 require(RelDists)
 ```
+This package is under **development**.
