@@ -1,6 +1,7 @@
-[![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-
 RelDists <img src="man/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
+
+[![Travis build status](https://travis-ci.org/ousuga/RelDists.svg?branch=master)](https://travis-ci.org/ousuga/RelDists)
+
 ======================
 
 In this package are available several distributions useful for reliability analysis. With this package it is possible to estimate parameters and fit regression models within GAMLSS framework.
