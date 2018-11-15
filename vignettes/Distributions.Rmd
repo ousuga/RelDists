@@ -1,0 +1,31 @@
+---
+title: "Hypothesis Testing and Confidence Interval"
+author: "Freddy Hernandez, Olga Usuga, Liliana Usuga and Angie Lopez"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  pdf_document:
+    number_sections: yes
+    toc: yes
+vignette: |
+  %\VignetteEngine{knitr::rmarkdown} %\VignetteIndexEntry{Your Vignette Title} %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##"
+)
+```
+
+# Introduction
+
+In this vignette we explain how to use the functions available in.
+
+
+```{r}
+x <- rnorm(50)
+hist(x)
+```
