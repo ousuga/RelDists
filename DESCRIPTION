@@ -6,7 +6,9 @@ Description: Reliability distributions and estimation parameters within GAMLSS f
 Depends: R (>= 3.2.0)
 License: GPL-3
 LazyData: true
-Imports: gamlss
+Imports: 
+    gamlss,
+    stats
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
