@@ -8,6 +8,9 @@
 #' random generation  and hazard function for the exponentiated weibull  distribution with
 #' parameters \code{mu}, \code{sigma} and \code{nu}.
 #' 
+#' @param mu.link Defines the mu.link, with "log" link as the default for the mu parameter.
+#' @param sigma.link Defines the sigma.link, with "log" link as the default for the sigma parameter.
+#' @param nu.link Defines the nu.link, with "log" link as the default for the nu parameter.
 #' @param x,q	vector of quantiles.
 #' @param p vector of probabilities.
 #' @param n number of observations. 
