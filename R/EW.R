@@ -5,12 +5,12 @@
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
-#' random generation  and hazard function for the exponentiated weibull  distribution with
+#' random generation  and hazard function for the exponentiated weibull distribution with
 #' parameters \code{mu}, \code{sigma} and \code{nu}.
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
-#' @param sigma.link Defines the sigma.link, with "log" link as the default for the sigma parameter.
-#' @param nu.link Defines the nu.link, with "log" link as the default for the nu parameter.
+#' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
+#' @param nu.link defines the nu.link, with "log" link as the default for the nu parameter.
 #' @param x,q	vector of quantiles.
 #' @param p vector of probabilities.
 #' @param n number of observations. 
@@ -56,38 +56,42 @@
 #' curve(dEW(x, mu=2, sigma=1.5, nu=0.5),  from=0, add=TRUE, col="red") 
 #' 
 #' ## The Hazard function
-#' curve(hEW(x, mu=2,sigma=1.5, nu=0.5), from=0, to=2, ylim=c(0, 7), col="red", ylab="The Hazard function")
+#' curve(hEW(x, mu=2,sigma=1.5, nu=0.5), from=0, to=2, ylim=c(0, 7), col="red",
+#'       ylab="The Hazard function")
 #' 
 #' @importFrom gamlss checklink
-EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log") 
+EW <- function (mu.link="log", sigma.link="log", nu.link="log") 
 {
-  mstats <- checklink("mu.link",    "Exponentiated Weibull", substitute(mu.link),    c("log", "own"))
-  dstats <- checklink("sigma.link", "Exponentiated Weibull", substitute(sigma.link), c("log", "own"))
-  vstats <- checklink("nu.link",    "Exponentiated Weibull", substitute(nu.link),    c("log", "own"))
+  mstats <- checklink("mu.link",    "Exponentiated Weibull", 
+                      substitute(mu.link),    c("log", "own"))
+  dstats <- checklink("sigma.link", "Exponentiated Weibull",
+                      substitute(sigma.link), c("log", "own"))
+  vstats <- checklink("nu.link",    "Exponentiated Weibull", 
+                      substitute(nu.link),    c("log", "own"))
   
-  structure(list(family = c("EW", "Exponentiated Weibull"), 
-                 parameters = list(mu = TRUE, sigma = TRUE, nu = TRUE), 
-                 nopar = 3, 
-                 type = "Continuous", 
+  structure(list(family=c("EW", "Exponentiated Weibull"), 
+                 parameters=list(mu=TRUE, sigma=TRUE, nu=TRUE), 
+                 nopar=3, 
+                 type="Continuous", 
                  
-                 mu.link    = as.character(substitute(mu.link)), 
-                 sigma.link = as.character(substitute(sigma.link)), 
-                 nu.link    = as.character(substitute(nu.link)), 
+                 mu.link   =as.character(substitute(mu.link)), 
+                 sigma.link=as.character(substitute(sigma.link)), 
+                 nu.link   =as.character(substitute(nu.link)), 
                  
-                 mu.linkfun    = mstats$linkfun, 
-                 sigma.linkfun = dstats$linkfun, 
-                 nu.linkfun    = vstats$linkfun, 
+                 mu.linkfun   =mstats$linkfun, 
+                 sigma.linkfun=dstats$linkfun, 
+                 nu.linkfun   =vstats$linkfun, 
                  
-                 mu.linkinv    = mstats$linkinv, 
-                 sigma.linkinv = dstats$linkinv, 
-                 nu.linkinv    = vstats$linkinv, 
+                 mu.linkinv   =mstats$linkinv, 
+                 sigma.linkinv=dstats$linkinv, 
+                 nu.linkinv   =vstats$linkinv, 
                  
-                 mu.dr    = mstats$mu.eta, 
-                 sigma.dr = dstats$mu.eta, 
-                 nu.dr    = vstats$mu.eta, 
+                 mu.dr   =mstats$mu.eta, 
+                 sigma.dr=dstats$mu.eta, 
+                 nu.dr   =vstats$mu.eta, 
                  
                  
-                 dldm = function(y, mu, sigma, nu) {
+                 dldm=function(y, mu, sigma, nu) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dm <- (y^sigma)
@@ -96,7 +100,7 @@ EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log")
                    dldm
                  },
                  
-                 d2ldm2 = function(y, mu, sigma, nu) {
+                 d2ldm2=function(y, mu, sigma, nu) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dm <- (y^sigma)
@@ -106,7 +110,7 @@ EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log")
                    d2ldm2 
                  }, 
                  
-                 dldd = function(y, mu, sigma, nu) {
+                 dldd=function(y, mu, sigma, nu) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dd <- exp1*log(y)
@@ -115,7 +119,7 @@ EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log")
                    dldd
                  },
                  
-                 d2ldd2 = function(y, mu, sigma, nu) {
+                 d2ldd2=function(y, mu, sigma, nu) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1) 
                    dexp1dd <- exp1*log(y)
@@ -126,16 +130,16 @@ EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log")
                    d2ldd2
                  }, 
                  
-                 dldv = function(y, mu, sigma, nu) {
+                 dldv=function(y, mu, sigma, nu) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dldv <- 1/nu + log(exp2) 
                    dldv 
                  }, 
                  
-                 d2ldv2 = function(nu) -(-(1/nu^2))^2, 
+                 d2ldv2=function(nu) -(-(1/nu^2))^2, 
                  
-                 d2ldmdd = function(y, mu, sigma, nu) {
+                 d2ldmdd=function(y, mu, sigma, nu) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dd <- exp1*log(y)
@@ -144,11 +148,12 @@ EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log")
                    dexp2dd <- exp(-exp1)*dexp1dd
                    d2exp1dmdd <- (y^sigma)*log(y)
                    d2exp2dmdd <- exp(-exp1)*(-dexp1dd*dexp1dm + d2exp1dmdd)
-                   d2ldmdd <- -((y^sigma)*log(y) + ((nu-1)/exp2^2)*(exp2*d2exp2dmdd - dexp2dm*dexp2dd))^2
+                   d2ldmdd <- -((y^sigma)*log(y) + 
+                                ((nu-1)/exp2^2)*(exp2*d2exp2dmdd - dexp2dm*dexp2dd))^2
                    d2ldmdd
                  },  
                  
-                 d2ldmdv = function(y, mu, sigma) {
+                 d2ldmdv=function(y, mu, sigma) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dm <- y^sigma
@@ -157,7 +162,7 @@ EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log")
                    d2ldmdv
                  },   
                  
-                 d2ldddv = function(y, mu, sigma) {
+                 d2ldddv=function(y, mu, sigma) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dd <- exp1*log(y)
@@ -167,24 +172,25 @@ EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log")
                  },   
                  
                  
-                 G.dev.incr = function(y, mu, sigma, nu, ...) -2*dEW(y, mu, sigma, nu, log = TRUE), 
-                 rqres = expression(rqres(pfun = "pEW", type = "Continuous",  y = y, mu = mu, sigma = sigma, nu = nu)), 
+                 G.dev.incr=function(y, mu, sigma, nu, ...) -2*dEW(y, mu, sigma, nu, log=TRUE), 
+                 rqres=expression(rqres(pfun="pEW", type="Continuous",  y=y, mu=mu, 
+                                          sigma=sigma, nu=nu)), 
                  
-                 mu.initial = expression( mu <-  rep(1, length(y)) ), 
-                 sigma.initial = expression( sigma <- rep(1, length(y)) ), 
-                 nu.initial = expression( nu <- rep(1, length(y)) ), 
+                 mu.initial=expression( mu <-  rep(1, length(y)) ), 
+                 sigma.initial=expression( sigma <- rep(1, length(y)) ), 
+                 nu.initial=expression( nu <- rep(1, length(y)) ), 
                  
-                 mu.valid = function(mu) all(mu >  0), 
-                 sigma.valid = function(sigma) all(sigma >  0), 
-                 nu.valid = function(nu) all(nu > 0), 
+                 mu.valid=function(mu) all(mu >  0), 
+                 sigma.valid=function(sigma) all(sigma >  0), 
+                 nu.valid=function(nu) all(nu > 0), 
                  
-                 y.valid = function(y) all(y > 0)
+                 y.valid=function(y) all(y > 0)
   ), 
-  class = c("gamlss.family", "family"))
+  class=c("gamlss.family", "family"))
 }
 #' @export
 #' @rdname EW
-dEW<-function(x,mu,sigma,nu, log = FALSE){
+dEW<-function(x,mu,sigma,nu, log=FALSE){
   if (any(x<0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu<=0 )) 
@@ -206,7 +212,7 @@ dEW<-function(x,mu,sigma,nu, log = FALSE){
 
 #' @export
 #' @rdname EW
-pEW <- function(q,mu,sigma,nu, lower.tail=TRUE, log.p = FALSE){
+pEW <- function(q,mu,sigma,nu, lower.tail=TRUE, log.p=FALSE){
   if (any(q<0)) 
     stop(paste("q must be positive", "\n", ""))
   if (any(mu<=0 )) 
@@ -228,7 +234,7 @@ pEW <- function(q,mu,sigma,nu, lower.tail=TRUE, log.p = FALSE){
 
 #' @export
 #' @rdname EW
-qEW <- function(p,mu,sigma,nu, lower.tail = TRUE, log.p = FALSE){
+qEW <- function(p,mu,sigma,nu, lower.tail=TRUE, log.p=FALSE){
   if (any(mu<=0 )) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma<=0)) 
@@ -278,7 +284,7 @@ hEW<-function(x,mu,sigma, nu){
   if (any(nu<=0)) 
     stop(paste("nu must be positive", "\n", ""))
   
-  h <- dEW(x,mu,sigma, nu, log = FALSE)/pEW(q=x,mu,sigma, nu, lower.tail=FALSE, log.p = FALSE)
+  h <- dEW(x,mu,sigma, nu, log=FALSE)/pEW(q=x,mu,sigma, nu, lower.tail=FALSE, log.p=FALSE)
   h
 }
 
