@@ -8,7 +8,7 @@
 #' random generation  and hazard function for the exponentiated weibull  distribution with
 #' parameters \code{mu}, \code{sigma} and \code{nu}.
 #' 
-#' @param mu.link Defines the mu.link, with "log" link as the default for the mu parameter.
+#' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link Defines the sigma.link, with "log" link as the default for the sigma parameter.
 #' @param nu.link Defines the nu.link, with "log" link as the default for the nu parameter.
 #' @param x,q	vector of quantiles.
@@ -36,25 +36,29 @@
 #' @export
 #' @examples  
 #' ## The probability density function
-#' curve(dEW(x, mu = 2, sigma = 1.5, nu = 0.5), from = 0, to = 2, ylim = c(0, 2.5), col = "red", las = 1, ylab = "The probability density function") 
+#' curve(dEW(x, mu=2, sigma=1.5, nu=0.5), from=0, to=2,
+#'       ylim=c(0, 2.5), col="red", las=1, ylab="The probability density function") 
 #' 
 #' ## The cumulative distribution and the Reliability function
-#' par(mfrow = c(1, 2))
-#' curve(pEW(x, mu = 2, sigma = 1.5, nu = 0.5), from = 0, to = 2,  col = "red", las = 1, ylab = "The cumulative distribution function")
-#' curve(pEW(x, mu = 2, sigma = 1.5, nu = 0.5, lower.tail = FALSE), from = 0, to = 2,  col = "red", las = 1, ylab = "The Reliability function")
+#' par(mfrow=c(1, 2))
+#' curve(pEW(x, mu=2, sigma=1.5, nu=0.5), from=0, to=2,  col="red",
+#'      las=1, ylab="The cumulative distribution function")
+#' curve(pEW(x, mu=2, sigma=1.5, nu=0.5, lower.tail=FALSE), from=0,
+#'       to=2,  col="red", las= , ylab="The Reliability function")
 #' 
 #' ## The quantile function
-#' p <- seq(from = 0, to = 0.99999, length.out = 100)
-#' plot(x = qEW(p, mu = 2, sigma = 1.5, nu = 0.5), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-#' curve(pEW(x, mu = 2, sigma = 1.5, nu = 0.5),  from = 0, add = TRUE, col = "red")
+#' p <- seq(from=0, to=0.99999, length.out= 00)
+#' plot(x=qEW(p, mu=2, sigma=1.5, nu=0.5), y=p, xlab="Quantile", las=1, ylab="Probability")
+#' curve(pEW(x, mu=2, sigma=1.5, nu=0.5),  from=0, add=TRUE, col="red")
 #' 
 #' ## The random function
-#' hist(rEW(n = 10000, mu = 2, sigma = 1.5, nu = 0.5), freq = FALSE, xlab = "x", las = 1, main = "")
-#' curve(dEW(x, mu = 2, sigma = 1.5, nu = 0.5),  from = 0, add = TRUE, col = "red") 
+#' hist(rEW(n=10000, mu=2, sigma=1.5, nu=0.5), freq=FALSE, xlab="x", las=1, main="")
+#' curve(dEW(x, mu=2, sigma=1.5, nu=0.5),  from=0, add=TRUE, col="red") 
 #' 
 #' ## The Hazard function
-#' curve(hEW(x, mu = 2,sigma = 1.5, nu = 0.5), from = 0, to = 2, ylim = c(0, 7), col = "red", ylab = "The Hazard function")
+#' curve(hEW(x, mu=2,sigma=1.5, nu=0.5), from=0, to=2, ylim=c(0, 7), col="red", ylab="The Hazard function")
 #' 
+#' @importFrom gamlss checklink
 EW <- function (mu.link = "log", sigma.link = "log", nu.link = "log") 
 {
   mstats <- checklink("mu.link",    "Exponentiated Weibull", substitute(mu.link),    c("log", "own"))
@@ -244,6 +248,7 @@ qEW <- function(p,mu,sigma,nu, lower.tail = TRUE, log.p = FALSE){
   q <- ((-1/mu)*log(1-p^(1/nu)))^(1/sigma)
   q
 }
+#' @importFrom stats runif
 #' @export
 #' @rdname EW
 rEW <- function(n,mu,sigma, nu){
