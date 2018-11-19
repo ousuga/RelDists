@@ -7,6 +7,7 @@ Depends: R (>= 3.2.0)
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
+Imports: gamlss
 LazyData: true
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
