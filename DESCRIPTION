@@ -5,6 +5,8 @@ Authors@R: person("Olga", "Usuga", email = "olga.usuga@udea.edu.co", role = c("a
 Description: Reliability distributions and estimation parameters within GAMLSS framework.
 Depends: R (>= 3.2.0)
 License: GPL-3
+URL: https://ousuga.github.io/RelDists/
+BugReports: https://github.com/ousuga/RelDists/issues
 LazyData: true
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
