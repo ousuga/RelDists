@@ -24,3 +24,20 @@ The Exponentiated Weibull Distribution with parameters \code{mu},
 
 for x > 0.
 }
+\examples{
+# Example 1
+# Generating some random values with
+# known mu, sigma and nu
+y <- rEW(n=100, mu=2, sigma=1.5, nu=0.5)
+
+# Fitting the model
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW')
+
+# Extracting the fitted values for mu, sigma and nu
+# using the inverse link function
+exp(coef(mod, what='mu'))
+exp(coef(mod, what='sigma'))
+exp(coef(mod, what='nu'))
+
+
+}
