@@ -22,7 +22,7 @@
 #' y <- rEW(n=100, mu=2, sigma=1.5, nu=0.5)
 #' 
 #' # Fitting the model
-#' mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW')
+#' mod <- gamlss::gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW')
 #' 
 #' # Extracting the fitted values for mu, sigma and nu
 #' # using the inverse link function
