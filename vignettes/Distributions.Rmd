@@ -1,6 +1,6 @@
 ---
-title: "Hypothesis Testing and Confidence Interval"
-author: "Freddy Hernandez, Olga Usuga, Liliana Usuga and Angie Lopez"
+title: "Vignette 1"
+author: "Olga Usuga and Freddy Hernandez"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
