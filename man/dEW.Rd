@@ -6,8 +6,7 @@
 \alias{qEW}
 \alias{rEW}
 \alias{hEW}
-\title{#' @title 
-The Exponentiated Weibull Distribution}
+\title{The Exponentiated Weibull Distribution}
 \usage{
 dEW(x, mu, sigma, nu, log = FALSE)
 
@@ -61,12 +60,12 @@ curve(dEW(x, mu=2, sigma=1.5, nu=0.5), from=0, to=2,
 ## The cumulative distribution and the Reliability function
 par(mfrow=c(1, 2))
 curve(pEW(x, mu=2, sigma=1.5, nu=0.5), from=0, to=2,  col="red",
-     las=1, ylab="The cumulative distribution function")
+      las=1, ylab="The cumulative distribution function")
 curve(pEW(x, mu=2, sigma=1.5, nu=0.5, lower.tail=FALSE), from=0,
-      to=2,  col="red", las= , ylab="The Reliability function")
+      to=2, col="red", las=1, ylab="The Reliability function")
 
 ## The quantile function
-p <- seq(from=0, to=0.99999, length.out= 00)
+p <- seq(from=0, to=0.99999, length.out=100)
 plot(x=qEW(p, mu=2, sigma=1.5, nu=0.5), y=p, xlab="Quantile", las=1, ylab="Probability")
 curve(pEW(x, mu=2, sigma=1.5, nu=0.5),  from=0, add=TRUE, col="red")
 
