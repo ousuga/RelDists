@@ -7,3 +7,4 @@ cache: packages
 after_failure:
   - cat $TRAVIS_BUILD_DIR/RelDists.Rcheck/00install.out
   - cat $TRAVIS_BUILD_DIR/RelDists.Rcheck/00check.log
+  
