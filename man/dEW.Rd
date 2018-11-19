@@ -27,15 +27,7 @@ hEW(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
-
-#' @details 
-The Exponentiated Weibull Distribution with parameters \code{mu}, 
-\code{sigma} and \code{nu} has density given by
-
-\eqn{f(x)=\nu \mu \sigma x^{\sigma-1} \exp(-\mu x^\sigma) (1-\exp(-\mu x^\sigma))^{\nu-1},}
-
-for x > 0.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
@@ -50,6 +42,14 @@ generates random deviates and \code{hEW} gives the hazard function.
 Density, distribution function, quantile function, 
 random generation  and hazard function for the exponentiated weibull distribution with
 parameters \code{mu}, \code{sigma} and \code{nu}.
+}
+\details{
+The Exponentiated Weibull Distribution with parameters \code{mu}, 
+\code{sigma} and \code{nu} has density given by
+
+\eqn{f(x)=\nu \mu \sigma x^{\sigma-1} \exp(-\mu x^\sigma) (1-\exp(-\mu x^\sigma))^{\nu-1},}
+
+for x > 0.
 }
 \examples{
  
