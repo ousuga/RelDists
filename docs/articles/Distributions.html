@@ -99,37 +99,37 @@
 <p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fitting the model</span>
 mod &lt;-<span class="st"> </span>gamlss<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/gamlss/topics/gamlss">gamlss</a></span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>)
-## GAMLSS-RS iteration 1: Global Deviance = -15.8212 
-## GAMLSS-RS iteration 2: Global Deviance = -16.1015 
-## GAMLSS-RS iteration 3: Global Deviance = -16.3083 
-## GAMLSS-RS iteration 4: Global Deviance = -16.4761 
-## GAMLSS-RS iteration 5: Global Deviance = -16.6209 
-## GAMLSS-RS iteration 6: Global Deviance = -16.7471 
-## GAMLSS-RS iteration 7: Global Deviance = -16.8531 
-## GAMLSS-RS iteration 8: Global Deviance = -16.9484 
-## GAMLSS-RS iteration 9: Global Deviance = -17.0322 
-## GAMLSS-RS iteration 10: Global Deviance = -17.1018 
-## GAMLSS-RS iteration 11: Global Deviance = -17.1625 
-## GAMLSS-RS iteration 12: Global Deviance = -17.2152 
-## GAMLSS-RS iteration 13: Global Deviance = -17.2607 
-## GAMLSS-RS iteration 14: Global Deviance = -17.3001 
-## GAMLSS-RS iteration 15: Global Deviance = -17.3341 
-## GAMLSS-RS iteration 16: Global Deviance = -17.3634 
-## GAMLSS-RS iteration 17: Global Deviance = -17.3897 
-## GAMLSS-RS iteration 18: Global Deviance = -17.4079 
-## GAMLSS-RS iteration 19: Global Deviance = -17.4283 
-## GAMLSS-RS iteration 20: Global Deviance = -17.4422
+## GAMLSS-RS iteration 1: Global Deviance = -9.576 
+## GAMLSS-RS iteration 2: Global Deviance = -10.0386 
+## GAMLSS-RS iteration 3: Global Deviance = -10.1521 
+## GAMLSS-RS iteration 4: Global Deviance = -10.2531 
+## GAMLSS-RS iteration 5: Global Deviance = -10.348 
+## GAMLSS-RS iteration 6: Global Deviance = -10.4333 
+## GAMLSS-RS iteration 7: Global Deviance = -10.5076 
+## GAMLSS-RS iteration 8: Global Deviance = -10.5761 
+## GAMLSS-RS iteration 9: Global Deviance = -10.6371 
+## GAMLSS-RS iteration 10: Global Deviance = -10.6916 
+## GAMLSS-RS iteration 11: Global Deviance = -10.7412 
+## GAMLSS-RS iteration 12: Global Deviance = -10.7849 
+## GAMLSS-RS iteration 13: Global Deviance = -10.8244 
+## GAMLSS-RS iteration 14: Global Deviance = -10.8569 
+## GAMLSS-RS iteration 15: Global Deviance = -10.8862 
+## GAMLSS-RS iteration 16: Global Deviance = -10.9126 
+## GAMLSS-RS iteration 17: Global Deviance = -10.9363 
+## GAMLSS-RS iteration 18: Global Deviance = -10.9576 
+## GAMLSS-RS iteration 19: Global Deviance = -10.9767 
+## GAMLSS-RS iteration 20: Global Deviance = -10.9938
 ## Warning in RS(): Algorithm RS has not yet converged</code></pre></div>
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##     2.87417
+##    2.387084
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##     1.32602
+##    1.068425
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##   0.6825968</code></pre></div>
+##   0.7348312</code></pre></div>
 <p>The results show that estimated parameters are close the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 </div>
 </div>
