@@ -113,6 +113,10 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
        <span class="dv">7500</span>, <span class="dv">7170</span>, <span class="dv">2000</span>, <span class="dv">829</span>, <span class="dv">17300</span>, <span class="dv">4740</span>, <span class="dv">13400</span>, <span class="dv">1940</span>, <span class="dv">5660</span>)
 <span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>)</code></pre></div>
 <p><img src="EW_distribution_files/figure-html/density02-1.png" width="700"></p>
+<p>Unfortunately the next code does not work.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gamlss)
+mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
+              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">100</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 </div>
 <div id="using-simulated-data" class="section level3">
 <h3 class="hasAnchor">
@@ -128,13 +132,13 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    1.086368
+##    2.679891
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##    2.269265
+##    1.037831
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##   0.2568883</code></pre></div>
+##   0.9982557</code></pre></div>
 <p>The results show that estimated parameters are close the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 </div>
 </div>

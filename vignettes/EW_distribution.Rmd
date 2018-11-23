@@ -55,6 +55,13 @@ y <- c(1460, 4050, 3570, 2060, 1300, 1390, 1720, 6280, 1360, 7440,
 plot(density(y), lwd=2, col='blue3', main='')
 ```
 
+Unfortunately the next code does not work.
+
+```{r, eval=FALSE}
+require(gamlss)
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW',
+              control=gamlss.control(n.cyc=100, trace=FALSE))
+```
 
 ### Using simulated data
 First, we simulate 100 values for the distribution using known parameters.
