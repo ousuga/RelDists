@@ -1,4 +1,5 @@
 [![Travis build status](https://travis-ci.org/ousuga/RelDists.svg?branch=master)](https://travis-ci.org/ousuga/RelDists)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version-ago/RelDists)](https://cran.r-project.org/package=RelDists) 
 
 # RelDists <img src="man/figures/RelDists4.3_gris.png" align="right" height="120" align="right"/>
 
