@@ -89,10 +89,38 @@
 <div id="without-covariates" class="section level2">
 <h2 class="hasAnchor">
 <a href="#without-covariates" class="anchor"></a>1) Without covariates</h2>
+<div id="example-from-mudholkar-and-srivastava-1993-page-301" class="section level3">
+<h3 class="hasAnchor">
+<a href="#example-from-mudholkar-and-srivastava-1993-page-301" class="anchor"></a>Example from Mudholkar and Srivastava (1993) page 301</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">21</span>,
+       <span class="dv">32</span>, <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">50</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">63</span>, <span class="dv">63</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">72</span>, <span class="dv">75</span>, 
+       <span class="dv">79</span>, <span class="dv">82</span>, <span class="dv">82</span>, <span class="dv">83</span>, <span class="dv">84</span>, <span class="dv">84</span>, <span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">85</span>, <span class="dv">85</span>, <span class="dv">85</span>, <span class="dv">85</span>, <span class="dv">86</span>, <span class="dv">86</span>)
+
+<span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>)
+<span class="kw">rug</span>(y, <span class="dt">col=</span><span class="st">'blue3'</span>)</code></pre></div>
+<p><img src="EW_distribution_files/figure-html/density01-1.png" width="700"></p>
+<p>Unfortunately the next code does not work.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gamlss)
+mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
+              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">100</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+</div>
+<div id="example-from-mudholkar-and-hutson-1996-page-3077" class="section level3">
+<h3 class="hasAnchor">
+<a href="#example-from-mudholkar-and-hutson-1996-page-3077" class="anchor"></a>Example from Mudholkar and Hutson (1996) page 3077</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1460</span>, <span class="dv">4050</span>, <span class="dv">3570</span>, <span class="dv">2060</span>, <span class="dv">1300</span>, <span class="dv">1390</span>, <span class="dv">1720</span>, <span class="dv">6280</span>, <span class="dv">1360</span>, <span class="dv">7440</span>,
+       <span class="dv">5320</span>, <span class="dv">1400</span>, <span class="dv">3240</span>, <span class="dv">2710</span>, <span class="dv">4520</span>, <span class="dv">4840</span>, <span class="dv">8320</span>, <span class="dv">13900</span>, <span class="dv">71500</span>, <span class="dv">6250</span>,
+       <span class="dv">2260</span>, <span class="dv">318</span>, <span class="dv">1330</span>, <span class="dv">970</span>, <span class="dv">1920</span>, <span class="dv">15100</span>, <span class="dv">2870</span>, <span class="dv">20600</span>, <span class="dv">3810</span>, <span class="dv">726</span>,
+       <span class="dv">7500</span>, <span class="dv">7170</span>, <span class="dv">2000</span>, <span class="dv">829</span>, <span class="dv">17300</span>, <span class="dv">4740</span>, <span class="dv">13400</span>, <span class="dv">1940</span>, <span class="dv">5660</span>)
+<span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>)</code></pre></div>
+<p><img src="EW_distribution_files/figure-html/density02-1.png" width="700"></p>
+</div>
+<div id="using-simulated-data" class="section level3">
+<h3 class="hasAnchor">
+<a href="#using-simulated-data" class="anchor"></a>Using simulated data</h3>
 <p>First, we simulate 100 values for the distribution using known parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="fl">2.0</span>, <span class="dt">sigma=</span><span class="fl">1.5</span>, <span class="dt">nu=</span><span class="fl">0.5</span>)</code></pre></div>
 <p>Next figure shows the density for the <code>y</code> vector.</p>
-<p><img src="EW_distribution_files/figure-html/density01-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/density03-1.png" width="700"></p>
 <p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gamlss)
 mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
@@ -100,14 +128,15 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    1.427206
+##    1.086368
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##    2.346263
+##    2.269265
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##   0.2878559</code></pre></div>
+##   0.2568883</code></pre></div>
 <p>The results show that estimated parameters are close the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
+</div>
 </div>
 <div id="with-covariates" class="section level2">
 <h2 class="hasAnchor">
