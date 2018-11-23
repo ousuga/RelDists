@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vignette 1 • RelDists</title>
+<title>Estimating parameters • RelDists</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Vignette 1">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Estimating parameters">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -52,7 +52,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/Distributions.html">Vignette 1</a>
+      <a href="../articles/Distributions.html">Estimating parameters</a>
     </li>
   </ul>
 </li>
@@ -69,7 +69,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Vignette 1</h1>
+      <h1>Estimating parameters</h1>
                         <h4 class="author">Olga Usuga and Freddy Hernandez</h4>
             
             <h4 class="date">2018-11-23</h4>
@@ -84,10 +84,49 @@
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>In this vignette we explain how to use the functions available in.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>)
-<span class="kw">hist</span>(x)</code></pre></div>
-<p><img src="Distributions_files/figure-html/unnamed-chunk-1-1.png" width="700"></p>
+<p>In this vignette we explain how to use the functions available in the package to estimate parameters for each new distribution. First we need to require the <strong>RelDists</strong> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(RelDists)
+## Loading required package: RelDists</code></pre></div>
+<div id="exponentiated-weibull-distribution" class="section level2">
+<h2 class="hasAnchor">
+<a href="#exponentiated-weibull-distribution" class="anchor"></a>Exponentiated Weibull Distribution</h2>
+<p>First, we simulate 100 values for the distribution using known parameters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="dv">2</span>, <span class="dt">sigma=</span><span class="fl">1.5</span>, <span class="dt">nu=</span><span class="fl">0.5</span>)</code></pre></div>
+<p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fitting the model</span>
+mod &lt;-<span class="st"> </span>gamlss<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/gamlss/topics/gamlss">gamlss</a></span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>)
+## GAMLSS-RS iteration 1: Global Deviance = -47.0811 
+## GAMLSS-RS iteration 2: Global Deviance = -47.7668 
+## GAMLSS-RS iteration 3: Global Deviance = -47.8314 
+## GAMLSS-RS iteration 4: Global Deviance = -47.8424 
+## GAMLSS-RS iteration 5: Global Deviance = -47.8513 
+## GAMLSS-RS iteration 6: Global Deviance = -47.8596 
+## GAMLSS-RS iteration 7: Global Deviance = -47.8673 
+## GAMLSS-RS iteration 8: Global Deviance = -47.8733 
+## GAMLSS-RS iteration 9: Global Deviance = -47.8807 
+## GAMLSS-RS iteration 10: Global Deviance = -47.8872 
+## GAMLSS-RS iteration 11: Global Deviance = -47.8919 
+## GAMLSS-RS iteration 12: Global Deviance = -47.8966 
+## GAMLSS-RS iteration 13: Global Deviance = -47.9023 
+## GAMLSS-RS iteration 14: Global Deviance = -47.9063 
+## GAMLSS-RS iteration 15: Global Deviance = -47.9099 
+## GAMLSS-RS iteration 16: Global Deviance = -47.9125 
+## GAMLSS-RS iteration 17: Global Deviance = -47.9161 
+## GAMLSS-RS iteration 18: Global Deviance = -47.9192 
+## GAMLSS-RS iteration 19: Global Deviance = -47.9219 
+## GAMLSS-RS iteration 20: Global Deviance = -47.9244
+## Warning in RS(): Algorithm RS has not yet converged</code></pre></div>
+<p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
+## (Intercept) 
+##    2.937355
+<span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
+## (Intercept) 
+##   0.9136514
+<span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
+## (Intercept) 
+##    0.921483</code></pre></div>
+</div>
 </div>
   </div>
 
@@ -96,7 +135,11 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#introduction">Introduction</a></li>
+<li>
+<a href="#introduction">Introduction</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#exponentiated-weibull-distribution">Exponentiated Weibull Distribution</a></li>
+      </ul>
+</li>
       </ul>
 </div>
       </div>
@@ -105,7 +148,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Olga Usuga.</p>
+  <p>Developed by Olga Usuga, Freddy Hernandez, Jaime Mosquera.</p>
 </div>
 
 <div class="pkgdown">
