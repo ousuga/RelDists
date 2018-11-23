@@ -7,6 +7,8 @@
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
 #' @param nu.link defines the nu.link, with "log" link as the default for the nu parameter.
 #' 
+#' @seealso \link{dEW}
+#' 
 #' @details 
 #' The Exponentiated Weibull Distribution with parameters \code{mu}, 
 #' \code{sigma} and \code{nu} has density given by

@@ -1,5 +1,5 @@
 ---
-title: "Estimating parameters"
+title: "EW distribution"
 author: "Olga Usuga and Freddy Hernandez"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -16,34 +16,35 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Introduction
+# Exponentiated Weibull distribution
 
-In this vignette we explain how to use the functions available in the package to estimate parameters for each new distribution. First we need to require the __RelDists__ package.
-
-```{r}
+In this vignette we explore the family `EW` family to estimate parameters. The distribution was proposed by Mudholkar and Srivastava (1993).
+.
+```{r, message=FALSE}
 require(RelDists)
 ```
 
-## Exponentiated Weibull Distribution
+## 1) Without covariates
+
 First, we simulate 100 values for the distribution using known parameters.
 
 ```{r}
-y <- rEW(n=100, mu=2, sigma=1.5, nu=0.5)
+y <- rEW(n=100, mu=2.0, sigma=1.5, nu=0.5)
 ```
 
 Next figure shows the density for the `y` vector.
 
-```{r density01}
-plot(density(y), lwd=2, col='blue3')
+```{r density01, echo=FALSE}
+plot(density(y), lwd=2, col='blue3', main='')
 rug(y, col='blue3')
 ```
 
-
 Now we use the `gamlss` function from __gamlss__ package to estimate the parameters.
 
-```{r}
-# Fitting the model
-mod <- gamlss::gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW')
+```{r, message=FALSE}
+require(gamlss)
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW',
+              control=gamlss.control(n.cyc=250, trace=FALSE))
 ```
 
 To obtain the fitted values for $\mu$, $\sigma$ and $\nu$ we use the inverse link function.
@@ -56,3 +57,5 @@ exp(coef(mod, what='nu'))
 
 The results show that estimated parameters are close the true parameters $\mu$, $\sigma$ and $\nu$.
 
+## 2) With covariates
+Here ...

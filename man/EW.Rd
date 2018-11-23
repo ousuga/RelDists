@@ -41,3 +41,6 @@ exp(coef(mod, what='nu'))
 
 
 }
+\seealso{
+\link{dEW}
+}

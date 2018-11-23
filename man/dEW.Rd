@@ -78,3 +78,6 @@ curve(hEW(x, mu=2,sigma=1.5, nu=0.5), from=0, to=2, ylim=c(0, 7), col="red",
       ylab="The Hazard function")
 
 }
+\seealso{
+\link{EW}
+}
