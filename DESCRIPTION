@@ -3,9 +3,9 @@ Title: Reliability distributions
 Version: 0.0.1
 Authors@R: c(
     person("Olga", "Usuga", , "olga.usuga@udea.edu.co", 
-    role = c("aut", "cre")
+    role = c("aut")
     ),
-    person("Freddy", "Hernandez", role = c("aut", "cre"), 
+    person("Freddy", "Hernandez", role = c("aut"), 
       comment = c(ORCID = "0000-0001-7459-3329")
     ),
     person("Jaime", "Mosquera", role = c("cre"))

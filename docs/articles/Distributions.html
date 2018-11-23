@@ -92,40 +92,45 @@
 <a href="#exponentiated-weibull-distribution" class="anchor"></a>Exponentiated Weibull Distribution</h2>
 <p>First, we simulate 100 values for the distribution using known parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="dv">2</span>, <span class="dt">sigma=</span><span class="fl">1.5</span>, <span class="dt">nu=</span><span class="fl">0.5</span>)</code></pre></div>
+<p>Next figure shows the density for the <code>y</code> vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>)
+<span class="kw">rug</span>(y, <span class="dt">col=</span><span class="st">'blue3'</span>)</code></pre></div>
+<p><img src="Distributions_files/figure-html/density01-1.png" width="700"></p>
 <p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fitting the model</span>
 mod &lt;-<span class="st"> </span>gamlss<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/gamlss/topics/gamlss">gamlss</a></span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>)
-## GAMLSS-RS iteration 1: Global Deviance = -47.0811 
-## GAMLSS-RS iteration 2: Global Deviance = -47.7668 
-## GAMLSS-RS iteration 3: Global Deviance = -47.8314 
-## GAMLSS-RS iteration 4: Global Deviance = -47.8424 
-## GAMLSS-RS iteration 5: Global Deviance = -47.8513 
-## GAMLSS-RS iteration 6: Global Deviance = -47.8596 
-## GAMLSS-RS iteration 7: Global Deviance = -47.8673 
-## GAMLSS-RS iteration 8: Global Deviance = -47.8733 
-## GAMLSS-RS iteration 9: Global Deviance = -47.8807 
-## GAMLSS-RS iteration 10: Global Deviance = -47.8872 
-## GAMLSS-RS iteration 11: Global Deviance = -47.8919 
-## GAMLSS-RS iteration 12: Global Deviance = -47.8966 
-## GAMLSS-RS iteration 13: Global Deviance = -47.9023 
-## GAMLSS-RS iteration 14: Global Deviance = -47.9063 
-## GAMLSS-RS iteration 15: Global Deviance = -47.9099 
-## GAMLSS-RS iteration 16: Global Deviance = -47.9125 
-## GAMLSS-RS iteration 17: Global Deviance = -47.9161 
-## GAMLSS-RS iteration 18: Global Deviance = -47.9192 
-## GAMLSS-RS iteration 19: Global Deviance = -47.9219 
-## GAMLSS-RS iteration 20: Global Deviance = -47.9244
+## GAMLSS-RS iteration 1: Global Deviance = -2.03 
+## GAMLSS-RS iteration 2: Global Deviance = -2.8111 
+## GAMLSS-RS iteration 3: Global Deviance = -3.1808 
+## GAMLSS-RS iteration 4: Global Deviance = -3.5537 
+## GAMLSS-RS iteration 5: Global Deviance = -3.8901 
+## GAMLSS-RS iteration 6: Global Deviance = -4.2103 
+## GAMLSS-RS iteration 7: Global Deviance = -4.5074 
+## GAMLSS-RS iteration 8: Global Deviance = -4.7731 
+## GAMLSS-RS iteration 9: Global Deviance = -5.0076 
+## GAMLSS-RS iteration 10: Global Deviance = -5.2243 
+## GAMLSS-RS iteration 11: Global Deviance = -5.4207 
+## GAMLSS-RS iteration 12: Global Deviance = -5.5977 
+## GAMLSS-RS iteration 13: Global Deviance = -5.7567 
+## GAMLSS-RS iteration 14: Global Deviance = -5.897 
+## GAMLSS-RS iteration 15: Global Deviance = -6.0284 
+## GAMLSS-RS iteration 16: Global Deviance = -6.1472 
+## GAMLSS-RS iteration 17: Global Deviance = -6.2531 
+## GAMLSS-RS iteration 18: Global Deviance = -6.3482 
+## GAMLSS-RS iteration 19: Global Deviance = -6.4334 
+## GAMLSS-RS iteration 20: Global Deviance = -6.5099
 ## Warning in RS(): Algorithm RS has not yet converged</code></pre></div>
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    2.937355
+##    2.051028
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##   0.9136514
+##    1.324545
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    0.921483</code></pre></div>
+##   0.5329754</code></pre></div>
+<p>The results show that estimated parameters are close the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 </div>
 </div>
   </div>

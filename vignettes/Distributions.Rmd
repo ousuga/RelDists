@@ -31,6 +31,14 @@ First, we simulate 100 values for the distribution using known parameters.
 y <- rEW(n=100, mu=2, sigma=1.5, nu=0.5)
 ```
 
+Next figure shows the density for the `y` vector.
+
+```{r density01}
+plot(density(y), lwd=2, col='blue3')
+rug(y, col='blue3')
+```
+
+
 Now we use the `gamlss` function from __gamlss__ package to estimate the parameters.
 
 ```{r}
@@ -46,5 +54,5 @@ exp(coef(mod, what='sigma'))
 exp(coef(mod, what='nu'))
 ```
 
-
+The results show that estimated parameters are close the true parameters $\mu$, $\sigma$ and $\nu$.
 
