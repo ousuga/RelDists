@@ -97,16 +97,16 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gamlss)
 mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
               <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">250</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
-<p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function.</p>
+<p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    2.161059
+##    1.535271
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##    1.588992
+##    1.633327
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##   0.5469474</code></pre></div>
+##     0.45086</code></pre></div>
 <p>The results show that estimated parameters are close the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 </div>
 <div id="with-covariates" class="section level2">
