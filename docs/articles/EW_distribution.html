@@ -72,7 +72,7 @@
       <h1>EW distribution</h1>
                         <h4 class="author">Olga Usuga and Freddy Hernandez</h4>
             
-            <h4 class="date">2018-11-23</h4>
+            <h4 class="date">2018-11-26</h4>
       
       
       <div class="hidden name"><code>EW_distribution.Rmd</code></div>
@@ -81,11 +81,59 @@
 
     
     
-<div id="exponentiated-weibull-distribution" class="section level1">
-<h1 class="hasAnchor">
-<a href="#exponentiated-weibull-distribution" class="anchor"></a>Exponentiated Weibull distribution</h1>
-<p>In this vignette we explore the family <code>EW</code> family to estimate parameters. The distribution was proposed by Mudholkar and Srivastava (1993). .</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(RelDists)</code></pre></div>
+<div id="exponentiated-weibull-distribution" class="section level2">
+<h2 class="hasAnchor">
+<a href="#exponentiated-weibull-distribution" class="anchor"></a>Exponentiated Weibull distribution</h2>
+<p>In this vignette we explore the family <code>EW</code> family to estimate parameters.</p>
+<p>The distribution was proposed by Mudholkar and Srivastava (1993) but in this document we used the parameterization given by Almalki and Nadarajah (2014).</p>
+<p>The pdf of the EW distribution is:</p>
+<p><span class="math display">\[f(x)=\lambda\alpha\theta x^{\theta-1} e^{-\alpha x^{\theta}}
+      (1-e^{-\alpha x^{\theta}})^{\lambda-1}, \quad x&gt;0,\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\lambda\)</span> &gt; 0; <span class="math inline">\(\alpha\)</span> is a scale parameter and <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\lambda\)</span> are shape parameters.</p>
+<p>For some values of the parameters, the Exponentiated Weibull distribution yiels some known distributions, the next table shows that cases.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left"><span class="math inline">\(\alpha\)</span></th>
+<th align="center"><span class="math inline">\(\lambda\)</span></th>
+<th align="center"><span class="math inline">\(\theta\)</span></th>
+<th><em>Distribution</em></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td>Weibull</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td>Generalized Rayleigh (GR)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td>Generalized Exponential(GE)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td>Exponential</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td>Rayleigh</td>
+</tr>
+</tbody>
+</table>
+<p>The next figure shows possible shapes of the pdf for several values of the parameters:</p>
+<p><img src="EW_distribution_files/figure-html/densidad1-1.png" width="700"></p>
+</div>
 <div id="without-covariates" class="section level2">
 <h2 class="hasAnchor">
 <a href="#without-covariates" class="anchor"></a>1) Without covariates</h2>
@@ -132,13 +180,13 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    2.679891
+##    1.560128
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##    1.037831
+##    1.693879
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##   0.9982557</code></pre></div>
+##   0.3782764</code></pre></div>
 <p>The results show that estimated parameters are close the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 </div>
 </div>
@@ -147,7 +195,6 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <a href="#with-covariates" class="anchor"></a>2) With covariates</h2>
 <p>Here …</p>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -155,12 +202,9 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li>
-<a href="#exponentiated-weibull-distribution">Exponentiated Weibull distribution</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#without-covariates">1) Without covariates</a></li>
+<li><a href="#exponentiated-weibull-distribution">Exponentiated Weibull distribution</a></li>
+      <li><a href="#without-covariates">1) Without covariates</a></li>
       <li><a href="#with-covariates">2) With covariates</a></li>
-      </ul>
-</li>
       </ul>
 </div>
       </div>

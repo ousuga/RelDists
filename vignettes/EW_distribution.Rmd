@@ -16,13 +16,48 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Exponentiated Weibull distribution
+## Exponentiated Weibull distribution
 
-In this vignette we explore the family `EW` family to estimate parameters. The distribution was proposed by Mudholkar and Srivastava (1993).
-.
-```{r, message=FALSE}
+In this vignette we explore the family `EW` family to estimate parameters.
+
+The distribution was proposed by Mudholkar and Srivastava (1993) but in this document we used the parameterization given by Almalki and Nadarajah (2014).
+
+The pdf of the EW distribution is:
+
+$$f(x)=\lambda\alpha\theta x^{\theta-1} e^{-\alpha x^{\theta}}
+      (1-e^{-\alpha x^{\theta}})^{\lambda-1}, \quad x>0,$$
+      
+where $\alpha$, $\theta$, $\lambda$ > 0; $\alpha$ is a scale parameter and $\theta$ and $\lambda$ are shape parameters.
+
+For some values of the parameters, the Exponentiated Weibull distribution yiels some known distributions, the next table shows that cases.
+
+|$\alpha$   |  $\lambda$  |   $\theta$  |     *Distribution*               |
+|:----------|:----------: | :---------: |   ----------------------------   |
+|1          |             |             |      Weibull                     | 
+|           |             |        2    |      Generalized Rayleigh (GR)   |
+|           |             |        1    |      Generalized Exponential(GE) |
+|           |      1      |        1    |      Exponential                 |
+|           |      1      |        2    |      Rayleigh                    |
+ 
+
+The next figure shows possible shapes of the pdf for several values of the parameters:
+
+```{r, densidad1, echo=FALSE, message=F}
 require(RelDists)
-```
+curve(dEW(x, 5, 0.5, 10), from=0, to=2, las=1,
+      ylim=c(0,3), col="red", ylab="Probability density function", las=1)
+curve(dEW(x, 0.7, 0.5, 0.15), col="green3", add=T)
+curve(dEW(x, 1, 3, 1), col="purple", add=T)
+
+cap1 <- expression(paste(alpha, "=", 5, ", ", theta, "=", 0.5, ", ", lambda, "=", 10))
+cap2 <- expression(paste(alpha, "=", 5, ", ", theta, "=", 0.5, ", ", lambda, "=", 10))
+cap3 <- expression(paste(alpha, "=", 5, ", ", theta, "=", 0.5, ", ", lambda, "=", 10))
+
+legend(x=1.4, y=3.0, 
+       legend=c(cap1, cap2, cap3), 
+       col=c("red", "green3", "purple"), lty=c(1, 1, 1), bty="n")
+```   
+
 
 ## 1) Without covariates
 
