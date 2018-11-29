@@ -39,6 +39,23 @@ exp(coef(mod, what='mu'))
 exp(coef(mod, what='sigma'))
 exp(coef(mod, what='nu'))
 
+# Example 2
+# Generating random values under some model
+n <- 20
+x1 <- rpois(n, lambda=2)
+x2 <- runif(n)
+mu <- exp(2 + -3 * x1)
+sigma <- exp(3 - 2 * x2)
+nu <- 2
+x <- rEW(n=n, mu, sigma, nu)
+
+mod <- gamlss(x~x1, sigma.fo=~x2, family=EW, 
+              control=gamlss.control(n.cyc=5000))
+
+coef(mod, what="mu")
+coef(mod, what="sigma")
+coef(mod, what="nu")
+
 
 }
 \seealso{

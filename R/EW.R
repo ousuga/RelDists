@@ -32,6 +32,23 @@
 #' exp(coef(mod, what='sigma'))
 #' exp(coef(mod, what='nu'))
 #' 
+#' # Example 2
+#' # Generating random values under some model
+#' n <- 20
+#' x1 <- rpois(n, lambda=2)
+#' x2 <- runif(n)
+#' mu <- exp(2 + -3 * x1)
+#' sigma <- exp(3 - 2 * x2)
+#' nu <- 2
+#' x <- rEW(n=n, mu, sigma, nu)
+#' 
+#' mod <- gamlss(x~x1, sigma.fo=~x2, family=EW, 
+#'               control=gamlss.control(n.cyc=5000))
+#' 
+#' coef(mod, what="mu")
+#' coef(mod, what="sigma")
+#' coef(mod, what="nu")
+#' 
 #' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
@@ -66,56 +83,48 @@ EW <- function (mu.link="log", sigma.link="log", nu.link="log")
                  sigma.dr=dstats$mu.eta, 
                  nu.dr   =vstats$mu.eta, 
                  
-                 
-                 dldm=function(y, mu, sigma, nu) {
-                   exp1 <- mu*(y^sigma)
-                   exp2 <- 1-exp(-exp1)
-                   dexp1dm <- (y^sigma)
-                   dexp2dm <- exp(-exp1)*dexp1dm
-                   dldm <- 1/mu - y^sigma + ((nu-1)*dexp2dm)/exp2
+                 # mu
+                 dldm = function(y, mu, sigma, nu) {
+                   a <- mu * y^sigma
+                   b <- 1 - exp(-a)
+                   dldm <- 1/mu - y^sigma + (nu-1) * y^sigma * exp(-a) / b
                    dldm
                  },
                  
-                 d2ldm2=function(y, mu, sigma, nu) {
-                   exp1 <- mu*(y^sigma)
-                   exp2 <- 1-exp(-exp1)
-                   dexp1dm <- (y^sigma)
-                   dexp2dm <-  exp(-exp1)*dexp1dm
-                   d2exp2dm2 <- -exp(-exp1)*(dexp1dm)^2
-                   d2ldm2 <- -(-(1/mu^2) + ((nu-1)/exp2^2)*(exp2*d2exp2dm2-dexp2dm^2))^2
+                 d2ldm2 = function(y, mu, sigma, nu) {
+                   nd = gamlss:::numeric.deriv(dEW(y, mu, sigma, nu, log=TRUE), "mu", delta=1e-04)
+                   dldm = as.vector(attr(nd, "gradient"))
+                   d2ldm2 = -dldm * dldm
                    d2ldm2 
                  }, 
                  
-                 dldd=function(y, mu, sigma, nu) {
-                   exp1 <- mu*(y^sigma)
-                   exp2 <- 1-exp(-exp1)
-                   dexp1dd <- exp1*log(y)
-                   dexp2dd <- exp(-exp1)*dexp1dd
-                   dldd <- 1/sigma + log(y) -exp1*log(y) + ((nu-1)*dexp2dd)/exp2
+                 # sigma
+                 dldd = function(y, mu, sigma, nu) {
+                   a <- mu * y^sigma
+                   b <- 1 - exp(-a)
+                   dldd <- 1/sigma + log(y) - a * log(y) + (nu-1) * a * log(y) * exp(-a) / b
                    dldd
                  },
                  
-                 d2ldd2=function(y, mu, sigma, nu) {
-                   exp1 <- mu*(y^sigma)
-                   exp2 <- 1-exp(-exp1) 
-                   dexp1dd <- exp1*log(y)
-                   dexp2dd <- exp(-exp1)*dexp1dd
-                   d2exp1dd2 <- log(y)*dexp1dd   
-                   d2exp2dd2 <- exp(-exp1)*(d2exp1dd2-dexp1dd^2)
-                   d2ldd2 <- -(-(1/sigma^2) -log(y)*dexp1dd - ((nu-1)/exp2^2)*(exp2*d2exp2dd2-dexp2dd^2))^2
-                   d2ldd2
+                 d2ldd2 = function(y, mu, sigma, nu) {
+                   nd = gamlss:::numeric.deriv(dEW(y, mu, sigma, nu, log=TRUE), "sigma", delta=1e-04)
+                   dldd = as.vector(attr(nd, "gradient"))
+                   d2ldd2 = -dldd * dldd
+                   d2ldd2 
                  }, 
                  
-                 dldv=function(y, mu, sigma, nu) {
-                   exp1 <- mu*(y^sigma)
-                   exp2 <- 1-exp(-exp1)
-                   dldv <- 1/nu + log(exp2) 
+                 # nu
+                 dldv = function(y, mu, sigma, nu) {
+                   a <- mu * y^sigma
+                   b <- 1 - exp(-a)
+                   dldv <- 1/nu + log(b) 
                    dldv 
                  }, 
                  
-                 d2ldv2=function(nu) -(-(1/nu^2))^2, 
+                 d2ldv2 = function(nu) -1/nu^2, 
                  
-                 d2ldmdd=function(y, mu, sigma, nu) {
+                 # cross
+                 d2ldmdd = function(y, mu, sigma, nu) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dd <- exp1*log(y)
@@ -129,7 +138,7 @@ EW <- function (mu.link="log", sigma.link="log", nu.link="log")
                    d2ldmdd
                  },  
                  
-                 d2ldmdv=function(y, mu, sigma) {
+                 d2ldmdv = function(y, mu, sigma) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dm <- y^sigma
@@ -138,7 +147,7 @@ EW <- function (mu.link="log", sigma.link="log", nu.link="log")
                    d2ldmdv
                  },   
                  
-                 d2ldddv=function(y, mu, sigma) {
+                 d2ldddv = function(y, mu, sigma) {
                    exp1 <- mu*(y^sigma)
                    exp2 <- 1-exp(-exp1)
                    dexp1dd <- exp1*log(y)
@@ -147,20 +156,19 @@ EW <- function (mu.link="log", sigma.link="log", nu.link="log")
                    d2ldddv 
                  },   
                  
+                 G.dev.incr = function(y, mu, sigma, nu, ...) -2*dEW(y, mu, sigma, nu, log=TRUE), 
+                 rqres = expression(rqres(pfun="pEW", type="Continuous",
+                                          y=y, mu=mu, sigma=sigma, nu=nu)), 
                  
-                 G.dev.incr=function(y, mu, sigma, nu, ...) -2*dEW(y, mu, sigma, nu, log=TRUE), 
-                 rqres=expression(rqres(pfun="pEW", type="Continuous",
-                                        y=y, mu=mu, sigma=sigma, nu=nu)), 
+                 mu.initial = expression( mu <-  rep(1, length(y)) ), 
+                 sigma.initial = expression( sigma <- rep(1, length(y)) ), 
+                 nu.initial = expression( nu <- rep(1, length(y)) ), 
                  
-                 mu.initial=expression( mu <-  rep(1, length(y)) ), 
-                 sigma.initial=expression( sigma <- rep(1, length(y)) ), 
-                 nu.initial=expression( nu <- rep(1, length(y)) ), 
+                 mu.valid = function(mu) all(mu >  0), 
+                 sigma.valid = function(sigma) all(sigma >  0), 
+                 nu.valid = function(nu) all(nu > 0), 
                  
-                 mu.valid=function(mu) all(mu >  0), 
-                 sigma.valid=function(sigma) all(sigma >  0), 
-                 nu.valid=function(nu) all(nu > 0), 
-                 
-                 y.valid=function(y) all(y > 0)
+                 y.valid = function(y) all(y > 0)
   ), 
   class=c("gamlss.family", "family"))
 }
