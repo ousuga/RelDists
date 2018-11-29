@@ -26,7 +26,7 @@
 #' # Fitting the model
 #' require(gamlss)
 #' mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW',
-#'               control=gamlss.control(n.cyc=5000))
+#'               control=gamlss.control(n.cyc=5000, trace=FALSE))
 #' 
 #' # Extracting the fitted values for mu, sigma and nu
 #' # using the inverse link function
@@ -45,7 +45,7 @@
 #' x <- rEW(n=n, mu, sigma, nu)
 #' 
 #' mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=EW, 
-#'               control=gamlss.control(n.cyc=5000))
+#'               control=gamlss.control(n.cyc=5000, trace=FALSE))
 #' 
 #' coef(mod, what="mu")
 #' coef(mod, what="sigma")
