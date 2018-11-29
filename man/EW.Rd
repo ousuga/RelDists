@@ -31,7 +31,9 @@ for x > 0.
 y <- rEW(n=100, mu=2, sigma=1.5, nu=0.5)
 
 # Fitting the model
-mod <- gamlss::gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW')
+require(gamlss)
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW',
+              control=gamlss.control(n.cyc=5000))
 
 # Extracting the fitted values for mu, sigma and nu
 # using the inverse link function
@@ -49,7 +51,7 @@ sigma <- exp(3 - 2 * x2)
 nu <- 2
 x <- rEW(n=n, mu, sigma, nu)
 
-mod <- gamlss(x~x1, sigma.fo=~x2, family=EW, 
+mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=EW, 
               control=gamlss.control(n.cyc=5000))
 
 coef(mod, what="mu")
