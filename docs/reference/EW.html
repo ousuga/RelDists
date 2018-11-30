@@ -153,32 +153,32 @@
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dEW.html'>rEW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>100</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>1.5</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.5</span>)
 
 <span class='co'># Fitting the model</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>gamlss</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>'EW'</span>)</div><div class='output co'>#&gt; GAMLSS-RS iteration 1: Global Deviance = 31.6371 
-#&gt; GAMLSS-RS iteration 2: Global Deviance = 31.1579 
-#&gt; GAMLSS-RS iteration 3: Global Deviance = 30.8201 
-#&gt; GAMLSS-RS iteration 4: Global Deviance = 30.5379 
-#&gt; GAMLSS-RS iteration 5: Global Deviance = 30.2924 
-#&gt; GAMLSS-RS iteration 6: Global Deviance = 30.0695 
-#&gt; GAMLSS-RS iteration 7: Global Deviance = 29.8612 
-#&gt; GAMLSS-RS iteration 8: Global Deviance = 29.6771 
-#&gt; GAMLSS-RS iteration 9: Global Deviance = 29.51 
-#&gt; GAMLSS-RS iteration 10: Global Deviance = 29.3617 
-#&gt; GAMLSS-RS iteration 11: Global Deviance = 29.2337 
-#&gt; GAMLSS-RS iteration 12: Global Deviance = 29.113 
-#&gt; GAMLSS-RS iteration 13: Global Deviance = 29.0057 
-#&gt; GAMLSS-RS iteration 14: Global Deviance = 28.912 
-#&gt; GAMLSS-RS iteration 15: Global Deviance = 28.8276 
-#&gt; GAMLSS-RS iteration 16: Global Deviance = 28.7539 
-#&gt; GAMLSS-RS iteration 17: Global Deviance = 28.689 
-#&gt; GAMLSS-RS iteration 18: Global Deviance = 28.6315 
-#&gt; GAMLSS-RS iteration 19: Global Deviance = 28.5806 
-#&gt; GAMLSS-RS iteration 20: Global Deviance = 28.5351 </div><div class='output co'>#&gt; <span class='warning'>Warning: Algorithm RS has not yet converged</span></div><div class='input'>
+<span class='fu'>require</span>(<span class='no'>gamlss</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: gamlss</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: splines</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: gamlss.data</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: gamlss.dist</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: MASS</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: nlme</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: parallel</span></div><div class='output co'>#&gt; <span class='message'> **********   GAMLSS Version 5.1-2  ********** </span></div><div class='output co'>#&gt; <span class='message'>For more on GAMLSS look at http://www.gamlss.org/</span></div><div class='output co'>#&gt; <span class='message'>Type gamlssNews() to see new features/changes/bug fixes.</span></div><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>'EW'</span>,
+              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='http://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
+
 <span class='co'># Extracting the fitted values for mu, sigma and nu</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.977254 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.551491 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.5720148 </div><div class='input'>
+#&gt;    1.738256 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.825263 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.4566706 </div><div class='input'>
+<span class='co'># Example 2</span>
+<span class='co'># Generating random values under some model</span>
+<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>20</span>
+<span class='no'>x1</span> <span class='kw'>&lt;-</span> <span class='fu'>rpois</span>(<span class='no'>n</span>, <span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>2</span>)
+<span class='no'>x2</span> <span class='kw'>&lt;-</span> <span class='fu'>runif</span>(<span class='no'>n</span>)
+<span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='fu'>exp</span>(<span class='fl'>2</span> + -<span class='fl'>3</span> * <span class='no'>x1</span>)
+<span class='no'>sigma</span> <span class='kw'>&lt;-</span> <span class='fu'>exp</span>(<span class='fl'>3</span> - <span class='fl'>2</span> * <span class='no'>x2</span>)
+<span class='no'>nu</span> <span class='kw'>&lt;-</span> <span class='fl'>2</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dEW.html'>rEW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>, <span class='no'>mu</span>, <span class='no'>sigma</span>, <span class='no'>nu</span>)
+
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>x</span>~<span class='no'>x1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='no'>x2</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>EW</span>,
+              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='http://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
+
+<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept)          x1 
+#&gt;    2.238279   -1.072811 </div><div class='input'><span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
+#&gt;    1.933755   -1.990231 </div><div class='input'><span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"nu"</span>)</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    3.630298 </div><div class='input'>
 
 </div></pre>
   </div>
