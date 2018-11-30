@@ -17,7 +17,7 @@
 #' The Flexible Weibull extension with parameters \code{mu} and \code{sigma}
 #' has density given by
 #' 
-#' \eqn{f(x) = (mu + \sigma/x^2) * exp(\mu*x - \sigma/x) * exp(-exp(\mu*x-\sigma/x))}
+#' \eqn{f(x) = (mu + \sigma/x^2) exp(\mu x - \sigma/x) exp(-exp(\mu x-\sigma/x))}
 #' 
 #' for x>0.
 #' 
@@ -94,6 +94,7 @@ pFWE <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   cdf
   
 }
+#' @importFrom stats uniroot
 #' @export
 #' @rdname dFWE
 qFWE <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE) {
@@ -116,11 +117,9 @@ qFWE <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE) {
   }
   
   fda1 <- function(x, mu, sigma, p) {fda(x, mu, sigma) - p}
-  
   r_de_la_funcion <- function(mu, sigma, p) {
-    uniroot(fda1, interval=c(0,1e+06), mu, sigma, p)$root
+    uniroot(fda1, interval=c(0, 1e+06), mu, sigma, p)$root
   }
-  
   r_de_la_funcion <- Vectorize(r_de_la_funcion)
   q <- r_de_la_funcion(mu, sigma, p)
   q
