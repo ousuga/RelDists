@@ -72,7 +72,7 @@
       <h1>EW distribution</h1>
                         <h4 class="author">Olga Usuga and Freddy Hernandez</h4>
             
-            <h4 class="date">2018-11-29</h4>
+            <h4 class="date">2018-11-30</h4>
       
       
       <div class="hidden name"><code>EW_distribution.Rmd</code></div>
@@ -176,13 +176,13 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    4.754037
+##     4.78836
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##   0.4925149
+##    0.574105
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    9.763927</code></pre></div>
+##    6.879344</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 <p>In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted distribution explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">las=</span><span class="dv">1</span>)
@@ -191,6 +191,56 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
           <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))), 
       <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
 <p><img src="EW_distribution_files/figure-html/pdfEW3-1.png" width="700"></p>
+</div>
+<div id="example-from-mudholkar-et-al--1995-page-443" class="section level3">
+<h3 class="hasAnchor">
+<a href="#example-from-mudholkar-et-al--1995-page-443" class="anchor"></a>Example from Mudholkar et al. (1995) page 443</h3>
+<p>The data set corresponds to survival times of 51 head-and-neckcancer patients. The times are in days but they are converted to months (1 month = 30.438 days) as in the original paper. Below are the data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dt &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">34</span>, <span class="dv">42</span>, <span class="dv">63</span>, <span class="dv">64</span>, <span class="dv">74</span>, <span class="dv">83</span>, <span class="dv">84</span>, <span class="dv">91</span>, <span class="dv">108</span>, <span class="dv">112</span>, <span class="dv">129</span>, 
+                     <span class="dv">133</span>, <span class="dv">133</span>, <span class="dv">139</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">146</span>, <span class="dv">149</span>, <span class="dv">154</span>, <span class="dv">157</span>, <span class="dv">160</span>,
+                     <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">173</span>, <span class="dv">176</span>, <span class="dv">185</span>, <span class="dv">218</span>, <span class="dv">225</span>, <span class="dv">241</span>, <span class="dv">248</span>, <span class="dv">273</span>, 
+                     <span class="dv">277</span>, <span class="dv">279</span>, <span class="dv">297</span>, <span class="dv">319</span>, <span class="dv">405</span>, <span class="dv">417</span>, <span class="dv">420</span>, <span class="dv">440</span>, <span class="dv">523</span>, <span class="dv">523</span>, 
+                     <span class="dv">583</span>, <span class="dv">594</span>, <span class="dv">1101</span>, <span class="dv">1116</span>, <span class="dv">1146</span>, <span class="dv">1226</span>, <span class="dv">1349</span>, <span class="dv">1412</span>, 
+                     <span class="dv">1417</span>) <span class="op">/</span><span class="st"> </span><span class="fl">30.438</span>, 
+                 <span class="dt">status=</span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, 
+                          <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, 
+                          <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, 
+                          <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, 
+                          <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, 
+                          <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, 
+                          <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, 
+                          <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>))
+
+<span class="kw">plot</span>(<span class="kw">density</span>(dt<span class="op">$</span>y), <span class="dt">main=</span><span class="st">''</span>)
+<span class="kw">rug</span>(dt<span class="op">$</span>y)</code></pre></div>
+<p><img src="EW_distribution_files/figure-html/pdfEW4-1.png" width="700"></p>
+<p>The variable <code>y</code> corresponds to survival time and <code>status</code> is a logical variable indicating if the patient died (<code>TRUE</code>) or not. To ensure convergence in the fit procedure we are going to use only survival times <span class="math inline">\(&lt; 40\)</span> months.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(survival) <span class="co"># To use Surv function</span>
+## Loading required package: survival
+<span class="kw">require</span>(gamlss.cens)
+## Loading required package: gamlss.cens
+
+mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw">Surv</span>(y, status) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,
+              <span class="dt">family=</span><span class="kw">cens</span>(EW), <span class="dt">data=</span><span class="kw">subset</span>(dt, y <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span>),
+              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<p>The fitted values are:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
+## (Intercept) 
+##   0.6218644
+<span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
+## (Intercept) 
+##   0.5770591
+<span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
+## (Intercept) 
+##    4.360831</code></pre></div>
+<p>The hazard function for this example can be obtained using the next code and the figure coincides with the figure 4 in Mudholkar et al (1995).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">hEW</a></span>(x,
+          <span class="dt">mu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>)), 
+          <span class="dt">sigma=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>)), 
+          <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))),
+      <span class="dt">ylab=</span><span class="st">'Hazard'</span>, <span class="dt">xlab=</span><span class="st">'Survival times (months)'</span>,
+      <span class="dt">from=</span><span class="dv">0</span>, <span class="dt">to=</span><span class="dv">50</span>, <span class="dt">las=</span><span class="dv">1</span>)</code></pre></div>
+<p><img src="EW_distribution_files/figure-html/hazard1-1.png" width="700"></p>
 </div>
 </div>
 <div id="estimation-parameters-with-covariates" class="section level2">

@@ -129,5 +129,60 @@ curve(dEW(x, mu=exp(coef(mod, what='mu')),
       from=0.01, add=TRUE, lwd=2)
 ```
 
+### Example from Mudholkar et al. (1995) page 443
+The data set corresponds to survival times of 51 head-and-neckcancer patients. The times are in days but they are converted to months (1 month = 30.438 days) as in the original paper. Below are the data.
+
+```{r pdfEW4}
+dt <- data.frame(y=c(7, 34, 42, 63, 64, 74, 83, 84, 91, 108, 112, 129, 
+                     133, 133, 139, 140, 140, 146, 149, 154, 157, 160,
+                     160, 165, 173, 176, 185, 218, 225, 241, 248, 273, 
+                     277, 279, 297, 319, 405, 417, 420, 440, 523, 523, 
+                     583, 594, 1101, 1116, 1146, 1226, 1349, 1412, 
+                     1417) / 30.438, 
+                 status=c(TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, 
+                          TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 
+                          TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 
+                          TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, 
+                          TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, 
+                          FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, 
+                          TRUE, TRUE, TRUE, FALSE, TRUE, FALSE, 
+                          FALSE, FALSE, TRUE))
+
+plot(density(dt$y), main='')
+rug(dt$y)
+```
+
+The variable `y` corresponds to survival time and `status` is a logical variable indicating if the patient died (`TRUE`) or not. To ensure convergence in the fit procedure we are going to use only survival times $< 40$ months.
+
+```{r}
+require(survival) # To use Surv function
+require(gamlss.cens)
+
+mod <- gamlss(Surv(y, status) ~ 1,
+              family=cens(EW), data=subset(dt, y < 40),
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
+```
+
+The fitted values are:
+
+```{r}
+exp(coef(mod, what='mu'))
+exp(coef(mod, what='sigma'))
+exp(coef(mod, what='nu'))
+```
+
+The hazard function for this example can be obtained using the next code and the figure coincides with the figure 4 in Mudholkar et al (1995).
+
+```{r hazard1}
+curve(hEW(x,
+          mu=exp(coef(mod, what='mu')), 
+          sigma=exp(coef(mod, what='sigma')), 
+          nu=exp(coef(mod, what='nu'))),
+      ylab='Hazard', xlab='Survival times (months)',
+      from=0, to=50, las=1)
+```
+
+
+
 ## 2) Estimation parameters with covariates
 
