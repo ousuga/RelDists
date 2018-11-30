@@ -65,7 +65,6 @@ curve(pFWE(x, mu=0.75, sigma=0.5, lower.tail=FALSE),
       from=0, to=3, col="red", las=1, ylab="S(x)")
 
 ## The quantile function
-dev.off()
 p <- seq(from=0, to=0.99999, length.out=100)
 plot(x=qFWE(p, mu=0.75, sigma=0.5), y=p, xlab="Quantile",
      las=1, ylab="Probability")

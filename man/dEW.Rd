@@ -65,7 +65,6 @@ curve(pEW(x, mu=2, sigma=1.5, nu=0.5, lower.tail=FALSE),
       from=0, to=2, col="red", las=1, ylab="S(x)")
 
 ## The quantile function
-dev.off()
 p <- seq(from=0, to=0.99999, length.out=100)
 plot(x=qEW(p, mu=2, sigma=1.5, nu=0.5), y=p, xlab="Quantile",
      las=1, ylab="Probability")
