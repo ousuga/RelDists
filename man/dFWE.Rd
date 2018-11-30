@@ -2,9 +2,21 @@
 % Please edit documentation in R/dFWE.R
 \name{dFWE}
 \alias{dFWE}
+\alias{pFWE}
+\alias{qFWE}
+\alias{rFWE}
+\alias{hFWE}
 \title{The Flexible Weibull Extension distribution}
 \usage{
 dFWE(x, mu, sigma, log = FALSE)
+
+pFWE(q, mu, sigma, lower.tail = TRUE, log.p = FALSE)
+
+qFWE(p, mu, sigma, lower.tail = TRUE, log.p = FALSE)
+
+rFWE(n, mu, sigma)
+
+hFWE(x, mu, sigma)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
@@ -15,11 +27,11 @@ dFWE(x, mu, sigma, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
-
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 }
 \value{
 \code{dFWE} gives the density, \code{pFWE} gives the distribution 

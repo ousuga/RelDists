@@ -26,7 +26,6 @@
 #' function, \code{qFWE} gives the quantile function, \code{rFWE}
 #' generates random deviates and \code{hFWE} gives the hazard function.
 #' 
-#' @export
 #' @examples  
 #' ## The probability density function
 #' curve(dFWE(x, mu=0.75, sigma=0.5), from=0, to=3, 
@@ -57,7 +56,6 @@
 #'       ylim=c(0, 2.5), col="red", ylab="The Hazard function", las=1)
 #' 
 #' @export
-#' @rdname FWE
 dFWE <- function(x, mu, sigma, log=FALSE){
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
