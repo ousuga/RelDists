@@ -73,10 +73,10 @@ y <- c(1460, 4050, 3570, 2060, 1300, 1390, 1720, 6280, 1360, 7440,
 
 To estimate the parameter for the exponentiated Weibull distribution we use the next code.
 
-```{r}
+```{r message=FALSE}
 require(gamlss)
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW',
-              control=gamlss.control(n.cyc=1500, trace=TRUE))
+              control=gamlss.control(n.cyc=1500, trace=FALSE))
 ```
 
 The results for the fitted model can be found below.
