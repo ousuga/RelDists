@@ -132,7 +132,7 @@
 </tbody>
 </table>
 <p>The next figure shows possible shapes of the probability density function for several values of the parameters:</p>
-<p><img src="EW_distribution_files/figure-html/densidad1-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/pdfEW1-1.png" width="700"></p>
 </div>
 <div id="estimation-parameters-without-covariates" class="section level2">
 <h2 class="hasAnchor">
@@ -163,7 +163,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.0002</span>))
 <span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">dEW</a></span>(x, <span class="dt">mu=</span><span class="fl">0.23</span>, <span class="dt">sigma=</span><span class="fl">0.33</span>, <span class="dt">nu=</span><span class="fl">19.03</span>), 
       <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/pdfEW2-1.png" width="700"></p>
 </div>
 <div id="using-simulated-data" class="section level3">
 <h3 class="hasAnchor">
@@ -171,19 +171,18 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>First, we simulate 100 values for the distribution using known parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="dv">5</span>, <span class="dt">sigma=</span><span class="fl">0.5</span>, <span class="dt">nu=</span><span class="dv">10</span>)</code></pre></div>
 <p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gamlss)
-mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
               <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">250</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##     5.23978
+##    4.559479
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##     0.55703
+##   0.5213761
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    9.129507</code></pre></div>
+##    8.235372</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 <p>In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted distribution explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">las=</span><span class="dv">1</span>)
@@ -191,7 +190,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
           <span class="dt">sigma=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>)), 
           <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))), 
       <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/pdfEW3-1.png" width="700"></p>
 </div>
 </div>
 <div id="estimation-parameters-with-covariates" class="section level2">
