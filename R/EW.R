@@ -94,7 +94,7 @@ EW <- function (mu.link="log", sigma.link="log", nu.link="log")
                  },
                  
                  d2ldm2 = function(y, mu, sigma, nu) {
-                   nd = gamlss:::numeric.deriv(dEW(y, mu, sigma, nu, log=TRUE), "mu", delta=1e-04)
+                   nd = gamlss::numeric.deriv(dEW(y, mu, sigma, nu, log=TRUE), "mu", delta=1e-04)
                    dldm = as.vector(attr(nd, "gradient"))
                    d2ldm2 = -dldm * dldm
                    d2ldm2 
@@ -109,7 +109,7 @@ EW <- function (mu.link="log", sigma.link="log", nu.link="log")
                  },
                  
                  d2ldd2 = function(y, mu, sigma, nu) {
-                   nd = gamlss:::numeric.deriv(dEW(y, mu, sigma, nu, log=TRUE), "sigma", delta=1e-04)
+                   nd = gamlss::numeric.deriv(dEW(y, mu, sigma, nu, log=TRUE), "sigma", delta=1e-04)
                    dldd = as.vector(attr(nd, "gradient"))
                    d2ldd2 = -dldd * dldd
                    d2ldd2 
