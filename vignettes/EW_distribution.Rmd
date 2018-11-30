@@ -155,7 +155,7 @@ rug(dt$y)
 The variable `y` corresponds to survival time and `status` is a logical variable indicating if the patient died (`TRUE`) or not. To ensure convergence in the fit procedure we are going to use only survival times $< 40$ months.
 
 ```{r}
-require(survival) # To use Surv function
+require(survival)
 require(gamlss.cens)
 
 mod <- gamlss(Surv(y, status) ~ 1,
