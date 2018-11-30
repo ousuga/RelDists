@@ -17,7 +17,7 @@
 #' The Flexible Weibull extension with parameters \code{mu} and \code{sigma}
 #' has density given by
 #' 
-#' \eqn{f(x) = (mu + \sigma/x^2) exp(\mu x - \sigma/x) exp(-exp(\mu x-\sigma/x))}
+#' \eqn{f(x) = (\mu + \sigma/x^2) exp(\mu x - \sigma/x) exp(-exp(\mu x-\sigma/x))}
 #' 
 #' for x>0.
 #' 
