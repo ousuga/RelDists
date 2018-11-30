@@ -1,4 +1,4 @@
-#' #' The Flexible Weibull Extension distribution
+#' The Flexible Weibull Extension distribution
 #' 
 #' @description
 #' Density, distribution function, quantile function, 
@@ -11,14 +11,13 @@
 #' @param mu parameter.    
 #' @param sigma parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
-#' @param lower.tail logical; if TRUE (default), probabilities are 
-#' P[X <= x], otherwise, P[X > x].
+#' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
 #' 
 #' @details 
 #' The Flexible Weibull extension with parameters \code{mu} and \code{sigma}
 #' has density given by
 #' 
-#' \eqn{f(x) = (mu + (\sigma/x^2)) * exp(\mu*x - \sigma/x) * exp(-exp(\mu*x-\sigma/x))}
+#' \eqn{f(x) = (mu + \sigma/x^2) * exp(\mu*x - \sigma/x) * exp(-exp(\mu*x-\sigma/x))}
 #' 
 #' for x>0.
 #' 
