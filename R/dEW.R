@@ -2,7 +2,7 @@
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
-#' random generation  and hazard function for the exponentiated weibull distribution with
+#' random generation and hazard function for the exponentiated weibull distribution with
 #' parameters \code{mu}, \code{sigma} and \code{nu}.
 #' 
 #' @param x,q	vector of quantiles.
