@@ -84,13 +84,13 @@
 <div id="exponentiated-weibull-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#exponentiated-weibull-distribution" class="anchor"></a>Exponentiated Weibull distribution</h2>
-<p>In this vignette we explore the family <code>EW</code> family to estimate parameters.</p>
+<p>In this vignette we explore the Exponentiated Weibull distribution.</p>
 <p>The distribution was proposed by Mudholkar and Srivastava (1993) but in this document we used the parameterization given by Almalki and Nadarajah (2014).</p>
 <p>The pdf of the EW distribution is:</p>
-<p><span class="math display">\[f(x)=\nu \mu \sigma x^{\sigma-1} e^{-\mu x^{\sigma}}
-      (1-e^{-\mu x^{\sigma}})^{\nu-1}, \quad x&gt;0,\]</span></p>
+<p><span class="math display">\[f(x) = \nu \mu \sigma x^{\sigma-1} \exp(-\mu x^\sigma)
+      (1-\exp(-\mu x^\sigma))^{\nu-1}, \quad x&gt;0,\]</span></p>
 <p>where <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(\nu\)</span> &gt; 0; <span class="math inline">\(\mu\)</span> is a scale parameter and <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> are shape parameters.</p>
-<p>For some values of the parameters, the Exponentiated Weibull distribution yiels some known distributions, the next table shows that cases.</p>
+<p>For some values of the parameters, the Exponentiated Weibull distribution yiels some known distributions, the next table shows those cases.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left"><span class="math inline">\(\mu\)</span></th>
@@ -131,12 +131,12 @@
 </tr>
 </tbody>
 </table>
-<p>The next figure shows possible shapes of the pdf for several values of the parameters:</p>
+<p>The next figure shows possible shapes of the probability density function for several values of the parameters:</p>
 <p><img src="EW_distribution_files/figure-html/densidad1-1.png" width="700"></p>
 </div>
-<div id="without-covariates" class="section level2">
+<div id="estimation-parameters-without-covariates" class="section level2">
 <h2 class="hasAnchor">
-<a href="#without-covariates" class="anchor"></a>1) Without covariates</h2>
+<a href="#estimation-parameters-without-covariates" class="anchor"></a>1) Estimation parameters without covariates</h2>
 <div id="example-from-mudholkar-and-hutson-1996-page-3077" class="section level3">
 <h3 class="hasAnchor">
 <a href="#example-from-mudholkar-and-hutson-1996-page-3077" class="anchor"></a>Example from Mudholkar and Hutson (1996) page 3077</h3>
@@ -169,9 +169,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <h3 class="hasAnchor">
 <a href="#using-simulated-data" class="anchor"></a>Using simulated data</h3>
 <p>First, we simulate 100 values for the distribution using known parameters.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="fl">2.0</span>, <span class="dt">sigma=</span><span class="fl">1.5</span>, <span class="dt">nu=</span><span class="fl">0.5</span>)</code></pre></div>
-<p>Next figure shows the density for the <code>y</code> vector.</p>
-<p><img src="EW_distribution_files/figure-html/density03-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="dv">5</span>, <span class="dt">sigma=</span><span class="fl">0.5</span>, <span class="dt">nu=</span><span class="dv">10</span>)</code></pre></div>
 <p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gamlss)
 mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
@@ -179,20 +177,26 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    2.423505
+##     5.23978
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##     1.30561
+##     0.55703
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##   0.7310611</code></pre></div>
-<p>The results show that estimated parameters are close the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
+##    9.129507</code></pre></div>
+<p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
+<p>In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted distribution explains better the observed data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">las=</span><span class="dv">1</span>)
+<span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">dEW</a></span>(x, <span class="dt">mu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>)), 
+          <span class="dt">sigma=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>)), 
+          <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))), 
+      <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="EW_distribution_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
 </div>
-<div id="with-covariates" class="section level2">
+<div id="estimation-parameters-with-covariates" class="section level2">
 <h2 class="hasAnchor">
-<a href="#with-covariates" class="anchor"></a>2) With covariates</h2>
-<p>Here …</p>
+<a href="#estimation-parameters-with-covariates" class="anchor"></a>2) Estimation parameters with covariates</h2>
 </div>
   </div>
 
@@ -202,8 +206,8 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#exponentiated-weibull-distribution">Exponentiated Weibull distribution</a></li>
-      <li><a href="#without-covariates">1) Without covariates</a></li>
-      <li><a href="#with-covariates">2) With covariates</a></li>
+      <li><a href="#estimation-parameters-without-covariates">1) Estimation parameters without covariates</a></li>
+      <li><a href="#estimation-parameters-with-covariates">2) Estimation parameters with covariates</a></li>
       </ul>
 </div>
       </div>
