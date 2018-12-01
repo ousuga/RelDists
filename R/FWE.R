@@ -17,6 +17,9 @@
 #' @examples  
 #' plot(1:5)
 #' 
+#' @importFrom gamlss.dist checklink
+#' @importFrom gamlss rqres.plot
+#' @export
 FWE <- function (mu.link="log", sigma.link="log") 
 {
   mstats <- checklink("mu.link", "Flexible Weibull Extension", substitute(mu.link), c("log", "identity"))
