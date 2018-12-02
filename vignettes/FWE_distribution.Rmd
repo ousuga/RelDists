@@ -1,0 +1,36 @@
+---
+title: "FWE distribution"
+author: "Olga Usuga and Freddy Hernandez"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##"
+)
+```
+
+## Flexible Weibull extension distribution
+
+In this vignette we explore the Flexible Weibull extension distribution.
+
+The distribution was proposed by Bebbington (2007).
+
+The pdf of the EW distribution is:
+ 
+$$f(x) = \left( \mu+ \frac{\sigma}{x^2} \right) e^{\mu x - \sigma / x} \exp \left( -e^{\mu x - \sigma / x} \right), \quad x > 0,$$   
+where $\mu > 0$ and $\sigma > 0$.
+
+## 1) Estimation parameters without covariates
+
+
+
+
+## 2) Estimation parameters with covariates
+

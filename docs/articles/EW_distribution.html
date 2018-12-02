@@ -54,6 +54,9 @@
 <li>
       <a href="../articles/EW_distribution.html">EW distribution</a>
     </li>
+    <li>
+      <a href="../articles/FWE_distribution.html">FWE distribution</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -72,7 +75,7 @@
       <h1>EW distribution</h1>
                         <h4 class="author">Olga Usuga and Freddy Hernandez</h4>
             
-            <h4 class="date">2018-12-01</h4>
+            <h4 class="date">2018-12-02</h4>
       
       
       <div class="hidden name"><code>EW_distribution.Rmd</code></div>
@@ -176,13 +179,13 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    4.776762
+##    4.783573
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##    0.609973
+##   0.6137894
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    6.338489</code></pre></div>
+##    6.622615</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 <p>In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted distribution explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">las=</span><span class="dv">1</span>)

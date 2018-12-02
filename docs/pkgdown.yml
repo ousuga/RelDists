@@ -3,4 +3,5 @@ pkgdown: 1.1.0
 pkgdown_sha: ~
 articles:
   EW_distribution: EW_distribution.html
+  FWE_distribution: FWE_distribution.html
 
