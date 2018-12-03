@@ -75,7 +75,7 @@
       <h1>EW distribution</h1>
                         <h4 class="author">Olga Usuga and Freddy Hernandez</h4>
             
-            <h4 class="date">2018-12-02</h4>
+            <h4 class="date">2018-12-03</h4>
       
       
       <div class="hidden name"><code>EW_distribution.Rmd</code></div>
@@ -134,7 +134,7 @@
 </tr>
 </tbody>
 </table>
-<p>The next figure shows possible shapes of the probability density function for several values of the parameters:</p>
+<p>Next figure shows possible shapes of the probability density function for several values of the parameters:</p>
 <p><img src="EW_distribution_files/figure-html/pdfEW1-1.png" width="700"></p>
 </div>
 <div id="estimation-parameters-without-covariates" class="section level2">
@@ -149,7 +149,8 @@
        <span class="dv">2260</span>, <span class="dv">318</span>, <span class="dv">1330</span>, <span class="dv">970</span>, <span class="dv">1920</span>, <span class="dv">15100</span>, <span class="dv">2870</span>, <span class="dv">20600</span>, <span class="dv">3810</span>, <span class="dv">726</span>,
        <span class="dv">7500</span>, <span class="dv">7170</span>, <span class="dv">2000</span>, <span class="dv">829</span>, <span class="dv">17300</span>, <span class="dv">4740</span>, <span class="dv">13400</span>, <span class="dv">1940</span>, <span class="dv">5660</span>)</code></pre></div>
 <p>To estimate the parameter for the exponentiated Weibull distribution we use the next code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gamlss)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(RelDists)
+<span class="kw">require</span>(gamlss)
 mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
               <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">1500</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 <p>The results for the fitted model can be found below.</p>
@@ -179,15 +180,15 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    4.783573
+##    3.807724
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##   0.6137894
+##   0.6861663
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    6.622615</code></pre></div>
+##    3.674195</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
-<p>In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted distribution explains better the observed data.</p>
+<p>In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">las=</span><span class="dv">1</span>)
 <span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">dEW</a></span>(x, <span class="dt">mu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>)), 
           <span class="dt">sigma=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>)), 
