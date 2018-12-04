@@ -109,7 +109,7 @@ y <- c(1460, 4050, 3570, 2060, 1300, 1390, 1720, 6280, 1360, 7440,
        7500, 7170, 2000, 829, 17300, 4740, 13400, 1940, 5660)
 ```
 
-To estimate the parameter for the exponentiated Weibull distribution we use the `gamlss` function from __gamlss__ package to estimate the parameters.
+To estimate the parameters for the exponentiated Weibull distribution we use the `gamlss` function from __gamlss__ package.
 
 ```{r message=FALSE}
 require(RelDists)
@@ -130,8 +130,7 @@ In the next figure we have the histogram for the data and the fitted density. We
 
 ```{r EW5}
 hist(y, freq=FALSE, ylim=c(0, 0.0002), breaks=15, main='')
-curve(dEW(x, mu=0.23, sigma=0.33, nu=19.03), 
-      from=0.01, add=TRUE, lwd=2)
+curve(dEW(x, mu=0.23, sigma=0.33, nu=19.03), from=0.01, add=TRUE, lwd=2)
 ```
 
 ### Using simulated data

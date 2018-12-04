@@ -94,7 +94,7 @@ y <- c(2.160, 0.746, 0.402, 0.954, 0.491, 6.560, 4.992, 0.347,
        4.082, 0.199, 0.605, 0.273, 0.070, 0.062, 5.320)
 ```
 
-To estimate the parameter for the Flexible Weibull extension distribution we use the `gamlss` function from __gamlss__ package to estimate the parameters.
+To estimate the parameters for the Flexible Weibull extension distribution we use the `gamlss` function from __gamlss__ package.
 
 ```{r message=FALSE}
 require(RelDists)
@@ -114,8 +114,7 @@ In the next figure we have the histogram for the data and the fitted density. We
 
 ```{r FWE4}
 hist(y, freq=FALSE, breaks=10, ylim=c(0, 1.7), las=1, main='')
-curve(dFWE(x, mu=0.2065115, sigma=0.2588857), 
-      from=0.01, add=TRUE, lwd=2)
+curve(dFWE(x, mu=0.21, sigma=0.26), from=0.01, add=TRUE, lwd=2)
 ```
 
 ### Using simulated data
@@ -139,7 +138,7 @@ exp(coef(mod, what='mu'))
 exp(coef(mod, what='sigma'))
 ```
 
-The results show that estimated parameters are close to the true parameters $\mu$, $\sigma$ and $\nu$.
+The results show that estimated parameters are close to the true parameters $\mu$ and $\sigma$.
 
 In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.
 

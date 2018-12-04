@@ -166,7 +166,7 @@
        <span class="dv">5320</span>, <span class="dv">1400</span>, <span class="dv">3240</span>, <span class="dv">2710</span>, <span class="dv">4520</span>, <span class="dv">4840</span>, <span class="dv">8320</span>, <span class="dv">13900</span>, <span class="dv">71500</span>, <span class="dv">6250</span>,
        <span class="dv">2260</span>, <span class="dv">318</span>, <span class="dv">1330</span>, <span class="dv">970</span>, <span class="dv">1920</span>, <span class="dv">15100</span>, <span class="dv">2870</span>, <span class="dv">20600</span>, <span class="dv">3810</span>, <span class="dv">726</span>,
        <span class="dv">7500</span>, <span class="dv">7170</span>, <span class="dv">2000</span>, <span class="dv">829</span>, <span class="dv">17300</span>, <span class="dv">4740</span>, <span class="dv">13400</span>, <span class="dv">1940</span>, <span class="dv">5660</span>)</code></pre></div>
-<p>To estimate the parameter for the exponentiated Weibull distribution we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
+<p>To estimate the parameters for the exponentiated Weibull distribution we use the <code>gamlss</code> function from <strong>gamlss</strong> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(RelDists)
 <span class="kw">require</span>(gamlss)
 mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
@@ -183,8 +183,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 ##     19.0263</code></pre></div>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.0002</span>), <span class="dt">breaks=</span><span class="dv">15</span>, <span class="dt">main=</span><span class="st">''</span>)
-<span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">dEW</a></span>(x, <span class="dt">mu=</span><span class="fl">0.23</span>, <span class="dt">sigma=</span><span class="fl">0.33</span>, <span class="dt">nu=</span><span class="fl">19.03</span>), 
-      <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">dEW</a></span>(x, <span class="dt">mu=</span><span class="fl">0.23</span>, <span class="dt">sigma=</span><span class="fl">0.33</span>, <span class="dt">nu=</span><span class="fl">19.03</span>), <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
 <p><img src="EW_distribution_files/figure-html/EW5-1.png" width="700"></p>
 </div>
 <div id="using-simulated-data" class="section level3">
@@ -198,16 +197,16 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    4.741527
+##    5.381467
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##   0.5028352
+##   0.4433046
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    9.398537</code></pre></div>
+##    15.97835</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
-<p>In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted density explains better the observed data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">''</span>)
+<p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1.8</span>))
 <span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">dEW</a></span>(x, <span class="dt">mu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>)), 
           <span class="dt">sigma=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>)), 
           <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))), 
