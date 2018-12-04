@@ -126,10 +126,10 @@ exp(coef(mod, what='sigma'))
 exp(coef(mod, what='nu'))
 ```
 
-In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted distribution explains better the observed data.
+In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.
 
 ```{r EW5}
-plot(density(y), lwd=2, col='blue3', main='', las=1, ylim=c(0, 0.0002))
+hist(y, freq=FALSE, ylim=c(0, 0.0002))
 curve(dEW(x, mu=0.23, sigma=0.33, nu=19.03), 
       from=0.01, add=TRUE, lwd=2)
 ```
