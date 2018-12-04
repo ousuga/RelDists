@@ -27,7 +27,7 @@ where $\mu > 0$ and $\sigma > 0$.
 
 Next figure shows possible shapes of the pdf for several values of the parameters.
 
-```{r FWE1, echo=FALSE, message=FALSE}
+```{r pdfFWE1, echo=FALSE, message=FALSE}
 require(RelDists)
 curve(dFWE(x, mu=0.75, sigma=0.5), from=0, to=3, ylim=c(0, 1.7), 
       col="red", ylab="f(x)", las=1)
@@ -48,7 +48,7 @@ $$F(x) = 1 - \exp[-e^{\mu x - \sigma / x}], \quad x > 0.$$
 
 Next figure shows possible shapes of the cdf.
 
-```{r FWE2, echo=FALSE}
+```{r cumulativeFWE2, echo=FALSE}
 curve(pFWE(x, mu=0.75, sigma=0.5), from=0, to=3, col="red",
       ylab="F(x)", las=1)
 curve(pFWE(x, mu=2, sigma=3), col="blue", add=TRUE)
