@@ -129,7 +129,7 @@ exp(coef(mod, what='nu'))
 In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.
 
 ```{r EW5}
-hist(y, freq=FALSE, ylim=c(0, 0.0002))
+hist(y, freq=FALSE, ylim=c(0, 0.0002), breaks=15, main='')
 curve(dEW(x, mu=0.23, sigma=0.33, nu=19.03), 
       from=0.01, add=TRUE, lwd=2)
 ```
@@ -158,10 +158,10 @@ exp(coef(mod, what='nu'))
 
 The results show that estimated parameters are close to the true parameters $\mu$, $\sigma$ and $\nu$.
 
-In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted density explains better the observed data.
+In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.
 
 ```{r EW6}
-plot(density(y), lwd=2, col='blue3', main='', las=1)
+hist(y, freq=FALSE, main='', ylim=c(0, 1.8))
 curve(dEW(x, mu=exp(coef(mod, what='mu')), 
           sigma=exp(coef(mod, what='sigma')), 
           nu=exp(coef(mod, what='nu'))), 
