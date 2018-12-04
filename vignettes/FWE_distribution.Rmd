@@ -27,7 +27,7 @@ where $\mu > 0$ and $\sigma > 0$.
 
 Next figure shows possible shapes of the pdf for several values of the parameters.
 
-```{r, FWE1, echo=FALSE, message=FALSE}
+```{r FWE1, echo=FALSE}
 require(RelDists)
 curve(dFWE(x, mu=0.75, sigma=0.5), from=0, to=3, ylim=c(0, 1.7), 
       col="red", ylab="f(x)", las=1)
@@ -48,7 +48,7 @@ $$F(x) = 1 - \exp[-e^{\mu x - \sigma / x}], \quad x > 0.$$
 
 Next figure shows possible shapes of the cdf.
 
-```{r, FWE2, echo=FALSE}
+```{r FWE2, echo=FALSE}
 curve(pFWE(x, mu=0.75, sigma=0.5), from=0, to=3, col="red",
       ylab="F(x)", las=1)
 curve(pFWE(x, mu=2, sigma=3), col="blue", add=TRUE)
@@ -64,11 +64,11 @@ legend('bottomright', legend=c(cap1, cap2, cap3),
 
 ### Hazard function
 
-$$h(x) =  \left( \alpha+ \frac\beta{x^2} \right) e^{\mu x - \sigma / x}, \quad x > 0,$$
+$$h(x) =  \left( \mu+ \frac\sigma{x^2} \right) e^{\mu x - \sigma / x}, \quad x > 0,$$
 
 Next figure shows possible shapes of the hf.
 
-```{r, FWE3, echo=FALSE}
+```{r FWE3, echo=FALSE}
 curve(hFWE(x, mu=0.75, sigma=0.5), from=0, to=3, ylim=c(0, 3), 
       col="red", ylab="h(x)", las=1)
 curve(hFWE(x, mu=2, sigma=3), col="blue", add=T)
