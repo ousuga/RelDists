@@ -221,4 +221,42 @@ curve(hEW(x,
 ```
 
 ## 2) Estimation parameters with covariates
+Here we generate values from a Exponentiated Weibull distribution using the next model.
 
+\begin{align*} 
+y &\sim EW(\mu_i, \sigma_i, \nu), \\ 
+\log(\mu_i) &= 2 + -3 \times x_1, \\
+\log(\sigma_i) &= 3 - 2 \times x_2, \\
+\nu &= 2, \\
+x_1 &\sim Poisson (\lambda=2), \\
+x_2 &\sim U(0, 1)
+\end{align*}
+
+The code below can be used to generate $n=200$ from the last model.
+
+```{r}
+n <- 200
+x1 <- rpois(n, lambda=2)
+x2 <- runif(n)
+mu <- exp(2 + -3 * x1)
+sigma <- exp(3 - 2 * x2)
+nu <- 2
+x <- rEW(n=n, mu, sigma, nu)
+```
+
+To estimate the parameters $\mu$, $\sigma$ and $\nu$ we can use the next code.
+
+```{r}
+mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=EW,
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
+```
+
+and the results can be found with
+
+```{r}
+coef(mod, what="mu")
+coef(mod, what="sigma")
+coef(mod, what="nu")
+```
+
+We note that the estimated parameters are close to the true parameter vector $\boldsymbol{\theta} = (2, -3, 3, -2, 2)^\top$.

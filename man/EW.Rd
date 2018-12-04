@@ -43,7 +43,7 @@ exp(coef(mod, what='nu'))
 
 # Example 2
 # Generating random values under some model
-n <- 20
+n <- 200
 x1 <- rpois(n, lambda=2)
 x2 <- runif(n)
 mu <- exp(2 + -3 * x1)

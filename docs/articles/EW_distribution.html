@@ -197,13 +197,13 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    4.331453
+##    4.977504
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##   0.7206459
+##   0.5757171
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    4.016323</code></pre></div>
+##    7.028202</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1.8</span>))
@@ -267,6 +267,37 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw
 <div id="estimation-parameters-with-covariates" class="section level2">
 <h2 class="hasAnchor">
 <a href="#estimation-parameters-with-covariates" class="anchor"></a>2) Estimation parameters with covariates</h2>
+<p>Here we generate values from a Exponentiated Weibull distribution using the next model.</p>
+<span class="math display">\[\begin{align*} 
+y &amp;\sim EW(\mu_i, \sigma_i, \nu), \\ 
+\log(\mu_i) &amp;= 2 + -3 \times x_1, \\
+\log(\sigma_i) &amp;= 3 - 2 \times x_2, \\
+\nu &amp;= 2, \\
+x_1 &amp;\sim Poisson (\lambda=2), \\
+x_2 &amp;\sim U(0, 1)
+\end{align*}\]</span>
+<p>The code below can be used to generate <span class="math inline">\(n=200\)</span> from the last model.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">200</span>
+x1 &lt;-<span class="st"> </span><span class="kw">rpois</span>(n, <span class="dt">lambda=</span><span class="dv">2</span>)
+x2 &lt;-<span class="st"> </span><span class="kw">runif</span>(n)
+mu &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="op">-</span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>x1)
+sigma &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x2)
+nu &lt;-<span class="st"> </span><span class="dv">2</span>
+x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span>n, mu, sigma, nu)</code></pre></div>
+<p>To estimate the parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we can use the next code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(x<span class="op">~</span>x1, <span class="dt">sigma.fo=</span><span class="op">~</span>x2, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span>EW,
+              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<p>and the results can be found with</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)
+## (Intercept)          x1 
+##    1.904964   -2.133846
+<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)
+## (Intercept)          x2 
+##    2.680141   -1.989119
+<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">"nu"</span>)
+## (Intercept) 
+##    1.413845</code></pre></div>
+<p>We note that the estimated parameters are close to the true parameter vector <span class="math inline">\(\boldsymbol{\theta} = (2, -3, 3, -2, 2)^\top\)</span>.</p>
 </div>
   </div>
 

@@ -149,4 +149,39 @@ curve(dFWE(x, mu=exp(coef(mod, what='mu')), sigma=exp(coef(mod, what='sigma'))),
 ```
 
 ## 2) Estimation parameters with covariates
+Here we generate values from a Flexible Weibull extension distribution using the next model.
 
+\begin{align*} 
+y &\sim FWE(\mu_i, \sigma_i), \\ 
+\log(\mu_i) &= 1.21 - 3 \times x_1, \\
+\log(\sigma_i) &= 1.26 - 2 \times x_2, \\
+x_1 &\sim U(0, 1), \\
+x_2 &\sim U(0, 1)
+\end{align*}
+
+The code below can be used to generate $n=200$ from the last model.
+
+```{r}
+n <- 200
+x1 <- runif(n)
+x2 <- runif(n)
+mu <- exp(1.21 - 3 * x1)
+sigma <- exp(1.26 - 2 * x2)
+x <- rFWE(n=n, mu, sigma)
+```
+
+To estimate the parameters $\mu$ and $\sigma$ we can use the next code.
+
+```{r}
+mod <- gamlss(x~x1, sigma.fo=~x2, family=FWE,
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
+```
+
+and the results can be found with
+
+```{r}
+coef(mod, what="mu")
+coef(mod, what="sigma")
+```
+
+We note that the estimated parameters are close to the true parameter vector $\boldsymbol{\theta} = (1.21, -3, 1.26, -2)^\top$.
