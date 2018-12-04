@@ -89,7 +89,9 @@
 <a href="#exponentiated-weibull-distribution" class="anchor"></a>Exponentiated Weibull distribution</h2>
 <p>In this vignette we explore the Exponentiated Weibull distribution.</p>
 <p>The distribution was proposed by Mudholkar and Srivastava (1993) but in this document we used the parameterization given by Almalki and Nadarajah (2014).</p>
-<p>The pdf of the EW distribution is:</p>
+<div id="probability-density-function" class="section level3">
+<h3 class="hasAnchor">
+<a href="#probability-density-function" class="anchor"></a>Probability density function</h3>
 <p><span class="math display">\[f(x) = \nu \mu \sigma x^{\sigma-1} \exp(-\mu x^\sigma)
       (1-\exp(-\mu x^\sigma))^{\nu-1}, \quad x&gt;0,\]</span></p>
 <p>where <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(\nu\)</span> &gt; 0; <span class="math inline">\(\mu\)</span> is a scale parameter and <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> are shape parameters.</p>
@@ -135,7 +137,34 @@
 </tbody>
 </table>
 <p>Next figure shows possible shapes of the probability density function for several values of the parameters:</p>
-<p><img src="EW_distribution_files/figure-html/pdfEW1-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW1-1.png" width="700"></p>
+</div>
+<div id="cumulative-density-function" class="section level3">
+<h3 class="hasAnchor">
+<a href="#cumulative-density-function" class="anchor"></a>Cumulative density function</h3>
+<p><span class="math display">\[F(x) = \left(1 - e^{-\mu x^{\sigma}} \right)^ \nu, \quad x &gt; 0.\]</span></p>
+<p>Next figure shows possible shapes of the cdf.</p>
+<p><img src="EW_distribution_files/figure-html/EW2-1.png" width="700"></p>
+</div>
+<div id="hazard-function" class="section level3">
+<h3 class="hasAnchor">
+<a href="#hazard-function" class="anchor"></a>Hazard function</h3>
+<p><span class="math display">\[h(x) = \mu \sigma \nu x^{\sigma-1} e^{-\mu x^{\sigma}}
+      (1-e^{-\mu x^{\sigma}})^{-1},\]</span></p>
+<p>Next figure shows possible shapes of the hazard function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">hEW</a></span>(x, <span class="dt">mu=</span><span class="fl">3.0</span>, <span class="dt">sigma=</span><span class="fl">1.5</span>, <span class="dt">nu=</span><span class="fl">0.5</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">7</span>),
+      <span class="dt">from=</span><span class="fl">0.001</span>, <span class="dt">to=</span><span class="dv">3</span>,  <span class="dt">col=</span><span class="st">"red"</span>, <span class="dt">ylab=</span><span class="st">"h(x)"</span>, <span class="dt">las=</span><span class="dv">1</span>)
+<span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">hEW</a></span>(x, <span class="dt">mu=</span><span class="fl">5.0</span>, <span class="dt">sigma=</span><span class="fl">0.5</span>, <span class="dt">nu=</span><span class="dv">10</span>), <span class="dt">col=</span><span class="st">"green"</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">hEW</a></span>(x, <span class="dt">mu=</span><span class="fl">1.0</span>, <span class="dt">sigma=</span><span class="fl">3.0</span>, <span class="dt">nu=</span><span class="fl">1.0</span>), <span class="dt">col=</span><span class="st">"purple"</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)  
+
+cap1 &lt;-<span class="st"> </span><span class="kw">expression</span>(<span class="kw">paste</span>(mu, <span class="st">"="</span>, <span class="dv">2</span>, <span class="st">", "</span>, sigma, <span class="st">"="</span>, <span class="fl">1.5</span>, <span class="st">", "</span>, nu, <span class="st">"="</span>, <span class="fl">0.5</span>))
+cap2 &lt;-<span class="st"> </span><span class="kw">expression</span>(<span class="kw">paste</span>(mu, <span class="st">"="</span>, <span class="dv">5</span>, <span class="st">", "</span>, sigma, <span class="st">"="</span>, <span class="fl">0.5</span>, <span class="st">", "</span>, nu, <span class="st">"="</span>, <span class="dv">10</span>))
+cap3 &lt;-<span class="st"> </span><span class="kw">expression</span>(<span class="kw">paste</span>(mu, <span class="st">"="</span>, <span class="dv">1</span>, <span class="st">", "</span>, sigma, <span class="st">"="</span>, <span class="fl">3.0</span>, <span class="st">", "</span>, nu, <span class="st">"="</span>, <span class="fl">1.0</span>))
+
+<span class="kw">legend</span>(<span class="st">'bottomright'</span>, <span class="dt">legend=</span><span class="kw">c</span>(cap1, cap2, cap3), 
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">"red"</span>, <span class="st">"green3"</span>, <span class="st">"purple"</span>), <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">bty=</span><span class="st">"n"</span>)</code></pre></div>
+<p><img src="EW_distribution_files/figure-html/EW3-1.png" width="700"></p>
+</div>
 </div>
 <div id="estimation-parameters-without-covariates" class="section level2">
 <h2 class="hasAnchor">
@@ -148,7 +177,7 @@
        <span class="dv">5320</span>, <span class="dv">1400</span>, <span class="dv">3240</span>, <span class="dv">2710</span>, <span class="dv">4520</span>, <span class="dv">4840</span>, <span class="dv">8320</span>, <span class="dv">13900</span>, <span class="dv">71500</span>, <span class="dv">6250</span>,
        <span class="dv">2260</span>, <span class="dv">318</span>, <span class="dv">1330</span>, <span class="dv">970</span>, <span class="dv">1920</span>, <span class="dv">15100</span>, <span class="dv">2870</span>, <span class="dv">20600</span>, <span class="dv">3810</span>, <span class="dv">726</span>,
        <span class="dv">7500</span>, <span class="dv">7170</span>, <span class="dv">2000</span>, <span class="dv">829</span>, <span class="dv">17300</span>, <span class="dv">4740</span>, <span class="dv">13400</span>, <span class="dv">1940</span>, <span class="dv">5660</span>)</code></pre></div>
-<p>To estimate the parameter for the exponentiated Weibull distribution we use the next code.</p>
+<p>To estimate the parameter for the exponentiated Weibull distribution we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(RelDists)
 <span class="kw">require</span>(gamlss)
 mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
@@ -167,7 +196,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.0002</span>))
 <span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">dEW</a></span>(x, <span class="dt">mu=</span><span class="fl">0.23</span>, <span class="dt">sigma=</span><span class="fl">0.33</span>, <span class="dt">nu=</span><span class="fl">19.03</span>), 
       <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/pdfEW2-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW5-1.png" width="700"></p>
 </div>
 <div id="using-simulated-data" class="section level3">
 <h3 class="hasAnchor">
@@ -180,13 +209,13 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    3.807724
+##    4.085617
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##   0.6861663
+##   0.6276992
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    3.674195</code></pre></div>
+##    4.850316</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 <p>In the next figure we have the empirical density (blue) and the fitted density (black). We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(y), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue3'</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">las=</span><span class="dv">1</span>)
@@ -194,7 +223,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
           <span class="dt">sigma=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>)), 
           <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))), 
       <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/pdfEW3-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW6-1.png" width="700"></p>
 </div>
 <div id="example-from-mudholkar-et-al--1995-page-443" class="section level3">
 <h3 class="hasAnchor">
@@ -217,7 +246,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 
 <span class="kw">plot</span>(<span class="kw">density</span>(dt<span class="op">$</span>y), <span class="dt">main=</span><span class="st">''</span>)
 <span class="kw">rug</span>(dt<span class="op">$</span>y)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/pdfEW4-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW7-1.png" width="700"></p>
 <p>The variable <code>y</code> corresponds to survival time and <code>status</code> is a logical variable indicating if the patient died (<code>TRUE</code>) or not. To ensure convergence in the fit procedure we are going to use only survival times <span class="math inline">\(&lt; 40\)</span> months.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(survival)
 ## Loading required package: survival
@@ -244,7 +273,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw
           <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))),
       <span class="dt">ylab=</span><span class="st">'Hazard'</span>, <span class="dt">xlab=</span><span class="st">'Survival times (months)'</span>,
       <span class="dt">from=</span><span class="dv">0</span>, <span class="dt">to=</span><span class="dv">50</span>, <span class="dt">las=</span><span class="dv">1</span>)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/hazard1-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW8-1.png" width="700"></p>
 </div>
 </div>
 <div id="estimation-parameters-with-covariates" class="section level2">
