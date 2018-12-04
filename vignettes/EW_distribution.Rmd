@@ -102,7 +102,7 @@ legend('bottomright', legend=c(cap1, cap2, cap3),
 ### Example from Mudholkar and Hutson (1996) page 3077
 The Floyd River flood rates are in vector `y` and the objective is to find the parameter for the exponentiated Weibull distribution. 
 
-```{r EW4}
+```{r}
 y <- c(1460, 4050, 3570, 2060, 1300, 1390, 1720, 6280, 1360, 7440,
        5320, 1400, 3240, 2710, 4520, 4840, 8320, 13900, 71500, 6250,
        2260, 318, 1330, 970, 1920, 15100, 2870, 20600, 3810, 726,
@@ -128,7 +128,7 @@ exp(coef(mod, what='nu'))
 
 In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.
 
-```{r EW5}
+```{r EW4}
 hist(y, freq=FALSE, ylim=c(0, 0.0002), breaks=15, main='')
 curve(dEW(x, mu=0.23, sigma=0.33, nu=19.03), from=0.01, add=TRUE, lwd=2)
 ```
@@ -159,7 +159,7 @@ The results show that estimated parameters are close to the true parameters $\mu
 
 In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.
 
-```{r EW6}
+```{r EW5}
 hist(y, freq=FALSE, main='', ylim=c(0, 1.8))
 curve(dEW(x, mu=exp(coef(mod, what='mu')), 
           sigma=exp(coef(mod, what='sigma')), 
@@ -170,7 +170,7 @@ curve(dEW(x, mu=exp(coef(mod, what='mu')),
 ### Example from Mudholkar et al. (1995) page 443
 The data set corresponds to survival times of 51 head-and-neckcancer patients. The times are in days but they are converted to months (1 month = 30.438 days) as in the original paper. Below are the data.
 
-```{r EW7}
+```{r EW6}
 dt <- data.frame(y=c(7, 34, 42, 63, 64, 74, 83, 84, 91, 108, 112, 129, 
                      133, 133, 139, 140, 140, 146, 149, 154, 157, 160,
                      160, 165, 173, 176, 185, 218, 225, 241, 248, 273, 
@@ -211,7 +211,7 @@ exp(coef(mod, what='nu'))
 
 The hazard function for this example can be obtained using the next code and the figure coincides with the figure 4 in Mudholkar et al (1995).
 
-```{r EW8}
+```{r EW7}
 curve(hEW(x,
           mu=exp(coef(mod, what='mu')), 
           sigma=exp(coef(mod, what='sigma')), 

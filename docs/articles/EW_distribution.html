@@ -184,7 +184,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.0002</span>), <span class="dt">breaks=</span><span class="dv">15</span>, <span class="dt">main=</span><span class="st">''</span>)
 <span class="kw">curve</span>(<span class="kw"><a href="../reference/dEW.html">dEW</a></span>(x, <span class="dt">mu=</span><span class="fl">0.23</span>, <span class="dt">sigma=</span><span class="fl">0.33</span>, <span class="dt">nu=</span><span class="fl">19.03</span>), <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/EW5-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW4-1.png" width="700"></p>
 </div>
 <div id="using-simulated-data" class="section level3">
 <h3 class="hasAnchor">
@@ -197,13 +197,13 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##    5.381467
+##    4.331453
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##   0.4433046
+##   0.7206459
 <span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##    15.97835</code></pre></div>
+##    4.016323</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1.8</span>))
@@ -211,7 +211,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
           <span class="dt">sigma=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>)), 
           <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))), 
       <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/EW6-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW5-1.png" width="700"></p>
 </div>
 <div id="example-from-mudholkar-et-al--1995-page-443" class="section level3">
 <h3 class="hasAnchor">
@@ -234,7 +234,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 
 <span class="kw">plot</span>(<span class="kw">density</span>(dt<span class="op">$</span>y), <span class="dt">main=</span><span class="st">''</span>)
 <span class="kw">rug</span>(dt<span class="op">$</span>y)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/EW7-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW6-1.png" width="700"></p>
 <p>The variable <code>y</code> corresponds to survival time and <code>status</code> is a logical variable indicating if the patient died (<code>TRUE</code>) or not. To ensure convergence in the fit procedure we are going to use only survival times <span class="math inline">\(&lt; 40\)</span> months.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(survival)
 ## Loading required package: survival
@@ -261,7 +261,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw
           <span class="dt">nu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))),
       <span class="dt">ylab=</span><span class="st">'Hazard'</span>, <span class="dt">xlab=</span><span class="st">'Survival times (months)'</span>,
       <span class="dt">from=</span><span class="dv">0</span>, <span class="dt">to=</span><span class="dv">50</span>, <span class="dt">las=</span><span class="dv">1</span>)</code></pre></div>
-<p><img src="EW_distribution_files/figure-html/EW8-1.png" width="700"></p>
+<p><img src="EW_distribution_files/figure-html/EW7-1.png" width="700"></p>
 </div>
 </div>
 <div id="estimation-parameters-with-covariates" class="section level2">
