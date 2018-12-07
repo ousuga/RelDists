@@ -22,6 +22,7 @@
 #' \eqn{f(x)=\mu \sigma \nu x^{\sigma-1} exp^{\mu x^{\sigma}} (exp^{\mu x^{\sigma}}-1)^{\nu -1}(1+(exp^{\mu x^{\sigma}}-1)^{\nu})^{-2},}
 #' 
 #' for x > 0.
+#' 
 #' @return 
 #' \code{dOW} gives the density, \code{pOW} gives the distribution 
 #' function, \code{qOW} gives the quantile function, \code{rOW}
@@ -69,7 +70,7 @@ dOW<-function(x, mu, sigma, nu, log = FALSE){
 }
 
 #' @export
-#' @rdname OW
+#' @rdname dOW
 pOW <- function(q,mu,sigma,nu, lower.tail=TRUE, log.p = FALSE){
   if (any(q<0)) 
     stop(paste("q must be positive", "\n", ""))
@@ -89,7 +90,7 @@ pOW <- function(q,mu,sigma,nu, lower.tail=TRUE, log.p = FALSE){
 }
 
 #' @export
-#' @rdname OW
+#' @rdname dOW
 qOW <- function(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE){
   if (any(mu<=0 )) 
     stop(paste("mu must be positive", "\n", ""))
@@ -110,7 +111,7 @@ qOW <- function(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE){
 }
 #' @importFrom stats runif
 #' @export
-#' @rdname OW
+#' @rdname dOW
 rOW <- function(n, mu, sigma, nu){
   if(any(n<=0))
     stop(paste("n must be positive","\n",""))
@@ -125,7 +126,7 @@ rOW <- function(n, mu, sigma, nu){
   r
 }
 #' @export
-#' @rdname OW
+#' @rdname dOW
 hOW<-function(x,mu,sigma,nu){
   if (any(x<0)) 
     stop(paste("x must be positive", "\n", ""))
