@@ -44,7 +44,7 @@
 #' 
 #' ## The random function
 #' hist(rOW(n = 10000, mu = 2, sigma = 3, nu = 0.2), freq = FALSE, ylim = c(0, 2),xlab = "x", las = 1, main = "")
-#' curve(dOW(x, mu = 2, sigma = 3, nu = 0.2),  from = 0, ylim = c(0, 2), add = T, col = "red")
+#' curve(dOW(x, mu = 2, sigma = 3, nu = 0.2),  from = 0, ylim = c(0, 2), add = TRUE, col = "red")
 #' 
 #' ## The Hazard function
 #' curve(hOW(x, mu = 2, sigma = 3, nu = 0.2), from = 0, to = 2.5, ylim = c(0, 3), col = "red", ylab = "The hazard function", las = 1)
