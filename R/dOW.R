@@ -1,4 +1,4 @@
-#' The Odd Weibull Distribution
+#' The odd Weibull Distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
