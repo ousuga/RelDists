@@ -108,7 +108,7 @@ qOW <- function(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE){
   q <- (1/mu)*(log( 1 + (-1+(1-p)^(-1))^(1/nu) ))^(1/sigma)
   q
 }
-
+#' @importFrom stats runif
 #' @export
 #' @rdname OW
 rOW <- function(n, mu, sigma, nu){
