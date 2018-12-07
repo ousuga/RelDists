@@ -88,7 +88,6 @@ pOW <- function(q,mu,sigma,nu, lower.tail=TRUE, log.p = FALSE){
   else cdf <- log(cdf)
   cdf
 }
-
 #' @export
 #' @rdname dOW
 qOW <- function(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE){
