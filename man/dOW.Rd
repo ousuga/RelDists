@@ -74,6 +74,3 @@ curve(dOW(x, mu = 2, sigma = 3, nu = 0.2),  from = 0, ylim = c(0, 2), add = TRUE
 curve(hOW(x, mu = 2, sigma = 3, nu = 0.2), from = 0, to = 2.5, ylim = c(0, 3), col = "red", ylab = "The hazard function", las = 1)
 
 }
-\seealso{
-\link{OW}
-}
