@@ -40,7 +40,7 @@ generates random deviates and \code{hEW} gives the hazard function.
 }
 \description{
 Density, distribution function, quantile function, 
-random generation and hazard function for the exponentiated weibull distribution with
+random generation and hazard function for the exponentiated Weibull distribution with
 parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
