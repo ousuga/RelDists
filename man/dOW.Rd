@@ -6,7 +6,7 @@
 \alias{qOW}
 \alias{rOW}
 \alias{hOW}
-\title{The Odd Weibull Distribution}
+\title{The odd Weibull Distribution}
 \usage{
 dOW(x, mu, sigma, nu, log = FALSE)
 
