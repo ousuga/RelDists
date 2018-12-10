@@ -1,5 +1,5 @@
 ---
-title: "OddW distribution"
+title: "OW distribution"
 author: ""
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
