@@ -9,7 +9,8 @@ License: GPL-3
 URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
 Imports: 
-    gamlss
+    gamlss,
+    gamlss.dist
 LazyData: true
 Suggests: knitr, rmarkdown, gamlss.cens, survival
 VignetteBuilder: knitr
