@@ -19,7 +19,7 @@
 #' The Exponentiated Weibull Distribution with parameters \code{mu}, 
 #' \code{sigma} and \code{nu} has density given by
 #' 
-#' \eqn{f(x)=\nu \mu \sigma x^{\sigma-1} exp(-\mu x^\sigma) (1-exp(-\mu x^\sigma))^{\nu-1},}
+#' \eqn{f(x)=\nu \mu \sigma x^{\sigma-1} \exp(-\mu x^\sigma) (1-\exp(-\mu x^\sigma))^{\nu-1},}
 #' 
 #' for x > 0. 
 #' 
@@ -139,7 +139,7 @@ hEW <- function(x, mu, sigma, nu) {
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
   h <- dEW(x, mu, sigma, nu, log = FALSE) / 
-    pEW(q = x, mu, sigma, nu, lower.tail = FALSE, log.p = FALSE)
+    pEW(x, mu, sigma, nu, lower.tail=FALSE, log.p=FALSE)
   h
 }
 

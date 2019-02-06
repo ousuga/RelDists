@@ -1,21 +1,15 @@
 Package: RelDists
 Title: Reliability distributions
 Version: 0.0.1
-Authors@R: c(
-    person("Olga", "Usuga", role = c("aut")
-    ),
-    person("Freddy", "Hernandez", role = c("aut"), 
-      comment = c(ORCID = "0000-0001-7459-3329")
-    ),
-    person("Jaime", "Mosquera", , "jmosquerag@unal.edu.co",
-    role = c("cre"))
-    )
+Authors@R: person("Freddy", "Hernandez", role=c("aut", "cre"), 
+  email = "fhernanb@unal.edu.co", comment=c(ORCID="0000-0001-7459-3329"))
 Description: Reliability distributions and estimation parameters within GAMLSS framework.
 Depends: R (>= 3.2.0)
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
-Imports: gamlss, gamlss.dist
+Imports: 
+    gamlss
 LazyData: true
 Suggests: knitr, rmarkdown, gamlss.cens, survival
 VignetteBuilder: knitr

@@ -59,7 +59,7 @@ legend('topright', legend=c(cap1, cap2, cap3),
 
 ### Cumulative density function
 
-$$F(x) = \left(1 - e^{-\mu x^{\sigma}} \right)^ \nu, \quad x > 0.$$
+$$F(x) = \left(1 - \exp^{-\mu x^{\sigma}} \right)^ \nu, \quad x > 0.$$
 
 Next figure shows possible shapes of the cdf.
 
@@ -78,8 +78,8 @@ legend('bottomright', legend=c(cap1, cap2, cap3),
 ```
 
 ### Hazard function
-$$h(x) = \mu \sigma \nu x^{\sigma-1} e^{-\mu x^{\sigma}}
-      (1-e^{-\mu x^{\sigma}})^{-1},$$ 
+$$h(x) = \mu \sigma \nu x^{\sigma-1} \exp^{-\mu x^{\sigma}}
+      (1-\exp^{-\mu x^{\sigma}})^{-1},$$ 
 
 Next figure shows possible shapes of the hazard function.
 
@@ -212,12 +212,10 @@ exp(coef(mod, what='nu'))
 The hazard function for this example can be obtained using the next code and the figure coincides with the figure 4 in Mudholkar et al (1995).
 
 ```{r EW7}
-curve(hEW(x,
-          mu=exp(coef(mod, what='mu')), 
+curve(hEW(x, mu=exp(coef(mod, what='mu')), 
           sigma=exp(coef(mod, what='sigma')), 
           nu=exp(coef(mod, what='nu'))),
-      ylab='Hazard', xlab='Survival times (months)',
-      from=0, to=50, las=1)
+      ylab='Hazard', xlab='Survival times (months)', from=0, to=50, las=1)
 ```
 
 ## 2) Estimation parameters with covariates
@@ -241,13 +239,13 @@ x2 <- runif(n)
 mu <- exp(2 + -3 * x1)
 sigma <- exp(3 - 2 * x2)
 nu <- 2
-x <- rEW(n=n, mu, sigma, nu)
+y <- rEW(n=n, mu, sigma, nu)
 ```
 
 To estimate the parameters $\mu$, $\sigma$ and $\nu$ we can use the next code.
 
 ```{r}
-mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=EW,
+mod <- gamlss(y~x1, sigma.fo=~x2, nu.fo=~1, family=EW,
               control=gamlss.control(n.cyc=5000, trace=FALSE))
 ```
 
