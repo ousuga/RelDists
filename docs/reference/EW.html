@@ -165,9 +165,9 @@
 <span class='co'># Extracting the fitted values for mu, sigma and nu</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.166086 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    2.848179 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.1995805 </div><div class='input'>
+#&gt;    2.419435 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    2.109125 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.3284974 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
@@ -182,9 +182,9 @@
               <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='http://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
 
 <span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept)          x1 
-#&gt;    2.155175   -3.307358 </div><div class='input'><span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;    3.066709   -1.948430 </div><div class='input'><span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"nu"</span>)</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.5520372 </div><div class='input'>
+#&gt;    1.836712   -2.108041 </div><div class='input'><span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
+#&gt;    2.661857   -1.995823 </div><div class='input'><span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"nu"</span>)</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.455146 </div><div class='input'>
 
 </div></pre>
   </div>

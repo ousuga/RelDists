@@ -159,8 +159,8 @@ has density given by</p>
 <span class='co'># Extracting the fitted values for mu and sigma</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.7867038 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.292694 </div><div class='input'>
+#&gt;   0.6774523 </div><div class='input'><span class='fu'>exp</span>(<span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.374442 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
@@ -174,8 +174,8 @@ has density given by</p>
               <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='http://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
 
 <span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept)          x1 
-#&gt;    1.115133   -2.551047 </div><div class='input'><span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;    1.249679   -1.955190 </div><div class='input'>
+#&gt;    1.246968   -3.003555 </div><div class='input'><span class='fu'>coef</span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
+#&gt;    1.393200   -2.185614 </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
