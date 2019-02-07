@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 In this vignette we explore the Exponentiated Weibull distribution.
 
-The distribution was proposed by Mudholkar and Srivastava (1993) but in this document we used the parameterization given by Almalki and Nadarajah (2014).
+The distribution was proposed by Mudholkar and Srivastava (1993) but here we used the parameterization given by Almalki and Nadarajah (2014).
 
 ### Probability density function
 
