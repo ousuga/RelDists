@@ -59,7 +59,7 @@ legend('topright', legend=c(cap1, cap2, cap3),
 
 ### Cumulative density function
 
-$$F(x) = \left(1 - \exp^{-\mu x^{\sigma}} \right)^ \nu, \quad x > 0.$$
+$$F(x) = \left(1 - e^{-\mu x^{\sigma}} \right)^ \nu, \quad x > 0.$$
 
 Next figure shows possible shapes of the cdf.
 
@@ -78,8 +78,8 @@ legend('bottomright', legend=c(cap1, cap2, cap3),
 ```
 
 ### Hazard function
-$$h(x) = \mu \sigma \nu x^{\sigma-1} \exp^{-\mu x^{\sigma}}
-      (1-\exp^{-\mu x^{\sigma}})^{-1},$$ 
+$$h(x) = \mu \sigma \nu x^{\sigma-1} e^{-\mu x^{\sigma}}
+      (1-e^{-\mu x^{\sigma}})^{-1},$$ 
 
 Next figure shows possible shapes of the hazard function.
 

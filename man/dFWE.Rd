@@ -47,7 +47,7 @@ parameters \code{mu} and \code{sigma}.
 The Flexible Weibull extension with parameters \code{mu} and \code{sigma}
 has density given by
 
-\eqn{f(x) = (\mu + \sigma/x^2) exp(\mu x - \sigma/x) exp(-exp(\mu x-\sigma/x))}
+\eqn{f(x) = (\mu + \sigma/x^2) \exp(\mu x - \sigma/x) \exp(-\exp(\mu x-\sigma/x))}
 
 for x>0.
 }
@@ -77,6 +77,6 @@ curve(dFWE(x, mu=2, sigma=0.5), from=0, to=3, add=TRUE, col="red")
 
 ## The Hazard function
 curve(hFWE(x, mu=0.75, sigma=0.5), from=0, to=2, ylim=c(0, 2.5), 
-      col="red", ylab="The Hazard function", las=1)
+      col="red", ylab="Hazard function", las=1)
 
 }

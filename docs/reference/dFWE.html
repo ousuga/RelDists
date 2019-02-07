@@ -178,7 +178,7 @@ generates random deviates and <code>hFWE</code> gives the hazard function.</p>
 
     <p>The Flexible Weibull extension with parameters <code>mu</code> and <code>sigma</code>
 has density given by</p>
-<p>\(f(x) = (\mu + \sigma/x^2) exp(\mu x - \sigma/x) exp(-exp(\mu x-\sigma/x))\)</p>
+<p>\(f(x) = (\mu + \sigma/x^2) \exp(\mu x - \sigma/x) \exp(-\exp(\mu x-\sigma/x))\)</p>
 <p>for x&gt;0.</p>
     
 
@@ -204,7 +204,7 @@ has density given by</p>
      <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>2</span>), <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>main</span><span class='kw'>=</span><span class='st'>""</span>)</div><div class='input'><span class='fu'>curve</span>(<span class='fu'>dFWE</span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>0.5</span>), <span class='kw'>from</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>to</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>add</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>)</div><div class='img'><img src='dFWE-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## The Hazard function</span>
 <span class='fu'>curve</span>(<span class='fu'>hFWE</span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.75</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>0.5</span>), <span class='kw'>from</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>to</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>2.5</span>),
-      <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"The Hazard function"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='dFWE-4.png' alt='' width='700' height='433' /></div></pre>
+      <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"Hazard function"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='dFWE-4.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
