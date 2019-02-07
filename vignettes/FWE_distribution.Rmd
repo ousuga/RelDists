@@ -1,6 +1,6 @@
 ---
 title: "FWE distribution"
-author: "Olga Usuga and Freddy Hernandez"
+author: "Freddy Hernandez"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -167,13 +167,13 @@ x1 <- runif(n)
 x2 <- runif(n)
 mu <- exp(1.21 - 3 * x1)
 sigma <- exp(1.26 - 2 * x2)
-x <- rFWE(n=n, mu, sigma)
+y <- rFWE(n=n, mu, sigma)
 ```
 
 To estimate the parameters $\mu$ and $\sigma$ we can use the next code.
 
 ```{r}
-mod <- gamlss(x~x1, sigma.fo=~x2, family=FWE,
+mod <- gamlss(y~x1, sigma.fo=~x2, family=FWE,
               control=gamlss.control(n.cyc=5000, trace=FALSE))
 ```
 

@@ -10,8 +10,9 @@ URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
 Imports: 
     gamlss,
-    gamlss.dist
+    gamlss.dist,
+    gamlss.cens
 LazyData: true
-Suggests: knitr, rmarkdown, gamlss.cens, survival
+Suggests: knitr, rmarkdown, survival
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1

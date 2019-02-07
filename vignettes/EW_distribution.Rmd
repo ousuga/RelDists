@@ -1,6 +1,6 @@
 ---
 title: "EW distribution"
-author: "Olga Usuga and Freddy Hernandez"
+author: "Freddy Hernandez"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -43,7 +43,7 @@ For some values of the parameters, the Exponentiated Weibull distribution yiels 
 Next figure shows possible shapes of the probability density function for several values of the parameters:
 
 ```{r, EW1, echo=FALSE, message=FALSE}
-require(RelDists)
+library(RelDists)
 curve(dEW(x, mu=2.0, sigma=1.5, nu=0.5), from=0, to=2, las=1, xlab='Density',
       ylim=c(0,3), col="red", ylab="f(x)", las=1)
 curve(dEW(x, mu=5.0, sigma=0.5, nu=10), col="green3", add=TRUE)

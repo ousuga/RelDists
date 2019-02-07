@@ -1,5 +1,8 @@
 pandoc: 1.19.2.1
 pkgdown: 1.1.0
 pkgdown_sha: ~
-articles: []
+articles:
+  EW_distribution: EW_distribution.html
+  FWE_distribution: FWE_distribution.html
+  OW_distribution: OW_distribution.html
 
