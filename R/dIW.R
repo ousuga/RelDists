@@ -45,7 +45,7 @@
 #' curve(pIW(x, mu=5, sigma=2.5), from=0, add=TRUE, col="red")
 #'   
 #' ## The random function
-#' hist(rIW(n=10000, mu=5, sigma=2.5), freq=FALSE, from=0,
+#' hist(rIW(n=10000, mu=5, sigma=2.5), freq=FALSE, xlim=c(0,60),
 #'   xlab="x", las=1, main="")
 #' curve(dIW(x, mu=5, sigma=2.5), from=0, add=TRUE, col="red")
 #' 
