@@ -95,6 +95,8 @@ KW <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log")
                  nu.dr   = vstats$mu.eta, 
                  tau.dr  = tstats$mu.eta, 
                  
+                 # Inicio de las derivadas
+                 
                  # Primeras derivadas ---------------------------------
                  dldm = function(y, mu, sigma, nu, tau) {
                    A <- exp(-mu*y^sigma)
@@ -208,19 +210,21 @@ KW <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log")
                    d2ldt2 = -dldt * dldt
                    d2ldt2
                  },
+                 
+                 # Fin de las derivadas -------------------
 
                  
                  G.dev.incr = function(y, mu, sigma, nu, tau, ...) -2*dKW(y, mu, sigma, nu, tau, log=TRUE), 
                  rqres = expression(rqres(pfun="pKW", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu, tau=tau)), 
-                 mu.initial    = expression(mu <-  rep(1, length(y))), 
+                 mu.initial    = expression(mu    <- rep(1, length(y))), 
                  sigma.initial = expression(sigma <- rep(1, length(y))), 
-                 nu.initial    = expression(nu <- rep(1, length(y))),
-                 tau.initial   = expression(tau <- rep(1, length(y))), 
+                 nu.initial    = expression(nu    <- rep(1, length(y))),
+                 tau.initial   = expression(tau   <- rep(1, length(y))), 
                  
-                 mu.valid = function(mu) all(mu > 0), 
+                 mu.valid    = function(mu)    all(mu > 0), 
                  sigma.valid = function(sigma) all(sigma > 0), 
-                 nu.valid = function(nu) all(nu > 0), 
-                 tau.valid = function(tau) all(tau > 0), 
+                 nu.valid    = function(nu)    all(nu > 0), 
+                 tau.valid   = function(tau)   all(tau > 0), 
                  
                  y.valid = function(y) all(y > 0)
   ), 
