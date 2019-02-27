@@ -61,41 +61,41 @@
 #' @export
 KW <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log") 
 {
-  mstats <- checklink("mu.link",    "Kumaraswamy Weibull", 
-                      substitute(mu.link),    c("log", "own"))
+  mstats <- checklink("mu.link", "Kumaraswamy Weibull", 
+                      substitute(mu.link), c("log", "own"))
   dstats <- checklink("sigma.link", "Kumaraswamy Weibull",
                       substitute(sigma.link), c("log", "own"))
-  vstats <- checklink("nu.link",    "Kumaraswamy Weibull", 
-                      substitute(nu.link),    c("log", "own"))
-  tstats <- checklink("tau.link",    "Kumaraswamy Weibull", 
-                      substitute(tau.link),    c("log", "own"))
+  vstats <- checklink("nu.link", "Kumaraswamy Weibull", 
+                      substitute(nu.link), c("log", "own"))
+  tstats <- checklink("tau.link", "Kumaraswamy Weibull", 
+                      substitute(tau.link), c("log", "own"))
   
   structure(list(family=c("KW", "Kumaraswamy Weibull"), 
                  parameters=list(mu=TRUE, sigma=TRUE, nu=TRUE, tau=TRUE), 
                  nopar=4, 
                  type="Continuous", 
                  
-                 mu.link   =as.character(substitute(mu.link)), 
-                 sigma.link=as.character(substitute(sigma.link)), 
-                 nu.link   =as.character(substitute(nu.link)), 
-                 tau.link  =as.character(substitute(tau.link)), 
+                 mu.link   = as.character(substitute(mu.link)), 
+                 sigma.link= as.character(substitute(sigma.link)), 
+                 nu.link   = as.character(substitute(nu.link)), 
+                 tau.link  = as.character(substitute(tau.link)), 
                  
-                 mu.linkfun   =mstats$linkfun, 
-                 sigma.linkfun=dstats$linkfun, 
-                 nu.linkfun   =vstats$linkfun,
-                 tau.linkfun  =tstats$linkfun,
+                 mu.linkfun   = mstats$linkfun, 
+                 sigma.linkfun= dstats$linkfun, 
+                 nu.linkfun   = vstats$linkfun,
+                 tau.linkfun  = tstats$linkfun,
                  
-                 mu.linkinv   =mstats$linkinv, 
-                 sigma.linkinv=dstats$linkinv, 
-                 nu.linkinv   =vstats$linkinv,
-                 tau.linkinv  =tstats$linkinv, 
+                 mu.linkinv   = mstats$linkinv, 
+                 sigma.linkinv= dstats$linkinv, 
+                 nu.linkinv   = vstats$linkinv,
+                 tau.linkinv  = tstats$linkinv, 
                  
-                 mu.dr   =mstats$mu.eta, 
-                 sigma.dr=dstats$mu.eta, 
-                 nu.dr   =vstats$mu.eta, 
-                 tau.dr  =tstats$mu.eta, 
+                 mu.dr   = mstats$mu.eta, 
+                 sigma.dr= dstats$mu.eta, 
+                 nu.dr   = vstats$mu.eta, 
+                 tau.dr  = tstats$mu.eta, 
                  
-                 # Primeras derivadas
+                 # Primeras derivadas ---------------------------------
                  dldm = function(y, mu, sigma, nu, tau) {
                    A <- exp(-mu*y^sigma)
                    part1 <- 1/mu - y^sigma + (nu-1) * y^sigma * A / (1-A)
@@ -126,100 +126,84 @@ KW <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log")
                    dldt
                  },
                  
-                 # Segundas derivadas
+                 # Segundas derivadas ---------------------------------
                  d2ldm2 = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "mu", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "mu", delta=1e-04)
                    dldm = as.vector(attr(nd, "gradient"))
                    d2ldm2 = -dldm * dldm
                    d2ldm2
                  },
                  
                  d2ldmdd = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "mu", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "mu", delta=1e-04)
                    dldm = as.vector(attr(nd, "gradient"))
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "sigma", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "sigma", delta=1e-04)
                    dldd = as.vector(attr(nd, "gradient"))
                    d2ldmdd = -dldm * dldd
                    d2ldmdd
                  },
                  
                  d2ldmdv = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "mu", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "mu", delta=1e-04)
                    dldm = as.vector(attr(nd, "gradient"))
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "nu", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "nu", delta=1e-04)
                    dldv = as.vector(attr(nd, "gradient"))
                    d2ldmdv = -dldm * dldv
                    d2ldmdv
                  },
                  
                  d2ldmdt = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "mu", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "mu", delta=1e-04)
                    dldm = as.vector(attr(nd, "gradient"))
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "tau", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "tau", delta=1e-04)
                    dldt = as.vector(attr(nd, "gradient"))
                    d2ldmdt = -dldm * dldt
                    d2ldmdt
                  },
                  
                  d2ldd2 = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "sigma", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "sigma", delta=1e-04)
                    dldd = as.vector(attr(nd, "gradient"))
                    d2ldd2 = -dldd * dldd
                    d2ldd2
                  },
                  
                  d2ldddv = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "sigma", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "sigma", delta=1e-04)
                    dldd = as.vector(attr(nd, "gradient"))
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "nu", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "nu", delta=1e-04)
                    dldv = as.vector(attr(nd, "gradient"))
                    d2ldddv = -dldd * dldv
                    d2ldddv
                  },
                  
                  d2ldddt = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "sigma", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "sigma", delta=1e-04)
                    dldd = as.vector(attr(nd, "gradient"))
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "tau", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "tau", delta=1e-04)
                    dldt = as.vector(attr(nd, "gradient"))
                    d2ldddt = -dldd * dldt
                    d2ldddt
                  },
                  
                  d2ldv2 = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "nu", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "nu", delta=1e-04)
                    dldv = as.vector(attr(nd, "gradient"))
                    d2ldv2 = -dldv * dldv
                    d2ldv2
                  },
                  
                  d2ldvdt = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "nu", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "nu", delta=1e-04)
                    dldv = as.vector(attr(nd, "gradient"))
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "tau", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "tau", delta=1e-04)
                    dldt = as.vector(attr(nd, "gradient"))
                    d2ldvdt = -dldv * dldt
                    d2ldvdt
                  },
                  
                  d2ldt2 = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau,
-                                                   log = TRUE), "tau", delta = 1e-04)
+                   nd = gamlss::numeric.deriv(dKW(y, mu, sigma, nu, tau, log=TRUE), "tau", delta=1e-04)
                    dldt = as.vector(attr(nd, "gradient"))
                    d2ldt2 = -dldt * dldt
                    d2ldt2
@@ -227,16 +211,14 @@ KW <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log")
 
                  
                  G.dev.incr = function(y, mu, sigma, nu, tau, ...) -2*dKW(y, mu, sigma, nu, tau, log=TRUE), 
-                 rqres = expression(rqres(pfun="pKW", type="Continuous",
-                                          y=y, mu=mu, sigma=sigma, nu=nu, tau=tau)), 
+                 rqres = expression(rqres(pfun="pKW", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu, tau=tau)), 
+                 mu.initial    = expression(mu <-  rep(1, length(y))), 
+                 sigma.initial = expression(sigma <- rep(1, length(y))), 
+                 nu.initial    = expression(nu <- rep(1, length(y))),
+                 tau.initial   = expression(tau <- rep(1, length(y))), 
                  
-                 mu.initial = expression( mu <-  rep(1, length(y)) ), 
-                 sigma.initial = expression( sigma <- rep(1, length(y)) ), 
-                 nu.initial = expression( nu <- rep(1, length(y)) ),
-                 tau.initial = expression( tau <- rep(1, length(y)) ), 
-                 
-                 mu.valid = function(mu) all(mu >  0), 
-                 sigma.valid = function(sigma) all(sigma >  0), 
+                 mu.valid = function(mu) all(mu > 0), 
+                 sigma.valid = function(sigma) all(sigma > 0), 
                  nu.valid = function(nu) all(nu > 0), 
                  tau.valid = function(tau) all(tau > 0), 
                  
