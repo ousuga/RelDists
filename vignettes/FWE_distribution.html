@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Freddy Hernandez" />
+
+<meta name="date" content="2019-02-26" />
+
+<title>FWE distribution</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">FWE distribution</h1>
+<h4 class="author"><em>Freddy Hernandez</em></h4>
+<h4 class="date"><em>2019-02-26</em></h4>
+
+
+
+<div id="flexible-weibull-extension-distribution" class="section level2">
+<h2>Flexible Weibull extension distribution</h2>
+<p>In this vignette we explore the Flexible Weibull extension distribution. This distribution was proposed by Bebbington, Chin-Diew and Zitikis (2007).</p>
+<div id="probability-density-function" class="section level3">
+<h3>Probability density function</h3>
+<p><span class="math display">\[f(x) = \left( \mu+ \frac{\sigma}{x^2} \right) e^{\mu x - \sigma / x} \exp \left( -e^{\mu x - \sigma / x} \right), \quad x &gt; 0,\]</span><br />
+where <span class="math inline">\(\mu &gt; 0\)</span> and <span class="math inline">\(\sigma &gt; 0\)</span>.</p>
+<p>Next figure shows possible shapes of the pdf for several values of the parameters.</p>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="cumulative-density-function" class="section level3">
+<h3>Cumulative density function</h3>
+<p><span class="math display">\[F(x) = 1 - \exp[-e^{\mu x - \sigma / x}], \quad x &gt; 0.\]</span></p>
+<p>Next figure shows possible shapes of the cdf.</p>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="hazard-function" class="section level3">
+<h3>Hazard function</h3>
+<p><span class="math display">\[h(x) =  \left( \mu+ \frac\sigma{x^2} \right) e^{\mu x - \sigma / x}, \quad x &gt; 0,\]</span></p>
+<p>Next figure shows possible shapes of the hf.</p>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+</div>
+<div id="estimation-parameters-without-covariates" class="section level2">
+<h2>1) Estimation parameters without covariates</h2>
+<div id="example-from-bebbington-chin-diew-and-zitikis-2007-page-723" class="section level3">
+<h3>Example from Bebbington, Chin-Diew and Zitikis (2007) page 723</h3>
+<p>The data below correspond to the time between failures of secondary reactor pumps.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.160</span>, <span class="fl">0.746</span>, <span class="fl">0.402</span>, <span class="fl">0.954</span>, <span class="fl">0.491</span>, <span class="fl">6.560</span>, <span class="fl">4.992</span>, <span class="fl">0.347</span>,
+       <span class="fl">0.150</span>, <span class="fl">0.358</span>, <span class="fl">0.101</span>, <span class="fl">1.359</span>, <span class="fl">3.465</span>, <span class="fl">1.060</span>, <span class="fl">0.614</span>, <span class="fl">1.921</span>,
+       <span class="fl">4.082</span>, <span class="fl">0.199</span>, <span class="fl">0.605</span>, <span class="fl">0.273</span>, <span class="fl">0.070</span>, <span class="fl">0.062</span>, <span class="fl">5.320</span>)</code></pre></div>
+<p>To estimate the parameters for the Flexible Weibull extension distribution we use the <code>gamlss</code> function from <strong>gamlss</strong> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(RelDists)
+<span class="kw">require</span>(gamlss)
+mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'FWE'</span>,
+              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<p>The results for the fitted model can be found below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
+## (Intercept) 
+##   0.2065115
+<span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
+## (Intercept) 
+##   0.2588857</code></pre></div>
+<p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted distribution explains better the observed data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">10</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1.7</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">''</span>)
+<span class="kw">curve</span>(<span class="kw">dFWE</span>(x, <span class="dt">mu=</span><span class="fl">0.21</span>, <span class="dt">sigma=</span><span class="fl">0.26</span>), <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="using-simulated-data" class="section level3">
+<h3>Using simulated data</h3>
+<p>First, we simulate 100 values for the distribution using known parameters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">rFWE</span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="fl">0.75</span>, <span class="dt">sigma=</span><span class="fl">0.5</span>)</code></pre></div>
+<p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'FWE'</span>,
+              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">250</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<p>To obtain the fitted values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
+## (Intercept) 
+##   0.8744919
+<span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
+## (Intercept) 
+##   0.5418901</code></pre></div>
+<p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
+<p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">10</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1.5</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">''</span>)
+<span class="kw">curve</span>(<span class="kw">dFWE</span>(x, <span class="dt">mu=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>)), <span class="dt">sigma=</span><span class="kw">exp</span>(<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))), 
+      <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+</div>
+<div id="estimation-parameters-with-covariates" class="section level2">
+<h2>2) Estimation parameters with covariates</h2>
+<p>Here we generate values from a Flexible Weibull extension distribution using the next model.</p>
+<span class="math display">\[\begin{align*} 
+y &amp;\sim FWE(\mu_i, \sigma_i), \\ 
+\log(\mu_i) &amp;= 1.21 - 3 \times x_1, \\
+\log(\sigma_i) &amp;= 1.26 - 2 \times x_2, \\
+x_1 &amp;\sim U(0, 1), \\
+x_2 &amp;\sim U(0, 1)
+\end{align*}\]</span>
+<p>The code below can be used to generate <span class="math inline">\(n=200\)</span> from the last model.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">200</span>
+x1 &lt;-<span class="st"> </span><span class="kw">runif</span>(n)
+x2 &lt;-<span class="st"> </span><span class="kw">runif</span>(n)
+mu &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.21</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>x1)
+sigma &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.26</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x2)
+y &lt;-<span class="st"> </span><span class="kw">rFWE</span>(<span class="dt">n=</span>n, mu, sigma)</code></pre></div>
+<p>To estimate the parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> we can use the next code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span>x1, <span class="dt">sigma.fo=</span><span class="op">~</span>x2, <span class="dt">family=</span>FWE,
+              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<p>and the results can be found with</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">&quot;mu&quot;</span>)
+## (Intercept)          x1 
+##    1.285270   -3.066042
+<span class="kw">coef</span>(mod, <span class="dt">what=</span><span class="st">&quot;sigma&quot;</span>)
+## (Intercept)          x2 
+##    1.371602   -2.370972</code></pre></div>
+<p>We note that the estimated parameters are close to the true parameter vector <span class="math inline">\(\boldsymbol{\theta} = (1.21, -3, 1.26, -2)^\top\)</span>.</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
