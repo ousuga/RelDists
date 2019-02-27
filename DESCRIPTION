@@ -1,8 +1,26 @@
 Package: RelDists
 Title: Reliability distributions
 Version: 0.0.1
-Authors@R: person("Freddy", "Hernandez", role=c("aut", "cre"), 
-  email = "fhernanb@unal.edu.co", comment=c(ORCID="0000-0001-7459-3329"))
+Authors@R: c(
+    person("Freddy", "Hernandez", , "fhernanb@unal.edu.co", role = c("aut", "cre"), 
+      comment = c(ORCID = "0000-0001-7459-3329")
+    ),
+    person("Olga", "Usuga", , "jenny@rstudio.com", role = "aut",
+      comment = c(ORCID = "0000-0002-6983-2759")
+    ),
+    person("Carmen", "Patino", , "jenny@rstudio.com", role = "aut",
+      comment = c(ORCID = "0000-0002-6983-2759")
+    ),
+    person("Jaime", "Mosquera", , "jenny@rstudio.com", role = "aut",
+      comment = c(ORCID = "0000-0002-6983-2759")
+    ),
+    person("Amylakr", "Urrea", , "jenny@rstudio.com", role = "aut",
+      comment = c(ORCID = "0000-0002-6983-2759")
+    ),
+    person("Johan", "Marin", , "jenny@rstudio.com", role = "aut",
+      comment = c(ORCID = "0000-0002-6983-2759")
+    )
+  )
 Description: Reliability distributions and estimation parameters within GAMLSS framework.
 Depends: R (>= 3.2.0)
 License: GPL-3
