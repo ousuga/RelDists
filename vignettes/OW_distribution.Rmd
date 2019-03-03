@@ -1,8 +1,7 @@
 ---
-title: "OW distribution"
+title: "EW distribution"
 author: ""
 date: "`r Sys.Date()`"
-bibliography: distributions.bib
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{vignette Title}
