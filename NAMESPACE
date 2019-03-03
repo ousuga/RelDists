@@ -2,6 +2,7 @@
 
 export(EW)
 export(FWE)
+export(IW)
 export(KW)
 export(dEW)
 export(dFWE)
