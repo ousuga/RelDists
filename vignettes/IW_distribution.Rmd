@@ -1,0 +1,242 @@
+---
+title: "IW distribution"
+author: ""
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##"
+)
+```
+
+## Inverse Weibull distribution
+
+In this vignette we explore the Inverse Weibull distribution (IW). This distribution is also called the reverse Weibull
+distribution, the complementary Weibull distribution
+and the reciprocal Weibull distribution. 
+
+When $x = 1/y$ and $y$ follows the Weibull distribution, then $x$ has the inverse Weibull distribution.
+
+### Probability density Function
+
+$$ f(x) = \mu \sigma x^{-\sigma-1} \exp(\mu x^{-\sigma}), \ \ \ \     x > 0,$$
+With $\mu, \sigma > 0$ where $\mu$ is the scale parameter, and $\sigma$ is the shape parameters.
+
+
+Next figure shows possible shapes of the probability density function for several values of the parameters:
+
+```{r echo=F}
+require(RelDists)
+curve(dIW(x, mu=2.0, sigma=1.0), from=0, to=10, las=1, xlab="Density", ylim=c(0,0.6), col="red", ylab="f(x)")
+curve(dIW(x, mu=1.2, sigma=1.5), col= "purple", add=TRUE)
+curve(dIW(x, mu=5.0, sigma=2.5), col= "green3", add=TRUE)
+
+cap1 <- expression(paste(mu, "=", 2, ", ", sigma, "=", 1))
+cap2 <- expression(paste(mu, "=", 1.2, ", ", sigma, "=", 1.5))
+cap3 <- expression(paste(mu, "=", 5, ", ", sigma, "=", 2.5))
+
+legend("topright", legend=c(cap1, cap2, cap3), 
+       col=c("red","purple", "green3"), lty=c(1,1,1), bty="n")
+```
+
+### Cumulative density function
+
+$$F(x) = \exp(\mu x^{-\sigma}),\ \ \ \   x > 0$$
+
+```{r echo=FALSE}
+curve(pIW(x, mu=2.0, sigma=1.0), from=0, to=10, las=1, ylim=c(0,1), col="red", ylab="F(x)")
+curve(pIW(x, mu=1.2, sigma=1.5), col= "purple", add=TRUE)
+curve(pIW(x, mu=5.0, sigma=2.5), col= "green3", add=TRUE)
+
+cap1 <- expression(paste(mu, "=", 2, ", ", sigma, "=", 1))
+cap2 <- expression(paste(mu, "=", 1.2, ", ", sigma, "=", 1.5))
+cap3 <- expression(paste(mu, "=", 5, ", ", sigma, "=", 2.5))
+
+legend("bottomright", legend=c(cap1, cap2, cap3), 
+       col=c("red","purple", "green3"), lty=c(1,1,1), bty="n")
+```
+
+
+### Hazard function
+
+$$h(x) = \mu \sigma x^{-\sigma - 1}, \ \ \ x > 0$$
+
+```{r echo=FALSE}
+curve(hIW(x, mu=1, sigma=0.6), from=0, to=15, las = 1, ylim = c(0, 1), col="red", ylab="h(x)")
+curve(hIW(x, mu=2, sigma=1), col="purple", add=TRUE)
+curve(hIW(x, mu=1.2, sigma=1.5), col = "green3", add=TRUE)
+
+cap1 <- expression(paste(mu, "=", 1, ", ", sigma, "=", 0.6))
+cap2 <- expression(paste(mu, "=", 2, ", ", sigma, "=", 1))
+cap3 <- expression(paste(mu, "=", 1.2, ", ", sigma, "=", 1.5))
+
+legend("topright", legend=c(cap1, cap2, cap3), 
+       col=c("red","purple", "green3"), lty=c(1,1,1), bty="n")
+```
+
+# 1) Estimation parameters without covariates
+
+### Example from Simiu1 and Heckert (1996) page 541
+
+Wind speed data are in vector `y` and the objective is to find the parameter for the inverse Weibull distribution. 
+
+```{r}
+y <- c(23, 32, 35, 20, 26, 24, 24, 14,
+       13, 16, 5, 11, 5, 12, 12, 7,
+       6, 6, 9, 9, 11, 12, 25, 26,
+       15, 12, 12, 7, 15, 12, 29, 10,
+       7, 10, 15, 20, 20, 17, 24, 31,
+       26, 9, 16, 14, 18, 16, 14, 12
+)
+```
+
+To estimate the parameters for the inverse Weibull distribution we use the `gamlss` function from __gamlss__ package.
+
+```{r message=FALSE}
+require(RelDists)
+require(gamlss)
+mod <- gamlss(y~1, mu.fo=~1, sigma.fo=~1, family='IW',
+              control=gamlss.control(n.cyc=1500, trace=FALSE))
+```
+
+The results for the fitted model can be found below.
+
+```{r}
+exp(coef(mod, what='mu'))
+exp(coef(mod, what='sigma'))
+```
+
+In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.
+
+```{r IW4}
+hist(y, freq=FALSE, breaks=15, main='')
+curve(dIW(x, mu=exp(coef(mod, what='mu')), 
+          sigma=exp(coef(mod, what='sigma'))),
+      from=0.01, add=TRUE, lwd=2)
+```
+
+### Using simulated data
+First, we simulate 100 values for the distribution using known parameters.
+
+```{r}
+y <- rIW(n=100, mu=5, sigma=2.5)
+```
+
+Now we use the `gamlss` function from __gamlss__ package to estimate the parameters.
+
+```{r, message=FALSE}
+mod <- gamlss(y~1, mu.fo=~1, sigma.fo=~1, family='IW',
+              control=gamlss.control(n.cyc=250, trace=FALSE))
+```
+
+To obtain the fitted values for $\mu$ and $\sigma$ we use the inverse link function $\log()$.
+
+```{r}
+exp(coef(mod, what='mu'))
+exp(coef(mod, what='sigma'))
+```
+
+The results show that estimated parameters are close to the true parameters $\mu$ and $\sigma$.
+
+In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.
+
+```{r IW5}
+hist(y, freq=FALSE, main='', ylim=c(0, 0.7))
+curve(dIW(x, mu=exp(coef(mod, what='mu')), 
+          sigma=exp(coef(mod, what='sigma'))), 
+      from=0.01, add=TRUE, lwd=2)
+```
+
+### Example from Mudholkar et al. (1995) page 443
+The dataset is from Bjerkedal (1960), and it represents the survival times (in days) of guinea pigs injected with different doses of tubercle bacilli.The regimen number is the common logarithmo ft he number of bacillary units in 0.5 ml $(log(4.0×10^6)=6.6)$.
+
+```{r IW6}
+dt <- data.frame(y=c(12,15, 22, 24, 24, 32, 32, 33, 34, 38, 38, 43, 
+                     44, 48, 52, 53, 54, 54, 55, 56, 57, 58, 58, 59,
+                     60, 60, 60, 60, 61, 62, 63, 65, 65, 67, 68, 70,
+                     70, 72, 73, 75, 76, 76, 81, 83, 84, 85, 87, 91,
+                     95, 96, 98, 99, 109, 110, 121, 127,129, 131, 143, 146,
+                     146, 175, 175, 211, 233, 258, 258, 263, 297, 341, 341, 376), 
+                 
+                 status=c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,
+                          TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,
+                          TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,
+                          TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,
+                          TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,
+                          FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE))
+
+plot(density(dt$y), main='')
+rug(dt$y)
+```
+
+The variable `y` cing if the guinea pig (`TRUE`) or not. To enorresponds to survival time and `status` is a logical variable indicatsure convergence in the fit procedure we are going to use only survival times $< 100$ days.
+
+```{r}
+require(survival)
+require(gamlss.cens)
+
+mod <- gamlss(Surv(y, status) ~ 1,
+              family=cens(IW), data=subset(dt, y < 40),
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
+```
+
+The fitted values are:
+
+```{r}
+exp(coef(mod, what='mu'))
+exp(coef(mod, what='sigma'))
+```
+
+The hazard function for this example can be obtained using the next code and the figure coincides with the figure 4 in Mudholkar et al (1995).
+
+```{r IW7}
+curve(hIW(x, mu=exp(coef(mod, what='mu')), 
+          sigma=exp(coef(mod, what='sigma'))),
+      ylab='Hazard', xlab='Survival times (days)', from=0, to=500, las=1,lwd=2)
+```
+
+## 2) Estimation parameters with covariates
+Here we generate values from a Exponentiated Weibull distribution using the next model.
+
+\begin{align*} 
+y &\sim IW(\mu_i, \sigma_i), \\ 
+\log(\mu_i) &= 2 + -1 \times x_1, \\
+\log(\sigma_i) &= 2 - 2 \times x_2, \\
+x_1 &\sim Poisson (\lambda=2), \\
+x_2 &\sim U(0, 1)
+\end{align*}
+
+The code below can be used to generate $n=200$ from the last model.
+
+```{r}
+n <- 200
+x1 <- rpois(n, lambda=2)
+x2 <- runif(n)
+mu <- exp(2 + -1 * x1)
+sigma <- exp(2 - 2 * x2)
+nu <- 2
+y <- rIW(n=n, mu, sigma)
+```
+
+To estimate the parameters $\mu$ and $\sigma$  we can use the next code.
+
+```{r}
+mod <- gamlss(y~x1, sigma.fo=~x2, nu.fo=~1, family=IW,
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
+```
+
+and the results can be found with
+
+```{r}
+coef(mod, what="mu")
+coef(mod, what="sigma")
+```
+
+We note that the estimated parameters are close to the true parameter vector $\boldsymbol{\theta} = (2, -1, 2, -2)^\top$.

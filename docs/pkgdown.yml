@@ -4,5 +4,6 @@ pkgdown_sha: ~
 articles:
   EW_distribution: EW_distribution.html
   FWE_distribution: FWE_distribution.html
+  IW_distribution: IW_distribution.html
   OW_distribution: OW_distribution.html
 
