@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2019-02-26" />
+<meta name="date" content="2019-03-08" />
 
 <title>OW distribution</title>
 
@@ -30,14 +30,14 @@
 
 
 <h1 class="title toc-ignore">OW distribution</h1>
-<h4 class="date"><em>2019-02-26</em></h4>
+<h4 class="date"><em>2019-03-08</em></h4>
 
 
 
 <div id="odd-weibull-distribution" class="section level2">
 <h2>Odd Weibull distribution</h2>
 <p>In this vignette we explore the Odd Weibull distribution.</p>
-<p>The distribution was proposed by Cooray <span class="citation">(2006)</span>.</p>
+<p>The distribution was proposed by Cooray <span class="citation">[-@Cooray2006]</span>.</p>
 <div id="probability-density-function" class="section level3">
 <h3>Probability density function</h3>
 <p><span class="math display">\[f(x) = \left( \frac{\sigma\nu}{x} \right) (\mu x)^\sigma e^{(\mu x)^\sigma} \left(e^{(\mu x)^{\sigma}}-1\right)^{\nu-1} \left[ 1 + \left(e^{(\mu x)^{\sigma}}-1\right)^\nu \right]^{-2}, \quad x&gt;0, \quad \mu&gt;0, \quad \sigma\nu&gt;0\]</span></p>
@@ -67,13 +67,8 @@
 <p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 </div>
-<div id="references" class="section level2 unnumbered">
+<div id="references" class="section level2">
 <h2>References</h2>
-<div id="refs" class="references">
-<div id="ref-Cooray2006">
-<p>Cooray, Kahadawala. 2006. “Generalization of the Weibull distribution: The odd Weibull family.” <em>Statistical Modelling</em> 6 (3): 265–77. doi:<a href="https://doi.org/10.1191/1471082X06st116oa">10.1191/1471082X06st116oa</a>.</p>
-</div>
-</div>
 </div>
 
 

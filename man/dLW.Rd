@@ -47,36 +47,36 @@ with parameters \code{mu} and \code{sigma}.
 The Log-Weibull Distribution with parameters \code{mu} 
 and \code{sigma} has density given by
 
-\eqn{f(y)=1/\sigma e^{((y - \mu)/\sigma)} exp\{-e^{((y - \mu)/\sigma)}\},}
+\eqn{f(y)=(1/\sigma) e^{((y - \mu)/\sigma)} exp\{-e^{((y - \mu)/\sigma)}\},}
 
 for - \code{infty} < y < \code{infty}.
 }
 \examples{
  
 ## The probability density function
-curve(dLW(x, mu=0, sigma=1.5), from=0, to=2,
-      ylim=c(0, 2.5), col="red", las=1, ylab="f(x)")
+curve(dLW(x, mu=0, sigma=1.5), from=-8, to=5,
+      col="red", las=1, ylab="f(x)")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow=c(1, 2))
 curve(pLW(x, mu=0, sigma=1.5),
-      from=0, to=2,  col="red", las=1, ylab="F(x)")
+      from=-8, to=5,  col="red", las=1, ylab="F(x)")
 curve(pLW(x, mu=0, sigma=1.5, lower.tail=FALSE),
-      from=0, to=2, col="red", las=1, ylab="S(x)")
+      from=-8, to=5, col="red", las=1, ylab="S(x)")
 
 ## The quantile function
 p <- seq(from=0, to=0.99999, length.out=100)
 plot(x=qLW(p, mu=0, sigma=1.5), y=p, xlab="Quantile",
      las=1, ylab="Probability")
-curve(pLW(x, mu=0, sigma=1.5), from=0, add=TRUE, col="red")
+curve(pLW(x, mu=0, sigma=1.5), from=-8, to=5, add=TRUE, col="red")
 
 ## The random function
 hist(rLW(n=10000, mu=0, sigma=1.5), freq=FALSE,
      xlab="x", las=1, main="")
-curve(dLW(x, mu=0, sigma=1.5), from=0, add=TRUE, col="red")
+curve(dLW(x, mu=0, sigma=1.5), from=-15, to=6, add=TRUE, col="red")
 
 ## The Hazard function
-curve(hLW(x, mu=0, sigma=1.5), from=0, to=2, ylim=c(0, 7),
+curve(hLW(x, mu=0, sigma=1.5), from=-8, to=7,
       col="red", ylab="Hazard function", las=1)
 
 }

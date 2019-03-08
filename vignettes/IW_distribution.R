@@ -1,13 +1,11 @@
-
-  
 ## ----setup, include=FALSE------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "##"
 )
 
-## ---- IW1, echo=FALSE, message=FALSE-------------------------------------
-library(RelDists)
+## ----echo=F--------------------------------------------------------------
+require(RelDists)
 curve(dIW(x, mu=2.0, sigma=1.0), from=0, to=10, las=1, xlab="Density", ylim=c(0,0.6), col="red", ylab="f(x)")
 curve(dIW(x, mu=1.2, sigma=1.5), col= "purple", add=TRUE)
 curve(dIW(x, mu=5.0, sigma=2.5), col= "green3", add=TRUE)
@@ -19,8 +17,7 @@ cap3 <- expression(paste(mu, "=", 5, ", ", sigma, "=", 2.5))
 legend("topright", legend=c(cap1, cap2, cap3), 
        col=c("red","purple", "green3"), lty=c(1,1,1), bty="n")
 
-## ---- IW2, echo=FALSE----------------------------------------------------
-
+## ----echo=FALSE----------------------------------------------------------
 curve(pIW(x, mu=2.0, sigma=1.0), from=0, to=10, las=1, ylim=c(0,1), col="red", ylab="F(x)")
 curve(pIW(x, mu=1.2, sigma=1.5), col= "purple", add=TRUE)
 curve(pIW(x, mu=5.0, sigma=2.5), col= "green3", add=TRUE)
@@ -32,7 +29,7 @@ cap3 <- expression(paste(mu, "=", 5, ", ", sigma, "=", 2.5))
 legend("bottomright", legend=c(cap1, cap2, cap3), 
        col=c("red","purple", "green3"), lty=c(1,1,1), bty="n")
 
-## ----IW3, echo=FALSE-----------------------------------------------------
+## ----echo=FALSE----------------------------------------------------------
 curve(hIW(x, mu=1, sigma=0.6), from=0, to=15, las = 1, ylim = c(0, 1), col="red", ylab="h(x)")
 curve(hIW(x, mu=2, sigma=1), col="purple", add=TRUE)
 curve(hIW(x, mu=1.2, sigma=1.5), col = "green3", add=TRUE)
@@ -45,7 +42,6 @@ legend("topright", legend=c(cap1, cap2, cap3),
        col=c("red","purple", "green3"), lty=c(1,1,1), bty="n")
 
 ## ------------------------------------------------------------------------
-
 y <- c(23, 32, 35, 20, 26, 24, 24, 14,
        13, 16, 5, 11, 5, 12, 12, 7,
        6, 6, 9, 9, 11, 12, 25, 26,
@@ -71,11 +67,9 @@ curve(dIW(x, mu=exp(coef(mod, what='mu')),
       from=0.01, add=TRUE, lwd=2)
 
 ## ------------------------------------------------------------------------
-
 y <- rIW(n=100, mu=5, sigma=2.5)
 
 ## ---- message=FALSE------------------------------------------------------
-
 mod <- gamlss(y~1, mu.fo=~1, sigma.fo=~1, family='IW',
               control=gamlss.control(n.cyc=250, trace=FALSE))
 
@@ -122,7 +116,7 @@ exp(coef(mod, what='sigma'))
 ## ----IW7-----------------------------------------------------------------
 curve(hIW(x, mu=exp(coef(mod, what='mu')), 
           sigma=exp(coef(mod, what='sigma'))),
-      ylab='Hazard', xlab='Survival times (days)', from=0, to=500, las=1,add=TRUE, lwd=2)
+      ylab='Hazard', xlab='Survival times (days)', from=0, to=500, las=1,lwd=2)
 
 ## ------------------------------------------------------------------------
 n <- 200
@@ -140,3 +134,4 @@ mod <- gamlss(y~x1, sigma.fo=~x2, nu.fo=~1, family=IW,
 ## ------------------------------------------------------------------------
 coef(mod, what="mu")
 coef(mod, what="sigma")
+
