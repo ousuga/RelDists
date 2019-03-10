@@ -1,7 +1,7 @@
 #' The Modified Weibull family
 #' 
-#' @description Modified
-#' The Modified Weibull family
+#' @description
+#' #' The Modified Weibull family
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
