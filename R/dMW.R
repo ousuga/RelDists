@@ -56,7 +56,7 @@
 #'  col="red", las=1, ylab="H(x)", las=1)
 #' 
 #' @export
-dMW<-function(x, mu, sigma, nu, log = FALSE){
+dMW <- function(x, mu, sigma, nu, log = FALSE){
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0 )) 
