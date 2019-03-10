@@ -51,9 +51,8 @@
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
-IW <- function (mu.link="log", sigma.link="log") 
-{
-  mstats <- checklink("mu.link", "Inverse Weibull", 
+IW <- function (mu.link="log", sigma.link="log"){
+   mstats <- checklink("mu.link", "Inverse Weibull", 
                       substitute(mu.link), c("log", "own"))
   dstats <- checklink("sigma.link", "Inverse Weibull",
                       substitute(sigma.link), c("log", "own"))
@@ -63,72 +62,71 @@ IW <- function (mu.link="log", sigma.link="log")
                  nopar=2, 
                  type="Continuous", 
                  
-                 mu.link   = as.character(substitute(mu.link)), 
-                 sigma.link= as.character(substitute(sigma.link)), 
+                 mu.link       = as.character(substitute(mu.link)), 
+                 sigma.link    = as.character(substitute(sigma.link)), 
                  
-                 mu.linkfun   = mstats$linkfun, 
-                 sigma.linkfun= dstats$linkfun, 
+                 mu.linkfun    = mstats$linkfun, 
+                 sigma.linkfun = dstats$linkfun, 
                  
-                 mu.linkinv   = mstats$linkinv, 
-                 sigma.linkinv= dstats$linkinv, 
+                 mu.linkinv    = mstats$linkinv, 
+                 sigma.linkinv = dstats$linkinv, 
                  
-                 mu.dr   = mstats$mu.eta, 
-                 sigma.dr= dstats$mu.eta, 
+                 mu.dr         = mstats$mu.eta, 
+                 sigma.dr      = dstats$mu.eta, 
                  
                  # Inicio de las derivadas
                  
                  # Primeras derivadas ---------------------------------
                  dldm   = function(y, mu, sigma) {
-                   dldm =  1/mu - y^(-sigma)
+                   dldm <- 1/mu - y^(-sigma)
                    dldm
                  },
                  
                  dldd   = function(y, mu, sigma) {
-                   dldd = 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
+                   dldd <- 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
                    dldd
                  },
                  
                  # Segundas derivadas ---------------------------------
-                 d2ldm2   = function(y, mu, sigma) {
-                   nd     = gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE), 
+                 d2ldm2   =  function(y, mu, sigma) {
+                   nd     <- gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE), 
                                                   "mu", delta=1e-04)
-                   dldm   = as.vector(attr(nd, "gradient"))
-                   d2ldm2 = -dldm * dldm
+                   dldm   <- as.vector(attr(nd, "gradient"))
+                   d2ldm2 <- -dldm * dldm
                    d2ldm2 
                  },
                  
-                 d2ldd2   = function(y, mu, sigma) {
-                   nd     = gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
+                 d2ldd2   =  function(y, mu, sigma) {
+                   nd     <- gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
                                                   "sigma", delta=1e-04)
-                   dldd   = as.vector(attr(nd, "gradient"))
-                   d2ldd2 = -dldd * dldd
+                   dldd   <- as.vector(attr(nd, "gradient"))
+                   d2ldd2 <- -dldd * dldd
                    d2ldd2
                  },
                  
-                 d2ldmdd   = function(y, mu, sigma) {
-                   nd      = gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
+                 d2ldmdd   =  function(y, mu, sigma) {
+                   nd      <- gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
                                                    "mu", delta=1e-04)
-                   dldm    = as.vector(attr(nd, "gradient"))
-                   nd      = gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
+                   dldm    <- as.vector(attr(nd, "gradient"))
+                   nd      <- gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
                                                    "sigma", delta=1e-04)
-                   dldd    = as.vector(attr(nd, "gradient"))
-                   d2ldmdd = -dldm * dldd
+                   dldd    <- as.vector(attr(nd, "gradient"))
+                   d2ldmdd <- -dldm * dldd
                    d2ldmdd
                  },
-                 
                  # Fin de las derivadas -------------------
                  
-                 
-                 G.dev.incr    = function(y, mu, sigma, nu, tau, ...) 
-                   -2*dIW(y, mu, sigma, log=TRUE), 
+                 G.dev.incr    = function(y, mu, sigma,...) -2*dIW(y, mu, sigma, log=TRUE), 
                  rqres         = expression(rqres(pfun="pIW", type="Continuous",
                                                   y=y, mu=mu, sigma=sigma)), 
+                 
                  mu.initial    = expression(mu    <- rep(1, length(y))), 
                  sigma.initial = expression(sigma <- rep(1, length(y))), 
                  
                  mu.valid    = function(mu)    all(mu > 0), 
                  sigma.valid = function(sigma) all(sigma > 0), 
-                 y.valid     = function(y) all(y > 0)
+                 
+                 y.valid     = function(y)     all(y > 0)
   ), 
   class=c("gamlss.family", "family"))
 }
