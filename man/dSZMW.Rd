@@ -60,7 +60,7 @@ for x > 0.
 curve(dSZMW(x, mu = 2, sigma = 1.5, nu = 0.2), from = 0, to = 2, 
       ylim = c(0, 1.7), col = "red", las = 1, ylab = "The probability density function")
 ## The cumulative distribution and the Reliability function
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 2))
 curve(pSZMW(x, mu = 2, sigma = 1.5, nu = 0.2), from = 0, to = 2, ylim = c(0, 1),
       col = "red", las = 1, ylab = "The cumulative distribution function")
 curve(pSZMW(x, mu = 2, sigma = 1.5, nu = 0.2, lower.tail = FALSE), from = 0,
