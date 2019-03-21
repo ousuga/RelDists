@@ -137,7 +137,7 @@ MW <- function (mu.link="log", sigma.link="log", nu.link="log")
                  
                  d2ldddv   =  function(y, mu, sigma, nu) {
                    exp1  <- mu*(y^sigma)*exp(nu*y)
-                   dldd  <- (1/(sigma+nu*y))+log(y)-log(y)*kexp1
+                   dldd  <- (1/(sigma+nu*y))+log(y)-log(y)*exp1
                    dldv  <- y*((1/(sigma+nu*y))+1-exp1)
                    d2ldddv <- -dldd * dldv
                    d2ldddv
