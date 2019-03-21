@@ -89,28 +89,20 @@ IW <- function (mu.link="log", sigma.link="log"){
                  
                  # Segundas derivadas ---------------------------------
                  d2ldm2   =  function(y, mu, sigma) {
-                   nd     <- gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE), 
-                                                  "mu", delta=1e-04)
-                   dldm   <- as.vector(attr(nd, "gradient"))
+                   dldm <- 1/mu - y^(-sigma)
                    d2ldm2 <- -dldm * dldm
                    d2ldm2 
                  },
                  
                  d2ldd2   =  function(y, mu, sigma) {
-                   nd     <- gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
-                                                  "sigma", delta=1e-04)
-                   dldd   <- as.vector(attr(nd, "gradient"))
+                   dldd <- 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
                    d2ldd2 <- -dldd * dldd
                    d2ldd2
                  },
                  
                  d2ldmdd   =  function(y, mu, sigma) {
-                   nd      <- gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
-                                                   "mu", delta=1e-04)
-                   dldm    <- as.vector(attr(nd, "gradient"))
-                   nd      <- gamlss::numeric.deriv(dIW(y, mu, sigma, log=TRUE),
-                                                   "sigma", delta=1e-04)
-                   dldd    <- as.vector(attr(nd, "gradient"))
+                   dldm <- 1/mu - y^(-sigma)
+                   dldd <- 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
                    d2ldmdd <- -dldm * dldd
                    d2ldmdd
                  },

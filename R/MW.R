@@ -107,49 +107,45 @@ MW <- function (mu.link="log", sigma.link="log", nu.link="log")
                  
                  # Segundas derivadas ---------------------------------
                  d2ldm2   =  function(y, mu, sigma, nu) {
-                   nd     <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "mu", delta=1e-04)
-                   dldm   <- as.vector(attr(nd, "gradient"))
+                   dldm <- (1/mu)-y^sigma * exp(nu*y)
                    d2ldm2 <- -dldm * dldm
                    d2ldm2
                  },
                  
                  d2ldmdd   =  function(y, mu, sigma, nu) {
-                   nd      <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "mu", delta=1e-04)
-                   dldm    <- as.vector(attr(nd, "gradient"))
-                   nd      <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "sigma", delta=1e-04)
-                   dldd    <- as.vector(attr(nd, "gradient"))
+                   dldm <- (1/mu)-y^sigma * exp(nu*y)
+                   exp1  <- mu*(y^sigma)*exp(nu*y)
+                   dldd  <- (1/(sigma+nu*y))+log(y)-log(y)*exp1
                    d2ldmdd <- -dldm * dldd
                    d2ldmdd
                  },
                  
                  d2ldmdv   =  function(y, mu, sigma, nu) {
-                   nd      <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "mu", delta=1e-04)
-                   dldm    <- as.vector(attr(nd, "gradient"))
-                   nd      <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "nu", delta=1e-04)
-                   dldv    <- as.vector(attr(nd, "gradient"))
+                   dldm <- (1/mu)-y^sigma * exp(nu*y)
+                   exp1  <- mu*(y^sigma)*exp(nu*y)
+                   dldv  <- y*((1/(sigma+nu*y))+1-exp1)
                    d2ldmdv <- -dldm * dldv
                    d2ldmdv
                  },
                  
                  d2ldd2   =  function(y, mu, sigma, nu) {
-                   nd     <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "sigma", delta=1e-04)
-                   dldd   <- as.vector(attr(nd, "gradient"))
+                   exp1  <- mu*(y^sigma)*exp(nu*y)
+                   dldd  <- (1/(sigma+nu*y))+log(y)-log(y)*exp1
                    d2ldd2 <- -dldd * dldd
                    d2ldd2
                  },
                  
                  d2ldddv   =  function(y, mu, sigma, nu) {
-                   nd      <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "sigma", delta=1e-04)
-                   dldd    <- as.vector(attr(nd, "gradient"))
-                   nd      <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "nu", delta=1e-04)
-                   dldv    <- as.vector(attr(nd, "gradient"))
+                   exp1  <- mu*(y^sigma)*exp(nu*y)
+                   dldd  <- (1/(sigma+nu*y))+log(y)-log(y)*kexp1
+                   dldv  <- y*((1/(sigma+nu*y))+1-exp1)
                    d2ldddv <- -dldd * dldv
                    d2ldddv
                  },
                  
                  d2ldv2   =  function(y, mu, sigma, nu) {
-                   nd     <- gamlss::numeric.deriv(dMW(y, mu, sigma, nu, log=TRUE), "nu", delta=1e-04)
-                   dldv   <- as.vector(attr(nd, "gradient"))
+                   exp1  <- mu*(y^sigma)*exp(nu*y)
+                   dldv  <- y*((1/(sigma+nu*y))+1-exp1)
                    d2ldv2 <- -dldv * dldv
                    d2ldv2
                  },
