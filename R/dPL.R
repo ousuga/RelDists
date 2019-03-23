@@ -121,6 +121,8 @@ qPL <- function(p, mu, sigma,
 #' @export
 #' @rdname dPL
 rPL <- function(n, mu, sigma){
+  if(any(n <= 0))
+    stop(paste("n must be positive","\n",""))
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
