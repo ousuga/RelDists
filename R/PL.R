@@ -1,36 +1,36 @@
-#' The Log-Weibull Distribution
+#' Power Lindley Distribution
 #' 
 #' @description 
-#' The Log-Weibull Distribution
+#' Power Lindley Distribution
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
 #' 
-#' @seealso \link{dLW}
+#' @seealso \link{dPL}
 #' 
 #' @details 
-#' The Log-Weibull Distribution with parameters \code{mu} 
+#' The Power Lindley Distribution with parameters \code{mu} 
 #' and \code{sigma} has density given by
 #' 
-#' \eqn{f(y)=(1/\sigma) e^{((y - \mu)/\sigma)} exp\{-e^{((y - \mu)/\sigma)}\},}
+#' \eqn{f(x) = \frac{\mu \sigma^2}{\sigma + 1} (1 + x^\mu) x ^ {\mu - 1} \exp({-\sigma x ^\mu}),}
 #' 
-#' for - \code{infty} < y < \code{infty}.
+#' for x > 0.
 #' 
 #' @examples 
 #' # Example 1
 #' # Generating some random values with
 #' # known mu and sigma 
-#' y <- rLW(n=100, mu=0, sigma=1.5)
+#' y <- rPL(n=100, mu=1.5, sigma=0.2)
 #' 
 #' # Fitting the model
 #' require(gamlss)
 #' 
-#' mod <- gamlss(y~1, sigma.fo=~1, family= 'LW',
+#' mod <- gamlss(y~1, sigma.fo=~1, family= 'PL',
 #'               control=gamlss.control(n.cyc=5000, trace=FALSE))
 #' 
 #' # Extracting the fitted values for mu and sigma
 #' # using the inverse link function
-#' coef(mod, 'mu')
+#' exp(coef(mod, 'mu'))
 #' exp(coef(mod, 'sigma'))
 #' 
 #' # Example 2
@@ -38,11 +38,11 @@
 #' n <- 200
 #' x1 <- runif(n, min=0.4, max=0.6)
 #' x2 <- runif(n, min=0.4, max=0.6)
-#' mu <- 1.5 - 3 * x1
-#' sigma <- exp(1.4 - 2 * x2)
-#' x <- rLW(n=n, mu, sigma)
+#' mu <- exp(1.2 - 2 * x1)
+#' sigma <- exp(0.8 - 3 * x2)
+#' x <- rPL(n=n, mu, sigma)
 #' 
-#' mod <- gamlss(x~x1, sigma.fo=~x2, family=LW,
+#' mod <- gamlss(x~x1, sigma.fo=~x2, family=PL,
 #'               control=gamlss.control(n.cyc=5000, trace=FALSE))
 #' 
 #' coef(mod, what="mu")
@@ -51,85 +51,82 @@
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
-LW <- function (mu.link="identity", sigma.link="log") 
+PL <- function (mu.link="log", sigma.link="log") 
 {
-  mstats <- checklink("mu.link", "Log-Weibull", 
-                      substitute(mu.link), c("identity", "own"))
-  dstats <- checklink("sigma.link", "Log-Weibull",
+  mstats <- checklink("mu.link", "Power Lindley", 
+                      substitute(mu.link), c("log", "own"))
+  dstats <- checklink("sigma.link", "Power Lindley",
                       substitute(sigma.link), c("log", "own"))
   
   structure(
-    list(family = c("LW", "Log-Weibull"), 
+    list(family = c("PL", "Power Lindley"), 
      parameters = list(mu=TRUE, sigma=TRUE), 
           nopar = 2, 
            type = "Continuous",
-     
+         
         mu.link = as.character(substitute(mu.link)), 
      sigma.link = as.character(substitute(sigma.link)), 
-     
+         
      mu.linkfun = mstats$linkfun, 
   sigma.linkfun = dstats$linkfun, 
-                  
+         
      mu.linkinv = mstats$linkinv, 
   sigma.linkinv = dstats$linkinv, 
-                  
+         
           mu.dr = mstats$mu.eta, 
        sigma.dr = dstats$mu.eta, 
-                  
+         
   # Inicio de las derivadas
-                 
+         
    # Primeras derivadas ---------------------------------
    dldm = function(y, mu, sigma) {
-     dldm <- (-1)/sigma + exp((y-mu)/sigma)/sigma
+     part1 <- log(y) - sigma * y^mu * log(y)
+     part2 <- 1/mu + (y^(mu) * log(y))/(1+y^mu) 
+     dldm <- part1 + part2
      dldm
      },
-                 
+         
    dldd = function(y, mu, sigma) {
-     A <- exp((y-mu)/sigma)
-     part1 <- (-1)/sigma - (y-mu)/(sigma * sigma)
-     part2 <- ((y-mu)/(sigma * sigma)) * A
-     dldd <- part1 + part2
+     dldd <- 2/sigma - 1/(sigma+1) - y^mu
      dldd
      },
-                 
+         
    # Segundas derivadas ---------------------------------
    d2ldm2 = function(y, mu, sigma) {
-     dldm <- (-1)/sigma + exp((y-mu)/sigma)/sigma
+     part1 <- log(y) - sigma * y^mu * log(y)
+     part2 <- 1/mu + (y^(mu) * log(y))/(1+y^mu)
+     dldm <- part1 + part2
      d2ldm2 <- -dldm * dldm
      d2ldm2
      },
-                 
+  
    d2ldmdd = function(y, mu, sigma) {
-     dldm <- (-1)/sigma + exp((y-mu)/sigma)/sigma
-     A <- exp((y-mu)/sigma)
-     part1 <- (-1)/sigma - (y-mu)/(sigma * sigma)
-     part2 <- ((y-mu)/(sigma * sigma)) * A
-     dldd <- part1 + part2
+     part1 <- log(y) - sigma * y^mu * log(y)
+     part2 <- 1/mu + (y^(mu) * log(y))/(1+y^mu) 
+     dldm <- part1 + part2
+     dldd <- 2/sigma - 1/(sigma+1) - y^mu
      d2ldmdd <- -dldm * dldd
      d2ldmdd
-     },
-                 
+       },
+  
    d2ldd2 = function(y, mu, sigma) {
-     A <- exp((y-mu)/sigma)
-     part1 <- (-1)/sigma - (y-mu)/(sigma * sigma)
-     part2 <- ((y-mu)/(sigma * sigma)) * A
-     dldd <- part1 + part2
+     dldd <- 2/sigma - 1/(sigma+1) - y^mu
      d2ldd2 <- -dldd * dldd
      d2ldd2
-     },
-                 
+       },
+  
    # Fin de las derivadas -------------------
-                 
-     G.dev.incr = function(y, mu, sigma, ...) -2*dLW(y, mu, sigma, log=TRUE), 
-          rqres = expression(rqres(pfun="pLW", type="Continuous", y=y, mu=mu, sigma=sigma)), 
-                 
+         
+     G.dev.incr = function(y, mu, sigma, ...) -2*dPL(y, mu, sigma, log=TRUE), 
+          rqres = expression(rqres(pfun="pPL", type="Continuous", y=y, mu=mu, sigma=sigma)), 
+         
      mu.initial = expression(mu    <- rep(1, length(y))), 
   sigma.initial = expression(sigma <- rep(1, length(y))), 
-                 
-       mu.valid = function(mu) TRUE, 
+         
+       mu.valid = function(mu) all(mu > 0), 
     sigma.valid = function(sigma) all(sigma > 0), 
-                 
-        y.valid = function(y) TRUE
-  ), 
-  class=c("gamlss.family", "family"))
+         
+        y.valid = function(y) all(y > 0)
+    ), 
+    class=c("gamlss.family", "family"))
 }
