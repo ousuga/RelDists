@@ -4,20 +4,21 @@ nueva forma del paquete.
 
 Jaime, complete la tabla de abajo.
 
------------------------------------
-Distribucion dxxx Familia Quien
------------------------------------
-EW            ok    ok      Freddy
-FWE           ok    ok      Freddy
-OW            ok            Jaime
-GMW           ok    ok      Olga
-GPW           ok            Carmen
-IW            ok    ok      Johan
-KW            ok            Freddy
-LW            ok    ok      Amylkar
-MW            ok    ok      Johan
-PL            ok    ok      Amylkar
-MWEx                        Olga
-NMW.                        Johan
-RW                          Amylkar
------------------------------------
+---------------------------------------------
+Distribucion dxxx Familia Vinnete  Quien
+---------------------------------------------
+EW            ok      ok      ok    Freddy
+FWE           ok      ok      ok    Freddy
+OW            ok              ok    Jaime
+GMW           ok      ok            Olga
+GPW           ok                    Carmen
+IW            ok      ok      ok    Johan
+KW            ok                    Freddy
+LW            ok      ok            Amylkar
+MW            ok      ok            Johan
+PL            ok      ok            Amylkar
+MWEx                                Olga
+SZMW          ok      ok            Johan
+RW                                  Amylkar
+WG                                  Johan
+---------------------------------------------
