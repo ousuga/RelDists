@@ -49,7 +49,7 @@ and \code{sigma} has density given by
 
 \eqn{f(y) = \mu\sigma (-y) ^{\sigma - 1} e ^ {-\mu(-y)^\sigma},}
 
-for x < 0.
+for y < 0.
 }
 \examples{
  

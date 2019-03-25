@@ -58,23 +58,31 @@ for x > 0.
 \examples{
  
 ## The probability density function 
-curve(dWG(x, mu = 0.5, sigma = 0.2, nu = 0.95), from = 0, to = 5, ylim = c(0, 1.5), col = "red", las = 1, ylab = "The probability density function")
+curve(dWG(x, mu = 0.5, sigma = 0.2, nu = 0.95), from = 0, to = 5, 
+ylim = c(0, 1.5), col = "red", las = 1, ylab = "The probability density function")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
-curve(pWG(x, mu = 0.5, sigma = 0.2, nu = 0.95), from = 0, to = 5, ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
-curve(pWG(x, mu = 0.5, sigma = 0.2, nu = 0.95, lower.tail = FALSE), from = 0, to = 5, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
+curve(pWG(x, mu = 0.5, sigma = 0.2, nu = 0.95), from = 0, to = 5, 
+ylim = c(0, 1), col = "red", las = 1, ylab = "The cumulative distribution function")
+curve(pWG(x, mu = 0.5, sigma = 0.2, nu = 0.95, lower.tail = FALSE), 
+from = 0, to = 5, ylim = c(0, 1), col = "red", las = 1, ylab = "The Reliability function")
 
 ## The quantile function
 p <- seq(from = 0, to = 0.99999, length.out = 100)
-plot(x = qWG(p = p, mu = 0.5, sigma = 0.2, nu = 0.95), y = p, xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pWG(x, mu = 0.5, sigma = 0.2, nu = 0.95), from = 0, add = TRUE, col = "red")
+plot(x = qWG(p = p, mu = 0.5, sigma = 0.2, nu = 0.95), y = p, 
+xlab = "Quantile", las = 1, ylab = "Probability")
+curve(pWG(x, mu = 0.5, sigma = 0.2, nu = 0.95), from = 0, add = TRUE, 
+col = "red")
 
 ## The random function
-hist(rWG(1000, mu = 0.5, sigma = 0.2, nu = 0.95), freq = FALSE, xlab = "x", ylim = c(0, 0.2), las = 1, main = "")
-curve(dWG(x, mu = 0.5, sigma = 0.2, nu = 0.95),  from = 0, add = TRUE, col = "red", ylim = c(0, 0.2))
+hist(rWG(1000, mu = 0.5, sigma = 0.2, nu = 0.95), freq = FALSE, xlab = "x", 
+ylim = c(0, 0.2), las = 1, main = "")
+curve(dWG(x, mu = 0.5, sigma = 0.2, nu = 0.95),  from = 0, add = TRUE, 
+col = "red", ylim = c(0, 0.2))
 
 ## The Hazard function
-curve(hWG(x, mu = 0.5, sigma = 0.2, nu = 0.95), from = 0, to = 15, ylim = c(0, 2.2), col = "red", ylab = "The hazard function", las = 1)
+curve(hWG(x, mu = 0.5, sigma = 0.2, nu = 0.95), from = 0, to = 15, 
+ylim = c(0, 2.2), col = "red", ylab = "The hazard function", las = 1)
 
 }

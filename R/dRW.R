@@ -19,7 +19,7 @@
 #' 
 #' \eqn{f(y) = \mu\sigma (-y) ^{\sigma - 1} e ^ {-\mu(-y)^\sigma},}
 #' 
-#' for x < 0.
+#' for y < 0.
 #' 
 #' @return 
 #' \code{dRW} gives the density, \code{pRW} gives the distribution 
