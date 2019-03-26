@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The Sarhan and Zaindin's Modified Weibull Distribution — dSZMW • RelDists</title>
+<title>The Sarhan and Zaindin's Modified Weibull distribution — dSZMW • RelDists</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="The Sarhan and Zaindin's Modified Weibull Distribution — dSZMW" />
+<meta property="og:title" content="The Sarhan and Zaindin's Modified Weibull distribution — dSZMW" />
 
 <meta property="og:description" content="Density, distribution function, quantile function, 
 random generation and hazard function for Sarhan and Zaindins modified weibull distribution
@@ -117,7 +117,7 @@ with parameters mu, sigma and nu." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The Sarhan and Zaindin's Modified Weibull Distribution</h1>
+    <h1>The Sarhan and Zaindin's Modified Weibull distribution</h1>
     
     <div class="hidden name"><code>dSZMW.Rd</code></div>
     </div>
@@ -213,8 +213,10 @@ for x &gt; 0.</p>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='fu'>rSZMW</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>), <span class='kw'>freq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"x"</span>,
      <span class='kw'>las</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>""</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/curve'>curve</a></span>(<span class='fu'>dSZMW</span>(<span class='no'>x</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>),  <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><div class='img'><img src='dSZMW-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## The Hazard function</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>mfrow</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/curve'>curve</a></span>(<span class='fu'>hSZMW</span>(<span class='no'>x</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>), <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>8</span>),
-      <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"The hazard function"</span>, <span class='kw'>las</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='dSZMW-4.png' alt='' width='700' height='433' /></div></pre>
+      <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"The hazard function"</span>, <span class='kw'>las</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='dSZMW-4.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

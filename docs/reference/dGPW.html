@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The Generalized power Weibull Distribution — dGPW • RelDists</title>
+<title>The Generalized power Weibull distribution — dGPW • RelDists</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="The Generalized power Weibull Distribution — dGPW" />
+<meta property="og:title" content="The Generalized power Weibull distribution — dGPW" />
 
 <meta property="og:description" content="Density, distribution function, quantile function, 
 random generation and hazard function for the Generalized power Weibull Distribution with
@@ -117,7 +117,7 @@ parameters mu, sigma and nu." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The Generalized power Weibull Distribution</h1>
+    <h1>The Generalized power Weibull distribution</h1>
     
     <div class="hidden name"><code>dGPW.Rd</code></div>
     </div>
@@ -214,8 +214,11 @@ generates random deviates and <code>hGPW</code> gives the hazard function.</p>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='fu'>rGPW</span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.2</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>2.0</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.3</span>), <span class='kw'>freq</span><span class='kw'>=</span><span class='fl'>FALSE</span>,
     <span class='kw'>xlab</span><span class='kw'>=</span><span class='st'>"x"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>main</span><span class='kw'>=</span><span class='st'>""</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/curve'>curve</a></span>(<span class='fu'>dGPW</span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.2</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>2.0</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.3</span>), <span class='kw'>xlim</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>2</span>), <span class='kw'>add</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>)</div><div class='img'><img src='dGPW-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## The Hazard function</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>mfrow</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/curve'>curve</a></span>(<span class='fu'>hGPW</span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.2</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>2.0</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.3</span>), <span class='kw'>xlim</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>2</span>), <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>7</span>),
-     <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"Hazard function"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='dGPW-4.png' alt='' width='700' height='433' /></div></pre>
+     <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"Hazard function"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='dGPW-4.png' alt='' width='700' height='433' /></div><div class='input'>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
