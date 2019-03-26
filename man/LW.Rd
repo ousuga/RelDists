@@ -2,7 +2,7 @@
 % Please edit documentation in R/LW.R
 \name{LW}
 \alias{LW}
-\title{The Log-Weibull Distribution}
+\title{The Log-Weibull family}
 \usage{
 LW(mu.link = "identity", sigma.link = "log")
 }
@@ -12,7 +12,7 @@ LW(mu.link = "identity", sigma.link = "log")
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 }
 \description{
-The Log-Weibull Distribution
+The Log-Weibull distribution
 }
 \details{
 The Log-Weibull Distribution with parameters \code{mu} 

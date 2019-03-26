@@ -50,6 +50,7 @@
 #' curve(dFWE(x, mu=2, sigma=0.5), from=0, to=3, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hFWE(x, mu=0.75, sigma=0.5), from=0, to=2, ylim=c(0, 2.5), 
 #'       col="red", ylab="Hazard function", las=1)
 #' 
@@ -67,8 +68,7 @@ dFWE <- function(x, mu, sigma, log=FALSE){
   
   if (log == FALSE) 
     density <- exp(loglik)
-  else 
-    density <- loglik
+  else density <- loglik
   return(density)
 }
 #' @export
@@ -90,7 +90,6 @@ pFWE <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
     cdf <- cdf
   else cdf <- log(cdf)
   cdf
-  
 }
 #' @importFrom stats uniroot
 #' @export
@@ -113,7 +112,6 @@ qFWE <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE) {
   fda <- function(x,mu, sigma){
     1- exp(-exp(mu*x - sigma/x))
   }
-  
   fda1 <- function(x, mu, sigma, p) {fda(x, mu, sigma) - p}
   r_de_la_funcion <- function(mu, sigma, p) {
     uniroot(fda1, interval=c(0, 1e+06), mu, sigma, p)$root
@@ -121,16 +119,14 @@ qFWE <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE) {
   r_de_la_funcion <- Vectorize(r_de_la_funcion)
   q <- r_de_la_funcion(mu, sigma, p)
   q
-  
 }
-
 #' @export
 #' @rdname dFWE
 rFWE <- function(n, mu, sigma){
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
-    stop(paste("sigma must be positive", "\n", ""))  
+    stop(paste("sigma must be positive", "\n", ""))
   
   n <- ceiling(n)
   p <- runif(n)
@@ -151,5 +147,3 @@ hFWE <- function(x, mu, sigma){
     pFWE(q=x, mu, sigma, lower.tail=FALSE, log.p=FALSE)
   h
 }
-
-

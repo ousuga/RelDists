@@ -76,6 +76,7 @@ hist(rFWE(n=1000, mu=2, sigma=0.5), freq=FALSE, xlab="x",
 curve(dFWE(x, mu=2, sigma=0.5), from=0, to=3, add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hFWE(x, mu=0.75, sigma=0.5), from=0, to=2, ylim=c(0, 2.5), 
       col="red", ylab="Hazard function", las=1)
 

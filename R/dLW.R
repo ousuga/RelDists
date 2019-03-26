@@ -1,4 +1,4 @@
-#' The Log-Weibull Distribution
+#' The Log-Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -50,6 +50,7 @@
 #' curve(dLW(x, mu=0, sigma=1.5), from=-15, to=6, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hLW(x, mu=0, sigma=1.5), from=-8, to=7,
 #'       col="red", ylab="Hazard function", las=1)
 #'
@@ -57,11 +58,12 @@
 dLW <- function(x, mu, sigma, log=FALSE){
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   loglik <- -log(sigma) + (x-mu)/sigma - exp((x-mu)/sigma)
+  
   if (log == FALSE) 
     density <- exp(loglik)
-  else 
-    density <- loglik
+  else density <- loglik
   return(density)
 }
 #' @export
@@ -70,7 +72,9 @@ pLW <- function(q, mu, sigma,
                 lower.tail=TRUE, log.p=FALSE){
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   cdf <- 1 - exp(-exp((q-mu)/sigma))
+  
   if (lower.tail == TRUE) 
     cdf <- cdf
   else cdf <- 1 - cdf
@@ -84,6 +88,7 @@ pLW <- function(q, mu, sigma,
 qLW <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   if (log.p == TRUE) 
     p <- exp(p)
   else p <- p
@@ -92,6 +97,7 @@ qLW <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   q <- sigma*(log(-log(1-p))) + mu  
   q
 }
@@ -103,6 +109,7 @@ rLW <- function(n, mu, sigma){
     stop(paste("n must be positive", "\n", ""))
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qLW(p, mu, sigma)
@@ -113,8 +120,8 @@ rLW <- function(n, mu, sigma){
 hLW<-function(x, mu, sigma){
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   h <- dLW(x, mu, sigma, log = FALSE) / 
     pLW(q=x, mu, sigma, lower.tail=FALSE, log.p=FALSE)
   h
 }
-

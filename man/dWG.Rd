@@ -6,7 +6,7 @@
 \alias{qWG}
 \alias{rWG}
 \alias{hWG}
-\title{The Weibull Geometric Distribution}
+\title{The Weibull Geometric distribution}
 \usage{
 dWG(x, mu, sigma, nu, log = FALSE)
 

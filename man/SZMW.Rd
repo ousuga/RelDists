@@ -14,7 +14,7 @@ SZMW(mu.link = "log", sigma.link = "log", nu.link = "log")
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
 \description{
-The Sarhan and Zaindin's Modified Weibull family
+The Sarhan and Zaindin's Modified Weibull distribution
 }
 \details{
 The Sarhan and Zaindin's Modified Weibull distribution with parameters \code{mu}, 

@@ -1,7 +1,7 @@
 #' The Sarhan and Zaindin's Modified Weibull family
 #' 
 #' @description 
-#' The Sarhan and Zaindin's Modified Weibull family
+#' The Sarhan and Zaindin's Modified Weibull distribution
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
@@ -56,8 +56,7 @@
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
-SZMW <- function (mu.link="log", sigma.link="log", nu.link="log") 
-{
+SZMW <- function (mu.link="log", sigma.link="log", nu.link="log") {
   mstats <- checklink("mu.link", "Sarhan and Zaindin's Modified Weibull", 
                       substitute(mu.link), c("log", "own"))
   dstats <- checklink("sigma.link", "Sarhan and Zaindin's Modified Weibull",
@@ -70,53 +69,48 @@ SZMW <- function (mu.link="log", sigma.link="log", nu.link="log")
                  nopar=3, 
                  type="Continuous", 
                  
-                 mu.link    = as.character(substitute(mu.link)), 
-                 sigma.link = as.character(substitute(sigma.link)), 
-                 nu.link    = as.character(substitute(nu.link)),
+                       mu.link = as.character(substitute(mu.link)), 
+                    sigma.link = as.character(substitute(sigma.link)), 
+                       nu.link = as.character(substitute(nu.link)),
                  
-                 mu.linkfun    = mstats$linkfun, 
+                    mu.linkfun = mstats$linkfun, 
                  sigma.linkfun = dstats$linkfun, 
-                 nu.linkfun    = vstats$linkfun,
+                    nu.linkfun = vstats$linkfun,
                  
-                 mu.linkinv    = mstats$linkinv, 
+                    mu.linkinv = mstats$linkinv, 
                  sigma.linkinv = dstats$linkinv, 
-                 nu.linkinv    = vstats$linkinv,
+                    nu.linkinv = vstats$linkinv,
                  
-                 mu.dr    = mstats$mu.eta, 
-                 sigma.dr = dstats$mu.eta, 
-                 nu.dr    = vstats$mu.eta,
+                         mu.dr = mstats$mu.eta, 
+                      sigma.dr = dstats$mu.eta, 
+                         nu.dr = vstats$mu.eta,
                  
-                 # Inicio de las derivadas
-                 
-                 # Primeras derivadas ---------------------------------
-                 dldm   =  function(y, mu, sigma, nu) {
+                 dldm = function(y, mu, sigma, nu) {
                    A    <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldm <- A - y
                    dldm
                  },
                  
-                 dldd   =  function(y, mu, sigma, nu) {
+                 dldd = function(y, mu, sigma, nu) {
                    A    <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldd <- A * nu * (y^(nu - 1)) - y^nu
                    dldd
                  },
                  
-                 dldv   =  function(y, mu, sigma, nu) {
+                 dldv = function(y, mu, sigma, nu) {
                    A    <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldv <- A*(sigma * y^(nu - 1))*(1+ nu*log(y)) - sigma*y^nu*log(y)
                    dldv
                  },
                  
-                 
-                 # Segundas derivadas ---------------------------------
-                 d2ldm2   =  function(y, mu, sigma, nu) {
+                 d2ldm2 = function(y, mu, sigma, nu) {
                    A      <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldm   <- A - y
                    d2ldm2 <- -dldm * dldm
                    d2ldm2
                  },
                  
-                 d2ldmdd   =  function(y, mu, sigma, nu) {
+                 d2ldmdd  = function(y, mu, sigma, nu) {
                    A       <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldm    <- A - y
                    dldd    <- A * nu * (y^(nu - 1)) - y^nu
@@ -124,7 +118,7 @@ SZMW <- function (mu.link="log", sigma.link="log", nu.link="log")
                    d2ldmdd
                  },
                  
-                 d2ldmdv   =  function(y, mu, sigma, nu) {
+                 d2ldmdv = function(y, mu, sigma, nu) {
                    A       <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldm    <- A - y
                    dldv    <- A*(sigma * y^(nu - 1))*(1+ nu*log(y)) - sigma*y^nu*log(y)
@@ -132,14 +126,14 @@ SZMW <- function (mu.link="log", sigma.link="log", nu.link="log")
                    d2ldmdv
                  },
                  
-                 d2ldd2   =  function(y, mu, sigma, nu) {
+                 d2ldd2 = function(y, mu, sigma, nu) {
                    A      <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldd   <- A * nu * (y^(nu - 1)) - y^nu
                    d2ldd2 <- -dldd * dldd
                    d2ldd2
                  },
                  
-                 d2ldddv   =  function(y, mu, sigma, nu) {
+                 d2ldddv = function(y, mu, sigma, nu) {
                    A       <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldd    <- A * nu * (y^(nu - 1)) - y^nu
                    dldv    <- A*(sigma * y^(nu - 1))*(1+ nu*log(y)) - sigma*y^nu*log(y)
@@ -147,28 +141,25 @@ SZMW <- function (mu.link="log", sigma.link="log", nu.link="log")
                    d2ldddv
                  },
                  
-                 d2ldv2   =  function(y, mu, sigma, nu) {
+                 d2ldv2 = function(y, mu, sigma, nu) {
                    A      <- 1/(mu + (sigma * nu * y^(nu - 1)))
                    dldv   <- A*(sigma * y^(nu - 1))*(1+ nu*log(y)) - sigma*y^nu*log(y)
                    d2ldv2 <- -dldv * dldv
                    d2ldv2
                  },
                  
-                 # Fin de las derivadas -------------------
+                    G.dev.incr = function(y, mu, sigma, nu, ...) -2*dSZMW(y, mu, sigma, nu, log=TRUE), 
+                         rqres = expression(rqres(pfun="pSZMW", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu)), 
                  
-                 
-                 G.dev.incr = function(y, mu, sigma, nu, ...) -2*dSZMW(y, mu, sigma, nu, log=TRUE), 
-                 rqres      = expression(rqres(pfun="pSZMW", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu)), 
-                 
-                 mu.initial    = expression(mu    <- rep(1, length(y))), 
+                    mu.initial = expression(mu    <- rep(1, length(y))), 
                  sigma.initial = expression(sigma <- rep(1, length(y))), 
-                 nu.initial    = expression(nu    <- rep(1, length(y))),
+                    nu.initial = expression(nu    <- rep(1, length(y))),
                  
-                 mu.valid    = function(mu)    all(mu > 0), 
-                 sigma.valid = function(sigma) all(sigma > 0), 
-                 nu.valid    = function(nu)    all(nu > 0),
+                      mu.valid = function(mu)    all(mu > 0), 
+                   sigma.valid = function(sigma) all(sigma > 0), 
+                      nu.valid = function(nu)    all(nu > 0),
                  
-                 y.valid = function(y) all(y > 0)
+                       y.valid = function(y) all(y > 0)
   ), 
   class=c("gamlss.family", "family"))
 }

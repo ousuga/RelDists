@@ -6,7 +6,7 @@
 \alias{qSZMW}
 \alias{rSZMW}
 \alias{hSZMW}
-\title{The Sarhan and Zaindin's Modified Weibull Distribution}
+\title{The Sarhan and Zaindin's Modified Weibull distribution}
 \usage{
 dSZMW(x, mu, sigma, nu, log = FALSE)
 
@@ -78,6 +78,7 @@ hist(rSZMW(n = 1000, mu = 2, sigma = 1.5, nu = 0.2), freq = FALSE, xlab = "x",
 curve(dSZMW(x, mu = 2, sigma = 1.5, nu = 0.2),  from = 0, add = TRUE, col = "red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hSZMW(x, mu = 2, sigma = 1.5, nu = 0.2), from = 0, to = 3, ylim = c(0, 8),
       col = "red", ylab = "The hazard function", las = 1)
 

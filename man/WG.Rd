@@ -14,7 +14,7 @@ WG(mu.link = "log", sigma.link = "log", nu.link = "logit")
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
 \description{
-The Weibull Geometric family
+The Weibull Geometric distribution
 }
 \details{
 The weibull geometric distribution with parameters \code{mu},

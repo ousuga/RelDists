@@ -12,7 +12,7 @@ IW(mu.link = "log", sigma.link = "log")
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 }
 \description{
-The Inverse Weibull family
+The Inverse Weibull distribution
 }
 \details{
 The Inverse Weibull distribution with parameters \code{mu}, 

@@ -6,7 +6,7 @@
 \alias{qPL}
 \alias{rPL}
 \alias{hPL}
-\title{The Power Lindley Distribution}
+\title{The Power Lindley distribution}
 \usage{
 dPL(x, mu, sigma, log = FALSE)
 
@@ -76,6 +76,7 @@ hist(rPL(n=10000, mu=1.5, sigma=0.2), freq=FALSE,
 curve(dPL(x, mu=1.5, sigma=0.2), from=0, to=15, add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hPL(x, mu=1.5, sigma=0.2), from=0, to=15,
       col="red", ylab="Hazard function", las=1)
 

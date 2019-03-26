@@ -1,4 +1,4 @@
-#' The Modified Weibull Distribution
+#' The Modified Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -52,6 +52,7 @@
 #' curve(dMW(x, mu=2, sigma=1.5, nu=0.2), from=0, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hMW(x, mu=2, sigma=1.5, nu=0.2), from=0, to=1.5, ylim=c(0, 5),
 #'  col="red", las=1, ylab="H(x)", las=1)
 #' 
@@ -65,8 +66,10 @@ dMW <- function(x, mu, sigma, nu, log = FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu < 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   loglik<- log(mu) + log(sigma + nu*x) + (sigma-1)*log(x) +
     nu*x - mu*(x^sigma)*exp(nu*x)
+  
   if (log == FALSE) density<- exp(loglik)
   else density <- loglik
   return(density)
@@ -82,7 +85,9 @@ pMW <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p = FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu < 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   cdf <- 1- exp(-mu*(q^sigma) * exp(nu*q))
+  
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf
   if (log.p == FALSE)  cdf <- cdf
@@ -98,12 +103,14 @@ qMW <- function(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu < 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   if (log.p == TRUE) p <- exp(p)
   else p <- p
   if (lower.tail == TRUE) p <- p
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   fda <- function(x, mu, sigma, nu){
     1- exp(-mu*(x^sigma) * exp(nu*x))
   }
@@ -124,6 +131,7 @@ rMW <- function(n, mu, sigma, nu){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu < 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qMW(p, mu, sigma, nu) 
@@ -140,6 +148,7 @@ hMW<-function(x, mu, sigma, nu){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu < 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   h <- dMW(x, mu, sigma, nu, log = FALSE)/
     pMW(q=x, mu, sigma, nu, lower.tail=FALSE, log.p = FALSE)
   h  

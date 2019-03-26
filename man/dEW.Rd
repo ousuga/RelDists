@@ -6,7 +6,7 @@
 \alias{qEW}
 \alias{rEW}
 \alias{hEW}
-\title{The Exponentiated Weibull Distribution}
+\title{The Exponentiated Weibull distribution}
 \usage{
 dEW(x, mu, sigma, nu, log = FALSE)
 
@@ -76,6 +76,7 @@ hist(rEW(n=10000, mu=2, sigma=1.5, nu=0.5), freq=FALSE,
 curve(dEW(x, mu=2, sigma=1.5, nu=0.5), from=0, add=TRUE, col="red") 
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hEW(x, mu=2, sigma=1.5, nu=0.5), from=0, to=2, ylim=c(0, 7), 
       col="red", ylab="Hazard function", las=1)
 

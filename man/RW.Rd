@@ -2,7 +2,7 @@
 % Please edit documentation in R/RW.R
 \name{RW}
 \alias{RW}
-\title{Reflected Weibull Distribution}
+\title{Reflected Weibull family}
 \usage{
 RW(mu.link = "log", sigma.link = "log")
 }
@@ -12,7 +12,7 @@ RW(mu.link = "log", sigma.link = "log")
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 }
 \description{
-Reflected Weibull Distribution
+Reflected Weibull distribution
 }
 \details{
 The Reflected Weibull Distribution with parameters \code{mu} 

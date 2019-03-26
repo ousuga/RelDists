@@ -6,7 +6,7 @@
 \alias{qKW}
 \alias{rKW}
 \alias{hKW}
-\title{The Kumaraswamy Weibull Distribution}
+\title{The Kumaraswamy Weibull distribution}
 \usage{
 dKW(x, mu, sigma, nu, tau, log = FALSE)
 
@@ -80,6 +80,7 @@ hist(rKW(n=10000, mu=3, sigma=0.8, nu=2.0, tau=1.5), freq=FALSE,
 curve(dKW(x, mu=3, sigma=0.8, nu=2.0, tau=1.5), from=0, add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hKW(x, mu=3, sigma=0.8, nu=2.0, tau=1.5), from=0, to=2, ylim=c(0, 7),
       col="red", ylab="Hazard function", las=1)
 

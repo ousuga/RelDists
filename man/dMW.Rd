@@ -6,7 +6,7 @@
 \alias{qMW}
 \alias{rMW}
 \alias{hMW}
-\title{The Modified Weibull Distribution}
+\title{The Modified Weibull distribution}
 \usage{
 dMW(x, mu, sigma, nu, log = FALSE)
 
@@ -79,6 +79,7 @@ hist(rMW(n=1000, mu=2, sigma=1.5, nu=0.2), freq=FALSE,
 curve(dMW(x, mu=2, sigma=1.5, nu=0.2), from=0, add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hMW(x, mu=2, sigma=1.5, nu=0.2), from=0, to=1.5, ylim=c(0, 5),
  col="red", las=1, ylab="H(x)", las=1)
 

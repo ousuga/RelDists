@@ -1,4 +1,4 @@
-#' Reflected Weibull Distribution
+#' Reflected Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -50,6 +50,7 @@
 #' curve(dRW(x, mu=1, sigma=1), from=-5, to=-0.01, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hRW(x, mu=1, sigma=1), from=-0.3, to=-0.01,
 #'       col="red", ylab="Hazard function", las=1)
 #'
@@ -61,8 +62,10 @@ dRW <- function(x, mu, sigma, log=FALSE){
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   loglik<- log(mu) + log(sigma) + (sigma-1)*log(-x) -
     mu*((-x)^sigma)
+  
   if (log == FALSE) 
     density <- exp(loglik)
   else 
@@ -79,6 +82,7 @@ pRW <- function(q, mu, sigma,
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   cdf <- exp(-mu*(-q)^sigma)
   if (lower.tail == TRUE) 
     cdf <- cdf
@@ -96,6 +100,7 @@ qRW <- function(p, mu, sigma,
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   if (log.p == TRUE) 
     p <- exp(p)
   else p <- p
@@ -104,6 +109,7 @@ qRW <- function(p, mu, sigma,
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   q <- -{((-1/mu)*log(p))^(1/sigma)}
   q
 }
@@ -117,6 +123,7 @@ rRW <- function(n, mu, sigma){
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qRW(p, mu, sigma)
@@ -131,6 +138,7 @@ hRW<-function(x, mu, sigma){
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
+  
   h <- dRW(x, mu, sigma, log=FALSE) /
     pRW(q=x, mu, sigma, lower.tail=FALSE, log.p=FALSE)
   h

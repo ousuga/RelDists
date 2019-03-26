@@ -1,4 +1,4 @@
-#' The Sarhan and Zaindin's Modified Weibull Distribution
+#' The Sarhan and Zaindin's Modified Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -51,6 +51,7 @@
 #' curve(dSZMW(x, mu = 2, sigma = 1.5, nu = 0.2),  from = 0, add = TRUE, col = "red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hSZMW(x, mu = 2, sigma = 1.5, nu = 0.2), from = 0, to = 3, ylim = c(0, 8),
 #'       col = "red", ylab = "The hazard function", las = 1)
 #' 
@@ -64,7 +65,9 @@ dSZMW<-function(x, mu, sigma, nu, log=FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   loglik<- log(mu + sigma*nu*x^(nu-1)) - mu*x - sigma*x^nu
+  
   if (log == FALSE) density<- exp(loglik)
   else density <- loglik
   return(density)
@@ -80,6 +83,7 @@ pSZMW <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   cdf <- 1- exp(-mu*q -sigma*(q^nu))
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf
@@ -96,12 +100,14 @@ qSZMW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <=0 )) 
     stop(paste("nu must be positive", "\n", ""))
+  
   if (log.p == TRUE) p <- exp(p)
   else p <- p
   if (lower.tail == TRUE) p <- p
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   fda <- function(x, mu, sigma, nu){ 1- exp(-mu*x - sigma*(x^nu))}
   fda1 <- function(x, mu, sigma, nu, p) {fda(x, mu, sigma, nu) - p}
   r_de_la_funcion <- function(mu, sigma, nu, p) {
@@ -120,6 +126,7 @@ rSZMW<- function(n, mu, sigma, nu){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qSZMW(p, mu, sigma, nu)
@@ -136,6 +143,7 @@ hSZMW<-function(x, mu, sigma, nu){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   h <- dSZMW(x, mu, sigma, nu, log=FALSE)/
     pSZMW(q=x, mu, sigma, nu, lower.tail=FALSE, log.p=FALSE)
   h  

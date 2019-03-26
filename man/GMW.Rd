@@ -2,7 +2,7 @@
 % Please edit documentation in R/GMW.R
 \name{GMW}
 \alias{GMW}
-\title{The Generalized modified Weibull Distribution}
+\title{The Generalized Modified Weibull family}
 \usage{
 GMW(mu.link = "log", sigma.link = "log", nu.link = "sqrt",
   tau.link = "sqrt")
@@ -17,7 +17,7 @@ GMW(mu.link = "log", sigma.link = "log", nu.link = "sqrt",
 \item{tau.link}{defines the tau.link, with "sqrt" link as the default for the tau parameter.}
 }
 \description{
-The Generalized modified Weibull Distribution
+The Generalized modified Weibull distribution
 }
 \details{
 The Generalized modified Weibull distribution with parameters \code{mu}, 

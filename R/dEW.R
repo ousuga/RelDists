@@ -1,4 +1,4 @@
-#' The Exponentiated Weibull Distribution
+#' The Exponentiated Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -52,6 +52,7 @@
 #' curve(dEW(x, mu=2, sigma=1.5, nu=0.5), from=0, add=TRUE, col="red") 
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hEW(x, mu=2, sigma=1.5, nu=0.5), from=0, to=2, ylim=c(0, 7), 
 #'       col="red", ylab="Hazard function", las=1)
 #'
@@ -65,12 +66,11 @@ dEW <- function(x, mu, sigma, nu, log = FALSE) {
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
-  
   loglik <- log(nu) + log(mu) + log(sigma) + (sigma - 1) * log(x) - mu * 
     (x^sigma) + (nu - 1) * log(1 - exp(-mu * (x^sigma)))
-  
   if (log == FALSE) 
-    density <- exp(loglik) else density <- loglik
+    density <- exp(loglik) 
+  else density <- loglik
   return(density)
 }
 #' @export
@@ -84,11 +84,15 @@ pEW <- function(q, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE) {
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   cdf <- (1 - exp(-mu * (q^sigma)))^nu
+  
   if (lower.tail == TRUE) 
-    cdf <- cdf else cdf <- 1 - cdf
+    cdf <- cdf 
+  else cdf <- 1 - cdf
   if (log.p == FALSE) 
-    cdf <- cdf else cdf <- log(cdf)
+    cdf <- cdf 
+  else cdf <- log(cdf)
   cdf
 }
 #' @export
@@ -102,13 +106,16 @@ qEW <- function(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE) {
     stop(paste("nu must be positive", "\n", ""))
   
   if (log.p == TRUE) 
-    p <- exp(p) else p <- p
-    if (lower.tail == TRUE) 
-      p <- p else p <- 1 - p
-      if (any(p < 0) | any(p > 1)) 
-        stop(paste("p must be between 0 and 1", "\n", ""))
-      q <- ((-1/mu) * log(1 - p^(1/nu)))^(1/sigma)
-      q
+    p <- exp(p)
+  else p <- p
+  if (lower.tail == TRUE) 
+    p <- p 
+  else p <- 1 - p
+  if (any(p < 0) | any(p > 1)) 
+    stop(paste("p must be between 0 and 1", "\n", ""))
+  
+  q <- ((-1/mu) * log(1 - p^(1/nu)))^(1/sigma)
+  q
 }
 #' @importFrom stats runif
 #' @export
@@ -122,6 +129,7 @@ rEW <- function(n, mu, sigma, nu) {
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qEW(p, mu, sigma, nu)
@@ -138,8 +146,8 @@ hEW <- function(x, mu, sigma, nu) {
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   h <- dEW(x, mu, sigma, nu, log = FALSE) / 
     pEW(x, mu, sigma, nu, lower.tail=FALSE, log.p=FALSE)
   h
 }
-

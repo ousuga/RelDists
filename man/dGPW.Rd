@@ -6,7 +6,7 @@
 \alias{qGPW}
 \alias{rGPW}
 \alias{hGPW}
-\title{The Generalized power Weibull Distribution}
+\title{The Generalized power Weibull distribution}
 \usage{
 dGPW(x, mu, sigma, nu, log = FALSE)
 
@@ -80,6 +80,7 @@ hist(rGPW(n=10000, mu=0.2, sigma=2.0, nu=0.3), freq=FALSE,
 curve(dGPW(x, mu=0.2, sigma=2.0, nu=0.3), xlim=c(0,2), add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hGPW(x, mu=0.2, sigma=2.0, nu=0.3), xlim=c(0,2), ylim=c(0, 7),
      col="red", ylab="Hazard function", las=1)
 

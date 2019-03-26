@@ -6,7 +6,7 @@
 \alias{qIW}
 \alias{rIW}
 \alias{hIW}
-\title{The Inverse Weibull Distribution}
+\title{The Inverse Weibull distribution}
 \usage{
 dIW(x, mu, sigma, log = FALSE)
 
@@ -76,6 +76,7 @@ hist(rIW(n=10000, mu=5, sigma=2.5), freq=FALSE, xlim=c(0,60),
 curve(dIW(x, mu=5, sigma=2.5), from=0, add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hIW(x, mu=5, sigma=2.5), from=0, to=15, ylim=c(0, 0.9),
    col="red", ylab="Hazard function", las=1)
 

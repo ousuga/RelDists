@@ -67,8 +67,10 @@ dWGEE <- function(x, mu, sigma, nu, log=FALSE) {
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   loglik <- log(sigma) + log(nu) - nu*x + (sigma - 1)*log(1 - exp(-nu*x)) +
     log(1 - exp(-nu*mu*x)) - log(1 - sigma*(base::beta(mu + 1, sigma)))
+  
   if (log == FALSE) density <- exp(loglik)
   else density <- loglik
   return(density)
@@ -84,10 +86,12 @@ pWGEE <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   # The incomplete beta function
   ibeta <- function(x, a, b) {stats::pbeta(x, a, b, lower.tail=F) * base::beta(a, b)}
   cdf <- ((1-exp(-nu*q))^sigma - sigma * ibeta(exp(-nu*q), mu+1, sigma)) / 
     (1 - sigma * base::beta(mu + 1, sigma))
+  
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf
   if (log.p == FALSE) cdf <- cdf
@@ -103,12 +107,14 @@ qWGEE <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   if (log.p == TRUE) p <- exp(p)
   else p <- p
   if (lower.tail == TRUE) p <- p
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be sigmaween 0 and 1", "\n", ""))
+  
   F.inv <- function(y, mu, sigma, nu) {
     uniroot(function(x) {pWGEE(x,mu,sigma,nu) - y},
             interval=c(0, 99999))$root
@@ -128,6 +134,7 @@ rWGEE <- function(n, mu, sigma, nu){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qWGEE(p, mu, sigma, nu)
@@ -144,6 +151,7 @@ hWGEE<-function(x, mu, sigma, nu){
     stop(paste("mu must be positive", "\n", ""))  
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   h <- dWGEE(x,mu, sigma,nu, log = FALSE) / 
     pWGEE(q=x,mu, sigma,nu, lower.tail=FALSE, log.p = FALSE)
   h  

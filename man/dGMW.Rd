@@ -6,7 +6,7 @@
 \alias{qGMW}
 \alias{rGMW}
 \alias{hGMW}
-\title{The Generalized modified Weibull Distribution}
+\title{The Generalized modified Weibull distribution}
 \usage{
 dGMW(x, mu, sigma, nu, tau, log = FALSE)
 
@@ -82,6 +82,7 @@ hist(rGMW(n=1000, mu=2, sigma=0.5, nu=2,tau=1.5), freq=FALSE,
 curve(dGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5),  from=0, add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5), from=0, to=1, ylim=c(0, 16),
      col="red", ylab="The Hazard function", las=1)
 

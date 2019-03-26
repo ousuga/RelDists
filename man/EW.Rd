@@ -14,7 +14,7 @@ EW(mu.link = "log", sigma.link = "log", nu.link = "log")
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
 \description{
-The Exponentiated Weibull family
+The Exponentiated Weibull distribution
 }
 \details{
 The Exponentiated Weibull Distribution with parameters \code{mu}, 

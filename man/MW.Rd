@@ -14,7 +14,7 @@ MW(mu.link = "log", sigma.link = "log", nu.link = "log")
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
 \description{
-#' The Modified Weibull family
+#' The Modified Weibull distribution
 }
 \details{
 The Modified Weibull distribution with parameters \code{mu}, 

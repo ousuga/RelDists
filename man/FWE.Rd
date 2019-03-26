@@ -2,7 +2,7 @@
 % Please edit documentation in R/FWE.R
 \name{FWE}
 \alias{FWE}
-\title{The Flexible Weibull Extension distribution}
+\title{The Flexible Weibull Extension family}
 \usage{
 FWE(mu.link = "log", sigma.link = "log")
 }

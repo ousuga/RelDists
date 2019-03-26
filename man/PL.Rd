@@ -2,7 +2,7 @@
 % Please edit documentation in R/PL.R
 \name{PL}
 \alias{PL}
-\title{Power Lindley Distribution}
+\title{Power Lindley family}
 \usage{
 PL(mu.link = "log", sigma.link = "log")
 }
@@ -12,7 +12,7 @@ PL(mu.link = "log", sigma.link = "log")
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 }
 \description{
-Power Lindley Distribution
+Power Lindley distribution
 }
 \details{
 The Power Lindley Distribution with parameters \code{mu} 

@@ -1,4 +1,4 @@
-#' The Generalized modified Weibull Distribution 
+#' The Generalized modified Weibull distribution 
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -55,6 +55,7 @@
 #' curve(dGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5),  from=0, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #'curve(hGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5), from=0, to=1, ylim=c(0, 16),
 #'      col="red", ylab="The Hazard function", las=1)
 #'
@@ -77,8 +78,7 @@ dGMW <- function(x, mu, sigma, nu, tau, log=FALSE){
   
   if (log==FALSE) 
     density <- exp(loglik)
-  else 
-    density <- loglik
+  else density <- loglik
   return(density)
 }
 #' @export
@@ -96,6 +96,7 @@ pGMW <- function(q, mu, sigma, nu, tau, lower.tail=TRUE, log.p=FALSE){
     stop(paste("tau must be positive", "\n", ""))
   
   cdf <- (1-exp(-mu*(q^nu)*exp(tau*q)))^sigma
+  
   if (lower.tail==TRUE) 
     cdf <- cdf
   else cdf <- 1 - cdf
@@ -128,17 +129,13 @@ qGMW <- function(p, mu, sigma, nu, tau, lower.tail=TRUE, log.p=FALSE) {
   cdf <- function(x, mu, sigma, nu, tau){
     (1-exp((-mu*(x^nu))*exp(tau*x)))^sigma
   }
-  
   cdf1 <- function(x, mu, sigma, nu, tau, p) {cdf(x, mu, sigma, nu, tau) - p}
-  
-  root.cdf1 <- function(mu, sigma, nu, tau, p) {
+    root.cdf1 <- function(mu, sigma, nu, tau, p) {
     uniroot(cdf1, interval=c(0,1e+06), mu, sigma, nu, tau, p)$root
   }
-  
   root.cdf1 <- Vectorize(root.cdf1)
   q <- root.cdf1(mu, sigma, nu, tau, p)
   q
-  
 }
 #' @importFrom stats runif
 #' @export
@@ -152,6 +149,7 @@ rGMW <- function(n, mu, sigma, nu, tau){
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau<0)) 
     stop(paste("tau must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qGMW(p, mu, sigma, nu, tau)
@@ -170,6 +168,7 @@ hGMW <- function(x, mu, sigma, nu, tau, log=FALSE){
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau<0)) 
     stop(paste("tau must be positive", "\n", ""))
+  
   h <- dGMW(x, mu, sigma, nu, tau, log=FALSE) / 
        pGMW(q=x, mu, sigma, nu, tau, lower.tail=FALSE, log.p=FALSE)
   h

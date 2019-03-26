@@ -1,4 +1,4 @@
-#' The Weibull Geometric Distribution
+#' The Weibull Geometric distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -69,8 +69,10 @@ dWG<-function(x, mu, sigma, nu, log=FALSE){
     stop(paste("mu must be positive", "\n", ""))
   if (any(nu <= 0  | nu >= 1  )) 
     stop(paste("nu must be between zero and one", "\n", ""))
+  
   loglik <- log(sigma) + sigma*log(mu) + log(1-nu) + (sigma-1)*log(x) - 
     (mu*x)^sigma - 2*log(1-nu*exp(-(mu*x)^sigma))
+  
   if (log == FALSE) density<- exp(loglik)
   else density <- loglik
   return(density)
@@ -86,7 +88,9 @@ pWG <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
     stop(paste("mu must be positive", "\n", ""))
   if (any(nu <= 0  | nu >= 1  )) 
     stop(paste("p must be between zero and one", "\n", ""))
+  
   cdf <- (1 - exp(-(mu*q)^sigma)) / (1 - nu*exp(-(mu*q)^sigma))
+  
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf
   if (log.p == FALSE) cdf <- cdf
@@ -102,12 +106,14 @@ qWG <- function(p, sigma, mu, nu, lower.tail = TRUE, log.p = FALSE) {
     stop(paste("mu must be positive", "\n", ""))
   if (any(nu <= 0  | nu >= 1  )) 
     stop(paste("nu must be between zero and one", "\n", ""))
+  
   if (log.p == TRUE) p <- exp(p)
   else p <- p
   if (lower.tail == TRUE) p <- p
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   fda <- function(x,sigma, mu,nu){
     (1- exp(-(mu*x)^sigma))/(1-(nu*exp(-(mu*x)^sigma)))
   }
@@ -129,6 +135,7 @@ rWG <- function(n, mu, sigma, nu){
     stop(paste("mu must be positive", "\n", ""))  
   if (any(nu <= 0  | nu >= 1)) 
     stop(paste("nu must be between zero and one", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qWG(p, mu, sigma, nu)
@@ -145,6 +152,7 @@ hWG<-function(x, mu, sigma, nu){
     stop(paste("mu must be positive", "\n", ""))  
   if (any(nu <= 0  | nu >= 1)) 
     stop(paste("nu must be between zero and one", "\n", ""))
+  
   h <- dWG(x,mu, sigma,nu, log = FALSE) / 
     pWG(q=x,mu, sigma,nu, lower.tail=FALSE, log.p = FALSE)
   h  

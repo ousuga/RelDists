@@ -1,7 +1,7 @@
 #' The Inverse Weibull family
 #' 
 #' @description 
-#' The Inverse Weibull family
+#' The Inverse Weibull distribution
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
@@ -74,39 +74,34 @@ IW <- function (mu.link="log", sigma.link="log"){
                  mu.dr         = mstats$mu.eta, 
                  sigma.dr      = dstats$mu.eta, 
                  
-                 # Inicio de las derivadas
-                 
-                 # Primeras derivadas ---------------------------------
-                 dldm   = function(y, mu, sigma) {
+                 dldm = function(y, mu, sigma) {
                    dldm <- 1/mu - y^(-sigma)
                    dldm
                  },
                  
-                 dldd   = function(y, mu, sigma) {
+                 dldd = function(y, mu, sigma) {
                    dldd <- 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
                    dldd
                  },
                  
-                 # Segundas derivadas ---------------------------------
-                 d2ldm2   =  function(y, mu, sigma) {
-                   dldm <- 1/mu - y^(-sigma)
+                 d2ldm2 = function(y, mu, sigma) {
+                   dldm   <- 1/mu - y^(-sigma)
                    d2ldm2 <- -dldm * dldm
                    d2ldm2 
                  },
                  
-                 d2ldd2   =  function(y, mu, sigma) {
-                   dldd <- 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
+                 d2ldd2 = function(y, mu, sigma) {
+                   dldd   <- 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
                    d2ldd2 <- -dldd * dldd
                    d2ldd2
                  },
                  
-                 d2ldmdd   =  function(y, mu, sigma) {
-                   dldm <- 1/mu - y^(-sigma)
-                   dldd <- 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
+                 d2ldmdd = function(y, mu, sigma) {
+                   dldm    <- 1/mu - y^(-sigma)
+                   dldd    <- 1/sigma - log(y) +  mu*y^(-sigma)*log(y)
                    d2ldmdd <- -dldm * dldd
                    d2ldmdd
                  },
-                 # Fin de las derivadas -------------------
                  
                  G.dev.incr    = function(y, mu, sigma,...) -2*dIW(y, mu, sigma, log=TRUE), 
                  rqres         = expression(rqres(pfun="pIW", type="Continuous",
@@ -115,10 +110,10 @@ IW <- function (mu.link="log", sigma.link="log"){
                  mu.initial    = expression(mu    <- rep(1, length(y))), 
                  sigma.initial = expression(sigma <- rep(1, length(y))), 
                  
-                 mu.valid    = function(mu)    all(mu > 0), 
-                 sigma.valid = function(sigma) all(sigma > 0), 
+                 mu.valid      = function(mu)    all(mu > 0), 
+                 sigma.valid   = function(sigma) all(sigma > 0), 
                  
-                 y.valid     = function(y)     all(y > 0)
+                 y.valid       = function(y)     all(y > 0)
   ), 
   class=c("gamlss.family", "family"))
 }

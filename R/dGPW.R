@@ -1,4 +1,4 @@
-#' The Generalized power Weibull Distribution
+#' The Generalized power Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -29,31 +29,32 @@
 #'
 #' @examples  
 #'
-#'## The probability density function
-#'curve(dGPW(x, mu=0.2, sigma=2.0, nu=0.3), 
+#' ## The probability density function
+#' curve(dGPW(x, mu=0.2, sigma=2.0, nu=0.3), 
 #'      xlim=c(0,2), ylim=c(0, 2.5), col="red", las=1, ylab="f(x)")
 #'
 #'
-#'## The cumulative distribution and the Reliability function
-#'par(mfrow=c(1, 2))
-#'curve(pGPW(x, mu=0.2, sigma=2.0, nu=0.3), 
+#' ## The cumulative distribution and the Reliability function
+#' par(mfrow=c(1, 2))
+#' curve(pGPW(x, mu=0.2, sigma=2.0, nu=0.3), 
 #'      xlim=c(0,2), col="red", las=1, ylab="F(x)")
-#'curve(pGPW(x, mu=2, sigma=1.5, nu=0.5, lower.tail=FALSE),
+#' curve(pGPW(x, mu=2, sigma=1.5, nu=0.5, lower.tail=FALSE),
 #'      from=0, to=2, col="red", las=1, ylab="R(x)")
 #'
-#'## The quantile function
-#'p <- seq(from=0, to=0.99999, length.out=100)
-#'plot(x=qGPW(p, mu=0.2, sigma=2.0, nu=0.3), y=p, xlab="Quantile",
+#' ## The quantile function
+#' p <- seq(from=0, to=0.99999, length.out=100)
+#' plot(x=qGPW(p, mu=0.2, sigma=2.0, nu=0.3), y=p, xlab="Quantile",
 #'     las=1, ylab="Probability")
-#'curve(pGPW(x, mu=0.2, sigma=2.0, nu=0.3), xlim=c(0,2), add=TRUE, col="red")
+#' curve(pGPW(x, mu=0.2, sigma=2.0, nu=0.3), xlim=c(0,2), add=TRUE, col="red")
 #'
-#'## The random function
-#'hist(rGPW(n=10000, mu=0.2, sigma=2.0, nu=0.3), freq=FALSE,
+#' ## The random function
+#' hist(rGPW(n=10000, mu=0.2, sigma=2.0, nu=0.3), freq=FALSE,
 #'     xlab="x", las=1, main="")
-#'curve(dGPW(x, mu=0.2, sigma=2.0, nu=0.3), xlim=c(0,2), add=TRUE, col="red")
+#' curve(dGPW(x, mu=0.2, sigma=2.0, nu=0.3), xlim=c(0,2), add=TRUE, col="red")
 #'
-#'## The Hazard function
-#'curve(hGPW(x, mu=0.2, sigma=2.0, nu=0.3), xlim=c(0,2), ylim=c(0, 7),
+#' ## The Hazard function
+#' par(mfrow=c(1,1))
+#' curve(hGPW(x, mu=0.2, sigma=2.0, nu=0.3), xlim=c(0,2), ylim=c(0, 7),
 #'      col="red", ylab="Hazard function", las=1)
 #'
 #'
@@ -67,8 +68,10 @@ dGPW <- function(x, mu, sigma, nu, log=FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   loglik <- log(mu) + log(sigma) - log(nu) + (sigma-1) * log(x) +
     ((1/nu)-1)*log(1+mu*(x^sigma)) + (1-(1+mu*(x^sigma))^(1/nu))
+  
   if (log == FALSE) 
     density <- exp(loglik)
   else 
@@ -86,7 +89,9 @@ pGPW <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p = FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   cdf <- 1 - exp(1 - (1 + mu*(q^sigma))^(1/nu))
+  
   if (lower.tail == TRUE) 
     cdf <- cdf
   else cdf <- 1 - cdf
@@ -109,9 +114,10 @@ qGPW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   else p <- p
   if (lower.tail == TRUE) 
     p <- p
-  else p <- 1-p
+  else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   term <- 1-log(1-p)
   q <- (((term^nu)-1)/mu)^(1/sigma)
   q
@@ -128,6 +134,7 @@ rGPW <- function(n, mu, sigma, nu){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qGPW(p, mu, sigma, nu)
@@ -144,7 +151,7 @@ hGPW<-function(x, mu, sigma, nu){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
+  
   h <- dGPW(x, mu, sigma, nu, log=FALSE)/pGPW(q=x, mu, sigma, nu, lower.tail=FALSE, log.p=FALSE)
   h
 }
-

@@ -1,4 +1,4 @@
-#' The Kumaraswamy Weibull Distribution
+#' The Kumaraswamy Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -52,6 +52,7 @@
 #' curve(dKW(x, mu=3, sigma=0.8, nu=2.0, tau=1.5), from=0, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hKW(x, mu=3, sigma=0.8, nu=2.0, tau=1.5), from=0, to=2, ylim=c(0, 7),
 #'       col="red", ylab="Hazard function", las=1)
 #'
@@ -67,9 +68,11 @@ dKW <- function(x, mu, sigma, nu, tau, log=FALSE){
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
+  
   term <- -mu * (x^sigma)
   loglik <- log(nu*tau*mu*sigma) + (sigma-1)*log(x) + term + 
     (nu-1)*log(1-exp(term)) + (tau-1)*log(1-(1-exp(term))^nu)
+  
   if (log == FALSE) 
     density <- exp(loglik)
   else 
@@ -90,7 +93,9 @@ pKW <- function(q, mu, sigma, nu, tau,
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
+  
   cdf <- 1 - (1 - (1 - exp(-mu*q^sigma))^nu)^tau
+  
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf 
   if (log.p == FALSE) cdf <- cdf
@@ -109,12 +114,14 @@ qKW <- function(p, mu, sigma, nu, tau,
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
+  
   if (log.p == TRUE) p <- exp(p)
   else p <- p
   if (lower.tail == TRUE) p <- p
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   q <- ((-1/mu)*(log(1-(1-(1-p)^(1/tau))^(1/nu))))^(1/sigma)
   q
 }
@@ -132,6 +139,7 @@ rKW <- function(n, mu, sigma, nu, tau){
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qKW(p, mu, sigma, nu, tau)
@@ -150,6 +158,7 @@ hKW <- function(x, mu, sigma, nu, tau){
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
+  
   h <- dKW(x, mu, sigma, nu, tau, log=FALSE) / 
     pKW(x, mu, sigma, nu, tau, lower.tail=FALSE, log.p=FALSE)
   h

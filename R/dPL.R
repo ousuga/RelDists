@@ -1,4 +1,4 @@
-#' The Power Lindley Distribution
+#' The Power Lindley distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -50,6 +50,7 @@
 #' curve(dPL(x, mu=1.5, sigma=0.2), from=0, to=15, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hPL(x, mu=1.5, sigma=0.2), from=0, to=15,
 #'       col="red", ylab="Hazard function", las=1)
 #'
@@ -60,13 +61,14 @@ dPL <- function(x, mu, sigma, log=FALSE){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
-    stop(paste("sigma must be positive", "\n", ""))  
+    stop(paste("sigma must be positive", "\n", "")) 
+  
   loglik <- log(mu) + 2*log(sigma) - log(sigma+1) +
     log(1+(x^mu)) + (mu-1)*log(x) - sigma*(x^mu)
+  
   if (log == FALSE) 
     density <- exp(loglik)
-  else 
-    density <- loglik
+  else density <- loglik
   return(density)
 }
 #' @export
@@ -79,7 +81,9 @@ pPL <- function(q, mu, sigma,
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))  
+  
   cdf <- 1 - (1+((sigma/(sigma+1))*q^mu))*exp(-sigma*(q^mu))
+  
   if (lower.tail == TRUE) 
     cdf <- cdf
   else cdf <- 1 - cdf
@@ -95,7 +99,8 @@ qPL <- function(p, mu, sigma,
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
-    stop(paste("sigma must be positive", "\n", ""))  
+    stop(paste("sigma must be positive", "\n", "")) 
+  
   if (log.p == TRUE) 
     p <- exp(p)
   else p <- p
@@ -104,6 +109,7 @@ qPL <- function(p, mu, sigma,
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   fda <- function(x, mu, sigma){
     1 - (1+((sigma/(sigma+1))*x^mu))*exp(-sigma*(x^mu))
   }
@@ -126,7 +132,8 @@ rPL <- function(n, mu, sigma){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
-    stop(paste("sigma must be positive", "\n", ""))  
+    stop(paste("sigma must be positive", "\n", ""))
+  
   n <- ceiling(n)
   p <- runif(n)
   r <- qPL(p, mu, sigma)
@@ -140,10 +147,9 @@ hPL<-function(x, mu, sigma){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
-    stop(paste("sigma must be positive", "\n", ""))  
+    stop(paste("sigma must be positive", "\n", ""))
   
   h <- dPL(x, mu, sigma, log=FALSE) / 
     pPL(q=x, mu, sigma, lower.tail=FALSE, log.p=FALSE)
   h  
 }
-

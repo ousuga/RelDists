@@ -6,7 +6,7 @@
 \alias{qLW}
 \alias{rLW}
 \alias{hLW}
-\title{The Log-Weibull Distribution}
+\title{The Log-Weibull distribution}
 \usage{
 dLW(x, mu, sigma, log = FALSE)
 
@@ -76,6 +76,7 @@ hist(rLW(n=10000, mu=0, sigma=1.5), freq=FALSE,
 curve(dLW(x, mu=0, sigma=1.5), from=-15, to=6, add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hLW(x, mu=0, sigma=1.5), from=-8, to=7,
       col="red", ylab="Hazard function", las=1)
 

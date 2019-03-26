@@ -6,7 +6,7 @@
 \alias{qRW}
 \alias{rRW}
 \alias{hRW}
-\title{Reflected Weibull Distribution}
+\title{Reflected Weibull distribution}
 \usage{
 dRW(x, mu, sigma, log = FALSE)
 
@@ -76,6 +76,7 @@ hist(rRW(n=10000, mu=1, sigma=1), freq=FALSE,
 curve(dRW(x, mu=1, sigma=1), from=-5, to=-0.01, add=TRUE, col="red")
 
 ## The Hazard function
+par(mfrow=c(1,1))
 curve(hRW(x, mu=1, sigma=1), from=-0.3, to=-0.01,
       col="red", ylab="Hazard function", las=1)
 

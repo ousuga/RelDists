@@ -1,4 +1,4 @@
-#' The odd Weibull Distribution
+#' The Odd Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -51,16 +51,17 @@
 #'       add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hOW(x, mu=2, sigma=3, nu=0.2), from=0, to=2.5, ylim=c(0, 30), 
 #'       col="red", ylab="The hazard function", las=1)
 #'
 #' @export
 dOW<-function(x, mu, sigma, nu, log=FALSE){
-  if (any(x<0)) 
+  if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
-  if (any(mu<=0 )) 
+  if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma*nu<=0)) 
+  if (any(sigma*nu <= 0)) 
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
   loglik <- log(sigma*nu) - log(x) + sigma*( log(mu) + log(x) ) +
@@ -76,15 +77,14 @@ dOW<-function(x, mu, sigma, nu, log=FALSE){
 #' @export
 #' @rdname dOW
 pOW <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
-  if (any(q<0)) 
+  if (any(q < 0)) 
     stop(paste("q must be positive", "\n", ""))
-  if (any(mu<=0 )) 
+  if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma*nu<=0)) 
+  if (any(sigma*nu <= 0)) 
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
   cdf <- 1 - ( 1 + (exp((mu*q)^sigma) - 1)^nu )^(-1)
-  
   if (lower.tail)
     cdf <- cdf
   else cdf <- 1 - cdf
@@ -96,9 +96,9 @@ pOW <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
 #' @export
 #' @rdname dOW
 qOW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
-  if (any(mu<=0 )) 
+  if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma*nu<=0)) 
+  if (any(sigma*nu <= 0)) 
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
   if (log.p) 
@@ -109,6 +109,7 @@ qOW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   q <- (1/mu)*(log( 1 + (p*(1-p)^(-1))^(1/nu) ))^(1/sigma)
   q
 }
@@ -116,11 +117,11 @@ qOW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
 #' @export
 #' @rdname dOW
 rOW <- function(n, mu, sigma, nu){
-  if(any(n<=0))
+  if(any(n <= 0))
     stop(paste("n must be positive","\n",""))
-  if (any(mu<=0 )) 
+  if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma*nu<=0)) 
+  if (any(sigma*nu <= 0)) 
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
   n <- ceiling(n)
@@ -131,15 +132,15 @@ rOW <- function(n, mu, sigma, nu){
 #' @export
 #' @rdname dOW
 hOW<-function(x, mu, sigma, nu){
-  if (any(x<0)) 
+  if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
-  if (any(mu<=0 )) 
+  if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma*nu<=0)) 
+  if (any(sigma*nu <= 0)) 
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
-  h <- dOW(x, mu, sigma, nu, log=FALSE)/pOW(q=x, mu, sigma, nu, 
-                                            lower.tail=FALSE, log.p=FALSE)
+  h <- dOW(x, mu, sigma, nu, log=FALSE)/
+    pOW(q=x, mu, sigma, nu, lower.tail=FALSE, log.p=FALSE)
   h
 }
 

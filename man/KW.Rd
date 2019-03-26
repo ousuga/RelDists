@@ -2,7 +2,7 @@
 % Please edit documentation in R/KW.R
 \name{KW}
 \alias{KW}
-\title{The Kumaraswamy Weibull distribution}
+\title{The Kumaraswamy Weibull family}
 \usage{
 KW(mu.link = "log", sigma.link = "log", nu.link = "log",
   tau.link = "log")

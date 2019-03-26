@@ -1,4 +1,4 @@
-#' The Inverse Weibull Distribution
+#' The Inverse Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -50,6 +50,7 @@
 #' curve(dIW(x, mu=5, sigma=2.5), from=0, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
+#' par(mfrow=c(1,1))
 #' curve(hIW(x, mu=5, sigma=2.5), from=0, to=15, ylim=c(0, 0.9),
 #'    col="red", ylab="Hazard function", las=1)
 #'
@@ -66,8 +67,7 @@ dIW <- function(x, mu, sigma, log=FALSE){
   
   if (log == FALSE) 
     density <- exp(loglik) 
-  else 
-    density <- loglik
+  else density <- loglik
   return(density)  
 }
 #' @export
@@ -81,7 +81,6 @@ pIW <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   
   cdf <- exp((-mu)*(q^(-sigma)))
-  
   if (lower.tail == TRUE) 
     cdf <- cdf
   else cdf <- 1 - cdf
@@ -104,9 +103,9 @@ qIW <- function(p, mu, sigma, lower.tail = TRUE, log.p = FALSE){
   if (lower.tail == TRUE) 
     p <- p
   else  p <- 1 - p
-  
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
+  
   q <- ((-1/mu)*log(p))^(-1/sigma)
   q
 }
