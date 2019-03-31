@@ -124,7 +124,7 @@ GMW <- function (mu.link = "log", sigma.link = "log", nu.link = "sqrt", tau.link
                     }, 
                           
                  d2ldmdd = function(y, mu, sigma, nu, tau) {
-                    ndldm <- (1/mu)-(y^nu)*exp(tau*y)+(((sigma-1)*(y^nu)*exp(tau*y)*exp(-mu*(y^nu)*exp(tau*y)))/
+                    dldm <- (1/mu)-(y^nu)*exp(tau*y)+(((sigma-1)*(y^nu)*exp(tau*y)*exp(-mu*(y^nu)*exp(tau*y)))/
                                                          (1-exp(-mu*(y^nu)*exp(tau*y))))
                     dldd <- (1/sigma)+log(1-exp(-mu*(y^nu)*exp(tau*y)))
                     d2ldmdd <- -dldm*dldd
@@ -132,6 +132,7 @@ GMW <- function (mu.link = "log", sigma.link = "log", nu.link = "sqrt", tau.link
                     }, 
                              
                  d2ldmdv = function(y, mu, sigma, nu, tau) {
+                   dldd <- (1/sigma)+log(1-exp(-mu*(y^nu)*exp(tau*y)))
                    dldm <- (1/mu)-(y^nu)*exp(tau*y)+(((sigma-1)*(y^nu)*exp(tau*y)*exp(-mu*(y^nu)*exp(tau*y)))/
                                                        (1-exp(-mu*(y^nu)*exp(tau*y))))
                    part1 <- mu*exp(tau*y)*(y^nu)*log(y)
