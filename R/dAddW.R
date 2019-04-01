@@ -24,41 +24,41 @@
 #' for x > 0. 
 #' 
 #' @return 
-#' \code{dAdd} gives the density, \code{pAdd} gives the distribution 
-#' function, \code{qAdd} gives the quantile function, \code{rAdd}
-#' generates random deviates and \code{hAdd} gives the hazard function.
+#' \code{dAddW} gives the density, \code{pAddW} gives the distribution 
+#' function, \code{qAddW} gives the quantile function, \code{rAddW}
+#' generates random deviates and \code{hAddW} gives the hazard function.
 #'
 #' @examples  
 #' ## The probability density function
-#' curve(dAdd(x, mu=1.5, sigma=0.5, nu=3, tau=0.8), from=0.0001, to=2,
+#' curve(dAddW(x, mu=1.5, sigma=0.5, nu=3, tau=0.8), from=0.0001, to=2,
 #'       col="red", las=1, ylab="f(x)")
 #' 
 #' ## The cumulative distribution and the Reliability function
 #' par(mfrow=c(1, 2))
-#' curve(pAdd(x, mu=1.5, sigma=0.5, nu=3, tau=0.8),
+#' curve(pAddW(x, mu=1.5, sigma=0.5, nu=3, tau=0.8),
 #'       from=0.0001, to=2, col="red", las=1, ylab="F(x)")
-#' curve(pAdd(x, mu=1.5, sigma=0.5, nu=3, tau=0.8, lower.tail=FALSE),
+#' curve(pAddW(x, mu=1.5, sigma=0.5, nu=3, tau=0.8, lower.tail=FALSE),
 #'      from=0.0001, to=2, col="red", las=1, ylab="S(x)")
 #' 
 #' ## The quantile function
 #' p <- seq(from=0, to=0.99999, length.out=100)
-#' plot(x=qAdd(p, mu=1.5, sigma=0.2, nu=3, tau=0.8), y=p, xlab="Quantile",
+#' plot(x=qAddW(p, mu=1.5, sigma=0.2, nu=3, tau=0.8), y=p, xlab="Quantile",
 #'      las=1, ylab="Probability")
-#' curve(pAdd(x, mu=1.5, sigma=0.2, nu=3, tau=0.8), 
+#' curve(pAddW(x, mu=1.5, sigma=0.2, nu=3, tau=0.8), 
 #'       from=0, add=TRUE, col="red")
 #' 
 #' ## The random function
-#' hist(rAdd(n=10000, mu=1.5, sigma=0.2, nu=3, tau=0.8), freq=FALSE,
+#' hist(rAddW(n=10000, mu=1.5, sigma=0.2, nu=3, tau=0.8), freq=FALSE,
 #'      xlab="x", las=1, main="")
-#' curve(dAdd(x, mu=1.5, sigma=0.2, nu=3, tau=0.8),
+#' curve(dAddW(x, mu=1.5, sigma=0.2, nu=3, tau=0.8),
 #'       from=0.09, to=5, add=TRUE, col="red")
 #' 
 #' ## The Hazard function
-#' curve(hAdd(x, mu=1.5, sigma=0.2, nu=3, tau=0.8), from=0.001, to=1,
+#' curve(hAddW(x, mu=1.5, sigma=0.2, nu=3, tau=0.8), from=0.001, to=1,
 #'       col="red", ylab="Hazard function", las=1)
 #'
 #' @export
-dAdd <- function(x, mu, sigma,
+dAddW <- function(x, mu, sigma,
                  nu, tau, log=FALSE){
   if (any(x <= 0)) 
     stop(paste("x must be positive", "\n", ""))
@@ -82,8 +82,8 @@ dAdd <- function(x, mu, sigma,
   return(density)
 }
 #' @export
-#' @rdname dAdd
-pAdd <- function(q, mu, sigma, nu, tau, 
+#' @rdname dAddW
+pAddW <- function(q, mu, sigma, nu, tau, 
                  lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
@@ -105,8 +105,8 @@ pAdd <- function(q, mu, sigma, nu, tau,
   cdf
 }
 #' @export
-#' @rdname dAdd
-qAdd <- function(p, mu, sigma, nu, tau,
+#' @rdname dAddW
+qAddW <- function(p, mu, sigma, nu, tau,
                  lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
@@ -141,8 +141,8 @@ qAdd <- function(p, mu, sigma, nu, tau,
 }
 #' @importFrom stats runif
 #' @export
-#' @rdname dAdd
-rAdd <- function(n, mu, sigma, nu, tau){
+#' @rdname dAddW
+rAddW <- function(n, mu, sigma, nu, tau){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
@@ -154,12 +154,12 @@ rAdd <- function(n, mu, sigma, nu, tau){
   
   n <- ceiling(n)
   p <- runif(n)
-  r <- qAdd(p, mu, sigma, nu, tau)
+  r <- qAddW(p, mu, sigma, nu, tau)
   r
 }
 #' @export
-#' @rdname dAdd
-hAdd<-function(x, mu, sigma, nu, tau){
+#' @rdname dAddW
+hAddW <- function(x, mu, sigma, nu, tau){
   if (any(x <= 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0)) 
@@ -171,8 +171,8 @@ hAdd<-function(x, mu, sigma, nu, tau){
   if (any(tau <= 0)) 
     stop(paste("tau must be postive", "\n", ""))
   
-  h <- dAdd(x, mu, sigma, nu, tau, log=FALSE) / 
-    pAdd(q=x, mu, sigma, nu, tau, lower.tail=FALSE, log.p=FALSE)
+  h <- dAddW(x, mu, sigma, nu, tau, log=FALSE) / 
+    pAddW(q=x, mu, sigma, nu, tau, lower.tail=FALSE, log.p=FALSE)
   h  
 }
 
