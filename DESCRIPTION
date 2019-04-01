@@ -20,7 +20,8 @@ Encoding: UTF-8
 Imports: 
     gamlss,
     gamlss.dist,
-    gamlss.cens
+    gamlss.cens,
+    zipfR
 LazyData: true
 Suggests: knitr, rmarkdown, survival
 VignetteBuilder: knitr

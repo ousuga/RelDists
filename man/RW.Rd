@@ -2,7 +2,7 @@
 % Please edit documentation in R/RW.R
 \name{RW}
 \alias{RW}
-\title{Reflected Weibull family}
+\title{The Reflected Weibull family}
 \usage{
 RW(mu.link = "log", sigma.link = "log")
 }

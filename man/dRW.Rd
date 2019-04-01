@@ -6,7 +6,7 @@
 \alias{qRW}
 \alias{rRW}
 \alias{hRW}
-\title{Reflected Weibull distribution}
+\title{The Reflected Weibull distribution}
 \usage{
 dRW(x, mu, sigma, log = FALSE)
 

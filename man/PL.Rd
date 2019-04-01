@@ -2,7 +2,7 @@
 % Please edit documentation in R/PL.R
 \name{PL}
 \alias{PL}
-\title{Power Lindley family}
+\title{The Power Lindley family}
 \usage{
 PL(mu.link = "log", sigma.link = "log")
 }

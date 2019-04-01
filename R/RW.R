@@ -1,4 +1,4 @@
-#' Reflected Weibull family
+#' The Reflected Weibull family
 #' 
 #' @description 
 #' Reflected Weibull distribution

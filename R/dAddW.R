@@ -1,4 +1,4 @@
-#' Additive Weibull distribution
+#' The Additive Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 

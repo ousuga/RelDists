@@ -6,7 +6,7 @@
 \alias{qAddW}
 \alias{rAddW}
 \alias{hAddW}
-\title{Additive Weibull distribution}
+\title{The Additive Weibull distribution}
 \usage{
 dAddW(x, mu, sigma, nu, tau, log = FALSE)
 

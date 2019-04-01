@@ -82,7 +82,7 @@
       <h1>FWE distribution</h1>
                         <h4 class="author">Freddy Hernandez</h4>
             
-            <h4 class="date">2019-03-31</h4>
+            <h4 class="date">2019-04-01</h4>
       
       
       <div class="hidden name"><code>FWE_distribution.Rmd</code></div>
@@ -159,10 +159,10 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##   0.7119665
+##   0.6754324
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##    0.496686</code></pre></div>
+##   0.5281774</code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">10</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">1.5</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">''</span>)
@@ -195,10 +195,10 @@ y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dFWE.html
 <p>and the results can be found with</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)
 ## (Intercept)          x1 
-##    1.310626   -3.032274
+##    1.233598   -2.997968
 <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)
 ## (Intercept)          x2 
-##    1.140145   -1.739411</code></pre></div>
+##    1.338042   -1.945772</code></pre></div>
 <p>We note that the estimated parameters are close to the true parameter vector <span class="math inline">\(\boldsymbol{\theta} = (1.21, -3, 1.26, -2)^\top\)</span>.</p>
 </div>
   </div>

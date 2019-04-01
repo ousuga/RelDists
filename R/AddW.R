@@ -1,4 +1,4 @@
-#' Additive Weibull family
+#' The Additive Weibull family
 #' 
 #' @description 
 #' Additive Weibull distribution

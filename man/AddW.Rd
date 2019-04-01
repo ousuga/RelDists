@@ -2,7 +2,7 @@
 % Please edit documentation in R/AddW.R
 \name{AddW}
 \alias{AddW}
-\title{Additive Weibull family}
+\title{The Additive Weibull family}
 \usage{
 AddW(mu.link = "log", sigma.link = "log", nu.link = "log",
   tau.link = "log")

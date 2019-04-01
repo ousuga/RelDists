@@ -1,4 +1,4 @@
-#' Power Lindley family
+#' The Power Lindley family
 #' 
 #' @description 
 #' Power Lindley distribution

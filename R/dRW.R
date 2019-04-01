@@ -1,4 +1,4 @@
-#' Reflected Weibull distribution
+#' The Reflected Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
