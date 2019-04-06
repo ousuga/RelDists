@@ -2,6 +2,7 @@
 
 export(AddW)
 export(EW)
+export(ExW)
 export(FWE)
 export(GMW)
 export(GammaW)

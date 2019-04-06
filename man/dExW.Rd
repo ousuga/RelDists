@@ -6,7 +6,7 @@
 \alias{qExW}
 \alias{rExW}
 \alias{hExW}
-\title{The  Extended Weibull distribution}
+\title{The Extended Weibull distribution}
 \usage{
 dExW(x, mu, sigma, nu, log = FALSE)
 

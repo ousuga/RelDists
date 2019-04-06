@@ -1,4 +1,4 @@
-#' The  Extended Weibull distribution
+#' The Extended Weibull distribution
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -121,7 +121,7 @@ qExW <- function(p, mu, sigma, nu,
   
   fda <- function(x, mu, sigma, nu){
     
-    (1 - exp(- mu * x^(sigma))) / ( 1 - (1 - nu) * exp(- mu * x^(sigma)))
+    ((1 - exp(- mu * x^(sigma))) / ( 1 - (1 - nu) * exp(- mu * x^(sigma))))
     
   }
   fda1 <- function(x, mu, sigma, nu, p) {
