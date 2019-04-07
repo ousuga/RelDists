@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The Extended Weibull family — ExW • RelDists</title>
+<title>The Beta Weibull family — BW • RelDists</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="The Extended Weibull family — ExW" />
+<meta property="og:title" content="The Beta Weibull family — BW" />
 
-<meta property="og:description" content="The Extended Weibull family" />
+<meta property="og:description" content="The Beta Weibull family" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,18 +115,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The Extended Weibull family</h1>
+    <h1>The Beta Weibull family</h1>
     
-    <div class="hidden name"><code>ExW.Rd</code></div>
+    <div class="hidden name"><code>BW.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>The Extended Weibull family</p>
+    <p>The Beta Weibull family</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ExW</span>(<span class='kw'>mu.link</span> <span class='kw'>=</span> <span class='st'>"log"</span>, <span class='kw'>sigma.link</span> <span class='kw'>=</span> <span class='st'>"log"</span>, <span class='kw'>nu.link</span> <span class='kw'>=</span> <span class='st'>"log"</span>)</pre>
+    <pre class="usage"><span class='fu'>BW</span>(<span class='kw'>mu.link</span> <span class='kw'>=</span> <span class='st'>"log"</span>, <span class='kw'>sigma.link</span> <span class='kw'>=</span> <span class='st'>"log"</span>, <span class='kw'>nu.link</span> <span class='kw'>=</span> <span class='st'>"log"</span>,
+  <span class='kw'>tau.link</span> <span class='kw'>=</span> <span class='st'>"log"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,55 +144,62 @@
       <th>nu.link</th>
       <td><p>defines the nu.link, with "log" link as the default for the nu parameter.</p></td>
     </tr>
+    <tr>
+      <th>tau.link</th>
+      <td><p>defines the tau.link, with "log" link as the default for the tau parameter.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The Extended Weibull distribution with parameters <code>mu</code>, 
-<code>sigma</code> and <code>nu</code> has density given by</p>
-<p>\(f(x) = \frac{\mu \sigma \nu x^{\sigma -1} exp({-\mu x^{\sigma}})} {[1 -(1-\nu) exp({-\mu x^{\sigma}})]^2},\)</p>
+    <p>The Beta-Weibull distribution with parameters <code>mu</code>, 
+<code>sigma</code>, <code>nu</code> and <code>tau</code> has density given by</p>
+<p>\(f(x)= \frac{1}{\beta \left( \nu, \tau \right)} \mu \sigma x^{\sigma - 1} (1 - \exp(-\mu x^\sigma))^{\nu - 1} \exp(-\mu \tau x^\sigma),\)</p>
 <p>for x &gt; 0.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='dExW.html'>dExW</a></p></div>
+    <div class='dont-index'><p><a href='dBW.html'>dBW</a></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example 1</span>
 <span class='co'># Generating some random values with</span>
-<span class='co'># known mu, sigma and nu</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dExW.html'>rExW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>200</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.3</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.05</span>)
+<span class='co'># known mu, sigma, nu and tau</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dBW.html'>rBW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>100</span>, <span class='kw'>mu</span> <span class='kw'>=</span> (<span class='fl'>1</span>/<span class='fl'>4</span>), <span class='kw'>sigma</span> <span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>tau</span><span class='kw'>=</span><span class='fl'>2</span>)
 
 <span class='co'># Fitting the model</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>gamlss</span>)
 
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>'ExW'</span>,
-              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>tau.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>'BW'</span>,
+             <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
 
-<span class='co'># Extracting the fitted values for mu, sigma and nu</span>
+<span class='co'># Extracting the fitted values for mu, sigma, nu and tau</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    2.748032 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.004896 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;     1.95478 </div><div class='input'>
+#&gt;   0.4438045 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.027126 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.009956 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'tau'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;     1.12605 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
-<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>500</span>
+<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
 <span class='no'>x1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='no'>n</span>, <span class='kw'>min</span><span class='kw'>=</span><span class='fl'>0.4</span>, <span class='kw'>max</span><span class='kw'>=</span><span class='fl'>0.6</span>)
 <span class='no'>x2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='no'>n</span>, <span class='kw'>min</span><span class='kw'>=</span><span class='fl'>0.4</span>, <span class='kw'>max</span><span class='kw'>=</span><span class='fl'>0.6</span>)
-<span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(-<span class='fl'>2</span> + <span class='fl'>3</span> * <span class='no'>x1</span>)
-<span class='no'>sigma</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fl'>1.3</span> - <span class='fl'>2</span> * <span class='no'>x2</span>)
-<span class='no'>nu</span> <span class='kw'>&lt;-</span> <span class='fl'>0.05</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dExW.html'>rExW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>, <span class='no'>mu</span>, <span class='no'>sigma</span>, <span class='no'>nu</span>)
+<span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fl'>0.75</span> - <span class='no'>x1</span>)
+<span class='no'>sigma</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fl'>0.5</span> - <span class='no'>x2</span>)
+<span class='no'>nu</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='no'>tau</span> <span class='kw'>&lt;-</span> <span class='fl'>2</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dBW.html'>rBW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>, <span class='no'>mu</span>, <span class='no'>sigma</span>, <span class='no'>nu</span>, <span class='no'>tau</span>)
 
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>x</span>~<span class='no'>x1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='no'>x2</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>ExW</span>,
-              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>x</span>~<span class='no'>x1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='no'>x2</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>tau.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>BW</span>,
+             <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
 
 <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept)          x1 
-#&gt;   0.7713011   1.2360958 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;   0.7430772  -2.0797277 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"nu"</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.936176 </div><div class='input'>
+#&gt;    2.987531   -3.443720 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
+#&gt;   0.1830297  -0.3518636 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"nu"</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.9699999 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"tau"</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.8238145 </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
