@@ -23,7 +23,7 @@ The Beta Weibull family
 The Beta-Weibull distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
-\eqn{f(x)= \frac{1}{\Beta \left( \nu, \tau \right)} \mu \sigma x^{\sigma - 1} (1 - \exp(-\mu x^\sigma))^{\nu - 1} \exp(-\mu \tau x^\sigma),}
+\eqn{f(x)= \frac{1}{B(\nu, \tau)} \mu \sigma x^{\sigma - 1} (1 - \exp(-\mu x^\sigma))^{\nu - 1} \exp(-\mu \tau x^\sigma),}
 
 for x > 0.
 }

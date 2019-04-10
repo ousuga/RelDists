@@ -49,7 +49,7 @@ with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 The Gamma Weibull Distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
-\eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma \left( \nu \right)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
+\eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma(\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
 
 for x > 0.
 }

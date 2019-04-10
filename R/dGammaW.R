@@ -18,7 +18,7 @@
 #' The Gamma Weibull Distribution with parameters \code{mu}, 
 #' \code{sigma} and \code{nu} has density given by
 #' 
-#' \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma \left( \nu \right)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
+#' \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma(\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
 #' 
 #' for x > 0. 
 #' 
@@ -88,7 +88,7 @@ pGammaW <- function(q, mu, sigma, nu,lower.tail=TRUE, log.p=FALSE){
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
   
-  cdf <- stats::pgamma(nu, mu*q^sigma, , lower.tail=FALSE)
+  cdf <- stats::pgamma(nu, mu*q^sigma, lower.tail=FALSE)
   
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf 
