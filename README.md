@@ -2,7 +2,7 @@
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version-ago/RelDists)](https://cran.r-project.org/package=RelDists)
 [![CRAN\_Download\_Badge](http://cranlogs.r-pkg.org/badges/RelDists)](https://cran.r-project.org/package=RelDists) 
 
-# RelDists <img src="man/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
+# RelDists <img src="man/figures/RelDists4.3_gris.png" align="right" height="180" align="right"/>
 
 In this package are available several distributions useful for reliability analysis. With this package it is possible to estimate parameters and fit regression models within GAMLSS framework.
 
