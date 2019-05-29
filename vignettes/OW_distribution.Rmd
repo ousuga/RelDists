@@ -4,7 +4,7 @@ author: "Jaime Mosquera"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{vignette Title}
+  %\VignetteIndexEntry{OW distribution}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
