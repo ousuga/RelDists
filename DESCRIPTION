@@ -12,16 +12,12 @@ Authors@R: c(
     person("Johan", "Marin", , "jenny@rstudio.com", role = "aut")
   )
 Description: Reliability distributions and estimation parameters within GAMLSS framework.
-Depends: R (>= 3.2.0)
+Depends: R (>= 3.2.0), gamlss
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
 Encoding: UTF-8
-Imports: 
-    gamlss,
-    gamlss.dist,
-    gamlss.cens,
-    zipfR
+Imports: gamlss.dist, gamlss.cens, zipfR
 LazyData: true
 Suggests: knitr, rmarkdown, survival
 VignetteBuilder: knitr
