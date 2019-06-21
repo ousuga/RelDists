@@ -1,5 +1,5 @@
 Package: RelDists
-Title: Reliability distributions
+Title: Estimation for Reliability distributions within GAMLSS framework.
 Version: 0.0.1
 Authors@R: c(
     person("Freddy", "Hernandez", , "fhernanb@unal.edu.co", role = c("aut", "cre"), 
@@ -11,7 +11,7 @@ Authors@R: c(
     person("Amylkar", "Urrea", , "jenny@rstudio.com", role = "aut"),
     person("Johan", "Marin", , "jenny@rstudio.com", role = "aut")
   )
-Description: Reliability distributions and estimation parameters within GAMLSS framework.
+Description:  Parameters estimation and regression linear models of Reliability distributions within GAMLSS framework.
 Depends: R (>= 3.2.0), gamlss
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
