@@ -44,7 +44,7 @@ random generation and hazard function for the odd Weibull distribution with
 parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The odd Weibull Distribution with parameters \code{mu}, 
+The odd Weibull distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)=\mu \sigma \nu x^{\sigma-1} exp^{\mu x^{\sigma}} (exp^{\mu x^{\sigma}}-1)^{\nu -1}(1+(exp^{\mu x^{\sigma}}-1)^{\nu})^{-2},}
@@ -81,4 +81,7 @@ par(mfrow=c(1,1))
 curve(hOW(x, mu=2, sigma=3, nu=0.2), from=0, to=2.5, ylim=c(0, 30), 
       col="red", ylab="The hazard function", las=1)
 
+}
+\author{
+Jaime Mosquera Gutiérrez, \email{jmosquerag@unal.edu.co}
 }

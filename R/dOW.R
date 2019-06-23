@@ -1,5 +1,7 @@
 #' The Odd Weibull distribution
 #' 
+#' @author Jaime Mosquera Gutiérrez, \email{jmosquerag@@unal.edu.co}
+#' 
 #' @description 
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the odd Weibull distribution with
@@ -14,10 +16,10 @@
 #' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
 #' 
 #' @details 
-#' The odd Weibull Distribution with parameters \code{mu}, 
+#' The odd Weibull distribution with parameters \code{mu}, 
 #' \code{sigma} and \code{nu} has density given by
 #' 
-#' \eqn{f(x)=\mu \sigma \nu x^{\sigma-1} exp^{\mu x^{\sigma}} (exp^{\mu x^{\sigma}}-1)^{\nu -1}(1+(exp^{\mu x^{\sigma}}-1)^{\nu})^{-2},}
+#' \eqn{f(x)=\mu \sigma \nu x^{\sigma-1} \exp^{\mu x^{\sigma}} (\exp^{\mu x^{\sigma}}-1)^{\nu -1}(1+(\exp^{\mu x^{\sigma}}-1)^{\nu})^{-2},}
 #' 
 #' for x > 0.
 #' 
