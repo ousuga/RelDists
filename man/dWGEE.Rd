@@ -74,7 +74,7 @@ curve(pWGEE(x, mu = 5, sigma = 0.5, nu = 1), from = 0, add = TRUE,
 col = "red")
 
 ## The random function
-hist(rWGEE(100, mu = 5, sigma = 0.5, nu = 1), freq = FALSE, xlab = "x", 
+hist(rWGEE(1000, mu = 5, sigma = 0.5, nu = 1), freq = FALSE, xlab = "x", 
 ylim = c(0, 1), las = 1, main = "")
 curve(dWGEE(x, mu = 5, sigma = 0.5, nu = 1),  from = 0, add = TRUE, 
 col = "red", ylim = c(0, 1))
