@@ -42,7 +42,7 @@ generates random deviates and \code{hEEB} gives the hazard function.
 }
 \description{
 Density, distribution function, quantile function, 
-random generation and hazard function for the odd Weibull distribution with
+random generation and hazard function for the exponentiated exponential binomial distribution with
 parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{

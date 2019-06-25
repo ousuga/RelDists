@@ -150,4 +150,3 @@ hOW <- function(x, mu, sigma, nu){
        pOW(q=x, mu, sigma, nu, lower.tail=FALSE, log.p=FALSE)
   h
 }
-

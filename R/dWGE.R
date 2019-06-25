@@ -59,7 +59,7 @@
 #' par(mfrow=c(1,2))
 #' curve(hWGE(x, mu=1, sigma=1, nu=1), from=0, to=8, ylim=c(0, 1.3), 
 #'       col="red", ylab="The hazard function", las=1)
-#' curve(hWGE(x, mu=1, sigma=10, nu=0.5), from=0.1, to=8, ylim=c(0, 1.3), 
+#' curve(hWGE(x, mu=1, sigma=1, nu=0.5), from=0.1, to=8, 
 #'       col="red", ylab="The hazard function", las=1)
 #'
 #' @references
