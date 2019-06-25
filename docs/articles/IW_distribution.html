@@ -131,6 +131,7 @@
        <span class="dv">26</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">12</span>
 )</code></pre></div>
 <p>To estimate the parameters for the inverse Weibull distribution we use the <code>gamlss</code> function from <strong>gamlss</strong> package.</p>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
 ## Warning: package 'gamlss' was built under R version 3.5.3
@@ -138,6 +139,12 @@
 ## Warning: package 'gamlss.dist' was built under R version 3.5.3
 mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">mu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'IW'</span>,
               <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">1500</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+=======
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)</a>
+<a class="sourceLine" id="cb3-3" title="3">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">mu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'IW'</span>,</a>
+<a class="sourceLine" id="cb3-4" title="4">              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">1500</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
+>>>>>>> 2e1086c9f0a0e38c0ea1c2ff7967ddf875d3e041
 <p>The results for the fitted model can be found below.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
@@ -161,12 +168,21 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">mu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'IW'</span>,
               <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">250</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
 ##    5.775667
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
 ##    2.826948</code></pre></div>
+=======
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co">## (Intercept) </span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">##     3.90835</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))</a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">## (Intercept) </span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">##     2.33005</span></a></code></pre></div>
+>>>>>>> 2e1086c9f0a0e38c0ea1c2ff7967ddf875d3e041
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">0.7</span>))
@@ -197,6 +213,7 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/rug">rug</a></span>(dt<span class="op">$</span>y)</code></pre></div>
 <p><img src="IW_distribution_files/figure-html/IW6-1.png" width="700"></p>
 <p>The variable <code>y</code> cing if the guinea pig (<code>TRUE</code>) or not. To enorresponds to survival time and <code>status</code> is a logical variable indicatsure convergence in the fit procedure we are going to use only survival times <span class="math inline">\(&lt; 100\)</span> days.</p>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(survival)
 ## Loading required package: survival
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss.cens)
@@ -206,6 +223,16 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw">Surv</span>(y, status) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,
               <span class="dt">family=</span><span class="kw">cens</span>(IW), <span class="dt">data=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(dt, y <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span>),
               <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+=======
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(survival)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="co">## Loading required package: survival</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss.cens)</a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="co">## Loading required package: gamlss.cens</span></a>
+<a class="sourceLine" id="cb11-5" title="5"></a>
+<a class="sourceLine" id="cb11-6" title="6">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw">Surv</span>(y, status) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb11-7" title="7">              <span class="dt">family=</span><span class="kw">cens</span>(IW), <span class="dt">data=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(dt, y <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span>),</a>
+<a class="sourceLine" id="cb11-8" title="8">              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
+>>>>>>> 2e1086c9f0a0e38c0ea1c2ff7967ddf875d3e041
 <p>The fitted values are:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
@@ -242,12 +269,21 @@ y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dIW.html"
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span>x1, <span class="dt">sigma.fo=</span><span class="op">~</span>x2, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span>IW,
               <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 <p>and the results can be found with</p>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)
 ## (Intercept)          x1 
 ##   2.0105796  -0.9794117
 <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)
 ## (Intercept)          x2 
 ##    1.971708   -1.898983</code></pre></div>
+=======
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)</a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="co">## (Intercept)          x1 </span></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="co">##    2.173223   -1.113982</span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)</a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="co">## (Intercept)          x2 </span></a>
+<a class="sourceLine" id="cb16-6" title="6"><span class="co">##    2.101243   -2.039945</span></a></code></pre></div>
+>>>>>>> 2e1086c9f0a0e38c0ea1c2ff7967ddf875d3e041
 <p>We note that the estimated parameters are close to the true parameter vector <span class="math inline">\(\boldsymbol{\theta} = (2, -1, 2, -2)^\top\)</span>.</p>
 </div>
 </div>

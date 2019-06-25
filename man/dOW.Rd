@@ -49,7 +49,7 @@ The odd Weibull distribution with parameters \code{mu},
 
 \eqn{f(x)=\mu \sigma \nu x^{\sigma-1} \exp^{\mu x^{\sigma}} (\exp^{\mu x^{\sigma}}-1)^{\nu -1}(1+(\exp^{\mu x^{\sigma}}-1)^{\nu})^{-2},}
 
-for x > 0.
+for x > 0, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu >0}.
 }
 \examples{
  

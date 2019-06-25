@@ -57,6 +57,11 @@
 #' curve(hWGEE(x, mu = 5, sigma = 0.5, nu = 1), from = 0, to = 6, 
 #' ylim = c(0, 1.4), col = "red", ylab = "The hazard function", las = 1)
 #'
+#' @references
+#' \insertRef{Mahdavi2015}{RelDists}
+#'
+#' @importFrom Rdpack reprompt
+#' 
 #' @export
 dWGEE <- function(x, mu, sigma, nu, log=FALSE) {
   if (any(x < 0)) 
@@ -89,7 +94,7 @@ pWGEE <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   
   # The incomplete beta function
   ibeta <- function(x, a, b) {
-    stats::pbeta(x, a, b, lower.tail=F) * base::beta(a, b)
+    stats::pbeta(x, a, b, lower.tail=FALSE) * base::beta(a, b)
     }
   cdf <- ((1-exp(-nu*q))^sigma - sigma * ibeta(exp(-nu*q), mu+1, sigma)) / 
     (1 - sigma * base::beta(mu + 1, sigma))
