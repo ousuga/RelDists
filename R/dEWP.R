@@ -32,9 +32,9 @@
 #' @examples  
 #' ## The probability density function
 #' par(mfrow = c(1, 2))
-#' curve(dEWP(x, mu=1, sigma=0.5, nu=1, tau=5), from=0, to=4, ylim=c(0, 0.6), 
+#' curve(dEWP(x, mu=1, sigma=0.5, nu=1, tau=5), from=0, to=4, ylim=c(0, 0.5), 
 #'       col="red", las=1, ylab="The probability density function")
-#' curve(dEWP(x, mu=1, sigma=0.5, nu=3, tau=0.5), from=0, to=2, ylim=c(0, 0.25), 
+#' curve(dEWP(x, mu=1, sigma=0.5, nu=3, tau=0.5), from=0, to=2, ylim=c(0, 1), 
 #'       col="red", las=1, ylab="The probability density function")
 #'       
 #' ## The cumulative distribution and the Reliability function
@@ -58,7 +58,7 @@ dEWP <- function(x, mu, sigma, nu, tau, log=FALSE){
   if (any(sigma*nu <= 0)) 
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
-  loglik <- log(sigma) + log(nu) + nu*log(mu) + (nu - 1)*log(x) - 
+  loglik <- log(sigma) + log(nu) + log(tau) + nu*log(mu) + (nu - 1)*log(x) - 
     log(exp(tau) - 1) - (mu*x)^nu + (sigma - 1)*log(1 - exp(-(mu*x)^nu)) +
     tau*(1 - exp(-(mu*x)^nu))^sigma
   
