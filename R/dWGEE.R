@@ -89,7 +89,7 @@ pWGEE <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   
   # The incomplete beta function
   ibeta <- function(x, a, b) {
-    stats::pbeta(x, a, b, lower.tail=F) * base::beta(a, b)
+    stats::pbeta(x, a, b, lower.tail=FALSE) * base::beta(a, b)
     }
   cdf <- ((1-exp(-nu*q))^sigma - sigma * ibeta(exp(-nu*q), mu+1, sigma)) / 
     (1 - sigma * base::beta(mu + 1, sigma))

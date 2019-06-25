@@ -21,7 +21,7 @@
 #' 
 #' \eqn{f(x)=\mu \sigma \nu x^{\sigma-1} \exp^{\mu x^{\sigma}} (\exp^{\mu x^{\sigma}}-1)^{\nu -1}(1+(\exp^{\mu x^{\sigma}}-1)^{\nu})^{-2},}
 #' 
-#' for x > 0.
+#' for x > 0, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu >0}.
 #' 
 #' @return 
 #' \code{dOW} gives the density, \code{pOW} gives the distribution 
@@ -58,7 +58,7 @@
 #'       col="red", ylab="The hazard function", las=1)
 #'
 #' @export
-dOW<-function(x, mu, sigma, nu, log=FALSE){
+dOW <- function(x, mu, sigma, nu, log=FALSE){
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0 )) 
@@ -87,10 +87,10 @@ pOW <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
   cdf <- 1 - ( 1 + (exp((mu*q)^sigma) - 1)^nu )^(-1)
-  if (lower.tail)
+  if (lower.tail == TRUE)
     cdf <- cdf
   else cdf <- 1 - cdf
-  if (!log.p) 
+  if (log.p == FALSE) 
     cdf <- cdf
   else cdf <- log(cdf)
   cdf
@@ -103,7 +103,7 @@ qOW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   if (any(sigma*nu <= 0)) 
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
-  if (log.p) 
+  if (log.p == TRUE) 
     p <- exp(p)
   else p <- p
   if (lower.tail) 
@@ -120,7 +120,7 @@ qOW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
 #' @rdname dOW
 rOW <- function(n, mu, sigma, nu){
   if(any(n <= 0))
-    stop(paste("n must be positive","\n",""))
+    stop(paste("n must be a positive integer","\n",""))
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma*nu <= 0)) 
@@ -133,7 +133,7 @@ rOW <- function(n, mu, sigma, nu){
 }
 #' @export
 #' @rdname dOW
-hOW<-function(x, mu, sigma, nu){
+hOW <- function(x, mu, sigma, nu){
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0 )) 
@@ -142,7 +142,7 @@ hOW<-function(x, mu, sigma, nu){
     stop(paste("Product sigma*nu must be positive", "\n", ""))
   
   h <- dOW(x, mu, sigma, nu, log=FALSE)/
-    pOW(q=x, mu, sigma, nu, lower.tail=FALSE, log.p=FALSE)
+       pOW(q=x, mu, sigma, nu, lower.tail=FALSE, log.p=FALSE)
   h
 }
 
