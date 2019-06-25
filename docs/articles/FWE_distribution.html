@@ -125,65 +125,46 @@ where <span class="math inline">\(\mu &gt; 0\)</span> and <span class="math inli
 <h3 class="hasAnchor">
 <a href="#example-from-bebbington-chin-diew-and-zitikis-2007-page-723" class="anchor"></a>Example from Bebbington, Chin-Diew and Zitikis (2007) page 723</h3>
 <p>The data below correspond to the time between failures of secondary reactor pumps.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">2.160</span>, <span class="fl">0.746</span>, <span class="fl">0.402</span>, <span class="fl">0.954</span>, <span class="fl">0.491</span>, <span class="fl">6.560</span>, <span class="fl">4.992</span>, <span class="fl">0.347</span>,
-       <span class="fl">0.150</span>, <span class="fl">0.358</span>, <span class="fl">0.101</span>, <span class="fl">1.359</span>, <span class="fl">3.465</span>, <span class="fl">1.060</span>, <span class="fl">0.614</span>, <span class="fl">1.921</span>,
-       <span class="fl">4.082</span>, <span class="fl">0.199</span>, <span class="fl">0.605</span>, <span class="fl">0.273</span>, <span class="fl">0.070</span>, <span class="fl">0.062</span>, <span class="fl">5.320</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">2.160</span>, <span class="fl">0.746</span>, <span class="fl">0.402</span>, <span class="fl">0.954</span>, <span class="fl">0.491</span>, <span class="fl">6.560</span>, <span class="fl">4.992</span>, <span class="fl">0.347</span>,</a>
+<a class="sourceLine" id="cb1-2" title="2">       <span class="fl">0.150</span>, <span class="fl">0.358</span>, <span class="fl">0.101</span>, <span class="fl">1.359</span>, <span class="fl">3.465</span>, <span class="fl">1.060</span>, <span class="fl">0.614</span>, <span class="fl">1.921</span>,</a>
+<a class="sourceLine" id="cb1-3" title="3">       <span class="fl">4.082</span>, <span class="fl">0.199</span>, <span class="fl">0.605</span>, <span class="fl">0.273</span>, <span class="fl">0.070</span>, <span class="fl">0.062</span>, <span class="fl">5.320</span>)</a></code></pre></div>
 <p>To estimate the parameters for the Flexible Weibull extension distribution we use the <code>gamlss</code> function from <strong>gamlss</strong> package.</p>
-<<<<<<< HEAD
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
-## Warning: package 'gamlss' was built under R version 3.5.3
-## Warning: package 'gamlss.data' was built under R version 3.5.3
-## Warning: package 'gamlss.dist' was built under R version 3.5.3
-mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'FWE'</span>,
-              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
-=======
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)</a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)</a>
 <a class="sourceLine" id="cb2-3" title="3">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'FWE'</span>,</a>
 <a class="sourceLine" id="cb2-4" title="4">              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
->>>>>>> 2e1086c9f0a0e38c0ea1c2ff7967ddf875d3e041
 <p>The results for the fitted model can be found below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
-## (Intercept) 
-##   0.2065115
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
-## (Intercept) 
-##   0.2588857</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">## (Intercept) </span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co">##   0.2065115</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="co">## (Intercept) </span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co">##   0.2588857</span></a></code></pre></div>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted distribution explains better the observed data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">10</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">1.7</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">''</span>)
-<span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/curve">curve</a></span>(<span class="kw"><a href="../reference/dFWE.html">dFWE</a></span>(x, <span class="dt">mu=</span><span class="fl">0.21</span>, <span class="dt">sigma=</span><span class="fl">0.26</span>), <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">10</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">1.7</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">''</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/curve">curve</a></span>(<span class="kw"><a href="../reference/dFWE.html">dFWE</a></span>(x, <span class="dt">mu=</span><span class="fl">0.21</span>, <span class="dt">sigma=</span><span class="fl">0.26</span>), <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</a></code></pre></div>
 <p><img src="FWE_distribution_files/figure-html/FWE4-1.png" width="700"></p>
 </div>
 <div id="using-simulated-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#using-simulated-data" class="anchor"></a>Using simulated data</h3>
 <p>First, we simulate 100 values for the distribution using known parameters.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dFWE.html">rFWE</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="fl">0.75</span>, <span class="dt">sigma=</span><span class="fl">0.5</span>)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dFWE.html">rFWE</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="fl">0.75</span>, <span class="dt">sigma=</span><span class="fl">0.5</span>)</a></code></pre></div>
 <p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'FWE'</span>,
-              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">250</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'FWE'</span>,</a>
+<a class="sourceLine" id="cb6-2" title="2">              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">250</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
-<<<<<<< HEAD
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
-## (Intercept) 
-##    0.711782
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
-## (Intercept) 
-##   0.4573385</code></pre></div>
-=======
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))</a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="co">## (Intercept) </span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">##   0.7472284</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">##    0.712062</span></a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))</a>
 <a class="sourceLine" id="cb7-5" title="5"><span class="co">## (Intercept) </span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">##   0.4276737</span></a></code></pre></div>
->>>>>>> 2e1086c9f0a0e38c0ea1c2ff7967ddf875d3e041
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">##   0.5237797</span></a></code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">10</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">1.5</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">''</span>)
-<span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/curve">curve</a></span>(<span class="kw"><a href="../reference/dFWE.html">dFWE</a></span>(x, <span class="dt">mu=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>)), <span class="dt">sigma=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))), 
-      <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">10</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">1.5</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">''</span>)</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/curve">curve</a></span>(<span class="kw"><a href="../reference/dFWE.html">dFWE</a></span>(x, <span class="dt">mu=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>)), <span class="dt">sigma=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))), </a>
+<a class="sourceLine" id="cb8-3" title="3">      <span class="dt">from=</span><span class="fl">0.01</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</a></code></pre></div>
 <p><img src="FWE_distribution_files/figure-html/FWE5-1.png" width="700"></p>
 </div>
 </div>
@@ -191,39 +172,30 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <h2 class="hasAnchor">
 <a href="#estimation-parameters-with-covariates" class="anchor"></a>2) Estimation parameters with covariates</h2>
 <p>Here we generate values from a Flexible Weibull extension distribution using the next model.</p>
-<span class="math display">\[\begin{align*} 
+<p><span class="math display">\[\begin{align*} 
 y &amp;\sim FWE(\mu_i, \sigma_i), \\ 
 \log(\mu_i) &amp;= 1.21 - 3 \times x_1, \\
 \log(\sigma_i) &amp;= 1.26 - 2 \times x_2, \\
 x_1 &amp;\sim U(0, 1), \\
 x_2 &amp;\sim U(0, 1)
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 <p>The code below can be used to generate <span class="math inline">\(n=200\)</span> from the last model.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">200</span>
-x1 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(n)
-x2 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(n)
-mu &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="fl">1.21</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>x1)
-sigma &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="fl">1.26</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x2)
-y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dFWE.html">rFWE</a></span>(<span class="dt">n=</span>n, mu, sigma)</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">n &lt;-<span class="st"> </span><span class="dv">200</span></a>
+<a class="sourceLine" id="cb9-2" title="2">x1 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(n)</a>
+<a class="sourceLine" id="cb9-3" title="3">x2 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(n)</a>
+<a class="sourceLine" id="cb9-4" title="4">mu &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="fl">1.21</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>x1)</a>
+<a class="sourceLine" id="cb9-5" title="5">sigma &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="fl">1.26</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x2)</a>
+<a class="sourceLine" id="cb9-6" title="6">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dFWE.html">rFWE</a></span>(<span class="dt">n=</span>n, mu, sigma)</a></code></pre></div>
 <p>To estimate the parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> we can use the next code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span>x1, <span class="dt">sigma.fo=</span><span class="op">~</span>x2, <span class="dt">family=</span>FWE,
-              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span>x1, <span class="dt">sigma.fo=</span><span class="op">~</span>x2, <span class="dt">family=</span>FWE,</a>
+<a class="sourceLine" id="cb10-2" title="2">              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
 <p>and the results can be found with</p>
-<<<<<<< HEAD
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)
-## (Intercept)          x1 
-##    1.376013   -3.170622
-<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)
-## (Intercept)          x2 
-##    1.436507   -2.260982</code></pre></div>
-=======
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)</a>
 <a class="sourceLine" id="cb11-2" title="2"><span class="co">## (Intercept)          x1 </span></a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="co">##    1.096958   -2.773401</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="co">##    1.216724   -2.951413</span></a>
 <a class="sourceLine" id="cb11-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)</a>
 <a class="sourceLine" id="cb11-5" title="5"><span class="co">## (Intercept)          x2 </span></a>
-<a class="sourceLine" id="cb11-6" title="6"><span class="co">##    1.393492   -2.228965</span></a></code></pre></div>
->>>>>>> 2e1086c9f0a0e38c0ea1c2ff7967ddf875d3e041
+<a class="sourceLine" id="cb11-6" title="6"><span class="co">##    1.191556   -1.916837</span></a></code></pre></div>
 <p>We note that the estimated parameters are close to the true parameter vector <span class="math inline">\(\boldsymbol{\theta} = (1.21, -3, 1.26, -2)^\top\)</span>.</p>
 </div>
   </div>
