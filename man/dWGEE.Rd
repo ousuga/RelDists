@@ -85,3 +85,6 @@ curve(hWGEE(x, mu = 5, sigma = 0.5, nu = 1), from = 0, to = 6,
 ylim = c(0, 1.4), col = "red", ylab = "The hazard function", las = 1)
 
 }
+\references{
+\insertRef{Mahdavi2015}{RelDists}
+}

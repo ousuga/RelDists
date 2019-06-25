@@ -62,6 +62,11 @@
 #'       col="red", ylab="The hazard function", las=1)
 #' curve(hEEB(x, mu=1, sigma=1, nu=5, size=10), from=0, to=6, ylim=c(0, 3), 
 #'       col="red", ylab="The hazard function", las=1)
+#'       
+#' @references
+#' \insertRef{Bakouch2012}{RelDists}
+#'
+#' @importFrom Rdpack reprompt
 #'
 #' @export
 dEEB <- function(x, mu, sigma, nu, size, log=FALSE){

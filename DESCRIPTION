@@ -18,11 +18,13 @@ License: GPL-3
 URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
 Encoding: UTF-8
+RdMacros: Rdpack
 Imports: 
     gamlss,
     gamlss.dist,
     gamlss.cens,
-    zipfR
+    zipfR,
+    Rdpack
 LazyData: true
 Suggests: knitr, rmarkdown, survival
 VignetteBuilder: knitr

@@ -87,6 +87,9 @@ curve(hWGE(x, mu=1, sigma=10, nu=0.5), from=0.1, to=8, ylim=c(0, 1.3),
       col="red", ylab="The hazard function", las=1)
 
 }
+\references{
+\insertRef{Mahdavi2015}{RelDists}
+}
 \author{
 Jaime Mosquera Gutiérrez, \email{jmosquerag@unal.edu.co}
 }

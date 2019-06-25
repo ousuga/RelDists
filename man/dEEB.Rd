@@ -87,7 +87,10 @@ curve(hEEB(x, mu=1, sigma=1, nu=0.5, size=10), from=0, to=4, ylim=c(0, 3),
       col="red", ylab="The hazard function", las=1)
 curve(hEEB(x, mu=1, sigma=1, nu=5, size=10), from=0, to=6, ylim=c(0, 3), 
       col="red", ylab="The hazard function", las=1)
-
+      
+}
+\references{
+\insertRef{Bakouch2012}{RelDists}
 }
 \author{
 Jaime Mosquera Gutiérrez, \email{jmosquerag@unal.edu.co}
