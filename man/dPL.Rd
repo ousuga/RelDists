@@ -81,3 +81,6 @@ curve(hPL(x, mu=1.5, sigma=0.2), from=0.1, to=15,
       col="red", ylab="Hazard function", las=1)
 
 }
+\author{
+Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
+}

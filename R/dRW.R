@@ -1,5 +1,7 @@
 #' The Reflected Weibull distribution
 #' 
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' 
 #' @description 
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the Reflected Weibull Distribution 

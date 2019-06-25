@@ -81,3 +81,6 @@ curve(hRW(x, mu=1, sigma=1), from=-0.3, to=-0.01,
       col="red", ylab="Hazard function", las=1)
 
 }
+\author{
+Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
+}

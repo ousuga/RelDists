@@ -1,5 +1,7 @@
 #' The Four-Parameter Generalized Gamma distribution
 #' 
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' 
 #' @description 
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the Four-Parameter Generalized Gamma distribution

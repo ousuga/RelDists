@@ -85,3 +85,6 @@ curve(hFPGG(x,  mu=1, sigma=1, nu=0, tau=4), from=0, to=30,
       col="red", ylab="Hazard function", las=1)
 
 }
+\author{
+Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
+}
