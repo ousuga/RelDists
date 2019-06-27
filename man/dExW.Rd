@@ -84,6 +84,9 @@ curve(hExW(x, mu=0.3, sigma=2, nu=0.05), from=0.001, to=4,
       col="red", ylab="Hazard function", las=1)
 
 }
+\references{
+\insertRef{Zhang2007}{RelDists}
+}
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
 }

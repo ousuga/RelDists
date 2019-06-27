@@ -59,6 +59,11 @@
 #' curve(hFPGG(x,  mu=1, sigma=1, nu=0, tau=4), from=0, to=30,
 #'       col="red", ylab="Hazard function", las=1)
 #'
+#' @references
+#' \insertRef{Harter1967}{RelDists}
+#'
+#' @importFrom Rdpack reprompt
+#'
 #' @export
 dFPGG <- function(x, mu, sigma,
                   nu, tau, log=FALSE){

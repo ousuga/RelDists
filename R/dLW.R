@@ -56,6 +56,11 @@
 #' curve(hLW(x, mu=0, sigma=1.5), from=-8, to=7,
 #'       col="red", ylab="Hazard function", las=1)
 #'
+#' @references
+#' \insertRef{Gumbel1958}{RelDists}
+#'
+#' @importFrom Rdpack reprompt
+#'
 #' @export
 dLW <- function(x, mu, sigma, log=FALSE){
   if (any(sigma <= 0)) 

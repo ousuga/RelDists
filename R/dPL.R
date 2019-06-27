@@ -56,6 +56,11 @@
 #' curve(hPL(x, mu=1.5, sigma=0.2), from=0.1, to=15,
 #'       col="red", ylab="Hazard function", las=1)
 #'
+#' @references
+#' \insertRef{Ghitanya2013}{RelDists}
+#'
+#' @importFrom Rdpack reprompt
+#'
 #' @export
 dPL <- function(x, mu, sigma, log=FALSE){
   if (any(x <= 0)) 

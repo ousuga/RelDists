@@ -81,6 +81,9 @@ curve(hLW(x, mu=0, sigma=1.5), from=-8, to=7,
       col="red", ylab="Hazard function", las=1)
 
 }
+\references{
+\insertRef{Gumbel1958}{RelDists}
+}
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
 }

@@ -56,10 +56,17 @@ for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu >0} and \eqn{\nu >0}.
  
 ## The probability density function
 par(mfrow = c(1, 2))
-curve(dEWP(x, mu=1, sigma=0.5, nu=1, tau=5), from=0, to=1.5, ylim=c(0, 1.5), 
+curve(dEWP(x, mu=1, sigma=0.5, nu=1, tau=5), from=0, to=4, ylim=c(0, 0.5), 
       col="red", las=1, ylab="The probability density function")
-curve(dEWP(x, mu=1, sigma=0.5, nu=3, tau=0.5), from=0, to=1.5, ylim=c(0, 3), 
+curve(dEWP(x, mu=1, sigma=0.5, nu=3, tau=0.5), from=0, to=2, ylim=c(0, 1), 
       col="red", las=1, ylab="The probability density function")
+      
+## The cumulative distribution and the Reliability function
+par(mfrow = c(1, 2))
+curve(pEWP(x, mu=1, sigma=0.5, nu=1, tau=5), from=0, to=4, ylim=c(0, 1), 
+      col="red", las = 1, ylab = "The cumulative distribution function")
+curve(pEWP(x, mu=1, sigma=0.5, nu=1, tau=5, lower.tail=FALSE), from=0, to=10,  
+      ylim=c(0, 1), col="red", las=1, ylab="The Reliability function")
 
 }
 \references{

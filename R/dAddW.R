@@ -59,6 +59,11 @@
 #' curve(hAddW(x, mu=1.5, sigma=0.2, nu=3, tau=0.8), from=0.001, to=1,
 #'       col="red", ylab="Hazard function", las=1)
 #'
+#' @references
+#' \insertRef{Xie1996}{RelDists}
+#'
+#' @importFrom Rdpack reprompt
+#'
 #' @export
 dAddW <- function(x, mu, sigma,
                  nu, tau, log=FALSE){
