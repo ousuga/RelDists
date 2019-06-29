@@ -1,5 +1,6 @@
 #' The Inverse Weibull family
 #' 
+#' #' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
 #' @description 
 #' The Inverse Weibull distribution
 #' 
@@ -14,7 +15,7 @@
 #' 
 #' \eqn{f(x) = \mu \sigma x^{-\sigma-1} \exp(\mu x^{-\sigma})}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}, \eqn{\mu > 0} and \eqn{\sigma > 0} 
 #' 
 #' @examples 
 #'# Example 1
@@ -47,6 +48,11 @@
 #'
 #'coef(mod, what="mu")
 #'coef(mod, what="sigma")
+#'
+#'@references
+#'\insertRef{almalki2014modifications}{RelDists}
+#'\insertRef{drapella1993complementary}{RelDists}
+#'
 #' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot

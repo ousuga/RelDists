@@ -49,7 +49,7 @@ The inverse weibull distribution with parameters \code{mu} and
 
 \eqn{f(x) = \mu \sigma x^{-\sigma-1} \exp(\mu x^{-\sigma})}
 
-for x > 0.
+for \eqn{x > 0}, \eqn{\mu > 0} and \eqn{\sigma > 0}
 }
 \examples{
  
@@ -80,4 +80,10 @@ par(mfrow=c(1,1))
 curve(hIW(x, mu=5, sigma=2.5), from=0, to=15, ylim=c(0, 0.9),
    col="red", ylab="Hazard function", las=1)
 
+}
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+}
+\author{
+Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }
