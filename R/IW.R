@@ -50,7 +50,7 @@
 #'coef(mod, what="sigma")
 #'
 #'@references
-#'\insertRef{almalki2014modifications}{RelDists}
+#'\insertRef{almalki2014modifications}{RelDists} \\
 #'\insertRef{drapella1993complementary}{RelDists}
 #'
 #' 

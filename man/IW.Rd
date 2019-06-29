@@ -15,6 +15,9 @@ IW(mu.link = "log", sigma.link = "log")
 The Inverse Weibull distribution
 }
 \details{
+#' @author Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
+
+
 The Inverse Weibull distribution with parameters \code{mu}, 
 \code{sigma} has density given by
 
@@ -54,6 +57,10 @@ mod <- gamlss(x~x1, mu.fo=~1, sigma.fo=~x2, family=IW,
 coef(mod, what="mu")
 coef(mod, what="sigma")
 
+}
+\references{
+\insertRef{almalki2014modifications}{RelDists} \\
+\insertRef{drapella1993complementary}{RelDists}
 }
 \seealso{
 \link{dIW}
