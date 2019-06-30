@@ -1,6 +1,7 @@
 #' The Inverse Weibull family
 #' 
-#' #' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' 
 #' @description 
 #' The Inverse Weibull distribution
 #' 
@@ -50,7 +51,8 @@
 #'coef(mod, what="sigma")
 #'
 #'@references
-#'\insertRef{almalki2014modifications}{RelDists} \\
+#'\insertRef{almalki2014modifications}{RelDists} 
+#'
 #'\insertRef{drapella1993complementary}{RelDists}
 #'
 #' 

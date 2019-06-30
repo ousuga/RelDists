@@ -57,7 +57,8 @@
 #'    col="red", ylab="Hazard function", las=1)
 #'
 #'@references
-#'\insertRef{almalki2014modifications}{RelDists} \\
+#'\insertRef{almalki2014modifications}{RelDists}
+#'
 #'\insertRef{drapella1993complementary}{RelDists}
 #'
 #' @export

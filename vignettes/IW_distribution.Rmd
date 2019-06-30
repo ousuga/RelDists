@@ -1,7 +1,8 @@
 ---
 title: "IW distribution"
-author: ""
+author: "Johan Marin"
 date: "`r Sys.Date()`"
+bibliography: ../inst/REFERENCES.bib
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{IW distribution}
@@ -85,7 +86,7 @@ legend("topright", legend=c(cap1, cap2, cap3),
 
 ### Example from Simiu1 and Heckert (1996) page 541
 
-Wind speed data are in vector `y` and the objective is to find the parameter for the inverse Weibull distribution. 
+Wind speed data are in vector `y` observer for Simiu1 and Herckert [-@simiu1996extreme] and the objective is to find the parameter for the inverse Weibull distribution. 
 
 ```{r}
 y <- c(23, 32, 35, 20, 26, 24, 24, 14,
@@ -155,7 +156,7 @@ curve(dIW(x, mu=exp(coef(mod, what='mu')),
 ```
 
 ### Example from Mudholkar et al. (1995) page 443
-The dataset is from Bjerkedal (1960), and it represents the survival times (in days) of guinea pigs injected with different doses of tubercle bacilli.The regimen number is the common logarithmo ft he number of bacillary units in 0.5 ml $(log(4.0×10^6)=6.6)$.
+The dataset is from Bjerkedal (1960), and it represents the survival times (in days) of guinea pigs injected with different doses of tubercle bacilli.The regimen number is the common logarithmo ft he number of bacillary units in 0.5 ml $(log(4.0×10^6)=6.6)$ [@mudholkar1994generalized].
 
 ```{r IW6}
 dt <- data.frame(y=c(12,15, 22, 24, 24, 32, 32, 33, 34, 38, 38, 43, 
@@ -194,7 +195,7 @@ exp(coef(mod, what='mu'))
 exp(coef(mod, what='sigma'))
 ```
 
-The hazard function for this example can be obtained using the next code and the figure coincides with the figure 4 in Mudholkar et al (1995).
+The hazard function for this example can be obtained using the next code and the figure coincides with the figure 4 in Mudholkar et al [-@mudholkar1994generalized].
 
 ```{r IW7}
 curve(hIW(x, mu=exp(coef(mod, what='mu')), 
@@ -240,3 +241,5 @@ coef(mod, what="sigma")
 ```
 
 We note that the estimated parameters are close to the true parameter vector $\boldsymbol{\theta} = (2, -1, 2, -2)^\top$.
+
+## Bibliografía
