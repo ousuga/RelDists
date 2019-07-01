@@ -82,7 +82,8 @@ curve(hIW(x, mu=5, sigma=2.5), from=0, to=15, ylim=c(0, 0.9),
 
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists} \\
+\insertRef{almalki2014modifications}{RelDists}
+
 \insertRef{drapella1993complementary}{RelDists}
 }
 \author{
