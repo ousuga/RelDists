@@ -16,7 +16,7 @@
 #' P[X <= x], otherwise, P[X > x].
 #'  
 #' @details 
-#' The weibull geometric distribution with parameters \code{mu},
+#' The Weibull geometric distribution with parameters \code{mu},
 #' \code{sigma} and \code{nu} has density given by
 #' 
 #' \eqn{f(x) = (\sigma \mu^\sigma (1-\nu) x^(\sigma - 1) \exp(-(\mu x)^\sigma)) 
