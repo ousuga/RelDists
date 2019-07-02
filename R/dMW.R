@@ -1,5 +1,7 @@
 #' The Modified Weibull distribution
 #' 
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' 
 #' @description 
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the modified weibull distribution 
@@ -21,7 +23,7 @@
 #' 
 #' \eqn{f(x) = \mu (\sigma + \nu x) x^{\sigma - 1} \exp(\nu x) \exp(-\mu x^{\sigma} \exp(\nu x))}
 #' 
-#' for x > 0.
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu \geq 0}.
 #' 
 #' @return 
 #' \code{dMW} gives the density, \code{pMW} gives the distribution 

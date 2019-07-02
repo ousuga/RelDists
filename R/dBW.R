@@ -1,5 +1,7 @@
 #' The Beta Weibull distribution
 #' 
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' 
 #' @description 
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the Beta Weibull distribution 
@@ -21,7 +23,7 @@
 #' 
 #' \eqn{f(x)= \frac{1}{B(\nu, \tau)} \mu \sigma x^{\sigma - 1} (1 - \exp(-\mu x^\sigma))^{\nu - 1} \exp(-\mu \tau x^\sigma),}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu > 0} and \eqn{\tau > 0}. 
 #' 
 #' @return 
 #' \code{dBW} gives the density, \code{pBW} gives the distribution 
@@ -57,6 +59,11 @@
 #' par(mfrow=c(1,1))
 #' curve(hBW(x, mu = (1/4), sigma =1, nu=1, tau=2), from = 0, to = 2, 
 #' ylim = c(0, 1), col = "red", ylab = "The hazard function", las = 1)
+#' 
+#' @references
+#'\insertRef{almalki2014modifications}{RelDists}
+#'
+#'\insertRef{famoye2005beta}{RelDists}
 #' 
 #' @export
 dBW <- function(x, mu, sigma, nu, tau, log=FALSE){

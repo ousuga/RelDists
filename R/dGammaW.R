@@ -1,5 +1,7 @@
 #' The Gamma Weibull distribution
 #' 
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' 
 #' @description 
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the Gamma Weibull distribution 
@@ -20,7 +22,7 @@
 #' 
 #' \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma(\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}. 
 #' 
 #' @return 
 #' \code{dGammaW} gives the density, \code{pGammaW} gives the distribution 

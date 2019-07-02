@@ -51,7 +51,7 @@ The Gamma Weibull Distribution with parameters \code{mu},
 
 \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma(\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
 
-for x > 0.
+for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}.
 }
 \examples{
  
@@ -84,4 +84,7 @@ par(mfrow=c(1,1))
 curve(hGammaW(x, mu = 0.5, sigma = 2, nu=1), from = 0, to = 2, 
 ylim = c(0, 1), col = "red", ylab = "The hazard function", las = 1)
 
+}
+\author{
+Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

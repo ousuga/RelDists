@@ -52,7 +52,7 @@ and \code{nu} has density given by
 
 \eqn{f(x) = \mu (\sigma + \nu x) x^{\sigma - 1} \exp(\nu x) \exp(-\mu x^{\sigma} \exp(\nu x))}
 
-for x > 0.
+for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu \geq 0}.
 }
 \examples{
  
@@ -83,4 +83,7 @@ par(mfrow=c(1,1))
 curve(hMW(x, mu=2, sigma=1.5, nu=0.2), from=0, to=1.5, ylim=c(0, 5),
  col="red", las=1, ylab="H(x)", las=1)
 
+}
+\author{
+Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }
