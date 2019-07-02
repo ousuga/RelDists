@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • RelDists</title>
+<title>Fitting Different Parametric  <code>gamlss.family</code> Distributions (<code>RelDists</code> inclusive). — fitDistPlus • RelDists</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,13 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Fitting Different Parametric  <code>gamlss.family</code> Distributions (<code>RelDists</code> inclusive). — fitDistPlus" />
+
+<meta property="og:description" content="This family of functions are a clones of fitDist, 
+fitDistPred, chooseDist and
+chooseDistPred of gamlss package. Type in
+console ?gamlss::fitDist for further information about the usage of this functions." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +53,7 @@
   </head>
 
   <body>
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,21 +121,87 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Fitting Different Parametric  <code>gamlss.family</code> Distributions (<code>RelDists</code> inclusive).</h1>
+    
+    <div class="hidden name"><code>fitDistPlus.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <ul>
-        <li><a href="EW_distribution.html">EW distribution</a></li>
-        <li><a href="fitDistPlus.html">fitDistPlus</a></li>
-        <li><a href="FWE_distribution.html">FWE distribution</a></li>
-        <li><a href="IW_distribution.html">IW distribution</a></li>
-        <li><a href="OW_distribution.html">OW distribution</a></li>
-      </ul>
+    <div class="ref-description">
+    
+    <p>This family of functions are a clones of <code><a href='https://www.rdocumentation.org/packages/gamlss/topics/fitDist'>fitDist</a></code>, 
+<code>fitDistPred</code>, <code>chooseDist</code> and
+<code>chooseDistPred</code> of <code><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></code> package. Type in
+console <code><a href='https://www.rdocumentation.org/packages/gamlss/topics/fitDist'>?gamlss::fitDist</a></code> for further information about the usage of this functions.</p>
+    
     </div>
+
+    <pre class="usage"><span class='fu'>fitDistPlus</span>(<span class='no'>y</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='no'>type</span>, <span class='kw'>try.gamlss</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>extra</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trace</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>y</th>
+      <td><p>the data vector</p></td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td><p>a GAMLSS fitted model</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>the type of distribution to be tried see details</p></td>
+    </tr>
+    <tr>
+      <th>try.gamlss</th>
+      <td><p>this applies to functions fitDist() and fitDistPred(). It allows if gamlssML() fail to fit the model to try gamlss instead. This will slow up things for big data.</p></td>
+    </tr>
+    <tr>
+      <th>extra</th>
+      <td><p>whether extra distributions should be tried, which are not in the type list</p></td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td><p>the data frame where y can be found, only for functions fitDist() and fitDistPred()</p></td>
+    </tr>
+    <tr>
+      <th>trace</th>
+      <td><p>whether to print during fitting.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>for extra arguments to be passed to gamlssML() to gamlss()</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The original <code><a href='https://www.rdocumentation.org/packages/gamlss/topics/fitDist'>fitDist</a></code> has seven different family types; <code>realAll</code>,
+<code>realline, realplus, real0to1, counts</code> and <code>binom</code>. This implementation has an
+additional function:</p>
+<ul>
+<li><p><code>reldists</code>: distributions defined in the positive real line, implemented in
+  <code>RelDists</code> package: "AddW", "BW", "EW", "ExW", "FWE", "GammaW",  "GMW", 
+  "IW", "KW", "LW", "MW", "PL", "RW", "SZMW", "WG", "WGEE", "WP".</p></li>
+</ul>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/gamlss/topics/fitDist'>fitDist</a></code></p></div>
+    
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
+
   </div>
 </div>
 
