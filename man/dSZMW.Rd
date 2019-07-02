@@ -83,6 +83,11 @@ curve(hSZMW(x, mu = 2, sigma = 1.5, nu = 0.2), from = 0, to = 3, ylim = c(0, 8),
       col = "red", ylab = "The hazard function", las = 1)
 
 }
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{sarhan2009modified}{RelDists}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

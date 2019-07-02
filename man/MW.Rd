@@ -60,6 +60,11 @@ coef(mod, what="sigma")
 coef(mod, what='nu')
 
 }
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{lai2003modified}{RelDists}
+}
 \seealso{
 \link{dMW}
 }

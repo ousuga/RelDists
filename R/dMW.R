@@ -58,6 +58,11 @@
 #' curve(hMW(x, mu=2, sigma=1.5, nu=0.2), from=0, to=1.5, ylim=c(0, 5),
 #'  col="red", las=1, ylab="H(x)", las=1)
 #' 
+#' @references
+#'\insertRef{almalki2014modifications}{RelDists}
+#'
+#'\insertRef{lai2003modified}{RelDists}
+#' 
 #' @export
 dMW <- function(x, mu, sigma, nu, log = FALSE){
   if (any(x < 0)) 

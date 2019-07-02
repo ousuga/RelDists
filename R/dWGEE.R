@@ -64,6 +64,9 @@
 #'
 #' @importFrom Rdpack reprompt
 #' 
+#' @references
+#'\insertRef{mahdavi2015two}{RelDists}
+#'
 #' @export
 dWGEE <- function(x, mu, sigma, nu, log=FALSE) {
   if (any(x < 0)) 

@@ -61,6 +61,9 @@ coef(mod, what="sigma")
 coef(mod, what='nu')
 
 }
+\references{
+\insertRef{barreto2011weibull}{RelDists}
+}
 \seealso{
 \link{dWG}
 }

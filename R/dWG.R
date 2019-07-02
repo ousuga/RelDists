@@ -61,6 +61,9 @@
 #' curve(hWG(x, mu = 0.9, sigma = 2, nu = 0.5), from = 0, to = 8, 
 #' ylim = c(0, 12), col = "red", ylab = "The hazard function", las = 1)
 #' 
+#' @references
+#'\insertRef{barreto2011weibull}{RelDists}
+#'
 #' @export
 dWG<-function(x, mu, sigma, nu, log=FALSE){
   if (any(x < 0)) 

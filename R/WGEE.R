@@ -54,6 +54,9 @@
 #' coef(mod, what="sigma")
 #' exp(coef(mod, what="nu"))
 #' 
+#' @references
+#'\insertRef{mahdavi2015two}{RelDists}
+#'
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

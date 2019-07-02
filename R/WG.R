@@ -55,6 +55,9 @@
 #' coef(mod, what="sigma")
 #' coef(mod, what='nu')
 #' 
+#' @references
+#'\insertRef{barreto2011weibull}{RelDists}
+#'
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

@@ -87,6 +87,8 @@ ylim = c(0, 1.4), col = "red", ylab = "The hazard function", las = 1)
 }
 \references{
 \insertRef{Mahdavi2015}{RelDists}
+
+\insertRef{mahdavi2015two}{RelDists}
 }
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}

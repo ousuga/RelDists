@@ -59,6 +59,11 @@
 #' curve(hGammaW(x, mu = 0.5, sigma = 2, nu=1), from = 0, to = 2, 
 #' ylim = c(0, 1), col = "red", ylab = "The hazard function", las = 1)
 #' 
+#' @references
+#'\insertRef{almalki2014modifications}{RelDists}
+#'
+#'\insertRef{stacy1962generalization}{RelDists}
+#'
 #' @export
 dGammaW <- function(x, mu, sigma, nu, log=FALSE){
   if (any(x < 0)) 

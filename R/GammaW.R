@@ -54,6 +54,11 @@
 #' coef(mod, what="sigma")
 #' coef(mod, what='nu')
 #' 
+#' @references
+#'\insertRef{almalki2014modifications}{RelDists}
+#'
+#'\insertRef{stacy1962generalization}{RelDists}
+#'
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
