@@ -22,7 +22,7 @@ The Gamma Weibull distribution with parameters \code{mu},
 
 \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma (\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
 
-for x > 0.
+for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}.
 }
 \examples{
 #' 
@@ -61,6 +61,14 @@ coef(mod, what="sigma")
 coef(mod, what='nu')
 
 }
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{stacy1962generalization}{RelDists}
+}
 \seealso{
 \link{dGammaW}
+}
+\author{
+Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

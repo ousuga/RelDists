@@ -1,5 +1,7 @@
 #' The Sarhan and Zaindin's Modified Weibull distribution
 #' 
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' 
 #' @description 
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for Sarhan and Zaindins modified weibull distribution
@@ -19,8 +21,8 @@
 #' \code{sigma} and \code{nu} has density given by
 #' 
 #' \eqn{f(x)=(\mu + \sigma \nu x^(\nu - 1)) \exp(- \mu x - \sigma x^\nu)}
-#' #' 
-#' for x > 0. 
+#' 
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}. 
 #' 
 #' @return 
 #' \code{dSZMW} gives the density, \code{pSZMW} gives the distribution 
@@ -54,6 +56,11 @@
 #' par(mfrow=c(1,1))
 #' curve(hSZMW(x, mu = 2, sigma = 1.5, nu = 0.2), from = 0, to = 3, ylim = c(0, 8),
 #'       col = "red", ylab = "The hazard function", las = 1)
+#' 
+#' @references
+#'\insertRef{almalki2014modifications}{RelDists}
+#'
+#'\insertRef{sarhan2009modified}{RelDists}
 #' 
 #' @export
 dSZMW<-function(x, mu, sigma, nu, log=FALSE){

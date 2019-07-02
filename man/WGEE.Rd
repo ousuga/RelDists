@@ -22,7 +22,7 @@ The Weigted Generalized Exponential-Exponential distribution with parameters \co
 
 \eqn{f(x)= \sigma \nu \exp(-\nu x) (1 - \exp(-\nu x))^{\sigma - 1} (1 - \exp(-\mu \nu x)) / 1 - \sigma B(\mu + 1, \sigma),}
 
-for x > 0.
+for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}.
 }
 \examples{
 # Example 1
@@ -60,6 +60,12 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 
 }
+\references{
+\insertRef{mahdavi2015two}{RelDists}
+}
 \seealso{
 \link{dWGEE}
+}
+\author{
+Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

@@ -1,5 +1,7 @@
 #' The Weibull Geometric family
 #' 
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' 
 #' @description 
 #' The Weibull Geometric distribution
 #' 
@@ -16,7 +18,7 @@
 #' \eqn{f(x) = (\sigma \mu^\sigma (1-\nu) x^(\sigma - 1) \exp(-(\mu x)^\sigma)) 
 #' (1- \nu \exp(-(\mu x)^\sigma))^{-2},}
 #' 
-#' for x > 0.
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{0 < \nu < 1}.
 #' 
 #' @examples 
 #' # Example 1
@@ -53,6 +55,9 @@
 #' coef(mod, what="sigma")
 #' coef(mod, what='nu')
 #' 
+#' @references
+#'\insertRef{barreto2011weibull}{RelDists}
+#'
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

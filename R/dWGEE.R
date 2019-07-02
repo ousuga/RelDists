@@ -1,5 +1,7 @@
 #' The Weighted Generalized Exponential-Exponential distribution
 #' 
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' 
 #' @description 
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the Weighted Generalized Exponential-Exponential distribution 
@@ -20,7 +22,7 @@
 #' 
 #' \eqn{f(x)= \sigma \nu \exp(-\nu x) (1 - \exp(-\nu x))^{\sigma - 1} (1 - \exp(-\mu \nu x)) / 1 - \sigma B(\mu + 1, \sigma),}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}.
 #' 
 #' @return 
 #' \code{dWGEE} gives the density, \code{pWGEE} gives the distribution 
@@ -62,6 +64,9 @@
 #'
 #' @importFrom Rdpack reprompt
 #' 
+#' @references
+#'\insertRef{mahdavi2015two}{RelDists}
+#'
 #' @export
 dWGEE <- function(x, mu, sigma, nu, log=FALSE) {
   if (any(x < 0)) 

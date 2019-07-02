@@ -53,7 +53,7 @@ The Beta Weibull Distribution with parameters \code{mu},
 
 \eqn{f(x)= \frac{1}{B(\nu, \tau)} \mu \sigma x^{\sigma - 1} (1 - \exp(-\mu x^\sigma))^{\nu - 1} \exp(-\mu \tau x^\sigma),}
 
-for x > 0.
+for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu > 0} and \eqn{\tau > 0}.
 }
 \examples{
  
@@ -86,4 +86,12 @@ par(mfrow=c(1,1))
 curve(hBW(x, mu = (1/4), sigma =1, nu=1, tau=2), from = 0, to = 2, 
 ylim = c(0, 1), col = "red", ylab = "The hazard function", las = 1)
 
+}
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{famoye2005beta}{RelDists}
+}
+\author{
+Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

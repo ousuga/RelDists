@@ -22,7 +22,7 @@ The Modified Weibull distribution with parameters \code{mu},
 
 \eqn{f(x) = \mu (\sigma + \nu x) x^(\sigma - 1) \exp(\nu x) \exp(-\mu x^(\sigma) \exp(\nu x)),}
 
-for x > 0.
+for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu \geq 0}.
 }
 \examples{
 # Example 1
@@ -60,6 +60,14 @@ coef(mod, what="sigma")
 coef(mod, what='nu')
 
 }
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{lai2003modified}{RelDists}
+}
 \seealso{
 \link{dMW}
+}
+\author{
+Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

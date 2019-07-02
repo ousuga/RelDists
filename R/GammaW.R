@@ -1,5 +1,7 @@
 #' The Gamma Weibull family
 #' 
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' 
 #' @description 
 #' The Gamma Weibull family
 #' 
@@ -15,7 +17,7 @@
 #' 
 #' \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma (\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}. 
 #' 
 #' @examples #' 
 #' # Example 1
@@ -52,6 +54,11 @@
 #' coef(mod, what="sigma")
 #' coef(mod, what='nu')
 #' 
+#' @references
+#'\insertRef{almalki2014modifications}{RelDists}
+#'
+#'\insertRef{stacy1962generalization}{RelDists}
+#'
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

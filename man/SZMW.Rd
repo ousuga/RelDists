@@ -22,7 +22,7 @@ The Sarhan and Zaindin's Modified Weibull distribution with parameters \code{mu}
 
 \eqn{f(x)=(\mu + \sigma \nu x^(\nu - 1)) \exp(- \mu x - \sigma x^\nu),}
 
-for x > 0.
+for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}.
 }
 \examples{
 
@@ -61,6 +61,14 @@ coef(mod, what="sigma")
 coef(mod, what='nu')
 
 }
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{sarhan2009modified}{RelDists}
+}
 \seealso{
 \link{dSZMW}
+}
+\author{
+Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }
