@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-**This is a temporal vignette only for some tests**
+**This is a temporal vignette, only for some tests**
 
 Random data generation with `EW` family:
 
