@@ -66,6 +66,11 @@ exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
 
 }
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{Xie1996}{RelDists}
+}
 \seealso{
 \link{dAddW}
 }

@@ -82,6 +82,8 @@ curve(hLW(x, mu=0, sigma=1.5), from=-8, to=7,
 
 }
 \references{
+\insertRef{almalki2014modifications}{RelDists}
+
 \insertRef{Gumbel1958}{RelDists}
 }
 \author{

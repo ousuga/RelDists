@@ -56,6 +56,12 @@
 #' exp(coef(mod, what="nu"))
 #' exp(coef(mod, what="tau"))
 #' 
+#' @references
+#' \insertRef{almalki2014modifications}{RelDists}
+#' 
+#' \insertRef{Xie1996}{RelDists}
+#'
+#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

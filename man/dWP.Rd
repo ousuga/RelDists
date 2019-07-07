@@ -85,6 +85,8 @@ curve(hWP(x, mu=1.5, sigma=0.5, nu=10), from=0.001, to=5,
 
 }
 \references{
+\insertRef{almalki2014modifications}{RelDists}
+
 \insertRef{Wanbo2012}{RelDists}
 }
 \author{

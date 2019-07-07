@@ -85,6 +85,8 @@ curve(hExW(x, mu=0.3, sigma=2, nu=0.05), from=0.001, to=4,
 
 }
 \references{
+\insertRef{almalki2014modifications}{RelDists}
+
 \insertRef{Zhang2007}{RelDists}
 }
 \author{

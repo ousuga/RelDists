@@ -82,6 +82,8 @@ curve(hRW(x, mu=1, sigma=1), from=-0.3, to=-0.01,
 
 }
 \references{
+\insertRef{almalki2014modifications}{RelDists}
+
 \insertRef{Clifford1973}{RelDists}
 }
 \author{

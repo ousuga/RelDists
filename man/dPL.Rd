@@ -82,6 +82,8 @@ curve(hPL(x, mu=1.5, sigma=0.2), from=0.1, to=15,
 
 }
 \references{
+\insertRef{almalki2014modifications}{RelDists}
+
 \insertRef{Ghitanya2013}{RelDists}
 }
 \author{

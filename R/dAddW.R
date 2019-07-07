@@ -60,6 +60,8 @@
 #'       col="red", ylab="Hazard function", las=1)
 #'
 #' @references
+#' \insertRef{almalki2014modifications}{RelDists}
+#' 
 #' \insertRef{Xie1996}{RelDists}
 #'
 #' @importFrom Rdpack reprompt
