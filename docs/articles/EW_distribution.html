@@ -56,9 +56,6 @@
       <a href="../articles/EW_distribution.html">EW distribution</a>
     </li>
     <li>
-      <a href="../articles/fitDistPlus.html">fitDistPlus</a>
-    </li>
-    <li>
       <a href="../articles/FWE_distribution.html">FWE distribution</a>
     </li>
     <li>
@@ -66,6 +63,9 @@
     </li>
     <li>
       <a href="../articles/OW_distribution.html">OW distribution</a>
+    </li>
+    <li>
+      <a href="../articles/fittingDistributions.html">fitting RelDists distributions with gamlss</a>
     </li>
   </ul>
 </li>
@@ -85,7 +85,11 @@
       <h1>EW distribution</h1>
                         <h4 class="author">Freddy Hernandez</h4>
             
+<<<<<<< HEAD
             <h4 class="date">2019-07-09</h4>
+=======
+            <h4 class="date">2019-07-08</h4>
+>>>>>>> 2d6e696c61a62344ad37a5c4f13588dbc93e32ed
       
       
       <div class="hidden name"><code>EW_distribution.Rmd</code></div>
@@ -147,10 +151,6 @@
 </tbody>
 </table>
 <p>Next figure shows possible shapes of the probability density function for several values of the parameters:</p>
-<pre><code>## Warning: package 'gamlss' was built under R version 3.5.3
-## Warning: package 'gamlss.data' was built under R version 3.5.3
-## Warning: package 'gamlss.dist' was built under R version 3.5.3
-## Warning: package 'stringr' was built under R version 3.5.3</code></pre>
 <p><img src="EW_distribution_files/figure-html/EW1-1.png" width="700"></p>
 </div>
 <div id="cumulative-density-function" class="section level3">
@@ -183,8 +183,8 @@
 <p>To estimate the parameters for the exponentiated Weibull distribution we use the <code>gamlss</code> function from <strong>gamlss</strong> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
-mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
-              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">1500</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+mod &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss">gamlss</a></span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
+              <span class="dt">control=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control">gamlss.control</a></span>(<span class="dt">n.cyc=</span><span class="dv">1500</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 <p>The results for the fitted model can be found below.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
@@ -206,11 +206,12 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <p>First, we simulate 100 values for the distribution using known parameters.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="dv">5</span>, <span class="dt">sigma=</span><span class="fl">0.5</span>, <span class="dt">nu=</span><span class="dv">10</span>)</code></pre></div>
 <p>Now we use the <code>gamlss</code> function from <strong>gamlss</strong> package to estimate the parameters.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
-              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">250</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss">gamlss</a></span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">sigma.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">'EW'</span>,
+              <span class="dt">control=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control">gamlss.control</a></span>(<span class="dt">n.cyc=</span><span class="dv">250</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
+<<<<<<< HEAD
 ##    5.093429
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
@@ -218,6 +219,15 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
 ##    9.913241</code></pre></div>
+=======
+##    6.568486
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
+## (Intercept) 
+##   0.5011033
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
+## (Intercept) 
+##    18.04447</code></pre></div>
+>>>>>>> 2d6e696c61a62344ad37a5c4f13588dbc93e32ed
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span>.</p>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">1.8</span>))
@@ -254,21 +264,20 @@ mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="o
 ## Loading required package: survival
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss.cens)
 ## Loading required package: gamlss.cens
-## Warning: package 'gamlss.cens' was built under R version 3.5.2
 
-mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw">Surv</span>(y, status) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,
-              <span class="dt">family=</span><span class="kw">cens</span>(EW), <span class="dt">data=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(dt, y <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span>),
-              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+mod &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss">gamlss</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/survival/topics/Surv">Surv</a></span>(y, status) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,
+              <span class="dt">family=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss.cens/topics/cens">cens</a></span>(EW), <span class="dt">data=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(dt, y <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span>),
+              <span class="dt">control=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control">gamlss.control</a></span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 <p>The fitted values are:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))
 ## (Intercept) 
-##   0.6219053
+##   0.6219058
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))
 ## (Intercept) 
-##   0.5770429
+##   0.5770427
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'nu'</span>))
 ## (Intercept) 
-##     4.36112</code></pre></div>
+##    4.361124</code></pre></div>
 <p>The hazard function for this example can be obtained using the next code and the figure coincides with the figure 4 in Mudholkar et al (1995).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/curve">curve</a></span>(<span class="kw"><a href="../reference/dEW.html">hEW</a></span>(x, <span class="dt">mu=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>)), 
           <span class="dt">sigma=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>)), 
@@ -293,16 +302,17 @@ x_2 &amp;\sim U(0, 1)
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">200</span>
 x1 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Poisson">rpois</a></span>(n, <span class="dt">lambda=</span><span class="dv">2</span>)
 x2 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(n)
-mu &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="op">-</span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>x1)
+mu &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">-3</span> <span class="op">*</span><span class="st"> </span>x1)
 sigma &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x2)
 nu &lt;-<span class="st"> </span><span class="dv">2</span>
 y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span>n, mu, sigma, nu)</code></pre></div>
 <p>To estimate the parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\nu\)</span> we can use the next code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span>x1, <span class="dt">sigma.fo=</span><span class="op">~</span>x2, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span>EW,
-              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss">gamlss</a></span>(y<span class="op">~</span>x1, <span class="dt">sigma.fo=</span><span class="op">~</span>x2, <span class="dt">nu.fo=</span><span class="op">~</span><span class="dv">1</span>, <span class="dt">family=</span>EW,
+              <span class="dt">control=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control">gamlss.control</a></span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</code></pre></div>
 <p>and the results can be found with</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)
 ## (Intercept)          x1 
+<<<<<<< HEAD
 ##    2.075228   -2.105100
 <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)
 ## (Intercept)          x2 
@@ -310,6 +320,15 @@ y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html"
 <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"nu"</span>)
 ## (Intercept) 
 ##    1.561883</code></pre></div>
+=======
+##    2.031868   -2.240557
+<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)
+## (Intercept)          x2 
+##    2.746033   -2.054512
+<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"nu"</span>)
+## (Intercept) 
+##    1.624755</code></pre></div>
+>>>>>>> 2d6e696c61a62344ad37a5c4f13588dbc93e32ed
 <p>We note that the estimated parameters are close to the true parameter vector <span class="math inline">\(\boldsymbol{\theta} = (2, -3, 3, -2, 2)^\top\)</span>.</p>
 </div>
   </div>
