@@ -85,7 +85,7 @@
       <h1>fitDistPlus</h1>
                         <h4 class="author">Jaime Mosquera</h4>
             
-            <h4 class="date">2019-07-07</h4>
+            <h4 class="date">2019-07-09</h4>
       
       
       <div class="hidden name"><code>fitDistPlus.Rmd</code></div>
@@ -124,44 +124,41 @@ y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html"
 <p>Fitting with traditional gamlss families:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fits &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitDistPlus.html">fitDistPlus</a></span>(y, <span class="dt">type=</span><span class="st">"realplus"</span>)
 fits<span class="op">$</span>fits
-##     BCPEo        GG     BCCGo       EXP        GA       GB2      WEI3 
-## -19.53102 -18.74146 -17.48456 -17.27758 -16.80221 -16.74119 -16.04899 
-##      WEI2       WEI      BCTo   PARETO2  PARETO2o        GP       GIG 
-## -16.04899 -16.04899 -15.48456 -15.27757 -15.27655 -15.27575 -14.82371 
-##    LOGNO2     LOGNO    IGAMMA        IG 
-##  10.21187  10.21187 128.17910 140.56255
+##        GG       GB2     BCPEo     BCCGo      BCCG      BCTo        GA 
+##  12.08487  13.75784  13.80719  16.20899  16.20899  18.20907  21.11831 
+##       GIG      WEI2       WEI      WEI3       EXP   PARETO2  PARETO2o 
+##  23.10792  25.62581  25.62581  25.62581  29.22090  31.22091  31.22095 
+##        GP    LOGNO2     LOGNO    IGAMMA        IG 
+##  31.22114  72.25030  72.25030 221.71445 328.93551
 fits<span class="op">$</span>failed
 ## [[1]]
-## [1] "BCCG"
-## 
-## [[2]]
 ## [1] "exGAUS"
 ## 
-## [[3]]
+## [[2]]
 ## [1] "LNO"
 ## 
-## [[4]]
+## [[3]]
 ## [1] "BCT"
 ## 
-## [[5]]
+## [[4]]
 ## [1] "BCPE"</code></pre></div>
 <p>Fitting with gamlss families and our <code>"reldists"</code> family:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fits &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitDistPlus.html">fitDistPlus</a></span>(y, <span class="dt">type=</span><span class="st">"reldists"</span>)
 fits<span class="op">$</span>fits
-##       BCPEo          EW          GG       BCCGo         EXP          GA 
-## -19.5310177 -18.9130546 -18.7414602 -17.4845592 -17.2775809 -16.8022139 
-##         GB2        WEI3        WEI2         WEI        BCTo     PARETO2 
-## -16.7411859 -16.0489855 -16.0489855 -16.0489855 -15.4845592 -15.2775673 
-##    PARETO2o          GP         GIG        SEP3      SHASHo     SHASHo2 
-## -15.2765497 -15.2757517 -14.8237097 -10.0667367  -9.4557024  -9.4557024 
-##         SN2         ST3         SST         ST2         ST1       SHASH 
-##  -5.3377159  -4.9705366  -4.9692752  -3.3387730  -3.3387088  -0.2740473 
-##        JSUo         JSU      LOGNO2       LOGNO         ST5          RG 
-##   3.7285238   3.7285238  10.2118746  10.2118746  14.3787689  26.4719671 
-##         ST4          NO          LO          PE         PE2          TF 
-##  47.6712240  55.1832659  55.4197499  56.6819391  56.6819391  56.8777151 
-##         TF2         NET          IW          GU      IGAMMA          IG 
-##  56.8777151  57.5804179  65.4631689  94.6480165 128.1791000 140.5625487
+##        GG        EW       GB2     BCPEo     BCCGo      BCCG      BCTo 
+##  12.08487  12.24576  13.75784  13.80719  16.20899  16.20899  18.20907 
+##        GA       GIG      WEI2       WEI      WEI3       EXP   PARETO2 
+##  21.11831  23.10792  25.62581  25.62581  25.62581  29.22090  31.22091 
+##  PARETO2o        GP      SEP3       SN2       ST2       ST3       SST 
+##  31.22095  31.22114  35.33412  40.36069  40.40492  40.40790  40.55543 
+##    SHASHo   SHASHo2       ST1       JSU      JSUo     SHASH      SEP1 
+##  41.51109  41.51109  42.36024  57.36378  57.36378  62.59372  66.96388 
+##       ST5    LOGNO2     LOGNO        RG       ST4        LO       NET 
+##  68.64761  72.25030  72.25030  73.07700  91.05977  97.37180  97.44979 
+##       TF2        TF        NO       PE2        PE        IW        GU 
+##  98.94333  98.94333  99.79450 101.25188 101.25188 136.72061 145.73577 
+##    IGAMMA        IG 
+## 221.71445 328.93551
 fits<span class="op">$</span>failed
 ## [[1]]
 ## [1] "SN1"
@@ -173,33 +170,27 @@ fits<span class="op">$</span>failed
 ## [1] "EGB2"
 ## 
 ## [[4]]
-## [1] "SEP1"
-## 
-## [[5]]
 ## [1] "SEP2"
 ## 
-## [[6]]
+## [[5]]
 ## [1] "SEP4"
 ## 
-## [[7]]
+## [[6]]
 ## [1] "GT"
 ## 
-## [[8]]
-## [1] "BCCG"
-## 
-## [[9]]
+## [[7]]
 ## [1] "LNO"
 ## 
-## [[10]]
+## [[8]]
 ## [1] "BCT"
 ## 
-## [[11]]
+## [[9]]
 ## [1] "BCPE"
 ## 
-## [[12]]
+## [[10]]
 ## [1] "FWE"
 ## 
-## [[13]]
+## [[11]]
 ## [1] "OW"</code></pre></div>
   </div>
 

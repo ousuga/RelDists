@@ -1,7 +1,7 @@
 #' The Additive Weibull family
 #' 
 #' @description 
-#' Additive Weibull distribution
+#' The Additive Weibull distribution
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
