@@ -102,27 +102,25 @@ y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html"
 <p>Fitting with traditional gamlss families:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
 fits &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/fitDist">fitDist</a></span>(y, <span class="dt">type=</span><span class="st">"realplus"</span>)
-## Error in solve.default(oout$hessian) : 
-##   Lapack routine dgesv: system is exactly singular: U[4,4] = 0
 fits<span class="op">$</span>fits
-##       GA      GIG      EXP     WEI2     WEI3      WEI     BCPE       GG 
-## 22.95946 23.11871 23.44606 23.49013 23.49013 23.49013 24.15788 24.33980 
-##    BCCGo  PARETO2       GP PARETO2o    BCPEo      GB2     BCTo   LOGNO2 
-## 24.36542 25.38696 25.38696 25.38696 26.33980 26.34023 26.36542 39.95757 
-##    LOGNO       IG   IGAMMA 
-## 39.95757 75.36289 90.62503
+##       EXP        GA       WEI      WEI2      WEI3        GP   PARETO2 
+##  11.92117  12.29779  12.65852  12.65852  12.65852  13.87871  13.87871 
+##  PARETO2o        GG       GIG     BCCGo      BCCG     BCPEo       GB2 
+##  13.87871  13.97134  13.99627  14.20025  15.69829  15.97134  15.97223 
+##      BCTo    LOGNO2     LOGNO        IG    IGAMMA 
+##  16.20251  33.59240  33.59240 107.84822 115.91479
 fits<span class="op">$</span>failed
 ## [[1]]
-## [1] "BCCG"
-## 
-## [[2]]
 ## [1] "exGAUS"
 ## 
-## [[3]]
+## [[2]]
 ## [1] "LNO"
 ## 
+## [[3]]
+## [1] "BCT"
+## 
 ## [[4]]
-## [1] "BCT"</code></pre></div>
+## [1] "BCPE"</code></pre></div>
 <p>Fitting with gamlss some our families:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
@@ -135,10 +133,10 @@ fits &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocume
 ## minimum GAIC(k= 3.84 ) family: EW 
 ## minimum GAIC(k= 4.61 ) family: EW
 fits
-##            2     3.84     4.61
-## EW  24.29797 29.81797 32.12797
-## ExW 25.35334 30.87334 33.18334
-## FWE 59.47354 63.15354 64.69354</code></pre></div>
+##            2      3.84      4.61
+## EW  13.92900  19.44900  21.75900
+## ExW 14.70036  20.22036  22.53036
+## FWE 97.61908 101.29908 102.83908</code></pre></div>
 <p>Fitting with gamlss families and our <code>"reldists"</code> family:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
