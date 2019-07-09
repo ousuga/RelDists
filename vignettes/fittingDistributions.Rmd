@@ -1,6 +1,6 @@
 ---
-title: "fitDistPlus"
-author: "Jaime Mosquera"
+title: "fitting RelDists distributions with gamlss"
+author: "Jaime Mosquera & Johan Marin"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -29,15 +29,32 @@ y <- rEW(n=100, mu=2, sigma=1.5, nu=0.5)
 Fitting with traditional gamlss families:
 
 ```{r, message=FALSE, warning=FALSE}
-fits <- fitDistPlus(y, type="realplus")
+require(gamlss)
+fits <- fitDist(y, type="realplus")
 fits$fits
 fits$failed
 ```
 
-Fitting with gamlss families and our `"reldists"` family:
+Fitting with gamlss  some our  families:
 
 ```{r, message=FALSE, warning=FALSE}
+require(gamlss)
+require(RelDists)
+
+familias <- c("EW", "ExW", "FWE")
+
+md <- gamlss(y~1, control=gamlss.control(n.cyc=500, trace=FALSE), family=NULL)
+fits <- chooseDist(md, type = "extra",  extra = familias)
+fits
+```
+
+Fitting with gamlss families and our `"reldists"` family:
+
+```{r eval=FALSE}
+require(gamlss)
+require(RelDists)
 fits <- fitDistPlus(y, type="reldists")
+
 fits$fits
 fits$failed
 ```
