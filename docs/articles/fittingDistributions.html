@@ -121,24 +121,18 @@ y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html"
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
 fits &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/fitDist">fitDist</a></span>(y, <span class="dt">type=</span><span class="st">"realplus"</span>)
 fits<span class="op">$</span>fits
-##       EXP        GA       WEI      WEI3      WEI2        GG     BCCGo 
-##  11.54099  12.38287  12.89678  12.89678  12.89678  13.28948  13.32654 
-##        GP  PARETO2o   PARETO2       GIG       GB2     BCPEo      BCTo 
-##  13.54099  13.54131  13.54145  14.34055  15.28982  15.30039  15.32713 
-##       BCT    LOGNO2     LOGNO    IGAMMA        IG 
-##  15.35007  40.15110  40.15110 144.63655 147.73340
+##       EXP       WEI      WEI3      WEI2        GA   PARETO2        GP 
+##  30.96634  32.48138  32.48138  32.48138  32.79110  32.96636  32.96826 
+##  PARETO2o        GG     BCCGo      BCCG       GIG     BCPEo       GB2 
+##  32.96846  33.12415  33.17374  33.18171  34.64145  35.12415  35.12464 
+##      BCTo       BCT      BCPE    LOGNO2     LOGNO        IG    IGAMMA 
+##  35.17616  35.18910  36.55386  55.78006  55.78006 101.46967 121.36929
 fits<span class="op">$</span>failed
 ## [[1]]
-## [1] "BCCG"
-## 
-## [[2]]
 ## [1] "exGAUS"
 ## 
-## [[3]]
-## [1] "LNO"
-## 
-## [[4]]
-## [1] "BCPE"</code></pre></div>
+## [[2]]
+## [1] "LNO"</code></pre></div>
 <p>Fitting with gamlss some our families:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
@@ -151,10 +145,10 @@ fits &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocume
 ## minimum GAIC(k= 3.84 ) family: EW 
 ## minimum GAIC(k= 4.61 ) family: EW
 fits
-##             2      3.84      4.61
-## EW   13.29748  18.81748  21.12748
-## ExW  13.88945  19.40945  21.71945
-## FWE 124.33816 128.01816 129.55816</code></pre></div>
+##            2     3.84     4.61
+## EW  33.10302 38.62302 40.93302
+## ExW 33.84690 39.36690 41.67690
+## FWE 90.94223 94.62223 96.16223</code></pre></div>
 <p>Fitting with gamlss families and our <code>"reldists"</code> family:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)

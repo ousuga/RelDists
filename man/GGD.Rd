@@ -20,7 +20,7 @@ The Generalized Gompertz  family
 The Generalized Gompertz  Distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
-\eqn{f(x)= \nu \mu \exp(-frac{\mu}{\sigma}(exp(\sigma x - 1))) (1 - \exp(-frac{\mu}{\sigma}(exp(\sigma x - 1))))^(\nu - 1) ,}
+\eqn{f(x)= \nu \mu \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))) (1 - \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))))^{(\nu - 1)} ,}
 
 for \eqn{x \geq 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}
 .
