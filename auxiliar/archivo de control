@@ -23,20 +23,20 @@ AddW          ok      ok            Amylkar
 ΓW            ok      ok            Johan 
 ExW           ok      ok            Amylkar
 ΒW[37,30]     ok      ok            Johan
-KumIW                               Johan
-BIW                                 Johan
-BGE                                 Johan
-GWF                                 Johan
+KumIW         ok      ok            Johan
+GWF           ok                    Johan
 WP            ok      ok            Amylkar
-WPS                                 Johan
 FPGG          ok                    Amylkar
 FPEGG[27,31]  ok      ok            Amylkar
 EWT[8]                              Amylkar
 MOEW[41]      ok      ok            Amylkar
-EMWEx[98].                          Johan
+EMWEx[98].    ok      ok            Johan
 RNMW[5]       ok                    Amylkar
 EEB           ok                    Jaime
 WGE           ok                    Jaime
 EWP           ok                    Jaime
-BHC                                 Jaime  
+BHC                                 Jaime 
+GGD           ok      ok            Johan
+BIW                                 Johan
+BGE                                 Johan
 ---------------------------------------------

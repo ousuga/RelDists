@@ -174,9 +174,9 @@
 <span class='co'># Extracting the fitted values for mu, sigma and nu</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    2.468928 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.329597 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.6344896 </div><div class='input'>
+#&gt;    1.887078 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.476612 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.4708408 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
@@ -191,9 +191,9 @@
               <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
 
 <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept)          x1 
-#&gt;    1.987285   -3.032611 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;    3.027858   -2.018139 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"nu"</span>)</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.6434506 </div><div class='input'>
+#&gt;    2.293878   -2.795841 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
+#&gt;    2.890636   -1.968698 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"nu"</span>)</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.235033 </div><div class='input'>
 
 </div></pre>
   </div>
