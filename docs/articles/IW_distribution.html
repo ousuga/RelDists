@@ -182,10 +182,10 @@
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))</a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="co">## (Intercept) </span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">##    5.867387</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">##    4.816619</span></a>
 <a class="sourceLine" id="cb8-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))</a>
 <a class="sourceLine" id="cb8-5" title="5"><span class="co">## (Intercept) </span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">##    2.455599</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">##    2.553147</span></a></code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">0.7</span>))</a>
@@ -262,10 +262,10 @@ x_2 &amp;\sim U(0, 1)
 <p>and the results can be found with</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)</a>
 <a class="sourceLine" id="cb16-2" title="2"><span class="co">## (Intercept)          x1 </span></a>
-<a class="sourceLine" id="cb16-3" title="3"><span class="co">##    2.057534   -1.063619</span></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="co">##    1.639500   -0.793306</span></a>
 <a class="sourceLine" id="cb16-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)</a>
 <a class="sourceLine" id="cb16-5" title="5"><span class="co">## (Intercept)          x2 </span></a>
-<a class="sourceLine" id="cb16-6" title="6"><span class="co">##    2.028707   -1.905943</span></a></code></pre></div>
+<a class="sourceLine" id="cb16-6" title="6"><span class="co">##    1.752216   -1.751602</span></a></code></pre></div>
 <p>We note that the estimated parameters are close to the true parameter vector <span class="math inline">\(\boldsymbol{\theta} = (2, -1, 2, -2)^\top\)</span>.</p>
 </div>
 <div id="bibliografia" class="section level2">
