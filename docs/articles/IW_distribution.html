@@ -106,17 +106,14 @@
 <p>Next figure shows possible shapes of the probability density function for several values of the parameters:</p>
 <pre><code>## Loading required package: RelDists
 ## Loading required package: gamlss
-## Warning: package 'gamlss' was built under R version 3.5.3
 ## Loading required package: splines
 ## Loading required package: gamlss.data
-## Warning: package 'gamlss.data' was built under R version 3.5.3
 ## 
 ## Attaching package: 'gamlss.data'
 ## The following object is masked from 'package:datasets':
 ## 
 ##     sleep
 ## Loading required package: gamlss.dist
-## Warning: package 'gamlss.dist' was built under R version 3.5.3
 ## Loading required package: MASS
 ## Loading required package: nlme
 ## Loading required package: parallel
@@ -124,7 +121,6 @@
 ## For more on GAMLSS look at http://www.gamlss.org/
 ## Type gamlssNews() to see new features/changes/bug fixes.
 ## Loading required package: stringr
-## Warning: package 'stringr' was built under R version 3.5.3
 ## &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   RelDists Version 1.0.0  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
 ## Feel free to report bugs in https://github.com/ousuga/RelDists/issues</code></pre>
 <p><img src="IW_distribution_files/figure-html/unnamed-chunk-1-1.png" width="700"></p>
@@ -186,10 +182,10 @@
 <p>To obtain the fitted values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> we use the inverse link function <span class="math inline">\(\log()\)</span>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))</a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="co">## (Intercept) </span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">##    5.472062</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">##    5.867387</span></a>
 <a class="sourceLine" id="cb8-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'sigma'</span>))</a>
 <a class="sourceLine" id="cb8-5" title="5"><span class="co">## (Intercept) </span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">##    2.718555</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">##    2.455599</span></a></code></pre></div>
 <p>The results show that estimated parameters are close to the true parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
 <p>In the next figure we have the histogram for the data and the fitted density. We note that the fitted density explains better the observed data.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/hist">hist</a></span>(y, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">''</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">0.7</span>))</a>
@@ -224,11 +220,10 @@
 <a class="sourceLine" id="cb11-2" title="2"><span class="co">## Loading required package: survival</span></a>
 <a class="sourceLine" id="cb11-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss.cens)</a>
 <a class="sourceLine" id="cb11-4" title="4"><span class="co">## Loading required package: gamlss.cens</span></a>
-<a class="sourceLine" id="cb11-5" title="5"><span class="co">## Warning: package 'gamlss.cens' was built under R version 3.5.2</span></a>
-<a class="sourceLine" id="cb11-6" title="6"></a>
-<a class="sourceLine" id="cb11-7" title="7">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw">Surv</span>(y, status) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb11-8" title="8">              <span class="dt">family=</span><span class="kw">cens</span>(IW), <span class="dt">data=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(dt, y <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span>),</a>
-<a class="sourceLine" id="cb11-9" title="9">              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb11-5" title="5"></a>
+<a class="sourceLine" id="cb11-6" title="6">mod &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw">Surv</span>(y, status) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb11-7" title="7">              <span class="dt">family=</span><span class="kw">cens</span>(IW), <span class="dt">data=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(dt, y <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span>),</a>
+<a class="sourceLine" id="cb11-8" title="8">              <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">5000</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
 <p>The fitted values are:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">exp</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">'mu'</span>))</a>
 <a class="sourceLine" id="cb12-2" title="2"><span class="co">## (Intercept) </span></a>
@@ -267,10 +262,10 @@ x_2 &amp;\sim U(0, 1)
 <p>and the results can be found with</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"mu"</span>)</a>
 <a class="sourceLine" id="cb16-2" title="2"><span class="co">## (Intercept)          x1 </span></a>
-<a class="sourceLine" id="cb16-3" title="3"><span class="co">##    2.581826   -1.208181</span></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="co">##    2.057534   -1.063619</span></a>
 <a class="sourceLine" id="cb16-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/coef">coef</a></span>(mod, <span class="dt">what=</span><span class="st">"sigma"</span>)</a>
 <a class="sourceLine" id="cb16-5" title="5"><span class="co">## (Intercept)          x2 </span></a>
-<a class="sourceLine" id="cb16-6" title="6"><span class="co">##    2.171722   -2.070540</span></a></code></pre></div>
+<a class="sourceLine" id="cb16-6" title="6"><span class="co">##    2.028707   -1.905943</span></a></code></pre></div>
 <p>We note that the estimated parameters are close to the true parameter vector <span class="math inline">\(\boldsymbol{\theta} = (2, -1, 2, -2)^\top\)</span>.</p>
 </div>
 <div id="bibliografia" class="section level2">
