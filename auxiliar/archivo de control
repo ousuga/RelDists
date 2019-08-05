@@ -18,7 +18,7 @@ PL            ok      ok            Amylkar
 SZMW          ok      ok            Johan
 RW            ok      ok            Amylkar
 WG            ok      ok            Johan
-WGEE          ok                    Johan
+WGEE          ok      ok            Johan
 AddW          ok      ok            Amylkar
 ΓW            ok      ok            Johan 
 ExW           ok      ok            Amylkar
@@ -37,8 +37,9 @@ WGE           ok                    Jaime
 EWP           ok                    Jaime
 BHC                                 Jaime 
 GGD           ok      ok            Johan
-BIW                                 Johan
-BGE                                 Johan
+EEG           ok      ok            Johan
+BGE           ok                    Johan
 MOEIW         ok      ok            Amylkar
 GIW           ok      ok            Amylkar
 ---------------------------------------------
+BIW                                 Johan
