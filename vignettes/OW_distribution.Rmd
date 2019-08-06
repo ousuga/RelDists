@@ -2,7 +2,7 @@
 title: "OW distribution"
 author: "Jaime Mosquera"
 date: "`r Sys.Date()`"
-#bibliography: ../inst/REFERENCES.bib
+bibliography: ../inst/REFERENCES.bib
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{OW distribution}
