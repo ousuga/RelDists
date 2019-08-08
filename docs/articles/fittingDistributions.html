@@ -56,6 +56,9 @@
       <a href="../articles/EW_distribution.html">EW distribution</a>
     </li>
     <li>
+      <a href="../articles/fittingDistributions.html">fitting RelDists distributions with gamlss</a>
+    </li>
+    <li>
       <a href="../articles/FWE_distribution.html">FWE distribution</a>
     </li>
     <li>
@@ -65,7 +68,7 @@
       <a href="../articles/OW_distribution.html">OW distribution</a>
     </li>
     <li>
-      <a href="../articles/fittingDistributions.html">fitting RelDists distributions with gamlss</a>
+      <a href="../articles/PL_distribution.html">PL distribution</a>
     </li>
   </ul>
 </li>
@@ -85,7 +88,7 @@
       <h1>fitting RelDists distributions with gamlss</h1>
                         <h4 class="author">Jaime Mosquera &amp; Johan Marin</h4>
             
-            <h4 class="date">2019-08-04</h4>
+            <h4 class="date">2019-08-08</h4>
       
       
       <div class="hidden name"><code>fittingDistributions.Rmd</code></div>
@@ -96,74 +99,77 @@
     
 <p><strong>This is a temporal vignette, only for some tests</strong></p>
 <p>Random data generation with <code>EW</code> family:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
-## Loading required package: RelDists
-## Loading required package: gamlss
-## Loading required package: splines
-## Loading required package: gamlss.data
-## 
-## Attaching package: 'gamlss.data'
-## The following object is masked from 'package:datasets':
-## 
-##     sleep
-## Loading required package: gamlss.dist
-## Loading required package: MASS
-## Loading required package: nlme
-## Loading required package: parallel
-##  **********   GAMLSS Version 5.1-3  **********
-## For more on GAMLSS look at http://www.gamlss.org/
-## Type gamlssNews() to see new features/changes/bug fixes.
-## Loading required package: stringr
-## &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   RelDists Version 1.0.0  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
-## Feel free to report bugs in https://github.com/ousuga/RelDists/issues
-y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="dv">2</span>, <span class="dt">sigma=</span><span class="fl">1.5</span>, <span class="dt">nu=</span><span class="fl">0.5</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">## Loading required package: RelDists</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">## Loading required package: gamlss</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">## Loading required package: splines</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">## Loading required package: gamlss.data</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">## </span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">## Attaching package: 'gamlss.data'</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">## The following object is masked from 'package:datasets':</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">## </span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">##     sleep</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">## Loading required package: gamlss.dist</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">## Loading required package: MASS</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">## Loading required package: nlme</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="co">## Loading required package: parallel</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="co">##  **********   GAMLSS Version 5.1-4  **********</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">## For more on GAMLSS look at http://www.gamlss.org/</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co">## Type gamlssNews() to see new features/changes/bug fixes.</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co">## Loading required package: stringr</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co">## &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   RelDists Version 1.0.0  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="co">## Feel free to report bugs in https://github.com/ousuga/RelDists/issues</span></a>
+<a class="sourceLine" id="cb1-21" title="21">y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dEW.html">rEW</a></span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mu=</span><span class="dv">2</span>, <span class="dt">sigma=</span><span class="fl">1.5</span>, <span class="dt">nu=</span><span class="fl">0.5</span>)</a></code></pre></div>
 <p>Fitting with traditional gamlss families:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
-fits &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/fitDist">fitDist</a></span>(y, <span class="dt">type=</span><span class="st">"realplus"</span>)
-## Error in solve.default(oout$hessian) : 
-##   Lapack routine dgesv: system is exactly singular: U[1,1] = 0
-fits<span class="op">$</span>fits
-##      EXP     WEI3     WEI2      WEI       GA PARETO2o  PARETO2       GP 
-## 20.11972 22.06668 22.06668 22.06668 22.10412 22.11997 22.12064 22.12104 
-##      GIG       GG     BCCG    BCCGo    BCPEo      GB2     BCTo    LOGNO 
-## 23.46801 23.84256 25.70102 25.70102 25.83813 25.84327 26.30395 38.46607 
-##   LOGNO2       IG   IGAMMA 
-## 38.46607 73.10571 93.47367
-fits<span class="op">$</span>failed
-## [[1]]
-## [1] "exGAUS"
-## 
-## [[2]]
-## [1] "LNO"
-## 
-## [[3]]
-## [1] "BCT"
-## 
-## [[4]]
-## [1] "BCPE"</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)</a>
+<a class="sourceLine" id="cb2-2" title="2">fits &lt;-<span class="st"> </span><span class="kw">fitDist</span>(y, <span class="dt">type=</span><span class="st">"realplus"</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">## Error in solve.default(oout$hessian) : </span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">##   Lapack routine dgesv: system is exactly singular: U[4,4] = 0</span></a>
+<a class="sourceLine" id="cb2-5" title="5">fits<span class="op">$</span>fits</a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="co">##       GIG       EXP     BCPEo        GP  PARETO2o   PARETO2       WEI </span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">## -9.017877 -8.407278 -8.375782 -7.330938 -7.330938 -7.330938 -7.178669 </span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co">##      WEI2      WEI3        GG        GA     BCCGo    LOGNO2     LOGNO </span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co">## -7.178669 -7.178669 -7.134318 -6.767916 -6.766022 -5.321819 -5.321819 </span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">##       GB2      BCTo        IG    IGAMMA </span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="co">## -5.132369 -4.766022 12.827768 31.216012</span></a>
+<a class="sourceLine" id="cb2-12" title="12">fits<span class="op">$</span>failed</a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="co">## [[1]]</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="co">## [1] "BCCG"</span></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="co">## </span></a>
+<a class="sourceLine" id="cb2-16" title="16"><span class="co">## [[2]]</span></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="co">## [1] "exGAUS"</span></a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="co">## </span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="co">## [[3]]</span></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="co">## [1] "LNO"</span></a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="co">## </span></a>
+<a class="sourceLine" id="cb2-22" title="22"><span class="co">## [[4]]</span></a>
+<a class="sourceLine" id="cb2-23" title="23"><span class="co">## [1] "BCT"</span></a>
+<a class="sourceLine" id="cb2-24" title="24"><span class="co">## </span></a>
+<a class="sourceLine" id="cb2-25" title="25"><span class="co">## [[5]]</span></a>
+<a class="sourceLine" id="cb2-26" title="26"><span class="co">## [1] "BCPE"</span></a></code></pre></div>
 <p>Fitting with gamlss some our families:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
-
-familias &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"EW"</span>, <span class="st">"ExW"</span>, <span class="st">"FWE"</span>)
-
-md &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss">gamlss</a></span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">control=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control">gamlss.control</a></span>(<span class="dt">n.cyc=</span><span class="dv">500</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>), <span class="dt">family=</span><span class="ot">NULL</span>)
-fits &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/fitDist">chooseDist</a></span>(md, <span class="dt">type =</span> <span class="st">"extra"</span>,  <span class="dt">extra =</span> familias)
-## minimum GAIC(k= 2 ) family: EW 
-## minimum GAIC(k= 3.84 ) family: EW 
-## minimum GAIC(k= 4.61 ) family: EW
-fits
-##            2     3.84     4.61
-## EW  23.82670 29.34670 31.65670
-## ExW 24.34341 29.86341 32.17341
-## FWE 67.35878 71.03878 72.57878</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)</a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4">familias &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"EW"</span>, <span class="st">"ExW"</span>, <span class="st">"FWE"</span>)</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">md &lt;-<span class="st"> </span><span class="kw">gamlss</span>(y<span class="op">~</span><span class="dv">1</span>, <span class="dt">control=</span><span class="kw">gamlss.control</span>(<span class="dt">n.cyc=</span><span class="dv">500</span>, <span class="dt">trace=</span><span class="ot">FALSE</span>), <span class="dt">family=</span><span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb3-7" title="7">fits &lt;-<span class="st"> </span><span class="kw">chooseDist</span>(md, <span class="dt">type =</span> <span class="st">"extra"</span>,  <span class="dt">extra =</span> familias)</a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">## minimum GAIC(k= 2 ) family: EW </span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co">## minimum GAIC(k= 3.84 ) family: EW </span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co">## minimum GAIC(k= 4.61 ) family: EW</span></a>
+<a class="sourceLine" id="cb3-11" title="11">fits</a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="co">##             2      3.84      4.61</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="co">## EW  -6.906183 -1.386183  0.923817</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co">## ExW -2.576399  2.943601  5.253601</span></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="co">## FWE 12.489588 16.169588 17.709588</span></a></code></pre></div>
 <p>Fitting with gamlss families and our <code>"reldists"</code> family:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)
-fits &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitDistPlus.html">fitDistPlus</a></span>(y, <span class="dt">type=</span><span class="st">"reldists"</span>)
-
-fits<span class="op">$</span>fits
-fits<span class="op">$</span>failed</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)</a>
+<a class="sourceLine" id="cb4-3" title="3">fits &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitDistPlus.html">fitDistPlus</a></span>(y, <span class="dt">type=</span><span class="st">"reldists"</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5">fits<span class="op">$</span>fits</a>
+<a class="sourceLine" id="cb4-6" title="6">fits<span class="op">$</span>failed</a></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
