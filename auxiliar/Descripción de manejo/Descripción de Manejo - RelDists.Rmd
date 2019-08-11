@@ -189,4 +189,4 @@ Luego, presione enter. El paquete está instalado, y listo para utilizarse. Cada
 library(RelDists)
 ```
 
-Usted puede visitar el sitio web del paquete ( <https://ousuga.github.io/RelDists/>) **RelDists** para explorar la documentación de las funciones disponibles y su modo de uso.
+Usted puede visitar el sitio web del paquete **RelDists** ( <https://ousuga.github.io/RelDists/>) para explorar la documentación de las funciones disponibles y su modo de uso.
