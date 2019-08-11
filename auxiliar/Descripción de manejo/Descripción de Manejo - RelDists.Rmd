@@ -183,7 +183,7 @@ La consola se lucirá de la siguiente manera luego de copiar y pegar el texto:
 \includegraphics[width=0.7\textwidth]{Paso27}
 
 \justifying
-Luego, presione enter. El paquete está instalado, y listo para utilizarse. Cada vez que abra \proglang{RStudio}, usted deberá escribir la siguiente línea de comando para usar **RelDistis**:
+Luego, presione enter. El paquete está instalado, y listo para utilizarse. Cada vez que abra \proglang{RStudio}, usted deberá escribir la siguiente línea de comando para usar **RelDists**:
 
 ```r
 library(RelDists)
