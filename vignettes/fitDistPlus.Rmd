@@ -41,4 +41,3 @@ fits <- fitDistPlus(y, type="reldists")
 fits$fits
 fits$failed
 ```
-
