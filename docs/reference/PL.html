@@ -89,7 +89,7 @@
       <a href="../articles/EW_distribution.html">EW distribution</a>
     </li>
     <li>
-      <a href="../articles/fitDistPlus.html">fitDistPlus</a>
+      <a href="../articles/fittingDistributions.html">fitting RelDists distributions with gamlss</a>
     </li>
     <li>
       <a href="../articles/FWE_distribution.html">FWE distribution</a>
@@ -99,6 +99,9 @@
     </li>
     <li>
       <a href="../articles/OW_distribution.html">OW distribution</a>
+    </li>
+    <li>
+      <a href="../articles/PL_distribution.html">PL distribution</a>
     </li>
   </ul>
 </li>
@@ -151,6 +154,17 @@ and <code>sigma</code> has density given by</p>
 <p>\(f(x) = \frac{\mu \sigma^2}{\sigma + 1} (1 + x^\mu) x ^ {\mu - 1} \exp({-\sigma x ^\mu}),\)</p>
 <p>for x &gt; 0.</p>
     
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Almalki SJ, Nadarajah S (2014).
+&#8220;Modifications of the Weibull distribution: A review.&#8221;
+<em>Reliability Engineering \&amp; System Safety</em>, <b>124</b>, 32--55.</p>
+<p>Ghitanya M, Al-Mutairi D, Balakrishnanb N, Al-Enezi L (2013).
+&#8220;Power Lindley distribution and associated inference.&#8221;
+<em>Computational Statistics and Data Analysis</em>, <b>64</b>, 20--33.
+doi: <a href='https://doi.org/10.1016/j.csda.2013.02.026'>10.1016/j.csda.2013.02.026</a>
+, <a href='https://doi.org/10.1016/j.csda.2013.02.026'>https://doi.org/10.1016/j.csda.2013.02.026</a>.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='dPL.html'>dPL</a></p></div>
@@ -171,8 +185,8 @@ and <code>sigma</code> has density given by</p>
 <span class='co'># Extracting the fitted values for mu and sigma</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;      1.3842 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.2732274 </div><div class='input'>
+#&gt;    1.606756 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.1651707 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
@@ -186,8 +200,8 @@ and <code>sigma</code> has density given by</p>
               <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
 
 <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept)          x1 
-#&gt;    1.199823   -2.064982 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;    1.338366   -3.921968 </div><div class='input'>
+#&gt;    1.487177   -2.591581 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)          x2 
+#&gt;   0.9453383  -3.3278849 </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -196,6 +210,8 @@ and <code>sigma</code> has density given by</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#references">References</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

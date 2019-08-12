@@ -1,7 +1,7 @@
 #' The Additive Weibull family
 #' 
 #' @description 
-#' Additive Weibull distribution
+#' The Additive Weibull distribution
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
@@ -56,6 +56,12 @@
 #' exp(coef(mod, what="nu"))
 #' exp(coef(mod, what="tau"))
 #' 
+#' @references
+#' \insertRef{almalki2014modifications}{RelDists}
+#' 
+#' \insertRef{Xie1996}{RelDists}
+#'
+#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

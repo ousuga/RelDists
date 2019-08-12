@@ -48,6 +48,12 @@
 #' coef(mod, what="mu")
 #' coef(mod, what="sigma")
 #' 
+#' @references
+#' \insertRef{almalki2014modifications}{RelDists}
+#' 
+#' \insertRef{Ghitanya2013}{RelDists}
+#' 
+#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

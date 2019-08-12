@@ -55,6 +55,11 @@ coef(mod, what="mu")
 coef(mod, what="sigma")
 
 }
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{Ghitanya2013}{RelDists}
+}
 \seealso{
 \link{dPL}
 }

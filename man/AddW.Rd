@@ -17,7 +17,7 @@ AddW(mu.link = "log", sigma.link = "log", nu.link = "log",
 \item{tau.link}{defines the tau.link, with "log" link as the default for the tau parameter.}
 }
 \description{
-Additive Weibull distribution
+The Additive Weibull distribution
 }
 \details{
 Additive Weibull distribution with parameters \code{mu}, 
@@ -65,6 +65,11 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
 
+}
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{Xie1996}{RelDists}
 }
 \seealso{
 \link{dAddW}

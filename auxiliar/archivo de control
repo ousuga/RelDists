@@ -2,10 +2,8 @@ Este archivo sirve para tener el control de las
 funciones que se han creado y documentado en la
 nueva forma del paquete.
 
-Jaime, complete la tabla de abajo.
-
 ---------------------------------------------
-Distribucion dxxx Familia Vinnete  Quien
+Distribucion dxxx Familia  Vinnete  Desarroll
 ---------------------------------------------
 EW            ok      ok      ok    Freddy
 FWE           ok      ok      ok    Freddy
@@ -16,28 +14,36 @@ IW            ok      ok      ok    Johan
 KW            ok      ok            Freddy
 LW            ok      ok            Amylkar
 MW            ok      ok            Johan
-PL            ok      ok            Amylkar
+PL            ok      ok      ok    Amylkar
 SZMW          ok      ok            Johan
 RW            ok      ok            Amylkar
 WG            ok      ok            Johan
-WGEE          ok                    Johan
+WGEE          ok      ok            Johan
 AddW          ok      ok            Amylkar
 ΓW            ok      ok            Johan 
 ExW           ok      ok            Amylkar
-ΒW[37,30]                           Johan
-KumIW                               Johan
-BIW                                 Johan
+ΒW[37,30]     ok      ok            Johan
+KumIW         ok      ok            Johan
+GWF           ok                    Johan
 WP            ok      ok            Amylkar
-WPS
 FPGG          ok                    Amylkar
-Cordeiro [27,31]                    Amylkar
-Al-Saleh[8]
-GWF
-Ghitany[41]
-EMWEx[98]
-RNMW[5]
-EEB           ok                     Jaime
-WGE           ok                     Jaime
-EWP           ok                     Jaime
-BHC                                  Jaime  
+FPEGG[27,31]  ok      ok            Amylkar
+EWT[8]                              Amylkar
+MOEW[41]      ok      ok            Amylkar
+EMWEx[98].    ok      ok            Johan
+RNMW[5]       ok                    Amylkar
+EEB           ok                    Jaime
+WGE           ok                    Jaime
+EWP           ok                    Jaime
+BHC                                 Jaime 
+GGD           ok      ok            Johan
+EEG           ok      ok            Johan
+BGE           ok      ok            Johan
+MOEIW         ok      ok            Amylkar
+GIW           ok      ok            Amylkar
 ---------------------------------------------
+BIW                                 Johan
+---------------------------------------------
+Distribuciones revisadas curso de Simulación
+---------------------------------------------
+APIE          ok                    Amylkar

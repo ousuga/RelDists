@@ -57,6 +57,8 @@
 #'       col="red", ylab="Hazard function", las=1)
 #'
 #' @references
+#' \insertRef{almalki2014modifications}{RelDists}
+#' 
 #' \insertRef{Gumbel1958}{RelDists}
 #'
 #' @importFrom Rdpack reprompt

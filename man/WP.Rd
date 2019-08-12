@@ -60,6 +60,11 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 
 }
+\references{
+\insertRef{almalki2014modifications}{RelDists}
+
+\insertRef{Wanbo2012}{RelDists}
+}
 \seealso{
 \link{dWP}
 }
