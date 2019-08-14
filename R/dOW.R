@@ -53,7 +53,6 @@
 #'       add=TRUE, col="red")
 #' 
 #' ## The Hazard function
-#' par(mfrow=c(1,1))
 #' curve(hOW(x, mu=2, sigma=3, nu=0.2), from=0, to=2.5, ylim=c(0, 30), 
 #'       col="red", ylab="The hazard function", las=1)
 #'
