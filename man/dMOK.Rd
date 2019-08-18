@@ -90,6 +90,9 @@ curve(hMOK(x = x, mu = 1, sigma = 2.5, nu = 3, tau = 2), from = 0, to = 20,
       col = 2, ylab = 'Hazard function', las = 1)
 
 }
+\references{
+\insertRef{javed2018marshall}{RelDists}
+}
 \author{
 Angel Muñoz,
 }
