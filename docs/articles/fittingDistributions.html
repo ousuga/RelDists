@@ -124,26 +124,21 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">fits &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/gamlss/topics/fitDist">fitDist</a></span>(y, <span class="dt">type=</span><span class="st">"realplus"</span>)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">fits<span class="op">$</span>fits</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">##      BCCGo       BCCG         GG      BCPEo       BCTo        GB2 </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">##   1.504780   1.504780   2.530661   2.695079   3.504798   4.365287 </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">##         GA        GIG       WEI2        WEI       WEI3        EXP </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">##   5.968054   7.968054   8.586953   8.586953   8.586953   9.274732 </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">##   PARETO2o         GP    PARETO2     LOGNO2      LOGNO     IGAMMA </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">##  11.275390  11.275770  11.275789  73.776027  73.776027 349.089150 </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">##         IG </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">## 829.869564</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">fits<span class="op">$</span>failed</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">## [[1]]</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">## [1] "exGAUS"</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">## </span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">## [[2]]</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">## [1] "LNO"</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">## </span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">## [[3]]</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">## [1] "BCT"</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">## </span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">## [[4]]</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">## [1] "BCPE"</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">##      EXP       GA     WEI2      WEI     WEI3      GIG       GP  PARETO2 </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">## 15.23696 16.21863 16.48002 16.48002 16.48002 17.02716 17.23700 17.23700 </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">## PARETO2o       GG     BCPE    BCCGo    BCPEo      GB2     BCTo      BCT </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">## 17.23712 17.80980 17.93226 17.94397 19.80980 19.81015 19.95148 19.99000 </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">##   LOGNO2    LOGNO       IG   IGAMMA </span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">## 32.62922 32.62922 71.54586 88.27806</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">fits<span class="op">$</span>failed</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">## [[1]]</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">## [1] "BCCG"</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">## </span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">## [[2]]</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">## [1] "exGAUS"</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">## </span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">## [[3]]</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">## [1] "LNO"</span></a></code></pre></div>
 <p>Fitting with gamlss some our families:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)</a>
@@ -156,10 +151,10 @@
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">## minimum GAIC(k= 3.84 ) family: EW </span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">## minimum GAIC(k= 4.61 ) family: EW</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11">fits</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">##                2         3.84         4.61</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">## EW  2.637567e+00 8.157567e+00     10.46757</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">## ExW 6.778498e+00 1.229850e+01     14.60850</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">## FWE 6.893690e+05 6.893727e+05 689374.24478</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">##            2     3.84     4.61</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">## EW  17.74039 23.26039 25.57039</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">## ExW 18.77581 24.29581 26.60581</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">## FWE 59.27483 62.95483 64.49483</span></a></code></pre></div>
 <p>Fitting with gamlss families and our <code>"reldists"</code> family:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(gamlss)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(RelDists)</a>

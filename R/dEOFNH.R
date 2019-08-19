@@ -17,12 +17,13 @@
 #' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
 #' 
 #' @details 
-#'  Tthe Extended Odd Fr?chet-Nadarajah-Haghighi \code{mu}, 
+#'  Tthe Extended Odd Frechet-Nadarajah-Haghighi \code{mu}, 
 #' \code{sigma}, \code{nu} and \code{tau} has density given by
 #' 
 #' \eqn{f(x)= \frac{\mu\sigma\nu\tau(1+\nu x)^{\sigma-1}e^{(1-(1+\nu x)^\sigma)}[1-(1-e^{(1-(1+\nu x)^\sigma)})^{\mu}]^{\tau-1}}{(1-e^{(1-(1+\nu x)^{\sigma})})^{\mu\tau+1}} e^{-[(1-e^{(1-(1+\nu x)^\sigma)})^{-\mu}-1]^{\tau}},}
 #' 
-#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu > 0} and \eqn{\tau > 0}. 
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu > 0} and \eqn{\tau > 0}.
+#'  
 #' @return 
 #' \code{dEOFNH} gives the density, \code{pEOFNH} gives the distribution 
 #' function, \code{qEOFNH} gives the quantile function, \code{rEOFNH}
@@ -83,9 +84,9 @@ dEOFNH <- function(x, mu, sigma, nu, tau){
 #' @export
 #' @rdname dEOFNH
 
-pEOFNH <- function(x, mu, sigma, nu, tau, lower.tail=TRUE){
-  if (any(x < 0)) 
-    stop(paste("x must be positive", "\n", ""))
+pEOFNH <- function(q, mu, sigma, nu, tau, lower.tail=TRUE){
+  if (any(q < 0)) 
+    stop(paste("q must be positive", "\n", ""))
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
@@ -95,7 +96,7 @@ pEOFNH <- function(x, mu, sigma, nu, tau, lower.tail=TRUE){
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
   
-  term1 <- 1+nu*x
+  term1 <- 1+nu*q
   term2 <- exp(1-(term1)^sigma)
   term3 <- 1-term2
   term5 <- (1-term3^mu)/(term3^mu)

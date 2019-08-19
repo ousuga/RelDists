@@ -10,7 +10,7 @@
 \usage{
 dEOFNH(x, mu, sigma, nu, tau)
 
-pEOFNH(x, mu, sigma, nu, tau, lower.tail = TRUE)
+pEOFNH(q, mu, sigma, nu, tau, lower.tail = TRUE)
 
 qEOFNH(p, mu, sigma, nu, tau, lower.tail = TRUE)
 
@@ -46,7 +46,7 @@ random generation and hazard function for the Extended Odd Fr?chet-Nadarajah-Hag
 with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 }
 \details{
-Tthe Extended Odd Fr?chet-Nadarajah-Haghighi \code{mu}, 
+Tthe Extended Odd Frechet-Nadarajah-Haghighi \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \frac{\mu\sigma\nu\tau(1+\nu x)^{\sigma-1}e^{(1-(1+\nu x)^\sigma)}[1-(1-e^{(1-(1+\nu x)^\sigma)})^{\mu}]^{\tau-1}}{(1-e^{(1-(1+\nu x)^{\sigma})})^{\mu\tau+1}} e^{-[(1-e^{(1-(1+\nu x)^\sigma)})^{-\mu}-1]^{\tau}},}
