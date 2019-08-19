@@ -51,7 +51,7 @@ The Epsilon Distribution with parameters \code{mu} and
 
 where
 
-\eqn{\varepsilon_{-\mu,\sigma}(x) = \left(\frac{x+\sigma}{\sigma-x}\right)^{-\mu \dfrac{\sigma}{2}}}
+\eqn{\varepsilon_{-\mu,\sigma}(x) = \left(\frac{x+\sigma}{\sigma-x}\right)^{-\mu\dfrac{\sigma}{2}}}
 
 for \eqn{0 < x < \sigma}, \eqn{\mu > 0}  and \eqn{\sigma > 0}.
 }
