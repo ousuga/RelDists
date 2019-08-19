@@ -21,11 +21,11 @@
 #' 
 #' \eqn{f(x)= \mu \frac{\sigma^2}{\sigma^2-x^2}\varepsilon_{-\mu,\sigma}\left(x\right)}
 #' 
-#' for \eqn{0 < x < \sigma}, \eqn{\mu > 0}  and \eqn{\sigma > 0}. 
-#' 
 #' where
 #' 
-#' \eqn{\varepsilon_{-\mu,\sigma}(x) = \left (\frac{x + \sigma}{\sigma - x}\right)^{-\mu \dfrac{\sigma}{2}}}
+#' \eqn{\varepsilon_{-\mu,\sigma}(x) = \left(\frac{x+\sigma}{\sigma-x}\right)^{-\mu\dfrac{\sigma}{2}}}
+#' 
+#' for \eqn{0 < x < \sigma}, \eqn{\mu > 0}  and \eqn{\sigma > 0}. 
 #' 
 #' @return 
 #' \code{dEpsilon} gives the density, \code{pEpsilon} gives the distribution 
