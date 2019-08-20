@@ -1,5 +1,7 @@
 #' The Quasi XGamma Poisson distribution
 #' 
+#' @author Simon Zapata
+#' 
 #' @description 
 #' Density, distribution function,quantile function, 
 #' random generation and hazard function for the Quasi XGamma Poisson distribution 

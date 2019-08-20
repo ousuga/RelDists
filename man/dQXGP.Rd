@@ -92,3 +92,6 @@ curve(hQXGP(x, mu=0.5, sigma=1, nu=1), from=0.01, to=3,
 \references{
 \insertRef{subhradev2018}{RelDists}
 }
+\author{
+Simon Zapata
+}
