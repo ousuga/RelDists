@@ -1,9 +1,12 @@
 Este archivo es una bitácora para escribir la historia de los casos fallidos. Por favor escribir el nombre de quien hace el comentario.
 
 ----------------------------------------------------------------------------------------------------
-Distribucion   Autor                  Desarrollador/esb  Modo_de_falla
+Distribucion   Autor                  Desarrollador/est  Modo_de_falla
 ----------------------------------------------------------------------------------------------------
 GWF            Mudolkar & Kolla       Johan              Valores de inicialización par ala familia
 BIW            Hanook et.al           Johan              Error función uniroot
 Epsilon        Dombii et.al           Daniel B, Johan    Revisar ajuste función quantile qEpsilon
 LIL            Eltehiwy & Mahmoud     DAniel M, Johan    Error en lambertWm1 para función quantile
+FPGG           H. Leon H (1967)       Amylkar            Error en ejemplos de la familia
+EWT            Al-Saleh(2006)         Amylkar            No se ha podido crear la función de enlace "generalized gamma function" en la pdf
+RNMW           Saad J.A (2018)        Amylkar            Error en ejemplos de la familia
