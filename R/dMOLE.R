@@ -77,7 +77,7 @@ dMOLE <- function(x, mu, sigma, nu, log=FALSE){
     stop(paste("nu must be positive", "\n", ""))
 
   A <- log (mu) + log(sigma) + log(nu) + nu*x + (-mu-1) * log(exp(nu * x) - 1)
-  loglik <- A - 2 * log((1+sigma*(exp(nu*x)-1)^-mu))
+  loglik <- A - 2 * log((1+sigma*(exp(nu*x)-1)^(-mu)))
   
   if (log == FALSE)
     density <- exp(loglik)
