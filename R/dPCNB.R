@@ -81,8 +81,8 @@ dPCNB <- function(x, mu, sigma,
   if (any(any(tau < 0) || any(tau > 1)))
     stop(paste("tau must be between 0 and 1", "\n", ""))
   
-  A <- log(2/pi)+log(nu)+nu*log(tau)+log(mu/sigma)+(mu-1)*log(x/sigma)
-  B <- -log(1+(x/sigma)^(2*mu))+(nu-1)*log((2/pi)*atan((x/sigma)^(mu)))
+  A <- log(2/pi) + log(nu) + nu*log(tau) + log(mu/sigma) + (mu-1)*log(x/sigma)
+  B <- -log(1+(x/sigma)^(2*mu)) + (nu-1)*log((2/pi)*atan((x/sigma)^(mu)))
   C <- -((nu+1)*log(1-((2/pi)*(1-tau)*atan((x/sigma)^(mu)))))
   loglik <- A + B + C
   

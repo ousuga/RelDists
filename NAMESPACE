@@ -3,6 +3,7 @@
 export(AddW)
 export(BGE)
 export(BW)
+export(EC)
 export(EEG)
 export(EMWEx)
 export(EW)
