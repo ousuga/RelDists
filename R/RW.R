@@ -1,5 +1,7 @@
 #' The Reflected Weibull family
 #' 
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' 
 #' @description 
 #' Reflected Weibull distribution
 #' 

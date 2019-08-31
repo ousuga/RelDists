@@ -1,5 +1,7 @@
 #' The Additive Weibull family
 #' 
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' 
 #' @description 
 #' The Additive Weibull distribution
 #' 

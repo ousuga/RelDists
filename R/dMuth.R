@@ -65,7 +65,7 @@ dMuth <- function(x, mu, log=FALSE){
   if (any(x <= 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0) | any(mu > 1)) 
-    stop(paste("mu must be between into (0,1]", "\n", ""))
+    stop(paste("mu must be between  (0, 1]", "\n", ""))
   
   loglik <- log(exp(mu * x) -mu) + (mu * x - (1/mu) * (exp(mu * x)-1))
   
@@ -81,7 +81,7 @@ pMuth <- function(q, mu, lower.tail=TRUE, log.p=FALSE){
   if (any(q <= 0)) 
     stop(paste("q must be positive", "\n", ""))
   if (any(mu <= 0) | any(mu > 1)) 
-    stop(paste("mu must be between into (0,1]", "\n", ""))
+    stop(paste("mu must be between (0,1]", "\n", ""))
   
   cdf <- 1 - exp(mu * q - (1/mu) * (exp(mu * q) - 1))
   
@@ -97,7 +97,7 @@ pMuth <- function(q, mu, lower.tail=TRUE, log.p=FALSE){
 #' @rdname dMuth
 qMuth <- function(p, mu, lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0) | any(mu > 1)) 
-    stop(paste("mu must be between into (0,1]", "\n", ""))
+    stop(paste("mu must be between (0,1]", "\n", ""))
   
   if (log.p == TRUE) 
     p <- exp(p)
@@ -130,7 +130,7 @@ rMuth <- function(n, mu, log.p=FALSE){
   if(any(n <= 0))
     stop(paste("n must be positive","\n",""))
   if (any(mu <= 0) | any(mu > 1)) 
-    stop(paste("mu must be between into (0,1]", "\n", ""))
+    stop(paste("mu must be between (0,1]", "\n", ""))
   
   n <- ceiling(n)
   p <- runif(n)

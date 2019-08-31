@@ -67,3 +67,6 @@ exp(coef(mod, what="nu"))
 \seealso{
 \link{dGIW}
 }
+\author{
+Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
+}

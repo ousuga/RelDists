@@ -1,5 +1,7 @@
 #' The Four-Parameter Exponentiated Generalized Gamma family
 #' 
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' 
 #' @description 
 #' The Four-Parameter Exponentiated Generalized Gamma distribution
 #' 

@@ -1,5 +1,7 @@
 #' The Weibull Poisson family
 #' 
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' 
 #' @description 
 #' The Weibull Poisson family
 #' 

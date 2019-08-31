@@ -1,5 +1,7 @@
 #' The Power Lindley family
 #' 
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' 
 #' @description 
 #' Power Lindley distribution
 #' 

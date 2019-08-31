@@ -66,3 +66,6 @@ exp(coef(mod, what="nu"))
 \seealso{
 \link{dMOEIW}
 }
+\author{
+Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
+}

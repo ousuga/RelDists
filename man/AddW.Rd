@@ -74,3 +74,6 @@ exp(coef(mod, what="tau"))
 \seealso{
 \link{dAddW}
 }
+\author{
+Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
+}

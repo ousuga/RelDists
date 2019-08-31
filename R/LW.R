@@ -1,5 +1,7 @@
 #' The Log-Weibull family
 #' 
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' 
 #' @description 
 #' The Log-Weibull distribution
 #' 

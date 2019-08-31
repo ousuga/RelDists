@@ -63,3 +63,6 @@ coef(mod, what="sigma")
 \seealso{
 \link{dRW}
 }
+\author{
+Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
+}

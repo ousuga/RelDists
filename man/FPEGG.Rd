@@ -75,3 +75,6 @@ exp(coef(mod, what="tau"))
 \seealso{
 \link{dFPEGG}
 }
+\author{
+Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
+}
