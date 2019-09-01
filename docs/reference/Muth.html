@@ -177,7 +177,7 @@ ISSN 2008-1898, doi: <a href='https://doi.org/10.22436/jnsa.011.10.06'>10.22436/
 <span class='co'># Extracting the fitted values for mu</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.5037072 </div><div class='input'>
+#&gt;   0.4676167 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>2000</span>
@@ -189,7 +189,7 @@ ISSN 2008-1898, doi: <a href='https://doi.org/10.22436/jnsa.011.10.06'>10.22436/
               <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))</div><div class='output co'>#&gt; <span class='error'>Error in dMuth(y, mu, log = TRUE): mu must be between  (0, 1] </span>
 #&gt; <span class='error'> </span></div><div class='input'>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept) 
-#&gt;  -0.6857601 </div><div class='input'>
+#&gt;  -0.7601063 </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
