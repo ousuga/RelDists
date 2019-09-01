@@ -8,11 +8,11 @@
 \alias{hEOFNH}
 \title{The Extended Odd Frechet-Nadarajah-Haghighi}
 \usage{
-dEOFNH(x, mu, sigma, nu, tau)
+dEOFNH(x, mu, sigma, nu, tau, log = FALSE)
 
-pEOFNH(q, mu, sigma, nu, tau, lower.tail = TRUE)
+pEOFNH(q, mu, sigma, nu, tau, lower.tail = TRUE, log.p = FALSE)
 
-qEOFNH(p, mu, sigma, nu, tau, lower.tail = TRUE)
+qEOFNH(p, mu, sigma, nu, tau, lower.tail = TRUE, log.p = FALSE)
 
 rEOFNH(n, mu, sigma, nu, tau)
 
@@ -28,6 +28,8 @@ hEOFNH(x, mu, sigma, nu, tau)
 \item{nu}{parameter.}
 
 \item{tau}{parameter.}
+
+\item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
 \item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 

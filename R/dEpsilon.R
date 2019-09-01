@@ -66,7 +66,7 @@
 #'
 #' @export
 dEpsilon <- function(x, mu, sigma,log=FALSE){
-  if (any(x < 0)) 
+  if (any(x < 0 | x > sigma)) 
     stop(paste("x must be between 0 and sigma", "\n", ""))
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
@@ -86,7 +86,7 @@ dEpsilon <- function(x, mu, sigma,log=FALSE){
 #' @rdname dEpsilon
 pEpsilon <- function(q, mu, sigma, 
                      lower.tail=TRUE, log.p=FALSE){
-  if (any(q < 0)) 
+  if (any(q < 0 | q > sigma)) 
     stop(paste("q must be between 0 and sigma", "\n", ""))
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
@@ -142,7 +142,7 @@ rEpsilon <- function(n, mu, sigma){
 #' @export
 #' @rdname dEpsilon
 hEpsilon <- function(x, mu, sigma){
-  if (any(x < 0)) 
+  if (any(x < 0 | x > sigma)) 
     stop(paste("x must be between 0 and sigma", "\n", ""))
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))

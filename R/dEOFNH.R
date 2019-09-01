@@ -14,6 +14,7 @@
 #' @param sigma parameter.
 #' @param nu parameter.
 #' @param tau parameter.
+#' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).
 #' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
 #' 
 #' @details 
@@ -63,7 +64,7 @@
 #'
 #' @export
 
-dEOFNH <- function(x, mu, sigma, nu, tau){
+dEOFNH <- function(x, mu, sigma, nu, tau, log=FALSE){
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0 )) 
@@ -78,13 +79,18 @@ dEOFNH <- function(x, mu, sigma, nu, tau){
   term2 <- exp(1-(term1)^sigma)
   term3 <- 1-term2
   term4 <- exp(-(term3^(-mu)-1)^tau)
-  density <- term4*(mu*sigma*tau*nu*term1^(sigma-1)*term2*(1-term3^mu)^(tau-1))/(term3^(mu*tau+1))
+  lik <- term4*(mu*sigma*tau*nu*term1^(sigma-1)*term2*(1-term3^mu)^(tau-1))/(term3^(mu*tau+1))
+  
+  if (log == FALSE)
+    density <- lik 
+  else density <- log(lik)
+  
   return(density)
 }
 #' @export
 #' @rdname dEOFNH
 
-pEOFNH <- function(q, mu, sigma, nu, tau, lower.tail=TRUE){
+pEOFNH <- function(q, mu, sigma, nu, tau, lower.tail=TRUE, log.p=FALSE){
   if (any(q < 0)) 
     stop(paste("q must be positive", "\n", ""))
   if (any(mu <= 0 )) 
@@ -103,6 +109,8 @@ pEOFNH <- function(q, mu, sigma, nu, tau, lower.tail=TRUE){
   cdf <- exp(-(term5)^tau)
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf 
+  if (log.p == FALSE) cdf <- cdf
+  else cdf <- log(cdf)
   cdf
 }
 
@@ -110,7 +118,7 @@ pEOFNH <- function(q, mu, sigma, nu, tau, lower.tail=TRUE){
 #' @rdname dEOFNH
 
 
-qEOFNH <- function(p, mu, sigma, nu, tau, lower.tail=TRUE){
+qEOFNH <- function(p, mu, sigma, nu, tau, lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
@@ -119,10 +127,15 @@ qEOFNH <- function(p, mu, sigma, nu, tau, lower.tail=TRUE){
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
+  
+  if (log.p == TRUE) p <- exp(p)
+  else p <- p
+  if (lower.tail == TRUE) p <- p
+  else p <- 1 - p
+  
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
-  if (lower.tail == TRUE) p <- p
-  else p <- 1 - p 
+  
   term1 <- (-log(p))^(1/tau)
   term2 <- (1+term1)^(-1/mu)
   term3 <- log(1-term2)
@@ -168,6 +181,6 @@ hEOFNH <- function(x, mu, sigma, nu, tau){
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
   
-  h <- dEOFNH(x, mu, sigma, nu, tau) / pEOFNH(x, mu, sigma, nu, tau, lower.tail=FALSE)
+  h <- dEOFNH(x, mu, sigma, nu, tau, log=FALSE) / pEOFNH(x, mu, sigma, nu, tau, lower.tail=FALSE, log.p=FALSE)
   h
 }  
