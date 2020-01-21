@@ -143,7 +143,6 @@ hFWE <- function(x, mu, sigma){
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
   
-  h <- dFWE(x, mu, sigma, log = FALSE) / 
-    pFWE(q=x, mu, sigma, lower.tail=FALSE, log.p=FALSE)
+  h <- (mu+sigma/x^2) * exp(mu*x-sigma/x)
   h
 }
