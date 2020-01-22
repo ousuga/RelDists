@@ -4,8 +4,7 @@
 \alias{BGE}
 \title{The Beta Generalized Exponentiated family}
 \usage{
-BGE(mu.link = "log", sigma.link = "log", nu.link = "log",
-  tau.link = "log")
+BGE(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
 }
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}

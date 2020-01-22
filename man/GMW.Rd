@@ -4,8 +4,7 @@
 \alias{GMW}
 \title{The Generalized Modified Weibull family}
 \usage{
-GMW(mu.link = "log", sigma.link = "log", nu.link = "sqrt",
-  tau.link = "sqrt")
+GMW(mu.link = "log", sigma.link = "log", nu.link = "sqrt", tau.link = "sqrt")
 }
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}

@@ -4,8 +4,7 @@
 \alias{MOK}
 \title{The Marshall-Olkin Kappa family}
 \usage{
-MOK(mu.link = "log", sigma.link = "log", nu.link = "log",
-  tau.link = "log")
+MOK(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
 }
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}

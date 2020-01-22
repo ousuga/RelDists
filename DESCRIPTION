@@ -12,7 +12,7 @@ Authors@R: c(
     person("Amylkar", "Urrea", , "jenny@rstudio.com", role = "aut"),
     person("Johan", "Marin", , "jenny@rstudio.com", role = "aut")
   )
-Description:  Parameters estimation and regression linear models of Reliability distributions within GAMLSS framework.
+Description: Parameters estimation and regression linear models of Reliability distributions within GAMLSS framework.
 Depends: R (>= 3.2.0), gamlss, stringr
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
@@ -27,4 +27,4 @@ Imports:
 LazyData: true
 Suggests: knitr, rmarkdown, survival
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

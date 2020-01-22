@@ -108,16 +108,7 @@ qFWE <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE) {
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
-  
-  fda <- function(x,mu, sigma){
-    1- exp(-exp(mu*x - sigma/x))
-  }
-  fda1 <- function(x, mu, sigma, p) {fda(x, mu, sigma) - p}
-  r_de_la_funcion <- function(mu, sigma, p) {
-    uniroot(fda1, interval=c(0, 1e+06), mu, sigma, p)$root
-  }
-  r_de_la_funcion <- Vectorize(r_de_la_funcion)
-  q <- r_de_la_funcion(mu, sigma, p)
+  q <- (log(-log(1-p)) + sqrt((log(-log(1-p)))^2 + 4*mu*sigma)) / (2*mu)
   q
 }
 #' @export
