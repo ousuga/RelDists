@@ -4,7 +4,8 @@
 \alias{EOFNH}
 \title{The Extended Odd Frechet-Nadarjad-Hanhighi family}
 \usage{
-EOFNH(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
+EOFNH(mu.link = "log", sigma.link = "log", nu.link = "log",
+  tau.link = "log")
 }
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}

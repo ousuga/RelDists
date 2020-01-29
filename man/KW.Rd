@@ -4,7 +4,8 @@
 \alias{KW}
 \title{The Kumaraswamy Weibull family}
 \usage{
-KW(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
+KW(mu.link = "log", sigma.link = "log", nu.link = "log",
+  tau.link = "log")
 }
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}

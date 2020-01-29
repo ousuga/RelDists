@@ -4,7 +4,8 @@
 \alias{EMWEx}
 \title{The Exponentiated Modifien Weibull Extension family}
 \usage{
-EMWEx(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
+EMWEx(mu.link = "log", sigma.link = "log", nu.link = "log",
+  tau.link = "log")
 }
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}

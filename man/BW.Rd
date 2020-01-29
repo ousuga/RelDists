@@ -4,7 +4,8 @@
 \alias{BW}
 \title{The Beta Weibull family}
 \usage{
-BW(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
+BW(mu.link = "log", sigma.link = "log", nu.link = "log",
+  tau.link = "log")
 }
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}

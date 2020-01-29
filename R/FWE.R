@@ -52,7 +52,7 @@ FWE <- function (mu.link="log", sigma.link="log") {
   mstats <- checklink("mu.link", "Flexible Weibull Extension", substitute(mu.link), c("log", "identity"))
   dstats <- checklink("sigma.link", "Flexible Weibull Extension", substitute(sigma.link), c("log", "identity"))
   
-  structure(list(family = c("FEW", "Flexible Weibull Extension"),
+  structure(list(family = c("FWE", "Flexible Weibull Extension"),
                  parameters = list(mu=TRUE, sigma=TRUE), 
                  nopar = 2, 
                  type = "Continuous",
