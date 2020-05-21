@@ -4,8 +4,16 @@
 \alias{fitDistPlus}
 \title{Fitting Different Parametric  \code{gamlss.family} Distributions (\code{RelDists} inclusive).}
 \usage{
-fitDistPlus(y, k = 2, type, try.gamlss = FALSE, extra = NULL,
-  data = NULL, trace = FALSE, ...)
+fitDistPlus(
+  y,
+  k = 2,
+  type,
+  try.gamlss = FALSE,
+  extra = NULL,
+  data = NULL,
+  trace = FALSE,
+  ...
+)
 }
 \arguments{
 \item{y}{the data vector}

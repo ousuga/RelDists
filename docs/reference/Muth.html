@@ -8,25 +8,21 @@
 
 <title>The Muth family — Muth • RelDists</title>
 
-
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -34,11 +30,10 @@
 
 
 
-
 <meta property="og:title" content="The Muth family — Muth" />
+
 <meta property="og:description" content="The Muth family" />
 <meta name="twitter:card" content="summary" />
-
 
 
 
@@ -50,7 +45,6 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 
 
   </head>
@@ -77,7 +71,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -112,6 +106,7 @@
   </ul>
 </li>
       </ul>
+      
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
@@ -121,7 +116,6 @@
 </div><!--/.navbar -->
 
       
-
       </header>
 
 <div class="row">
@@ -133,11 +127,13 @@
     </div>
 
     <div class="ref-description">
+    
     <p>The Muth family</p>
+    
     </div>
 
     <pre class="usage"><span class='fu'>Muth</span>(<span class='kw'>mu.link</span> <span class='kw'>=</span> <span class='st'>"log"</span>)</pre>
-
+    
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -146,12 +142,13 @@
       <td><p>defines the mu.link, with "log" link as the default for the mu parameter.</p></td>
     </tr>
     </table>
-
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The Muth distribution with parameter <code>mu</code> has density given by</p>
 <p>\(f(x)= ({exp(\mu x) - \mu})exp[{\mu x - \frac{1}{\mu} ({exp(\mu x) - 1})}]\)</p>
 <p>for \(x &gt; 0\), \(0&lt; \mu &lt;=1\).</p>
+    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Abdullah M. A, M. E (2018).
@@ -159,9 +156,11 @@
 <em>Journal of Nonlinear Sciences and Applications</em>, 1171--1184.
 ISSN 2008-1898, doi: <a href='https://doi.org/10.22436/jnsa.011.10.06'>10.22436/jnsa.011.10.06</a>
 .</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='dMuth.html'>dMuth</a></p></div>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example 1</span>
@@ -170,26 +169,26 @@ ISSN 2008-1898, doi: <a href='https://doi.org/10.22436/jnsa.011.10.06'>10.22436/
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dMuth.html'>rMuth</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>200</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.5</span>)
 
 <span class='co'># Fitting the model</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>gamlss</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>gamlss</span>)
 
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>'Muth'</span>,
-              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>'Muth'</span>,
+              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))
 
 <span class='co'># Extracting the fitted values for mu</span>
 <span class='co'># using the inverse link function</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
 #&gt;   0.4059172 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>2000</span>
-<span class='no'>x1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='no'>n</span>, <span class='kw'>min</span><span class='kw'>=</span><span class='fl'>0.4</span>, <span class='kw'>max</span><span class='kw'>=</span><span class='fl'>0.6</span>)
-<span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(-<span class='fl'>2.19</span> + <span class='fl'>3</span> * <span class='no'>x1</span>)
+<span class='no'>x1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='no'>n</span>, <span class='kw'>min</span><span class='kw'>=</span><span class='fl'>0.4</span>, <span class='kw'>max</span><span class='kw'>=</span><span class='fl'>0.6</span>)
+<span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(-<span class='fl'>2.19</span> + <span class='fl'>3</span> * <span class='no'>x1</span>)
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dMuth.html'>rMuth</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>, <span class='no'>mu</span>)
 
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span>(<span class='no'>x</span>~<span class='no'>x1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>Muth</span>,
-              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))</div><div class='output co'>#&gt; <span class='error'>Error in dMuth(y, mu, log = TRUE): mu must be between  (0, 1] </span>
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>x</span>~<span class='no'>x1</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>Muth</span>,
+              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss.control'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>))</div><div class='output co'>#&gt; <span class='error'>Error in dMuth(y, mu, log = TRUE): mu must be between  (0, 1] </span>
 #&gt; <span class='error'> </span></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept) 
+<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept) 
 #&gt;   -0.901606 </div><div class='input'>
 </div></pre>
   </div>
@@ -197,15 +196,18 @@ ISSN 2008-1898, doi: <a href='https://doi.org/10.22436/jnsa.011.10.06'>10.22436/
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      
       <li><a href="#details">Details</a></li>
+
       <li><a href="#references">References</a></li>
+
       <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
-
 
       <footer>
       <div class="copyright">
@@ -213,16 +215,13 @@ ISSN 2008-1898, doi: <a href='https://doi.org/10.22436/jnsa.011.10.06'>10.22436/
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
-
       </footer>
    </div>
 
   
 
-
   </body>
 </html>
-
 
