@@ -2,15 +2,29 @@ Package: RelDists
 Title: Estimation for some Reliability Distributions Within GAMLSS Framework
 Version: 1.0.0
 Authors@R: c(
-    person("Freddy", "Hernandez", , "fhernanb@unal.edu.co", role = c("aut", "cre"), 
-      comment = c(ORCID = "0000-0001-7459-3329")),
-    person("Olga", "Usuga", , "olga.usuga@udea.edu.co", role = c("aut"),
-      comment = c(ORCID = "0000-0003-3062-1820")),
-    person("Carmen", "Patino", , "jenny@rstudio.com", role = "aut"),
-    person("Jaime", "Mosquera", , "jmosquerag@unal.edu.co", role = "aut",
-      comment = c(ORCID = "0000-0002-1684-4756")),
-    person("Amylkar", "Urrea", , "jenny@rstudio.com", role = "aut"),
-    person("Johan", "Marin", , "jenny@rstudio.com", role = "aut")
+    person(given="Freddy", 
+           family="Hernandez",
+           email="fhernanb@unal.edu.co",
+           role = c("aut", "cre"), 
+           comment = c(ORCID = "0000-0001-7459-3329")),
+    person(given="Olga",
+           family="Usuga", 
+           email="olga.usuga@udea.edu.co", 
+           role = c("aut"),
+           comment = c(ORCID = "0000-0003-3062-1820")),
+    person(given="Carmen",
+           family="Patino", 
+           email="jenny@rstudio.com", 
+           role = "aut"),
+    person(given="Jaime",
+           family="Mosquera",
+           email="jmosquerag@unal.edu.co", 
+           role = "aut",
+           comment = c(ORCID = "0000-0002-1684-4756")),
+    person(given="Amylkar", 
+           family="Urrea", 
+           email="amylkar.urrea@udea.edu.co", 
+           role = "aut")
   )
 Description: Parameters estimation and regression linear models 
     of Reliability distributions within GAMLSS framework.
