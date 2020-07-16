@@ -43,3 +43,4 @@ Imports:
 LazyData: true
 Suggests: knitr, rmarkdown, survival
 RoxygenNote: 7.1.0
+VignetteBuilder: knitr
