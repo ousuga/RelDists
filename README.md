@@ -26,17 +26,4 @@ require(RelDists)
 ```
 
 You can visit the [package website](https://ousuga.github.io/RelDists/)
-to explore the vignettes (articles) and function
-reference.
-
-<!-- ## Example -->
-
-<!-- This is a basic example which shows you how to solve a common problem: -->
-
-<!-- ```{r example} -->
-
-<!-- library(RelDists) -->
-
-<!-- ## basic example code -->
-
-<!-- ``` -->
+to explore the vignettes (articles) and function reference.
