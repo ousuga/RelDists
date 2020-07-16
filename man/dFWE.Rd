@@ -52,7 +52,6 @@ has density given by
 for x>0.
 }
 \examples{
- 
 ## The probability density function
 curve(dFWE(x, mu=0.75, sigma=0.5), from=0, to=3, 
       ylim=c(0, 1.7), col="red", las=1, ylab="f(x)")
@@ -79,5 +78,4 @@ curve(dFWE(x, mu=2, sigma=0.5), from=0, to=3, add=TRUE, col="red")
 par(mfrow=c(1,1))
 curve(hFWE(x, mu=0.75, sigma=0.5), from=0, to=2, ylim=c(0, 2.5), 
       col="red", ylab="Hazard function", las=1)
-
 }

@@ -1,5 +1,5 @@
 Package: RelDists
-Title: Estimation for some Reliability distributions within GAMLSS framework
+Title: Estimation for some Reliability Distributions Within GAMLSS Framework
 Version: 1.0.0
 Authors@R: c(
     person("Freddy", "Hernandez", , "fhernanb@unal.edu.co", role = c("aut", "cre"), 
@@ -12,19 +12,20 @@ Authors@R: c(
     person("Amylkar", "Urrea", , "jenny@rstudio.com", role = "aut"),
     person("Johan", "Marin", , "jenny@rstudio.com", role = "aut")
   )
-Description: Parameters estimation and regression linear models of Reliability distributions within GAMLSS framework.
-Depends: R (>= 3.2.0), gamlss, stringr
+Description: Parameters estimation and regression linear models 
+    of Reliability distributions within GAMLSS framework.
+Depends: R (>= 3.0.0)
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
 Encoding: UTF-8
 RdMacros: Rdpack
-Imports: 
+Imports:
+    gamlss,
     gamlss.dist,
     gamlss.cens,
-    zipfR,
-    Rdpack
+    Rdpack,
+    zipfR
 LazyData: true
 Suggests: knitr, rmarkdown, survival
-VignetteBuilder: knitr
 RoxygenNote: 7.1.0
