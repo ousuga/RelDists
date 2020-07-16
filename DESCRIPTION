@@ -14,7 +14,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0003-3062-1820")),
     person(given="Carmen",
            family="Patino", 
-           email="jenny@rstudio.com", 
+           email="elena.patino@udea.edu.co", 
            role = "aut"),
     person(given="Jaime",
            family="Mosquera",
