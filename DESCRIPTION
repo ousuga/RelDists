@@ -42,5 +42,5 @@ Imports:
     zipfR
 LazyData: true
 Suggests: knitr, rmarkdown, survival
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr
