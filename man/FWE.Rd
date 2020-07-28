@@ -12,7 +12,9 @@ FWE(mu.link = "log", sigma.link = "log")
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 }
 \description{
-The Flexible Weibull Extension distribution
+The function \code{OW()} defines the Flexible Weibull distribution, a two parameter 
+distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 
+using the function \code{gamlss()}.
 }
 \details{
 The Flexible Weibull extension with parameters \code{mu} and \code{sigma}

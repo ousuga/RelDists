@@ -50,9 +50,9 @@ parameters \code{mu}, \code{sigma} and \code{nu}.
 The Odd Weibull with parameters \code{mu}, \code{sigma}
 and \code{nu} has density given by
 
-\eqn{f(t) = \left( \frac{\sigma\nu}{t} \right) (\mu t)^\sigma
-     e^{(\mu t)^\sigma} \left(e^{(\mu t)^{\sigma}}-1\right)^{\nu-1}
-     \left[ 1 + \left(e^{(\mu t)^{\sigma}}-1\right)^\nu \right]^{-2}}
+\eqn{f(x) = \left( \frac{\sigma\nu}{x} \right) (\mu x)^\sigma
+     e^{(\mu x)^\sigma} \left(e^{(\mu x)^{\sigma}}-1\right)^{\nu-1}
+     \left[ 1 + \left(e^{(\mu x)^{\sigma}}-1\right)^\nu \right]^{-2}}
 
 for x > 0.
 }
@@ -85,4 +85,7 @@ curve(dOW(x, mu=2, sigma=3, nu=0.2),  from=0, ylim=c(0, 2), add=TRUE,
 par(mfrow=c(1,1))
 curve(hOW(x, mu = 2, sigma=3, nu=0.2), from=0, to=2.5, ylim=c(0, 3),
       col="red", ylab="Hazard function", las=1)
+}
+\author{
+Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}
 }
