@@ -1,7 +1,9 @@
 #' The Flexible Weibull Extension family
 #' 
 #' @description 
-#' The Flexible Weibull Extension distribution
+#' The function \code{OW()} defines the Flexible Weibull distribution, a two parameter 
+#' distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 
+#' using the function \code{gamlss()}.
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
