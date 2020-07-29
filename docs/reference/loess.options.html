@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • RelDists</title>
+<title>Configure varios aspects of LOESS in <code>initValuesOW_TTT</code> — loess.options • RelDists</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Configure varios aspects of LOESS in <code>initValuesOW_TTT</code> — loess.options" />
+<meta property="og:description" content="This function allows the user to set the parameters of loess function
+used inside initValuesOW_TTT." />
 
 
 
@@ -58,7 +60,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -117,84 +119,48 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Configure varios aspects of LOESS in <code>initValuesOW_TTT</code></h1>
+    <small class="dont-index">Source: <a href='https://github.com/ousuga/RelDists/blob/master/R/loess.options.R'><code>R/loess.options.R</code></a></small>
+    <div class="hidden name"><code>loess.options.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This function allows the user to set the parameters of <code>loess</code> function
+used inside <code>initValuesOW_TTT</code>.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>loess.options</span>(<span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>2</span>/<span class='fl'>3</span>, <span class='no'>...</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="dFWE.html">dFWE()</a></code> <code><a href="dFWE.html">pFWE()</a></code> <code><a href="dFWE.html">qFWE()</a></code> <code><a href="dFWE.html">rFWE()</a></code> <code><a href="dFWE.html">hFWE()</a></code> </p>
-        </td>
-        <td><p>The Flexible Weibull Extension distribution</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dOW.html">dOW()</a></code> <code><a href="dOW.html">pOW()</a></code> <code><a href="dOW.html">qOW()</a></code> <code><a href="dOW.html">rOW()</a></code> <code><a href="dOW.html">hOW()</a></code> </p>
-        </td>
-        <td><p>The Odd Weibull Distribution</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="FWE.html">FWE()</a></code> </p>
-        </td>
-        <td><p>The Flexible Weibull Extension family</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="initValuesOW_TTT.html">initValuesOW_TTT()</a></code> </p>
-        </td>
-        <td><p>Initial values and search region for Odd Weibull distribution</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="interp.options.html">interp.options()</a></code> </p>
-        </td>
-        <td><p>Configure varios aspects of interpolating function in <code>initValuesOW_TTT</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="loess.options.html">loess.options()</a></code> </p>
-        </td>
-        <td><p>Configure varios aspects of LOESS in <code>initValuesOW_TTT</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="myOW_region.html">myOW_region()</a></code> </p>
-        </td>
-        <td><p>Custimized region search for odd Weibull distribution</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="OW.html">OW()</a></code> </p>
-        </td>
-        <td><p>The Odd Weibull family</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>span</th>
+      <td><p>the parameter which controls the degree of smoothing.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>further arguments passed to <code><a href='https://rdrr.io/r/stats/loess.html'>loess</a></code> function.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Please, visit <code><a href='https://rdrr.io/r/stats/loess.html'>loess</a></code> to know further possible arguments.
+The following arguments are not available for passing to the LOESS estimation:</p><ul>
+<li><p>dataThe only data handled inside <code>initValuesOW_TTT</code> is the 
+computed empirical TTT.</p></li>
+<li><p>subsetThis argument is used in <code>loess</code> to take a subset of data.
+In this context, it is not necessary.</p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://rdrr.io/r/stats/loess.html'>loess</a></code>, <code><a href='initValuesOW_TTT.html'>initValuesOW_TTT</a></code></p></div>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
