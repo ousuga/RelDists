@@ -28,7 +28,7 @@ Authors@R: c(
   )
 Description: Parameters estimation and regression linear models 
     of Reliability distributions within GAMLSS framework.
-Depends: R (>= 3.0.0)
+Depends: R (>= 3.0.0), survival
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
@@ -39,8 +39,9 @@ Imports:
     gamlss.dist,
     gamlss.cens,
     Rdpack,
-    zipfR
+    zipfR,
+    EstimationTools
 LazyData: true
-Suggests: knitr, rmarkdown, survival
+Suggests: knitr, rmarkdown
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
