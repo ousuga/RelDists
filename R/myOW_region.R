@@ -53,33 +53,3 @@ myOW_region <- function(family=OW, valid.values="auto"){
   body(family) <- new_body
   return(family)
 }
-
-OW_modifications <- function(valid.values){
-  previous.call <- sys.calls()
-  match_all.calls <- sapply(previous.call,
-                            function (x) match.call(gamlss, x))
-  gamlss.pos <- which(regexpr("^?[g]amlss\\(formula", match_all.calls) == 1)
-  
-  if ( length(gamlss.pos) == 0 ){
-    # Increasing hazard as default
-    sigma.space <- eval(parse(text = "function(sigma) all(sigma > 1)"))
-    nu.space <- eval(parse(text = "function(nu) all(nu > 0)"))
-  } else {
-    gamlss.call <- previous.call[[gamlss.pos]]
-    call.est <- as.list(match.call(gamlss, gamlss.call))
-    if ( is.null(call.est$data) ){
-      modfrm <-  stats::model.frame(call.est$formula)
-      gamlss.data <- modfrm
-    } else {
-      gamlss.data <- eval(call.est$data)
-      modfrm <- stats::model.frame(call.est$formula, data = gamlss.data)
-    }
-    fo <- formula(modfrm)
-    
-    sigma.space <- valid.region("sigma", valid.values, formula = fo,
-                                data = gamlss.data)
-    nu.space <- valid.region("nu", valid.values, formula = fo,
-                             data = gamlss.data)
-  }
-  return(list(nu.space = nu.space, sigma.space = sigma.space))
-}
