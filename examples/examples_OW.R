@@ -27,7 +27,7 @@ x <- rOW(n=n, mu, sigma, nu)
 
 mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~x3, 
               family=OW(sigma.link='identity'), 
-              control=gamlss.control(n.cyc=400, trace=FALSE))
+              control=gamlss.control(n.cyc=300, trace=FALSE))
 
 coef(mod, what='mu')
 coef(mod, what='sigma')
