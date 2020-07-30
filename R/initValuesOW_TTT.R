@@ -29,10 +29,10 @@
 #' @example examples/examples_initValuesOW_TTT.R
 #' @importFrom EstimationTools TTTE_Analytical fo_and_data 
 #' @importFrom gamlss gamlss
-#' @importFrom stats terms predict na.omit formula
+#' @importFrom stats terms predict na.omit formula 
 #' @importFrom survival is.Surv
 #' @export                                                                                                                                               
-initValuesOW_TTT <- function(formula, data,
+initValuesOW_TTT <- function(formula, data=NULL,
                              local_reg = loess.options(),
                              interpolation = interp.options(), ...){
   if ( length(attr(terms(formula), "term.labels")) > 0 )
@@ -44,8 +44,8 @@ initValuesOW_TTT <- function(formula, data,
   temp[[1L]] <- quote(stats::model.frame)
   modfrm <- eval.parent(temp)
   y <- stats::model.extract(modfrm, 'response')
-  outs <- EstimationTools::fo_and_data(y, formula, model_frame = modfrm, data,
-                                       fo2Surv = FALSE)
+  outs <- EstimationTools::fo_and_data(y, formula, model_frame=modfrm, 
+                                       data, fo2Surv = FALSE)
   fo <- outs$fo; data <- outs$data
   
   method <- if ( is.Surv(y) ){'censored'} else {'Barlow'}
@@ -160,14 +160,19 @@ OW_modifications <- function(valid.values){
   } else {
     gamlss.call <- previous.call[[gamlss.pos]]
     call.est <- as.list(match.call(gamlss, gamlss.call))
-    if ( is.null(call.est$data) ){
-      modfrm <-  stats::model.frame(call.est$formula)
-      gamlss.data <- modfrm
-    } else {
-      gamlss.data <- eval(call.est$data)
-      modfrm <- stats::model.frame(call.est$formula, data = gamlss.data)
-    }
+    modfrm <-  stats::model.frame(call.est$formula)
+    y <- stats::model.extract(modfrm, "response")
+    # if ( is.null(call.est$data) ){
+    #   modfrm <-  stats::model.frame(call.est$formula)
+    #   gamlss.data <- modfrm
+    # } else {
+    #   gamlss.data <- eval(call.est$data)
+    #   modfrm <- stats::model.frame(call.est$formula, data = gamlss.data)
+    # }
     fo <- formula(modfrm)
+    gamlss.data <- EstimationTools::fo_and_data(y, call.est$formula, modfrm, 
+                                                data=eval(call.est$data), 
+                                                fo2Surv=FALSE)$data
     
     sigma.space <- valid.region("sigma", valid.values, formula = fo,
                                 data = gamlss.data)
