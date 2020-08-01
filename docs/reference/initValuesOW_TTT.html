@@ -183,9 +183,19 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
 <span class='co'># Bathtuh hazard and its corresponding TTT plot</span>
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>50</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>RelDists</span>)
 <span class='no'>my_initial_guess</span> <span class='kw'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span>(<span class='kw'>formula</span><span class='kw'>=</span><span class='no'>y</span>~<span class='fl'>1</span>)
-
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>my_initial_guess</span>)</div><div class='output co'>#&gt; --------------------------------------------------------------------
+#&gt; Initial Values
+#&gt; sigma = 5
+#&gt; nu = 0.1
+#&gt; 
+#&gt; --------------------------------------------------------------------
+#&gt; Search Regions
+#&gt; For sigma: all(sigma &gt; 1)
+#&gt; For nu: all(nu &lt; 1) &amp; all(nu &gt; 0)
+#&gt; 
+#&gt; --------------------------------------------------------------------
+#&gt; Hazard shape: Bathtub</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span>(<span class='fu'><a href='dOW.html'>hOW</a></span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>), <span class='kw'>from</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>to</span><span class='kw'>=</span><span class='fl'>80</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.04</span>),
       <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"Hazard function"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='initValuesOW_TTT-1.png' alt='' width='700' height='433' /></div></pre>
   </div>

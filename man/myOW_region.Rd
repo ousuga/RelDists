@@ -35,12 +35,13 @@ y <- rOW(n=200, mu=0.2, sigma=4, nu=0.05)
 # Custom search region
 myvalues <- list(sigma="all(sigma > 1)",
                  nu="all(nu < 1) & all(nu < 1)")
+myOW <- myOW_region(valid.values=myvalues)
 
 require(gamlss)
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, 
               sigma.start=2, nu.start=0.1,
               control=gamlss.control(n.cyc=300, trace=FALSE),
-              family=myOW_region(valid.values=myvalues))
+              family=myOW)
 
 exp(coef(mod, what='mu'))
 exp(coef(mod, what='sigma'))
