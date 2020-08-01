@@ -34,7 +34,7 @@
 #' \code{\link[graphics]{plot.default}}  and \code{\link{par}}.
 #' 
 #' @importFrom graphics par
-#' 
+#' @export   
 plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(u)), xlim=c(0,1),
                          ylim=c(0,1), col = 1, lty=NULL, lwd=NA, main="", 
                          curve_options=list(col=2, lwd=2, lty=1),
