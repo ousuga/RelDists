@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Initial values and search region for Odd Weibull distribution — initValuesOW_TTT • RelDists</title>
+<title>Plot of <code>initValOW</code> objects — plot.initValOW • RelDists</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Initial values and search region for Odd Weibull distribution — initValuesOW_TTT" />
-<meta property="og:description" content="This function can be used so as to get suggestions about initial values
-and the search region for parameter estimation in OW distribution." />
+<meta property="og:title" content="Plot of <code>initValOW</code> objects — plot.initValOW" />
+<meta property="og:description" content="Draws the empirical total time on test (TTT) plot and its non-parametric
+(LOESS) estimated curve useful for searching initial values for OW 
+family." />
 
 
 
@@ -121,21 +122,30 @@ and the search region for parameter estimation in OW distribution." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Initial values and search region for Odd Weibull distribution</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ousuga/RelDists/blob/master/R/initValuesOW_TTT.R'><code>R/initValuesOW_TTT.R</code></a></small>
-    <div class="hidden name"><code>initValuesOW_TTT.Rd</code></div>
+    <h1>Plot of <code>initValOW</code> objects</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ousuga/RelDists/blob/master/R/plot.initVal.R'><code>R/plot.initVal.R</code></a></small>
+    <div class="hidden name"><code>plot.initValOW.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function can be used so as to get suggestions about initial values
-and the search region for parameter estimation in <code>OW</code> distribution.</p>
+    <p>Draws the empirical total time on test (TTT) plot and its non-parametric
+(LOESS) estimated curve useful for searching initial values for <code><a href='OW.html'>OW</a></code> 
+family.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>initValuesOW_TTT</span>(
-  <span class='no'>formula</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>local_reg</span> <span class='kw'>=</span> <span class='fu'><a href='loess.options.html'>loess.options</a></span>(),
-  <span class='kw'>interpolation</span> <span class='kw'>=</span> <span class='fu'><a href='interp.options.html'>interp.options</a></span>(),
+    <pre class="usage"><span class='co'># S3 method for initValOW</span>
+<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(
+  <span class='no'>x</span>,
+  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"i/n"</span>,
+  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span>(<span class='fu'>phi</span>(<span class='no'>u</span>)),
+  <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>),
+  <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>),
+  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>lty</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
+  <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>curve_options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>1</span>),
+  <span class='kw'>legend_options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>pos</span> <span class='kw'>=</span> <span class='st'>"top"</span>),
   <span class='no'>...</span>
 )</pre>
 
@@ -143,48 +153,63 @@ and the search region for parameter estimation in <code>OW</code> distribution.<
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>formula</th>
-      <td><p>an object of class <code><a href='https://rdrr.io/r/stats/formula.html'>formula</a></code> with the response on
-the left of an operator <code>~</code>. The right side must be 
-<code>1</code>.</p></td>
+      <th>x</th>
+      <td><p>an object of class <code>initVal</code>, generated with 
+<code><a href='initValuesOW_TTT.html'>initValuesOW_TTT</a></code>.</p></td>
     </tr>
     <tr>
-      <th>data</th>
-      <td><p>an optional data frame containing the response variables. If 
-data is not specified, the variables are taken from the 
-environment from which <code>initValuesOW_TTT</code> is called.</p></td>
+      <th>xlab, ylab</th>
+      <td><p>titles for x and y axes, as in <code><a href='https://rdrr.io/r/base/plot.html'>plot</a></code>.</p></td>
     </tr>
     <tr>
-      <th>local_reg</th>
-      <td><p>a list of control parameters for LOESS. See 
-<code><a href='loess.options.html'>loess.options</a></code>.</p></td>
+      <th>xlim</th>
+      <td><p>the x limits (x1, x2) of the plot.</p></td>
     </tr>
     <tr>
-      <th>interpolation</th>
-      <td><p>a list of control parameters for interpolation function. See 
-<code><a href='interp.options.html'>interp.options</a></code>.</p></td>
+      <th>ylim</th>
+      <td><p>the y limits (x1, x2) of the plot.</p></td>
+    </tr>
+    <tr>
+      <th>col</th>
+      <td><p>The colors for lines and points. Multiple colors can be specified. This is 
+the usual color argument of <code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot.default</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>lty</th>
+      <td><p>a vector of line types, see <code><a href='https://rdrr.io/r/graphics/par.html'>par</a></code> for further information.</p></td>
+    </tr>
+    <tr>
+      <th>lwd</th>
+      <td><p>a vector of line widths, see <code><a href='https://rdrr.io/r/graphics/par.html'>par</a></code> for further information.</p></td>
+    </tr>
+    <tr>
+      <th>main</th>
+      <td><p>a main title for the plot,</p></td>
+    </tr>
+    <tr>
+      <th>curve_options</th>
+      <td><p>a list with further arguments useful for customization
+of non-parametric estimate plot.</p></td>
+    </tr>
+    <tr>
+      <th>legend_options</th>
+      <td><p>a list with fur further arguments useful for customization
+of the legend of the plot.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments passed to 
-<code><a href='https://rdrr.io/pkg/EstimationTools/man/TTTE_Analytical.html'>TTTE_Analytical</a></code>.</p></td>
+      <td><p>further arguments passed empirical TTT plot.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function performs a non-parametric estimation of the empirical total 
-time on test (TTT) plot. Then, this estimated curve can be used so as to 
-get suggestions about initial values and the search region for parameters 
-based on hazard shape associated to the  shape of empirical TTT plot.</p>
+    <p>This plot complements the use of <code><a href='initValuesOW_TTT.html'>initValuesOW_TTT</a></code>. It is always 
+advisable to use this function in order to check the result of non-parametric estimate 
+of TTT plot. See the first example in <strong>Examples</strong> section for an illustration.</p>
+<p>The possible arguments for <code>...</code> can be consulted in 
+<code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot.default</a></code>  and <code><a href='https://rdrr.io/r/graphics/par.html'>par</a></code>.</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Example 1</span>
-<span class='co'># Bathtuh hazard and its corresponding TTT plot</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>50</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>)
-
-<span class='no'>my_initial_guess</span> <span class='kw'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span>(<span class='kw'>formula</span><span class='kw'>=</span><span class='no'>y</span>~<span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in initValuesOW_TTT(formula = y ~ 1): no se pudo encontrar la función "initValuesOW_TTT"</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span>(<span class='fu'><a href='dOW.html'>hOW</a></span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>), <span class='kw'>from</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>to</span><span class='kw'>=</span><span class='fl'>80</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.04</span>),
-      <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"Hazard function"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='initValuesOW_TTT-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
