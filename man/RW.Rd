@@ -53,6 +53,7 @@ mod <- gamlss(x~x1, sigma.fo=~x2, family=RW,
 
 coef(mod, what="mu")
 coef(mod, what="sigma")
+
 }
 \references{
 \insertRef{almalki2014modifications}{RelDists}
