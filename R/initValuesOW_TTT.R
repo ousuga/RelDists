@@ -104,10 +104,12 @@ initValuesOW_TTT <- function(formula, data=NULL,
     stop("Please, choose another initial values for parameters.
          Visit 'OW distribution' vignette to get further information.")
   }
-  output <- list(sigma.start = sigma, nu.start = nu,
-                 sigma.valid = sigma.valid, nu.valid = nu.valid,
-                 local_reg = g3, interpolation = g4, TTTplot = g2,
-                 hazard_type = hazard_type)
+
+  output <- list(formula=formula, response=y, 
+                 sigma.start=sigma, nu.start=nu,
+                 sigma.valid=sigma.valid, nu.valid=nu.valid,
+                 local_reg=g3, interpolation=g4, TTTplot=g2,
+                 hazard_type=hazard_type)
   class(output) <- "initValOW"
   return(output)
 }
