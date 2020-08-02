@@ -4,7 +4,11 @@ pkgdown_sha: ~
 articles:
   FWE_distribution: FWE_distribution.html
 <<<<<<< HEAD
+<<<<<<< HEAD
 last_built: 2020-08-02T00:27Z
+=======
+last_built: 2020-08-02T00:35Z
+>>>>>>> 8dcec9f65df43f360a55bc986052e6c128368a76
 =======
 last_built: 2020-08-02T00:35Z
 >>>>>>> 8dcec9f65df43f360a55bc986052e6c128368a76
