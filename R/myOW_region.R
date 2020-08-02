@@ -46,17 +46,15 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
 
   new_body[[(nopar+2)]] <- substitute(sigma.space <- 
                                         valid.region("sigma", valid.values, 
-                                                     formula, data), 
+                                                     initVal), 
                                       list(valid.values=valid.values,
-                                           formula=initVal$formula,
-                                           data=eval(parse(text=mydata))))
+                                           initVal=initVal))
   
   new_body[[(nopar+3)]] <- substitute(nu.space <- 
                                         valid.region("nu", valid.values, 
-                                                     formula, data), 
+                                                     initVal), 
                                       list(valid.values=valid.values,
-                                           formula=initVal$formula,
-                                           data=eval(parse(text=mydata))))
+                                           initVal=initVal))
   
   new_body[(nopar+4):(size+2)] <- original_body[(nopar+2):size]
   new_body[[(nopar+4)]][[2]]$sigma.valid <- substitute(sigma.space)

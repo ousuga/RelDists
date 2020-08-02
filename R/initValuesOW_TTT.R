@@ -114,16 +114,15 @@ initValuesOW_TTT <- function(formula, data=NULL,
   return(output)
 }
 
-valid.region <- function(param, valid.values, formula, data){
+valid.region <- function(param, valid.values, initVal){
   Error_valid <- "Please, define ther argument 'valid.values'
   in the right way. Visit 'OW distribution' vignette for further information."
   
   type <- class(valid.values)
-  space <- paste0("init.OW$", param, ".valid")
+  space <- paste0("initVal", param, ".valid")
   
   case_auto <- function(){
     if ( valid.values == "auto" ){
-      init.OW <- initValuesOW_TTT(formula, data)
       param_space <- eval(parse(text = space))
     } else {
       stop(Error_valid)
