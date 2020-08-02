@@ -8,8 +8,9 @@ myvalues <- list(sigma="all(sigma > 1)",
                  nu="all(nu < 1) & all(nu < 1)")
 
 require(gamlss)
+mydata <- data.frame(y=y)
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, 
-              sigma.start=2, nu.start=0.1,
+              sigma.start=2, nu.start=0.1, data=mydata,
               control=gamlss.control(n.cyc=300, trace=FALSE),
               family=myOW_region(valid.values=myvalues))
 
