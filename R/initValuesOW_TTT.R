@@ -146,38 +146,3 @@ valid.region <- function(param, valid.values, formula, data){
   fun.param <- paste0("function(", param, ") ", res.param)
   return(eval(parse(text = fun.param)))
 }
-
-OW_modifications <- function(valid.values){
-  previous.call <- sys.calls()
-  match_all.calls <- sapply(previous.call,
-                            function (x) match.call(gamlss, x))
-  gamlss.pos <- which(regexpr("^?[g]amlss\\(formula", match_all.calls) == 1)
-  
-  if ( length(gamlss.pos) == 0 ){
-    # Increasing hazard as default
-    sigma.space <- eval(parse(text = "function(sigma) all(sigma > 1)"))
-    nu.space <- eval(parse(text = "function(nu) all(nu > 0)"))
-  } else {
-    gamlss.call <- previous.call[[gamlss.pos]]
-    call.est <- as.list(match.call(gamlss, gamlss.call))
-    modfrm <-  stats::model.frame(call.est$formula)
-    y <- stats::model.extract(modfrm, "response")
-    # if ( is.null(call.est$data) ){
-    #   modfrm <-  stats::model.frame(call.est$formula)
-    #   gamlss.data <- modfrm
-    # } else {
-    #   gamlss.data <- eval(call.est$data)
-    #   modfrm <- stats::model.frame(call.est$formula, data = gamlss.data)
-    # }
-    fo <- formula(modfrm)
-    gamlss.data <- EstimationTools::fo_and_data(y, call.est$formula, modfrm, 
-                                                data=eval(call.est$data), 
-                                                fo2Surv=FALSE)$data
-    
-    sigma.space <- valid.region("sigma", valid.values, formula = fo,
-                                data = gamlss.data)
-    nu.space <- valid.region("nu", valid.values, formula = fo,
-                             data = gamlss.data)
-  }
-  return(list(nu.space = nu.space, sigma.space = sigma.space))
-}
