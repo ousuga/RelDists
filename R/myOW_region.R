@@ -38,9 +38,47 @@ myOW_region <- function(family=OW, valid.values="auto"){
   
   new_body[1:(nopar+1)] <- original_body[1:(nopar+1)]
   
-  new_body[[(nopar+2)]] <- substitute(valid_values <- OW_modifications(valid.values))
-  new_body[[(nopar+3)]] <- substitute(sigma.space <- valid_values$sigma.space)
-  new_body[[(nopar+4)]] <- substitute(nu.space <- valid_values$nu.space)
+  new_body[[(nopar+2)]] <- quote(
+    {
+      previous.call <- sys.calls()
+      match_all.calls <- sapply(previous.call,
+                                function (x) match.call(gamlss, x))
+      gamlss.pos <- which(regexpr("^?[g]amlss\\(formula", match_all.calls) == 1)
+      
+      if ( length(gamlss.pos) == 0 ){
+        # Increasing hazard as default
+        sigma.space <- eval(parse(text = "function(sigma) all(sigma > 1)"))
+        nu.space <- eval(parse(text = "function(nu) all(nu > 0)"))
+      } else {
+        gamlss.call <- previous.call[[gamlss.pos]]
+        call.est <- as.list(match.call(gamlss, gamlss.call))
+        fo <- call.est$formula
+        if ( is.null(call.est$data) ){
+          modfrm <-  stats::model.frame(fo)
+          
+        } else {
+          modfrm <-  stats::model.frame(fo, data=eval(call.est$data))
+        }
+        y <- stats::model.extract(modfrm, "response")
+        gamlss.data <- EstimationTools::fo_and_data(y, fo, modfrm, 
+                                                    data=eval(call.est$data), 
+                                                    fo2Surv=FALSE)$data 
+        
+        # sigma.space <- valid.region("sigma", valid.values, formula = fo,
+        #                             data = gamlss.data)
+        # nu.space <- valid.region("nu", valid.values, formula = fo,
+        #                          data = gamlss.data)
+      }
+    }
+  )
+  new_body[[(nopar+3)]] <- quote(sigma.space <- 
+                                      valid.region("sigma", valid.values, 
+                                                   formula = fo, 
+                                                   data = gamlss.data))
+  new_body[[(nopar+4)]] <- quote(nu.space <- 
+                                        valid.region("nu", valid.values, 
+                                                     formula = fo,
+                                                     data = gamlss.data))
   
   new_body[(nopar+5):(size+3)] <- original_body[(nopar+2):size]
   new_body[[(nopar+5)]][[2]]$sigma.valid <- substitute(sigma.space)
