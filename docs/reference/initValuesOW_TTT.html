@@ -167,7 +167,7 @@ environment from which <code>initValuesOW_TTT</code> is called.</p></td>
     <tr>
       <th>...</th>
       <td><p>further arguments passed to 
-<code>TTTE_Analytical</code>.</p></td>
+<code><a href='https://rdrr.io/pkg/EstimationTools/man/TTTE_Analytical.html'>TTTE_Analytical</a></code>.</p></td>
     </tr>
     </table>
 
@@ -183,8 +183,6 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
 <span class='co'># Bathtuh hazard and its corresponding TTT plot</span>
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>50</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <span class='no'>my_initial_guess</span> <span class='kw'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span>(<span class='kw'>formula</span><span class='kw'>=</span><span class='no'>y</span>~<span class='fl'>1</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>my_initial_guess</span>)</div><div class='output co'>#&gt; --------------------------------------------------------------------
 #&gt; Initial Values
@@ -196,12 +194,6 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
 #&gt; For nu: all(nu &lt; 1) &amp; all(nu &gt; 0)
 #&gt; --------------------------------------------------------------------
 #&gt; Hazard shape: Bathtub</div><div class='input'>
-=======
-<span class='no'>my_initial_guess</span> <span class='kw'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span>(<span class='kw'>formula</span><span class='kw'>=</span><span class='no'>y</span>~<span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='error'>Error: 'fo_and_data' is not an exported object from 'namespace:EstimationTools'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>my_initial_guess</span>)</div><div class='output co'>#&gt; <span class='error'>Error in summary(my_initial_guess): objeto 'my_initial_guess' no encontrado</span></div><div class='input'>
->>>>>>> 8dcec9f65df43f360a55bc986052e6c128368a76
-=======
-<span class='no'>my_initial_guess</span> <span class='kw'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span>(<span class='kw'>formula</span><span class='kw'>=</span><span class='no'>y</span>~<span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='error'>Error: 'fo_and_data' is not an exported object from 'namespace:EstimationTools'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>my_initial_guess</span>)</div><div class='output co'>#&gt; <span class='error'>Error in summary(my_initial_guess): objeto 'my_initial_guess' no encontrado</span></div><div class='input'>
->>>>>>> 8dcec9f65df43f360a55bc986052e6c128368a76
 <span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span>(<span class='fu'><a href='dOW.html'>hOW</a></span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>), <span class='kw'>from</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>to</span><span class='kw'>=</span><span class='fl'>80</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.04</span>),
       <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"Hazard function"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='initValuesOW_TTT-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
