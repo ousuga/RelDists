@@ -24,7 +24,7 @@
 #' 
 #' The user can also implement a custom interpolating function.
 #' 
-#' @seealso \code{\link[stats]{approx}}, \code{\link[stats]{spline}}, 
+#' @seealso \code{\link[stats]{approxfun}}, \code{\link[stats]{splinefun}}, 
 #' \code{\link[stats]{smooth}}, \code{\link[stats]{smooth.spline}},
 #' \code{\link[stats]{loess}}, \code{\link{initValuesOW_TTT}}
 #' @export
