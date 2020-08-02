@@ -23,6 +23,31 @@
 #' @example examples/examples_myOW_region.R
 #' @export
 myOW_region <- function(family=OW, valid.values="auto"){
+  
+  previous.call <- sys.calls()
+  match_all.calls <- sapply(previous.call,
+                            function (x) match.call(gamlss, x))
+  gamlss.pos <- which(regexpr("^?[g]amlss\\(formula", match_all.calls) == 1)
+  
+  if ( length(gamlss.pos) == 0 ){
+    # Increasing hazard as default
+    # sigma.space <- eval(parse(text = "function(sigma) all(sigma > 1)"))
+    # nu.space <- eval(parse(text = "function(nu) all(nu > 0)"))
+    # response <- NULL
+    # fo <- NULL
+    stop("This function must be called in gamlss() context.")
+  } else {
+    gamlss.call <- previous.call[[gamlss.pos]]
+    call.est <- as.list(match.call(gamlss, gamlss.call))
+    fo <- call.est$formula
+    y_name <- all.vars(fo)[1]
+    if (is.null(call.est$data) ){
+      response <- as.name(y_name)
+    } else {
+      response <- call.est$data
+    }
+  }
+  
   myOW_regioncall <- match.call()
   OWcall <- myOW_regioncall$family
   family_call <- deparse(OWcall)
@@ -40,35 +65,19 @@ myOW_region <- function(family=OW, valid.values="auto"){
   
   new_body[[(nopar+2)]] <- quote(
     {
-      previous.call <- sys.calls()
-      match_all.calls <- sapply(previous.call,
-                                function (x) match.call(gamlss, x))
-      gamlss.pos <- which(regexpr("^?[g]amlss\\(formula", match_all.calls) == 1)
-      
-      if ( length(gamlss.pos) == 0 ){
-        # Increasing hazard as default
-        sigma.space <- eval(parse(text = "function(sigma) all(sigma > 1)"))
-        nu.space <- eval(parse(text = "function(nu) all(nu > 0)"))
+      y_name <- all.vars(fo)[1]
+      if (!is.data.frame(response) ){
+        y <- response
+        data_frame <- data.frame(y)
+        names(data_frame) <- y_name
       } else {
-        gamlss.call <- previous.call[[gamlss.pos]]
-        call.est <- as.list(match.call(gamlss, gamlss.call))
-        fo <- call.est$formula
-        if ( is.null(call.est$data) ){
-          modfrm <-  stats::model.frame(fo)
-          
-        } else {
-          modfrm <-  stats::model.frame(fo, data=eval(call.est$data))
-        }
-        y <- stats::model.extract(modfrm, "response")
-        gamlss.data <- EstimationTools::fo_and_data(y, fo, modfrm, 
-                                                    data=eval(call.est$data), 
-                                                    fo2Surv=FALSE)$data 
-        
-        # sigma.space <- valid.region("sigma", valid.values, formula = fo,
-        #                             data = gamlss.data)
-        # nu.space <- valid.region("nu", valid.values, formula = fo,
-        #                          data = gamlss.data)
+        data_frame <- response
+        y <- paste0("data_frame", "$", y_name)
       }
+      modfrm <-  stats::model.frame(fo, data=data_frame)
+      gamlss.data <- EstimationTools::fo_and_data(y, fo, modfrm, 
+                                                  data=data_frame, 
+                                                  fo2Surv=FALSE)$data 
     }
   )
   new_body[[(nopar+3)]] <- quote(sigma.space <- 
@@ -84,6 +93,8 @@ myOW_region <- function(family=OW, valid.values="auto"){
   new_body[[(nopar+5)]][[2]]$sigma.valid <- substitute(sigma.space)
   new_body[[(nopar+5)]][[2]]$nu.valid <- substitute(nu.space)
   formals(family)$valid.values <- valid.values
+  formals(family)$response <- response
+  formals(family)$fo <- fo
   if ( length(link_funcs) > 0 ){
     index <- 2:(length(OWcall))
     formals(family)[index] <- sapply(index, function(x) as.list(OWcall)[x])
