@@ -41,11 +41,11 @@ myvalues <- list(sigma="all(sigma > 1)",
 
 my_initial_guess <- initValuesOW_TTT(formula=y~1)
 
+# OW family modified with 'myOW_region'
 require(gamlss)
 myOW <- myOW_region(valid.values=myvalues, initVal=my_initial_guess)
-mydata <- data.frame(y=y)
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, 
-              sigma.start=2, nu.start=0.1, data=mydata,
+              sigma.start=2, nu.start=0.1,
               control=gamlss.control(n.cyc=300, trace=FALSE),
               family=myOW)
 
@@ -54,7 +54,8 @@ exp(coef(mod, what='sigma'))
 exp(coef(mod, what='nu'))
 
 # Example 2
-# Same example using another link function
+# Same example using another link function and using 'myOW_region'
+# in the argument 'family'
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, 
               sigma.start=2, nu.start=0.1,
               control=gamlss.control(n.cyc=300, trace=FALSE),
