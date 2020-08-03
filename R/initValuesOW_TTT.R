@@ -30,6 +30,7 @@
 #' @importFrom gamlss gamlss
 #' @importFrom stats terms predict na.omit formula 
 #' @importFrom survival is.Surv
+#' @importFrom EstimationTools fo_and_data
 #' @export                                                                                                                                               
 initValuesOW_TTT <- function(formula, data=NULL,
                              local_reg = loess.options(),
