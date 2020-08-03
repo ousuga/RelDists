@@ -43,6 +43,5 @@ Imports:
     EstimationTools
 LazyData: true
 Suggests: knitr, rmarkdown
-Remotes: Jaimemosg/EstimationTools
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr

@@ -7,8 +7,6 @@ cache: packages
 os:
   - linux
   - osx
-  
-r_github_packages: Jaimemosg/EstimationTools
 
 after_failure:
   - cat $TRAVIS_BUILD_DIR/RelDists.Rcheck/00install.out
