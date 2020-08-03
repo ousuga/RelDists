@@ -119,7 +119,7 @@ valid.region <- function(param, valid.values, initVal){
   in the right way. Visit 'OW distribution' vignette for further information."
   
   type <- class(valid.values)
-  space <- paste0("initVal", param, ".valid")
+  space <- paste0("initVal$", param, ".valid")
   
   case_auto <- function(){
     if ( valid.values == "auto" ){
