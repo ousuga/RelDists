@@ -200,7 +200,9 @@ With `initValuesOW_TTT()` function we identified an increasing hazard shape, as 
 ```{r}
 plot(init_vals)
 ```
+
 Hence, we implement the estimation procedure
+
 
 ```{r, message=FALSE, warning=FALSE}
 # Custom search region

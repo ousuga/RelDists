@@ -252,7 +252,8 @@
 <span class="co">#&gt; Hazard shape: Increasing</span></pre></body></html></div>
 <p>With <code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code> function we identified an increasing hazard shape, as well as was stated by Cooray <span class="citation">(2006)</span>, because TTT plot is concave.</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">init_vals</span>)</pre></body></html></div>
-<p><img src="OW_distribution_files/figure-html/unnamed-chunk-10-1.png" width="700"> Hence, we implement the estimation procedure</p>
+<p><img src="OW_distribution_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
+<p>Hence, we implement the estimation procedure</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="co"># Custom search region</span>
 <span class="co"># Do not forget to load 'gamlss' library</span>
 <span class="no">param_mm</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html">gamlss</a></span>(<span class="no">mice</span> ~ <span class="fl">1</span>, <span class="kw">sigma.fo</span> <span class="kw">=</span> ~ <span class="fl">1</span>, <span class="kw">nu.fo</span> <span class="kw">=</span> ~ <span class="fl">1</span>,
