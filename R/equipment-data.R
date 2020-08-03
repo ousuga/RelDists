@@ -1,4 +1,4 @@
-#' Electronic equipment
+#' Electronic equipment data
 #'
 #' Time to failure in hours of 18 units of the same electronic device.
 #' 

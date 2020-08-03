@@ -13,5 +13,5 @@
 #' @examples
 #' data(mice)
 #' hist(mice, main="", xlab="Time (weeks)", freq=FALSE)
-#' lines(density(mice), col="blue")
+#' lines(density(mice), col="blue", lwd=2)
 "mice"
