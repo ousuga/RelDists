@@ -9,6 +9,8 @@
 #' @keywords datasets
 #' 
 #' @format A vector with 18 observations.
+#' @importFrom graphics hist
 #' @examples
 #' data(equipment)
+#' hist(equipment, main="")
 "equipment"

@@ -3,7 +3,7 @@
 \docType{data}
 \name{equipment}
 \alias{equipment}
-\title{Tensile strengths}
+\title{Electronic equipment}
 \format{
 A vector with 18 observations.
 }
