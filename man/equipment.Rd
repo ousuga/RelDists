@@ -15,5 +15,6 @@ Time to failure in hours of 18 units of the same electronic device.
 }
 \examples{
 data(equipment)
+hist(equipment, main="")
 }
 \keyword{datasets}
