@@ -177,11 +177,11 @@ of the <code><a href='https://rdrr.io/r/base/all.html'>all</a></code> function.<
 
 <span class='no'>my_initial_guess</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='initValuesOW_TTT.html'>initValuesOW_TTT</a></span>(<span class='kw'>formula</span><span class='kw'>=</span><span class='no'>y</span>~<span class='fl'>1</span>)
 
+<span class='co'># OW family modified with 'myOW_region'</span>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>gamlss</span>)
 <span class='no'>myOW</span> <span class='kw'>&lt;-</span> <span class='fu'>myOW_region</span>(<span class='kw'>valid.values</span><span class='kw'>=</span><span class='no'>myvalues</span>, <span class='kw'>initVal</span><span class='kw'>=</span><span class='no'>my_initial_guess</span>)
-<span class='no'>mydata</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>)
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>,
-              <span class='kw'>sigma.start</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>nu.start</span><span class='kw'>=</span><span class='fl'>0.1</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>mydata</span>,
+              <span class='kw'>sigma.start</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>nu.start</span><span class='kw'>=</span><span class='fl'>0.1</span>,
               <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>300</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>),
               <span class='kw'>family</span><span class='kw'>=</span><span class='no'>myOW</span>)
 
@@ -190,7 +190,8 @@ of the <code><a href='https://rdrr.io/r/base/all.html'>all</a></code> function.<
 #&gt;    3.836224 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
 #&gt;  0.05169042 </div><div class='input'>
 <span class='co'># Example 2</span>
-<span class='co'># Same example using another link function</span>
+<span class='co'># Same example using another link function and using 'myOW_region'</span>
+<span class='co'># in the argument 'family'</span>
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>,
               <span class='kw'>sigma.start</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>nu.start</span><span class='kw'>=</span><span class='fl'>0.1</span>,
               <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>300</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>),
