@@ -123,11 +123,11 @@ legend("topright", legend=c(expression(paste(mu,
 
 ## Time to failure on electronic equipment
 
-Cooray [-@Cooray2006] used the following data provided by Wang (2000) in order to fit an OW distribution through ML estimation:
+Cooray [-@Cooray2015] used the following data provided by Wang [-@Wang2000] in order to fit an OW distribution through maximum likelihood estimation (MLE):
  
 5, 11, 21, 31, 46, 75, 98, 122, 145, 165, 195, 224, 245, 293, 321, 330, 350, 420.
 
-The data above is the time to failure of an electronic device in hours. As an alternative to classical maximum likelihood estimation (MLE), We used the function \verb|gamlss| to fit an only-intercept model in order to estimate parameters of OW distribution without covariates. Using our `initValuesOW_TTT()`, we can obtain an initial guess and the valid region
+The data above is the time to failure of an electronic device in hours. As an alternative to classical MLE, We used the function \verb|gamlss| to fit an only-intercept model in order to estimate parameters of OW distribution without covariates. Using our `initValuesOW_TTT()`, we can obtain an initial guess and the valid region.
 
 ```{r}
 require(RelDists)
@@ -138,7 +138,7 @@ my_initial_guess <- initValuesOW_TTT(formula = equipment ~ 1)
 summary(my_initial_guess)
 ```
 
-`initValuesOW_TTT()` function detected the Bathtub hazard function, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
+`initValuesOW_TTT()` function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
 
 ```{r}
 plot(my_initial_guess)
@@ -176,10 +176,42 @@ mynu1 <- round(nu1, 4)
 
 In the following table we summarize the results and compare them with those gotten by Cooray [-@Cooray2015]
 
+\centering
 | Parameter | MLE [@Cooray2015]  |  GAMLSS     |
 |:---------:|:------------------:|:-----------:|
 | $\mu$     | 5.35e-03           | `r mymu1`   |
 | $\sigma$  | 3.22388            | `r mysigma1`|
 | $\nu$     | 0.28424            | `r mynu1`   |
+
+## Mortality in mice exposed to radiation
+
+Cooray [-@Cooray2006] used a dataset with 208 data points provided by Kimball [-@Kimball1960] with the ages at death in weeks for male mice exposed to 240r of gamma radiation. Again, we implement a workflow for parameter estimation with `myOW_region` and `gamlss` functions.
+
+```{r}
+# Do not forget to load 'RelDists' package
+data("mice")
+init_vals <- initValuesOW_TTT(formula = mice ~ 1)
+
+summary(init_vals)
+```
+
+With `initValuesOW_TTT()` function we identified an increasing hazard shape, as well as was stated by Cooray [-@Cooray2006], because TTT plot is concave.
+
+```{r}
+plot(init_vals)
+```
+<!-- Hence, we implement the estimation procedure -->
+
+<!-- ```{r, message=FALSE, warning=FALSE} -->
+<!-- # Custom search region -->
+<!-- # Do not forget to load 'gamlss' library -->
+<!-- param_mm <- gamlss(mice ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,  -->
+<!--                    sigma.start = 5, nu.start = 0.1, -->
+<!--                    control = gamlss.control(n.cyc=300, trace=FALSE), -->
+<!--                    family = myOW_region(family = OW(sigma.link='identity'), -->
+<!--                                         valid.values = "auto", -->
+<!--                                         initVal = init_vals)) -->
+<!-- summary(param_mm) -->
+<!-- ``` -->
 
 # References

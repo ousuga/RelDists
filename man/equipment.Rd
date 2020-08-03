@@ -3,7 +3,7 @@
 \docType{data}
 \name{equipment}
 \alias{equipment}
-\title{Electronic equipment}
+\title{Electronic equipment data}
 \format{
 A vector with 18 observations.
 }
@@ -15,6 +15,6 @@ Time to failure in hours of 18 units of the same electronic device.
 }
 \examples{
 data(equipment)
-hist(equipment, main="")
+hist(equipment, main="", xlab="Time (h)")
 }
 \keyword{datasets}
