@@ -41,7 +41,7 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(u)), xlim=c(0,1),
                          legend_options=list(pos='top'),...){
   object <- x
   rm(x)
-  par(xpd = TRUE, mar = par()$mar + c(0,0,0,7), par())
+  par(xpd = TRUE, mar = par()$mar + c(0,0,0,8), par())
   plot(object$TTTplot[,1], object$TTTplot[,2], xlab=xlab, ylab=ylab, xlim=xlim, 
        ylim=ylim, main=main, col=col, lty=lty, lwd=lwd, ...)
   
