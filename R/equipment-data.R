@@ -1,4 +1,4 @@
-#' Tensile strengths
+#' Electronic equipment
 #'
 #' Time to failure in hours of 18 units of the same electronic device.
 #' 
@@ -9,4 +9,6 @@
 #' @keywords datasets
 #' 
 #' @format A vector with 18 observations.
+#' @examples
+#' data(equipment)
 "equipment"
