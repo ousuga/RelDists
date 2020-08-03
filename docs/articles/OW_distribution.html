@@ -123,9 +123,9 @@
 <div id="time-to-failure-on-electronic-equipment" class="section level2">
 <h2 class="hasAnchor">
 <a href="#time-to-failure-on-electronic-equipment" class="anchor"></a>Time to failure on electronic equipment</h2>
-<p>Cooray <span class="citation">(2006)</span> used the following data provided by Wang (2000) in order to fit an OW distribution through ML estimation:</p>
+<p>Cooray <span class="citation">(2015)</span> used the following data provided by Wang <span class="citation">(2000)</span> in order to fit an OW distribution through maximum likelihood estimation (MLE):</p>
 <p>5, 11, 21, 31, 46, 75, 98, 122, 145, 165, 195, 224, 245, 293, 321, 330, 350, 420.</p>
-<p>The data above is the time to failure of an electronic device in hours. As an alternative to classical maximum likelihood estimation (MLE), We used the function  to fit an only-intercept model in order to estimate parameters of OW distribution without covariates. Using our <code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code>, we can obtain an initial guess and the valid region</p>
+<p>The data above is the time to failure of an electronic device in hours. As an alternative to classical MLE, We used the function  to fit an only-intercept model in order to estimate parameters of OW distribution without covariates. Using our <code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code>, we can obtain an initial guess and the valid region.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="no">RelDists</span>)
 
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="st">"equipment"</span>)
@@ -142,7 +142,7 @@
 <span class="co">#&gt; For nu: all(nu &lt; 1) &amp; all(nu &gt; 0)</span>
 <span class="co">#&gt; --------------------------------------------------------------------</span>
 <span class="co">#&gt; Hazard shape: Bathtub</span></pre></body></html></div>
-<p><code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code> function detected the Bathtub hazard function, which corresponds to a convex-then-concave shape of total time on test (TTT) plot</p>
+<p><code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code> function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">my_initial_guess</span>)</pre></body></html></div>
 <p><img src="OW_distribution_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 <p>Therefore, we define the search region according to <code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code> outputs</p>
@@ -231,6 +231,83 @@
 </tbody>
 </table>
 </div>
+<div id="mortality-in-mice-exposed-to-radiation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#mortality-in-mice-exposed-to-radiation" class="anchor"></a>Mortality in mice exposed to radiation</h2>
+<p>Cooray <span class="citation">(2006)</span> used a dataset with 208 data points provided by Kimball <span class="citation">(1960)</span> with the ages at death in weeks for male mice exposed to 240r of gamma radiation. Again, we implement a workflow for parameter estimation with <code>myOW_region</code> and <code>gamlss</code> functions.</p>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="co"># Do not forget to load 'RelDists' package</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="st">"mice"</span>)
+<span class="no">init_vals</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT</a></span>(<span class="kw">formula</span> <span class="kw">=</span> <span class="no">mice</span> ~ <span class="fl">1</span>)
+
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">init_vals</span>)
+<span class="co">#&gt; --------------------------------------------------------------------</span>
+<span class="co">#&gt; Initial Values</span>
+<span class="co">#&gt; sigma = 2</span>
+<span class="co">#&gt; nu = 6</span>
+<span class="co">#&gt; --------------------------------------------------------------------</span>
+<span class="co">#&gt; Search Regions</span>
+<span class="co">#&gt; For sigma: all(sigma &gt; 1)</span>
+<span class="co">#&gt; For nu: all(nu &gt; 0)</span>
+<span class="co">#&gt; --------------------------------------------------------------------</span>
+<span class="co">#&gt; Hazard shape: Increasing</span></pre></body></html></div>
+<p>With <code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code> function we identified an increasing hazard shape, as well as was stated by Cooray <span class="citation">(2006)</span>, because TTT plot is concave.</p>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">init_vals</span>)</pre></body></html></div>
+<p><img src="OW_distribution_files/figure-html/unnamed-chunk-10-1.png" width="700"> Hence, we implement the estimation procedure</p>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="co"># Custom search region</span>
+<span class="co"># Do not forget to load 'gamlss' library</span>
+<span class="no">param_mm</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html">gamlss</a></span>(<span class="no">mice</span> ~ <span class="fl">1</span>, <span class="kw">sigma.fo</span> <span class="kw">=</span> ~ <span class="fl">1</span>, <span class="kw">nu.fo</span> <span class="kw">=</span> ~ <span class="fl">1</span>,
+                   <span class="kw">sigma.start</span> <span class="kw">=</span> <span class="fl">5</span>, <span class="kw">nu.start</span> <span class="kw">=</span> <span class="fl">0.1</span>,
+                   <span class="kw">control</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html">gamlss.control</a></span>(<span class="kw">n.cyc</span><span class="kw">=</span><span class="fl">300</span>, <span class="kw">trace</span><span class="kw">=</span><span class="fl">FALSE</span>),
+                   <span class="kw">family</span> <span class="kw">=</span> <span class="fu"><a href="../reference/myOW_region.html">myOW_region</a></span>(<span class="kw">family</span> <span class="kw">=</span> <span class="fu"><a href="../reference/OW.html">OW</a></span>(<span class="kw">sigma.link</span><span class="kw">=</span><span class="st">'identity'</span>),
+                                        <span class="kw">valid.values</span> <span class="kw">=</span> <span class="st">"auto"</span>,
+                                        <span class="kw">initVal</span> <span class="kw">=</span> <span class="no">init_vals</span>))
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">param_mm</span>)
+<span class="co">#&gt; ******************************************************************</span>
+<span class="co">#&gt; Family:  c("OW", "Odd Weibull") </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Call:  gamlss(formula = mice ~ 1, sigma.formula = ~1, nu.formula = ~1,  </span>
+<span class="co">#&gt;     family = myOW_region(family = OW(sigma.link = "identity"),  </span>
+<span class="co">#&gt;         valid.values = "auto", initVal = init_vals),  </span>
+<span class="co">#&gt;     sigma.start = 5, nu.start = 0.1, control = gamlss.control(n.cyc = 300,  </span>
+<span class="co">#&gt;         trace = FALSE)) </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Fitting method: RS() </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ------------------------------------------------------------------</span>
+<span class="co">#&gt; Mu link function:  log</span>
+<span class="co">#&gt; Mu Coefficients:</span>
+<span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="co">#&gt; (Intercept) -4.87881    0.01485  -328.5   &lt;2e-16 ***</span>
+<span class="co">#&gt; ---</span>
+<span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ------------------------------------------------------------------</span>
+<span class="co">#&gt; Sigma link function:  identity</span>
+<span class="co">#&gt; Sigma Coefficients:</span>
+<span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="co">#&gt; (Intercept)    6.252      0.833   7.505 1.84e-12 ***</span>
+<span class="co">#&gt; ---</span>
+<span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ------------------------------------------------------------------</span>
+<span class="co">#&gt; Nu link function:  log </span>
+<span class="co">#&gt; Nu Coefficients:</span>
+<span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)  </span>
+<span class="co">#&gt; (Intercept)  -0.2927     0.1623  -1.804   0.0727 .</span>
+<span class="co">#&gt; ---</span>
+<span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ------------------------------------------------------------------</span>
+<span class="co">#&gt; No. of observations in the fit:  208 </span>
+<span class="co">#&gt; Degrees of Freedom for the fit:  3</span>
+<span class="co">#&gt;       Residual Deg. of Freedom:  205 </span>
+<span class="co">#&gt;                       at cycle:  42 </span>
+<span class="co">#&gt;  </span>
+<span class="co">#&gt; Global Deviance:     1977.991 </span>
+<span class="co">#&gt;             AIC:     1983.991 </span>
+<span class="co">#&gt;             SBC:     1994.003 </span>
+<span class="co">#&gt; ******************************************************************</span></pre></body></html></div>
+</div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1 class="hasAnchor">
@@ -241,6 +318,12 @@
 </div>
 <div id="ref-Cooray2015">
 <p>———. 2015. “A study of moments and likelihood estimators of the odd Weibull distribution.” <em>Statistical Methodology</em> 26 (September): 72–83. <a href="https://doi.org/10.1016/j.stamet.2015.03.003">https://doi.org/10.1016/j.stamet.2015.03.003</a>.</p>
+</div>
+<div id="ref-Kimball1960">
+<p>Kimball, A. W. 1960. “Estimation of Mortality Intensities in Animal Experiments.” <em>Biometrics</em> 16 (4): 505. <a href="https://doi.org/10.2307/2527758">https://doi.org/10.2307/2527758</a>.</p>
+</div>
+<div id="ref-Wang2000">
+<p>Wang, F. K. 2000. “A new model with bath tub-shaped failure rate using an additive Burr XII distribution.” <em>Reliability Engineering and System Safety</em> 70 (3): 305–12. <a href="https://doi.org/10.1016/S0951-8320(00)00066-1">https://doi.org/10.1016/S0951-8320(00)00066-1</a>.</p>
 </div>
 </div>
 </div>

@@ -200,18 +200,18 @@ With `initValuesOW_TTT()` function we identified an increasing hazard shape, as 
 ```{r}
 plot(init_vals)
 ```
-<!-- Hence, we implement the estimation procedure -->
+Hence, we implement the estimation procedure
 
-<!-- ```{r, message=FALSE, warning=FALSE} -->
-<!-- # Custom search region -->
-<!-- # Do not forget to load 'gamlss' library -->
-<!-- param_mm <- gamlss(mice ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,  -->
-<!--                    sigma.start = 5, nu.start = 0.1, -->
-<!--                    control = gamlss.control(n.cyc=300, trace=FALSE), -->
-<!--                    family = myOW_region(family = OW(sigma.link='identity'), -->
-<!--                                         valid.values = "auto", -->
-<!--                                         initVal = init_vals)) -->
-<!-- summary(param_mm) -->
-<!-- ``` -->
+```{r, message=FALSE, warning=FALSE}
+# Custom search region
+# Do not forget to load 'gamlss' library
+param_mm <- gamlss(mice ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,
+                   sigma.start = 5, nu.start = 0.1,
+                   control = gamlss.control(n.cyc=300, trace=FALSE),
+                   family = myOW_region(family = OW(sigma.link='identity'),
+                                        valid.values = "auto",
+                                        initVal = init_vals))
+summary(param_mm)
+```
 
 # References
