@@ -12,5 +12,5 @@
 #' @importFrom graphics hist
 #' @examples
 #' data(equipment)
-#' hist(equipment, main="")
+#' hist(equipment, main="", xlab="Time (h)")
 "equipment"
