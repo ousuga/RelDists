@@ -176,7 +176,6 @@ mynu1 <- round(nu1, 4)
 
 In the following table we summarize the results and compare them with those gotten by Cooray [-@Cooray2015]
 
-\centering
 | Parameter | MLE [@Cooray2015]  |  GAMLSS     |
 |:---------:|:------------------:|:-----------:|
 | $\mu$     | 5.35e-03           | `r mymu1`   |
@@ -215,5 +214,22 @@ param_mm <- gamlss(mice ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,
                                         initVal = init_vals))
 summary(param_mm)
 ```
+```{r, echo=FALSE, include=FALSE}
+mu2 <- exp(coef(param_mm, what='mu'))
+sigma2 <- coef(param_mm, what='sigma')
+nu2 <- exp(coef(param_mm, what='nu'))
+
+mymu2 <- formatC(mu2, format = "e", digits = 2)
+mysigma2 <- round(sigma2, 4)
+mynu2 <- round(nu2, 4)
+```
+
+Then, we report the results and compare them with those in Cooray [-@Cooray2006]
+
+| Parameter | MLE [@Cooray2006]  |  GAMLSS     |
+|:---------:|:------------------:|:-----------:|
+| $\mu$     | 7.61e-03           | `r mymu2`   |
+| $\sigma$  | 6.2278             | `r mysigma2`|
+| $\nu$     | 0.7495             | `r mynu2`   |
 
 # References
