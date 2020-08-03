@@ -119,4 +119,67 @@ legend("topright", legend=c(expression(paste(mu,
        bty="n", lwd=2)
 ```
 
+# Application examples
+
+## Time to failure on electronic equipment
+
+Cooray [-@Cooray2006] used the following data provided by Wang (2000) in order to fit an OW distribution through ML estimation:
+ 
+5, 11, 21, 31, 46, 75, 98, 122, 145, 165, 195, 224, 245, 293, 321, 330, 350, 420.
+
+The data above is the time to failure of an electronic device in hours. As an alternative to classical maximum likelihood estimation (MLE), We used the function \verb|gamlss| to fit an only-intercept model in order to estimate parameters of OW distribution without covariates. Using our `initValuesOW_TTT()`, we can obtain an initial guess and the valid region
+
+```{r}
+require(RelDists)
+
+data("equipment")
+my_initial_guess <- initValuesOW_TTT(formula = equipment ~ 1)
+
+summary(my_initial_guess)
+```
+
+`initValuesOW_TTT()` function detected the Bathtub hazard function, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
+
+```{r}
+plot(my_initial_guess)
+```
+
+Therefore, we define the search region according to `initValuesOW_TTT()` outputs
+
+```{r}
+# Custom search region
+myvalues <- list(sigma="all(sigma > 1)",
+                 nu="all(nu < 1) & all(nu < 1)")
+```
+
+and we perform the fit using `gamlss()`
+
+```{r, message=FALSE, warning=FALSE}
+require(gamlss)
+param_ee <- gamlss(equipment ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1, 
+                   sigma.start = 5, nu.start = 0.1,
+                   control = gamlss.control(n.cyc=300, trace=FALSE),
+                   family = myOW_region(family = OW(sigma.link='identity'),
+                                        valid.values = myvalues,
+                                        initVal = my_initial_guess))
+summary(param_ee)
+```
+```{r, echo=FALSE, include=FALSE}
+mu1 <- exp(coef(param_ee, what='mu'))
+sigma1 <- coef(param_ee, what='sigma')
+nu1 <- exp(coef(param_ee, what='nu'))
+
+mymu1 <- formatC(mu1, format = "e", digits = 2)
+mysigma1 <- round(sigma1, 4)
+mynu1 <- round(nu1, 4)
+```
+
+In the following table we summarize the results and compare them with those gotten by Cooray [-@Cooray2015]
+
+| Parameter | MLE [@Cooray2015]  |  GAMLSS     |
+|:---------:|:------------------:|:-----------:|
+| $\mu$     | 5.35e-03           | `r mymu1`   |
+| $\sigma$  | 3.22388            | `r mysigma1`|
+| $\nu$     | 0.28424            | `r mynu1`   |
+
 # References
