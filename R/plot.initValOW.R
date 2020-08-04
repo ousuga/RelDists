@@ -34,6 +34,7 @@
 #' \code{\link[graphics]{plot.default}}  and \code{\link{par}}.
 #' 
 #' @importFrom graphics par
+#' @importFrom autoimage reset.par
 #' @export   
 plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(u)), xlim=c(0,1),
                          ylim=c(0,1), col = 1, lty=NULL, lwd=NA, main="", 
@@ -41,7 +42,7 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(u)), xlim=c(0,1),
                          legend_options=list(pos='top'),...){
   object <- x
   rm(x)
-  par(xpd = TRUE, mar = par()$mar + c(0,0,0,8), par())
+  par(xpd = TRUE, mar = par()$mar + c(0,0,0,7.2), par())
   plot(object$TTTplot[,1], object$TTTplot[,2], xlab=xlab, ylab=ylab, xlim=xlim, 
        ylim=ylim, main=main, col=col, lty=lty, lwd=lwd, ...)
   
@@ -67,10 +68,11 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(u)), xlim=c(0,1),
     stop(paste0("Argument(s)", legend_arguments[match_legend], "cannot be
                   manipulated. They have default unchangeable values."))
   
-  do.call("legend", c(list(x, inset=c(-0.4,0), legend=legend_text,
+  do.call("legend", c(list(x, inset=c(-0.41,0), legend=legend_text,
                            pch=c(1,NA),
                            col=c(col, curve_options$col),
                            lty=c(lty,curve_options$lty), 
                            lwd=c(lwd,curve_options$lwd), xpd=TRUE),
                       legend_options))
+  autoimage::reset.par()
 }

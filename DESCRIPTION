@@ -40,7 +40,8 @@ Imports:
     gamlss.cens,
     Rdpack,
     zipfR,
-    EstimationTools
+    EstimationTools,
+    autoimage
 LazyData: true
 Suggests: knitr, rmarkdown
 RoxygenNote: 7.1.1
