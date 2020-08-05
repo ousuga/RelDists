@@ -141,7 +141,9 @@ summary(my_initial_guess)
 `initValuesOW_TTT()` function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
 
 ```{r}
-  plot(my_initial_guess)
+  plot(my_initial_guess,
+       legend_options=list(pos=1.04),
+       par_plot=list(mar=c(3.1,3.1,1,2.1)))
 ```
 
 Therefore, we define the search region according to `initValuesOW_TTT()` outputs
@@ -197,7 +199,9 @@ summary(init_vals)
 With `initValuesOW_TTT()` function we identified an increasing hazard shape, as well as was stated by Cooray [-@Cooray2006], because TTT plot is concave.
 
 ```{r}
-plot(init_vals)
+plot(init_vals,
+     legend_options=list(pos=1.04),
+     par_plot=list(mar=c(3.1,3.1,1,2.1)))
 ```
 
 Hence, we implement the estimation procedure
