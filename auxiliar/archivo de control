@@ -5,9 +5,13 @@ nueva forma del paquete.
 ---------------------------------------------
 Distribucion dxxx Familia  Vinnete  Desarroll
 ---------------------------------------------
-EW            ok      ok      ok    Freddy
 FWE           ok      ok      ok    Freddy
-OW            ok                    Jaime
+EW            ok      ok            Freddy
+RW            ok      ok            Amylkar
+OW            ok      ok      ok    Jaime
+
+
+
 GMW           ok      ok            Olga
 GPW           ok                    Carmen
 IW            ok      ok      ok    Johan
@@ -16,7 +20,6 @@ LW            ok      ok            Amylkar
 MW            ok      ok            Johan
 PL            ok      ok      ok    Amylkar
 SZMW          ok      ok            Johan
-RW            ok      ok            Amylkar
 WG            ok      ok            Johan
 WGEE          ok      ok            Johan
 AddW          ok      ok            Amylkar
