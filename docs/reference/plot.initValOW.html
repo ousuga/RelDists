@@ -148,7 +148,8 @@ family.</p>
   <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>""</span>,
   <span class='kw'>curve_options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>1</span>),
-  <span class='kw'>legend_options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>pos</span> <span class='kw'>=</span> <span class='st'>"top"</span>),
+  <span class='kw'>par_plot</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5.1</span>, <span class='fl'>4.1</span>, <span class='fl'>4.1</span>, <span class='fl'>2.1</span>)),
+  <span class='kw'>legend_options</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='no'>...</span>
 )</pre>
 
@@ -187,7 +188,7 @@ the usual color argument of <code><a href='https://rdrr.io/r/graphics/plot.defau
     </tr>
     <tr>
       <th>main</th>
-      <td><p>a main title for the plot,</p></td>
+      <td><p>a main title for the plot.</p></td>
     </tr>
     <tr>
       <th>curve_options</th>
@@ -195,9 +196,15 @@ the usual color argument of <code><a href='https://rdrr.io/r/graphics/plot.defau
 of non-parametric estimate plot.</p></td>
     </tr>
     <tr>
+      <th>par_plot</th>
+      <td><p>some graphical parameters which can be passed to the plot. See 
+<strong>Details</strong> section for futher information.</p></td>
+    </tr>
+    <tr>
       <th>legend_options</th>
-      <td><p>a list with fur further arguments useful for customization
-of the legend of the plot.</p></td>
+      <td><p>a list with fur further arguments useful for customization. See 
+<strong>Details</strong> section for futher information.
+                     of the legend of the plot.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -210,6 +217,36 @@ of the legend of the plot.</p></td>
     <p>This plot complements the use of <code><a href='initValuesOW_TTT.html'>initValuesOW_TTT</a></code>. It is always 
 advisable to use this function in order to check the result of non-parametric estimate 
 of TTT plot. See the first example in <strong>Examples</strong> section for an illustration.</p>
+<p><code>par_plot</code> admits some parameters of <code><a href='https://rdrr.io/r/graphics/par.html'>par</a></code> function. 
+The following <em>has preestablished values</em>:</p><ul>
+<li><p><code>mai</code>:the margins can be manipulated with <code>mar</code>. The right margin
+has a value equals to 7.2 using <code>mar</code> and all new values take it as reference value.</p></li>
+<li><p><code>xpd</code>:Is set as <code>TRUE</code>, and cannot be modified.</p></li>
+</ul> 
+
+<p>On the other hand, <code>legend_options</code> allows manuy of the parameters of 
+<code><a href='https://rdrr.io/r/graphics/legend.html'>legend</a></code> function. The following <em>has preestablished values</em>:</p><ul>
+<li><p><code>x, y</code>:legend is always located on the right side, outside the plot.
+<code>x</code> and <code>y</code> coordinates cannot be manipulated, instead of this, it exists 
+the argument <code>pos</code>, which can take character or numeric values. In the first case,
+it can be <code>"top", "center"</code> and <code>"bottom"</code>, in the later, it can be any value
+of the y-coordinate, between 0 and 1.</p></li>
+<li><p><code>legend</code>:text of the legend cannot be edited.</p></li>
+<li><p><code>pch</code>:cannot be manipulated, it depends on <code>pch</code> parameter of the plot.</p></li>
+<li><p><code>col</code>:cannot be manipulated, it depends on <code>col</code> parameters of the plot
+and the curve_options.
+#'</p></li>
+<li><p><code>lty</code>:cannot be manipulated, it depends on <code>lty</code> parameters of the plot
+and the curve_options.
+#'</p></li>
+<li><p><code>lwd</code>:cannot be manipulated, it depends on <code>lwd</code> parameters of the plot
+and the curve_options.
+#'</p></li>
+<li><p><code>pt.cex</code>:cannot be manipulated, it depends on <code>cex</code> parameter of 
+the plot.</p></li>
+<li><p><code>xpd</code>:It is set as <code>TRUE</code>, and cannot be modified.</p></li>
+</ul> 
+
 <p>The possible arguments for <code>...</code> can be consulted in 
 <code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot.default</a></code>  and <code><a href='https://rdrr.io/r/graphics/par.html'>par</a></code>.</p>
 
