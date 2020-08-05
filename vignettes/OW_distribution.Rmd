@@ -121,6 +121,15 @@ legend("topright", legend=c(expression(paste(mu,
 
 # Application examples
 
+In the examples below the following model is fitted
+
+\begin{align}
+y &\sim OW(\mu,\: \sigma,\: \nu) \\
+\log (\mu) &= \alpha_0 \\
+\sigma &= \beta_0 \\
+\log (\nu) &= \gamma_0
+\end{align}
+
 ## Time to failure on electronic equipment
 
 Cooray [-@Cooray2015] used the following data provided by Wang [-@Wang2000] in order to fit an OW distribution through maximum likelihood estimation (MLE):
