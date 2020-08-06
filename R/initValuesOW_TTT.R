@@ -30,7 +30,7 @@
 #' @importFrom gamlss gamlss
 #' @importFrom stats terms predict na.omit formula 
 #' @importFrom survival is.Surv
-#' @importFrom EstimationTools fo_and_data
+#' @importFrom EstimationTools formula2Surv
 #' @export                                                                                                                                               
 initValuesOW_TTT <- function(formula, data=NULL,
                              local_reg = loess.options(),
@@ -44,8 +44,8 @@ initValuesOW_TTT <- function(formula, data=NULL,
   temp[[1L]] <- quote(stats::model.frame)
   modfrm <- eval.parent(temp)
   y <- stats::model.extract(modfrm, 'response')
-  outs <- EstimationTools::fo_and_data(y, formula, model_frame=modfrm, 
-                                       data, fo2Surv = FALSE)
+  outs <- fo_and_data_RelDists(y, formula, model_frame=modfrm, 
+                               data, fo2Surv = FALSE)
   fo <- outs$fo; data <- outs$data
   
   method <- if ( is.Surv(y) ){'censored'} else {'Barlow'}
@@ -147,4 +147,34 @@ valid.region <- function(param, valid.values, initVal){
   
   fun.param <- paste0("function(", param, ") ", res.param)
   return(eval(parse(text = fun.param)))
+}
+#==============================================================================
+# Data preparation for TTT computation ----------------------------------------
+#==============================================================================
+#' @keywords internal
+#'
+fo_and_data_RelDists <- function(y, fo, model_frame, data, fo2Surv = TRUE){
+  if ( !is.Surv(y) ){
+    if ( fo2Surv ) fo <- EstimationTools::formula2Surv(model_frame)
+    if ( missing(data) | is.null(data) ) data <- model_frame
+  } else {
+    if ( missing(data) | is.null(data) ){
+      vars <- names(model_frame)
+      ySurv <- vars[1L]
+      yname <- gsub("Surv\\((.*?),.*", "\\1", ySurv)
+      statusname <- gsub(paste0("Surv\\(", yname, ",(.*?)\\)"), "\\1", ySurv)
+      right_hand <- attr(stats::terms(fo), 'term.labels')
+      
+      if (length(right_hand) == 0){
+        factorname <- NULL
+        data <- data.frame(y[,1], y[,2])
+      } else {
+        factorname <- as.character(right_hand[1])
+        other_column <- model_frame[,2]
+        data <- data.frame(y[,1], y[,2], other_column)
+      }
+      colnames(data) <- c(yname, statusname, factorname)
+    }
+  }
+  return(list(data = data, fo = fo))
 }
