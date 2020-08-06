@@ -32,9 +32,14 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
   myOW_regioncall <- match.call()
   OWcall <- myOW_regioncall$family
   family_call <- deparse(OWcall)
-  link_funcs <- grep("[.link]", family_call)
+  link_funcs <- grep("*\\.link", family_call)
   
-  family <- if ( is.null(OWcall) ){family} else {eval(OWcall[[1]])}
+  family <- if ( is.null(OWcall) ){family} 
+    else {
+      if (as.character(OWcall[[1]]) == "cens"){
+          eval(as.call( c(OWcall[[1]], OWcall[[2]])) )
+        } else {eval(OWcall[[1]])}
+    }
   original_body <- body(family)
   size <- length(original_body)
   nopar <- body(family)[[5]][[2]]$nopar
@@ -43,7 +48,8 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
   new_body[(size+1):(size+2)] <- c("","")
   
   new_body[1:(nopar+1)] <- original_body[1:(nopar+1)]
-
+  new_body[[(nopar+2)]] <- NULL
+  
   new_body[[(nopar+2)]] <- substitute(sigma.space <- 
                                         valid.region("sigma", valid.values, 
                                                      initVal), 
@@ -61,8 +67,13 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
   new_body[[(nopar+4)]][[2]]$nu.valid <- substitute(nu.space)
   formals(family)$valid.values <- valid.values
   if ( length(link_funcs) > 0 ){
+    if ((as.character(OWcall[[1]]) == "cens")){
+      listOW <- as.list(as.call(as.list(OWcall[2])[[1]]))
+    } else {
+      listOW <- as.list(OWcall)
+    }
     index <- 2:(length(OWcall))
-    formals(family)[index] <- sapply(index, function(x) as.list(OWcall)[x])
+    formals(family)[index] <- sapply(index, function(x) listOW[x])
   } 
   body(family) <- new_body
   return(family)
