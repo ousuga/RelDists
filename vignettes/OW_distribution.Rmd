@@ -77,7 +77,7 @@ legend("bottomright", legend=c(expression(paste(mu,
 ```
 
 
-The hf of the OW distribution is:
+The hazard function (hf) of the OW distribution is:
 
 $$h(x) = \left( \frac{\sigma\nu}{x} \right) (\mu x)^\sigma e^{(\mu x)^\sigma} \left(e^{(\mu x)^{\sigma}}-1\right)^{\nu-1} \left[ 1 + \left(e^{(\mu x)^{\sigma}}-1\right)^\nu \right]^{-1}, x>0,$$
         
