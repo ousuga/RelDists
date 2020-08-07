@@ -41,7 +41,8 @@ Imports:
     Rdpack,
     zipfR,
     EstimationTools,
-    autoimage
+    autoimage,
+    BBmisc
 LazyData: true
 Suggests: knitr, rmarkdown
 RoxygenNote: 7.1.1
