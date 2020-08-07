@@ -31,6 +31,7 @@
 #' @importFrom stats terms predict na.omit formula 
 #' @importFrom survival is.Surv
 #' @importFrom EstimationTools formula2Surv
+#' @importFrom BBmisc is.error
 #' @export                                                                                                                                               
 initValuesOW_TTT <- function(formula, data=NULL,
                              local_reg = loess.options(),
@@ -54,56 +55,63 @@ initValuesOW_TTT <- function(formula, data=NULL,
                                          data=data, method=method,
                                          scale=TRUE, ...)
   g2 <- cbind(g1$`i/n`, g1$phi_n)
-  g3 <- do.call("loess", list(g2[,2] ~ g2[,1], local_reg))
+  g3 <- try(do.call("loess", list(g2[,2] ~ g2[,1], local_reg)), silent=TRUE)
   g4 <- do.call(interpolation$interp.fun, list(x = g2[,1], y=predict(g3),
                                                interpolation$passing_args))
   
-  dTTT_dp <- g4(seq(0,1,length.out = interpolation$length.out), deriv=1)
-  d2TTT_dp2 <- g4(seq(0,1,length.out = interpolation$length.out), deriv=2)
-  
-  target <- diff(sign(d2TTT_dp2))
-  inflex <- which( target != 0 )
-  diff_val <- try(target[inflex], silent = TRUE)
-  
-  if ( length(inflex) < 2 ){
-    if ( length(inflex) > 0 ){
-      if (diff_val == 2){
-        # Unimodal hazard
-        sigma <- 0.6
-        nu <- 7
-        sigma.valid <- "all(sigma < 1)"
-        nu.valid <- "TRUE"
-        hazard_type <- "Unimodal"
-      }
-      if (diff_val == -2){
-        # Bathtub hazard
-        sigma <- 5
-        nu <- 0.1
-        sigma.valid <- "all(sigma > 1)"
-        nu.valid <- "all(nu < 1) & all(nu > 0)"
-        hazard_type <- "Bathtub"
+  if (!is.error(g3)){
+    dTTT_dp <- g4(seq(0,1,length.out = interpolation$length.out), deriv=1)
+    d2TTT_dp2 <- g4(seq(0,1,length.out = interpolation$length.out), deriv=2)
+    
+    target <- diff(sign(d2TTT_dp2))
+    inflex <- which( target != 0 )
+    diff_val <- try(target[inflex], silent = TRUE)
+    
+    if ( length(inflex) < 2 ){
+      if ( length(inflex) > 0 ){
+        if (diff_val == 2){
+          # Unimodal hazard
+          sigma <- 0.6
+          nu <- 7
+          sigma.valid <- "all(sigma < 1)"
+          nu.valid <- "TRUE"
+          hazard_type <- "Unimodal"
+        }
+        if (diff_val == -2){
+          # Bathtub hazard
+          sigma <- 5
+          nu <- 0.1
+          sigma.valid <- "all(sigma > 1)"
+          nu.valid <- "all(nu < 1) & all(nu > 0)"
+          hazard_type <- "Bathtub"
+        }
+      } else {
+        sign_search <- which(sign(d2TTT_dp2) > 0)
+        if (is.na(sum(sign_search))){ # negative secod derivative
+          # Decreasing hazard
+          sigma <- 0.2
+          nu <- 2
+          sigma.valid <- "all(sigma < 1)"
+          nu.valid <- "TRUE"
+          hazard_type <- "Decreasing"
+        } else { # positive second derivative
+          # Increasing hazard
+          sigma <- 2
+          nu <- 6
+          sigma.valid <- "all(sigma > 1)"
+          nu.valid <- "all(nu > 0)"
+          hazard_type <- "Increasing"
+        }
       }
     } else {
-      sign_search <- which(sign(d2TTT_dp2) > 0)
-      if (is.na(sum(sign_search))){ # negative secod derivative
-        # Decreasing hazard
-        sigma <- 0.2
-        nu <- 2
-        sigma.valid <- "all(sigma < 1)"
-        nu.valid <- "TRUE"
-        hazard_type <- "Decreasing"
-      } else { # positive second derivative
-        # Increasing hazard
-        sigma <- 2
-        nu <- 6
-        sigma.valid <- "all(sigma > 1)"
-        nu.valid <- "all(nu > 0)"
-        hazard_type <- "Increasing"
-      }
+      stop("Please, choose another initial values for parameters.
+         Visit 'OW distribution' vignette to get further information.")
     }
   } else {
-    stop("Please, choose another initial values for parameters.
-         Visit 'OW distribution' vignette to get further information.")
+    sigma <- NA;  nu <- NA; local_reg <- NA
+    sigma.valid <- NA; nu.valid <- NA
+    hazard_type <- NA
+    warning(paste0("Problem with LOESS estimation."))
   }
 
   output <- list(formula=formula, response=y, 
