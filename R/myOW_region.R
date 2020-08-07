@@ -34,8 +34,9 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
   family_call <- deparse(OWcall)
   link_funcs <- grep("*\\.link", family_call)
   
-  dist_type <- body(family)[[5]][[2]][[2]]
-  cens_id <- grep(".*\\scens.*", body(family)[[5]][[2]][[2]])
+  # dist_type <- body(eval(family))[[5]][[2]][[2]]
+  # cens_id <- grep(".*\\scens.*", dist_type)
+  cens_id <- grep("cens.*", family_call)
   
   family <- if ( is.null(OWcall) ){family} 
     else {
@@ -43,6 +44,7 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
           eval(as.call( c(OWcall[[1]], OWcall[[2]])) )
         } else {eval(OWcall[[1]])}
     }
+  
   original_body <- body(family)
   size <- length(original_body)
   nopar <- body(family)[[5]][[2]]$nopar
@@ -77,7 +79,7 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
     }
     index <- 2:(length(OWcall))
     formals(family)[index] <- sapply(index, function(x) listOW[x])
-  } 
+  }
   body(family) <- new_body
   return(family)
 }
