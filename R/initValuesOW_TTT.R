@@ -59,7 +59,13 @@ initValuesOW_TTT <- function(formula, data=NULL,
   g4 <- do.call(interpolation$interp.fun, list(x = g2[,1], y=predict(g3),
                                                interpolation$passing_args))
   
-  if (!is.error(g3)){
+  if (is.error(g3) | is.nan(g3$s)){
+    sigma <- NA;  nu <- NA; local_reg <- NA
+    sigma.valid <- NA; nu.valid <- NA
+    hazard_type <- NA
+    warning(paste0("Problem with LOESS estimation. The sample",
+                   "size may be too small"))
+  } else {
     dTTT_dp <- g4(seq(0,1,length.out = interpolation$length.out), deriv=1)
     d2TTT_dp2 <- g4(seq(0,1,length.out = interpolation$length.out), deriv=2)
     
@@ -104,14 +110,14 @@ initValuesOW_TTT <- function(formula, data=NULL,
         }
       }
     } else {
-      stop("Please, choose another initial values for parameters.
-         Visit 'OW distribution' vignette to get further information.")
+      warning(paste0("Non-parametric estimate is not smooth. Please, ",
+                     "use the 'plot' method to see the TTT shape and",
+                     "set the search region manually.  Visit", 
+                     "'OW distribution' vignette to get further information."))
+      sigma <- NA;  nu <- NA;
+      sigma.valid <- NA; nu.valid <- NA
+      hazard_type <- NA
     }
-  } else {
-    sigma <- NA;  nu <- NA; local_reg <- NA
-    sigma.valid <- NA; nu.valid <- NA
-    hazard_type <- NA
-    warning(paste0("Problem with LOESS estimation."))
   }
 
   output <- list(formula=formula, response=y, 
