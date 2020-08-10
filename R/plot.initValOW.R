@@ -62,13 +62,15 @@
 #' \item{\code{xpd}:}{It is set as \code{TRUE}, and cannot be modified.}
 #' } 
 #' 
+#' If \code{legend_optinos = "NoLegend"}, no legend is generated.
+#' 
 #' The possible arguments for \code{...} can be consulted in 
 #' \code{\link[graphics]{plot.default}}  and \code{\link{par}}.
 #' 
 #' @importFrom graphics par
 #' @importFrom autoimage reset.par
 #' @export   
-plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(u)), xlim=c(0,1),
+plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(i/n)), xlim=c(0,1),
                            ylim=c(0,1), col=1, lty=NULL, lwd=NA, main="", 
                            curve_options=list(col=2, lwd=2, lty=1),
                            par_plot=list(mar=c(5.1,4.1,4.1,2.1)),
@@ -80,9 +82,16 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(u)), xlim=c(0,1),
   if (is.null(par_plot$mar)){
     par_plot$mar=c(5.1,4.1,4.1,2.1)
   }
-  mar <- c(par_plot$mar[1:3], par_plot$mar[4]+7.2)
+  
+  if (legend_options == "NoLegend"){
+    xpd <- FALSE
+    mar <- c(par_plot$mar[1:3], par_plot$mar[4])
+  } else {
+    xpd <- TRUE
+    mar <- c(par_plot$mar[1:3], par_plot$mar[4]+7.2)
+  }
   par_plot$mar <- NULL
-  do.call("par", c(list(mar=mar, xpd=TRUE), par_plot))
+  do.call("par", c(list(mar=mar, xpd=xpd), par_plot))
   
   plot(object$TTTplot[,1], object$TTTplot[,2], xlab=xlab, ylab=ylab, xlim=xlim, 
        ylim=ylim, main=main, col=col, lty=lty, lwd=lwd, ...)
@@ -94,39 +103,41 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(u)), xlim=c(0,1),
   if (is.null(plot_options$pch)) plot_options$pch <- 1
   if (is.null(plot_options$cex)) plot_options$cex <- 1
   
-  legend_text <- c("Empirical TTT", "Spline curve")
-  if (is.null(legend_options$pos)){
-    x <- "topright"; y <- NULL
-  } else {
-    if (is.numeric(legend_options$pos)){
-      y <- legend_options$pos
-      x <- 1.07
-      legend_options <- within(legend_options, rm(pos))
+  if (legend_options != "NoLegend"){
+    legend_text <- c("Empirical TTT", "Spline curve")
+    if (is.null(legend_options$pos)){
+      x <- "topright"; y <- NULL
+    } else {
+      if (is.numeric(legend_options$pos)){
+        y <- legend_options$pos
+        x <- 1.07
+        legend_options <- within(legend_options, rm(pos))
+      }
+      if (is.character(legend_options$pos)){
+        possible_pos <- c("top", "center", "bottom")
+        if (!(legend_options$pos %in% possible_pos))
+          stop((c("Select positions from the following list: \n \n",
+                  "  --> ", paste0(possible_pos, collapse=", "))))
+        if (legend_options$pos == "center") legend_options$pos <- ""
+        
+        x <- paste0(legend_options$pos, "right")
+        legend_options <- within(legend_options, rm(pos))
+        legend_arguments <- c("y", "inset", "legend", "xpd", "col", "lty", "lwd")
+        match_legend <- match(legend_arguments, legend_options, nomatch=0)
+        match_legend <- which(match_legend != 0)
+        
+        if (length(match_legend) > 0)
+          stop(paste0("Argument(s)", legend_arguments[match_legend], "cannot be",
+                      "manipulated. They have default unchangeable values."))
+      }
     }
-    if (is.character(legend_options$pos)){
-      possible_pos <- c("top", "center", "bottom")
-      if (!(legend_options$pos %in% possible_pos))
-        stop((c("Select positions from the following list: \n \n",
-                "  --> ", paste0(possible_pos, collapse=", "))))
-      if (legend_options$pos == "center") legend_options$pos <- ""
-      
-      x <- paste0(legend_options$pos, "right")
-      legend_options <- within(legend_options, rm(pos))
-      legend_arguments <- c("y", "inset", "legend", "xpd", "col", "lty", "lwd")
-      match_legend <- match(legend_arguments, legend_options, nomatch=0)
-      match_legend <- which(match_legend != 0)
-      
-      if (length(match_legend) > 0)
-        stop(paste0("Argument(s)", legend_arguments[match_legend], "cannot be",
-                    "manipulated. They have default unchangeable values."))
-    }
+    
+    do.call("legend", c(list(x=x, y=y, legend=legend_text,
+                             pch=c(plot_options$pch,NA), inset=c(-0.41,0),
+                             col=c(col, curve_options$col),
+                             lty=c(lty,curve_options$lty),
+                             pt.cex=plot_options$cex,
+                             lwd=c(lwd,curve_options$lwd), xpd=TRUE), 
+                        legend_options))
   }
-  
-  do.call("legend", c(list(x=x, y=y, legend=legend_text,
-                           pch=c(plot_options$pch,NA), inset=c(-0.41,0),
-                           col=c(col, curve_options$col),
-                           lty=c(lty,curve_options$lty),
-                           pt.cex=plot_options$cex,
-                           lwd=c(lwd,curve_options$lwd), xpd=TRUE), 
-                      legend_options))
 }
