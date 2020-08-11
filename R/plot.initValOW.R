@@ -83,9 +83,11 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(i/n)), xlim=c(0,1)
     par_plot$mar=c(5.1,4.1,4.1,2.1)
   }
   
-  if (legend_options == "NoLegend"){
-    xpd <- FALSE
-    mar <- c(par_plot$mar[1:3], par_plot$mar[4])
+  if (is.character(legend_options)){
+    if (legend_options == "NoLegend"){
+      xpd <- FALSE
+      mar <- c(par_plot$mar[1:3], par_plot$mar[4])
+    }
   } else {
     xpd <- TRUE
     mar <- c(par_plot$mar[1:3], par_plot$mar[4]+7.2)
@@ -103,7 +105,7 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(i/n)), xlim=c(0,1)
   if (is.null(plot_options$pch)) plot_options$pch <- 1
   if (is.null(plot_options$cex)) plot_options$cex <- 1
   
-  if (legend_options != "NoLegend"){
+  if (!is.character(legend_options)){
     legend_text <- c("Empirical TTT", "Spline curve")
     if (is.null(legend_options$pos)){
       x <- "topright"; y <- NULL
@@ -139,5 +141,9 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(i/n)), xlim=c(0,1)
                              pt.cex=plot_options$cex,
                              lwd=c(lwd,curve_options$lwd), xpd=TRUE), 
                         legend_options))
+  } else {
+    if (legend_options != "NoLegend") 
+      stop("'NoLegend' option is the only character string valid")
   }
+  autoimage::reset.par()
 }
