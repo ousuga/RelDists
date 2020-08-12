@@ -7,7 +7,7 @@
 \method{plot}{initValOW}(
   x,
   xlab = "i/n",
-  ylab = expression(phi(u)),
+  ylab = expression(phi(i/n)),
   xlim = c(0, 1),
   ylim = c(0, 1),
   col = 1,
@@ -89,6 +89,8 @@ and the curve_options.}
 the plot.}
 \item{\code{xpd}:}{It is set as \code{TRUE}, and cannot be modified.}
 } 
+
+If \code{legend_optinos = "NoLegend"}, no legend is generated.
 
 The possible arguments for \code{...} can be consulted in 
 \code{\link[graphics]{plot.default}}  and \code{\link{par}}.
