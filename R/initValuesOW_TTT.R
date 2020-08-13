@@ -66,6 +66,7 @@ initValuesOW_TTT <- function(formula, data=NULL,
     warning(paste0("Problem with LOESS estimation. The sample",
                    "size may be too small"))
   } else {
+    lout <- (length(y) - 1)*10
     dTTT_dp <- g4(seq(0,1,length.out = interpolation$length.out), deriv=1)
     d2TTT_dp2 <- g4(seq(0,1,length.out = interpolation$length.out), deriv=2)
     
@@ -80,7 +81,9 @@ initValuesOW_TTT <- function(formula, data=NULL,
           sigma <- 0.6
           nu <- 7
           sigma.valid <- "all(sigma < 1)"
-          nu.valid <- "TRUE"
+          nu.valid <- paste0("all(nu > 1/seq(1e-12, 1, length.out=",
+                             as.character(as.name(lout)), "))")
+          # all(nu > 1)"
           hazard_type <- "Unimodal"
         }
         if (diff_val == -2){
@@ -88,7 +91,9 @@ initValuesOW_TTT <- function(formula, data=NULL,
           sigma <- 5
           nu <- 0.1
           sigma.valid <- "all(sigma > 1)"
-          nu.valid <- "all(nu < 1) & all(nu > 0)"
+          nu.valid <- paste0("all(nu < 1/seq(1, 100, length.out=", 
+                             as.character(as.name(lout)), "))")
+          # "all(nu < 1) & all(nu > 0)"
           hazard_type <- "Bathtub"
         }
       } else {
@@ -98,14 +103,18 @@ initValuesOW_TTT <- function(formula, data=NULL,
           sigma <- 0.2
           nu <- 2
           sigma.valid <- "all(sigma < 1)"
-          nu.valid <- "TRUE"
+          nu.valid <- paste0("all(nu < 1/seq(1e-12, 1, length.out=",
+                             as.character(as.name(lout)), "))")
+          # "all(nu > 0)"
           hazard_type <- "Decreasing"
         } else { # positive second derivative
           # Increasing hazard
           sigma <- 2
           nu <- 6
           sigma.valid <- "all(sigma > 1)"
-          nu.valid <- "all(nu > 0)"
+          nu.valid <- paste0("all(nu > 1/seq(1,100, length.out=",
+                             as.character(as.name(lout)), "))")
+          # "all(nu > 0)"
           hazard_type <- "Increasing"
         }
       }
