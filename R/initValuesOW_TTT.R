@@ -66,7 +66,7 @@ initValuesOW_TTT <- function(formula, data=NULL,
     warning(paste0("Problem with LOESS estimation. The sample",
                    "size may be too small"))
   } else {
-    lout <- (length(y) - 1)*10
+    lout <- (length(y) - 1)*5
     dTTT_dp <- g4(seq(0,1,length.out = interpolation$length.out), deriv=1)
     d2TTT_dp2 <- g4(seq(0,1,length.out = interpolation$length.out), deriv=2)
     
