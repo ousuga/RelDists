@@ -81,8 +81,9 @@ initValuesOW_TTT <- function(formula, data=NULL,
           sigma <- 0.6
           nu <- 7
           sigma.valid <- "all(sigma < 1)"
-          nu.valid <- paste0("all(nu > 1/seq(1e-12, 1, length.out=",
-                             as.character(as.name(lout)), "))")
+          nu.valid <- "all(nu > 1/sigma)"
+          # nu.valid <- paste0("all(nu > 1/seq(1e-12, 1, length.out=",
+          #                    as.character(as.name(lout)), "))")
           # all(nu > 1)"
           hazard_type <- "Unimodal"
         }
@@ -91,8 +92,9 @@ initValuesOW_TTT <- function(formula, data=NULL,
           sigma <- 5
           nu <- 0.1
           sigma.valid <- "all(sigma > 1)"
-          nu.valid <- paste0("all(nu < 1/seq(1, 100, length.out=", 
-                             as.character(as.name(lout)), "))")
+          nu.valid <- "all(nu < 1/sigma)"
+          # nu.valid <- paste0("all(nu < 1/seq(1, 100, length.out=", 
+          #                    as.character(as.name(lout)), "))")
           # "all(nu < 1) & all(nu > 0)"
           hazard_type <- "Bathtub"
         }
@@ -103,8 +105,9 @@ initValuesOW_TTT <- function(formula, data=NULL,
           sigma <- 0.2
           nu <- 2
           sigma.valid <- "all(sigma < 1)"
-          nu.valid <- paste0("all(nu < 1/seq(1e-12, 1, length.out=",
-                             as.character(as.name(lout)), "))")
+          nu.valid <- "all(nu < 1/sigma)"
+          # nu.valid <- paste0("all(nu < 1/seq(1e-12, 1, length.out=",
+          #                    as.character(as.name(lout)), "))")
           # "all(nu > 0)"
           hazard_type <- "Decreasing"
         } else { # positive second derivative
@@ -112,8 +115,9 @@ initValuesOW_TTT <- function(formula, data=NULL,
           sigma <- 2
           nu <- 6
           sigma.valid <- "all(sigma > 1)"
-          nu.valid <- paste0("all(nu > 1/seq(1,100, length.out=",
-                             as.character(as.name(lout)), "))")
+          nu.valid <- "all(nu > 1/sigma)"
+          # nu.valid <- paste0("all(nu > 1/seq(1,100, length.out=",
+          #                    as.character(as.name(lout)), "))")
           # "all(nu > 0)"
           hazard_type <- "Increasing"
         }
