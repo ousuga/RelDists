@@ -42,7 +42,12 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
     else {
       if (length(cens_id) > 0){
           eval(as.call( c(OWcall[[1]], OWcall[[2]])) )
-        } else {eval(OWcall[[1]])}
+      } else {
+        if (length(OWcall)>1)
+          eval(OWcall[[1]])
+        else
+          eval(OWcall)
+        }
     }
   
   original_body <- body(family)
