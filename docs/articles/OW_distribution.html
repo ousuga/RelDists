@@ -85,7 +85,7 @@
       <h1 data-toc-skip>OW distribution</h1>
                         <h4 class="author">Jaime Mosquera</h4>
             
-            <h4 class="date">2020-08-13</h4>
+            <h4 class="date">2020-08-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ousuga/RelDists/blob/master/vignettes/OW_distribution.Rmd"><code>vignettes/OW_distribution.Rmd</code></a></small>
       <div class="hidden name"><code>OW_distribution.Rmd</code></div>
@@ -146,7 +146,7 @@
 <span class="co">#&gt; --------------------------------------------------------------------</span>
 <span class="co">#&gt; Search Regions</span>
 <span class="co">#&gt; For sigma: all(sigma &gt; 1)</span>
-<span class="co">#&gt; For nu: all(nu &lt; 1/seq(1, 100, length.out=180))</span>
+<span class="co">#&gt; For nu: all(nu &lt; 1/sigma)</span>
 <span class="co">#&gt; --------------------------------------------------------------------</span>
 <span class="co">#&gt; Hazard shape: Bathtub</span></pre></body></html></div>
 <p><code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code> function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot</p>
@@ -250,14 +250,14 @@
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">init_vals</span>)
 <span class="co">#&gt; --------------------------------------------------------------------</span>
 <span class="co">#&gt; Initial Values</span>
-<span class="co">#&gt; sigma = 2</span>
-<span class="co">#&gt; nu = 6</span>
+<span class="co">#&gt; sigma = 0.2</span>
+<span class="co">#&gt; nu = 2</span>
 <span class="co">#&gt; --------------------------------------------------------------------</span>
 <span class="co">#&gt; Search Regions</span>
-<span class="co">#&gt; For sigma: all(sigma &gt; 1)</span>
-<span class="co">#&gt; For nu: all(nu &gt; 1/seq(1,100, length.out=2080))</span>
+<span class="co">#&gt; For sigma: all(sigma &lt; 1)</span>
+<span class="co">#&gt; For nu: all(nu &lt; 1/sigma)</span>
 <span class="co">#&gt; --------------------------------------------------------------------</span>
-<span class="co">#&gt; Hazard shape: Increasing</span></pre></body></html></div>
+<span class="co">#&gt; Hazard shape: Decreasing</span></pre></body></html></div>
 <p>With <code><a href="../reference/initValuesOW_TTT.html">initValuesOW_TTT()</a></code> function we identified an increasing hazard shape, as well as was stated by Cooray <span class="citation">(2006)</span>, because TTT plot is concave.</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">init_vals</span>,
      <span class="kw">legend_options</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">pos</span><span class="kw">=</span><span class="fl">1.04</span>),

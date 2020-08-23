@@ -194,7 +194,7 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
 #&gt; --------------------------------------------------------------------
 #&gt; Search Regions
 #&gt; For sigma: all(sigma &gt; 1)
-#&gt; For nu: all(nu &lt; 1/seq(1, 100, length.out=500))
+#&gt; For nu: all(nu &lt; 1/sigma)
 #&gt; --------------------------------------------------------------------
 #&gt; Hazard shape: Bathtub</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span>(<span class='fu'><a href='dOW.html'>hOW</a></span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>), <span class='kw'>from</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>to</span><span class='kw'>=</span><span class='fl'>80</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.04</span>),
