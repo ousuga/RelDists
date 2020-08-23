@@ -1,7 +1,7 @@
 #' Initial values and search region for Odd Weibull distribution
 #' 
 #' @author Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}
-#' @family init
+#' @family initValOW
 #' 
 #' @description 
 #' This function can be used so as to get suggestions about initial values
@@ -100,17 +100,7 @@ initValuesOW_TTT <- function(formula, data=NULL,
         }
       } else {
         sign_search <- which(sign(d2TTT_dp2) > 0)
-        if (is.na(sum(sign_search))){ # negative secod derivative
-          # Decreasing hazard
-          sigma <- 0.2
-          nu <- 2
-          sigma.valid <- "all(sigma < 1)"
-          nu.valid <- "all(nu < 1/sigma)"
-          # nu.valid <- paste0("all(nu < 1/seq(1e-12, 1, length.out=",
-          #                    as.character(as.name(lout)), "))")
-          # "all(nu > 0)"
-          hazard_type <- "Decreasing"
-        } else { # positive second derivative
+        if (is.na(sum(sign_search))){ # negative second derivative
           # Increasing hazard
           sigma <- 2
           nu <- 6
@@ -120,6 +110,16 @@ initValuesOW_TTT <- function(formula, data=NULL,
           #                    as.character(as.name(lout)), "))")
           # "all(nu > 0)"
           hazard_type <- "Increasing"
+        } else { # positive second derivative
+          # Decreasing hazard
+          sigma <- 0.2
+          nu <- 2
+          sigma.valid <- "all(sigma < 1)"
+          nu.valid <- "all(nu < 1/sigma)"
+          # nu.valid <- paste0("all(nu < 1/seq(1e-12, 1, length.out=",
+          #                    as.character(as.name(lout)), "))")
+          # "all(nu > 0)"
+          hazard_type <- "Decreasing"
         }
       }
     } else {
