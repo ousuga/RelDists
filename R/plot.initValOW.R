@@ -97,6 +97,7 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(i/n)), xlim=c(0,1)
   
   plot(object$TTTplot[,1], object$TTTplot[,2], xlab=xlab, ylab=ylab, xlim=xlim, 
        ylim=ylim, main=main, col=col, lty=lty, lwd=lwd, ...)
+  lines(c(0,1), c(0,1), lwd=2, lty=2)
 
   do.call("curve", c(list(expr=substitute(object$interpolation(x)), add=TRUE),
                      curve_options))
