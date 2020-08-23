@@ -54,4 +54,4 @@ curve(hOW(x, mu=0.022, sigma=8, nu=0.01), from=0, to=80, ylim=c(0, 0.04),
 \author{
 Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}
 }
-\concept{init}
+\concept{initValOW}
