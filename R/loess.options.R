@@ -33,5 +33,5 @@ loess.options <- function(span = 2/3, ...){
     stop(paste0(sentence[1], forbidden, sentence[2], "forbidden ", "for", 
                 " 'loess.options' function."))
   }
-  return(list(span, ...))
+  return(list(span=span, ...))
 }
