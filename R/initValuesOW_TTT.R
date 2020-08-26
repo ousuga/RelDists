@@ -55,7 +55,8 @@ initValuesOW_TTT <- function(formula, data=NULL,
                                          data=data, method=method,
                                          scale=TRUE, ...)
   g2 <- cbind(g1$`i/n`, g1$phi_n)
-  g3 <- try(do.call("loess", list(g2[,2] ~ g2[,1], local_reg)), silent=TRUE)
+  g3 <- try(do.call("loess", c(list(formula=g2[,2] ~ g2[,1]), local_reg)), 
+            silent=TRUE)
   g4 <- do.call(interpolation$interp.fun, list(x = g2[,1], y=predict(g3),
                                                interpolation$passing_args))
   
@@ -99,8 +100,8 @@ initValuesOW_TTT <- function(formula, data=NULL,
           hazard_type <- "Bathtub"
         }
       } else {
-        sign_search <- which(sign(d2TTT_dp2) > 0)
-        if (is.na(sum(sign_search))){ # negative second derivative
+        sign_search <- any(sign(d2TTT_dp2) < 0) # if (is.na(sum(sign_search))){ 
+        if (sign_search){# negative second derivative
           # Increasing hazard
           sigma <- 2
           nu <- 6
