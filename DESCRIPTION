@@ -44,6 +44,6 @@ Imports:
     autoimage,
     BBmisc
 LazyData: true
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, viridis
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
