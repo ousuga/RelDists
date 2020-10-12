@@ -2,6 +2,7 @@
 
 S3method(plot,initValOW)
 S3method(summary,initValOW)
+export(AddW)
 export(EW)
 export(FWE)
 export(GMW)
