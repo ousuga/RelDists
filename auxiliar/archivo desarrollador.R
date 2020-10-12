@@ -1,7 +1,7 @@
 devtools::load_all()
 devtools::document()
 
-#devtools::install()
+devtools::install()
 
 require(RelDists)
 
