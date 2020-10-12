@@ -30,7 +30,7 @@
 #' function, \code{qAddW} gives the quantile function, \code{rAddW}
 #' generates random deviates and \code{hAddW} gives the hazard function.
 #'
-#' @example examples/examples_dAdd.R  
+#' @example examples/examples_dAddW.R  
 #'
 #' @references
 #' \insertRef{almalki2014modifications}{RelDists}
