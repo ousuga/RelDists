@@ -12,8 +12,8 @@
 #' @param n number of observations. 
 #' @param mu parameter.
 #' @param sigma parameter.
-#' @param nu parameter.
-#' @param tau parameter.
+#' @param nu shape parameter.
+#' @param tau shape parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
 #' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
 #' 
