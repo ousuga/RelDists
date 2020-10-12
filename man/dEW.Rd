@@ -61,7 +61,7 @@ par(mfrow=c(1, 2))
 curve(pEW(x, mu=2, sigma=1.5, nu=0.5), 
       from=0, to=2,  col="red", las=1, ylab="F(x)")
 curve(pEW(x, mu=2, sigma=1.5, nu=0.5, lower.tail=FALSE), 
-      from=0, to=2, col="red", las=1, ylab="S(x)")
+      from=0, to=2, col="red", las=1, ylab="R(x)")
 
 ## The quantile function
 p <- seq(from=0, to=0.99999, length.out=100)

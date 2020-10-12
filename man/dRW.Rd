@@ -61,7 +61,7 @@ par(mfrow=c(1, 2))
 curve(pRW(x, mu=1, sigma=1),
       from=-5, to=-0.01, col="red", las=1, ylab="F(x)")
 curve(pRW(x, mu=1, sigma=1, lower.tail=FALSE),
-      from=-5, to=-0.01, col="red", las=1, ylab="S(x)")
+      from=-5, to=-0.01, col="red", las=1, ylab="R(x)")
 
 ## The quantile function
 p <- seq(from=0, to=0.99999, length.out=100)

@@ -84,6 +84,6 @@ curve(dGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5),  from=0, add=TRUE, col="red")
 ## The Hazard function
 par(mfrow=c(1,1))
 curve(hGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5), from=0, to=1, ylim=c(0, 16),
-      col="red", ylab="The Hazard function", las=1)
+      col="red", ylab="Hazard function", las=1)
       
 }

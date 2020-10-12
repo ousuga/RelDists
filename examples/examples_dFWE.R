@@ -7,7 +7,7 @@ par(mfrow=c(1, 2))
 curve(pFWE(x, mu=0.75, sigma=0.5), from=0, to=3, 
       col="red", las=1, ylab="F(x)")
 curve(pFWE(x, mu=0.75, sigma=0.5, lower.tail=FALSE), 
-      from=0, to=3, col="red", las=1, ylab="S(x)")
+      from=0, to=3, col="red", las=1, ylab="R(x)")
 
 ## The quantile function
 p <- seq(from=0, to=0.99999, length.out=100)

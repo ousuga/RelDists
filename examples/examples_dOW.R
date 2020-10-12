@@ -8,7 +8,7 @@ curve(pOW(x, mu=2, sigma=3, nu=0.2), from=0, to=4, ylim=c(0, 1),
       col="red", las=1, ylab="f(x)")
 curve(pOW(x, mu=2, sigma=3, nu=0.2, lower.tail=FALSE), from=0, 
       to=4,  ylim=c(0, 1), col="red", las=1, 
-      ylab = "S(x)")
+      ylab = "R(x)")
 
 ## The quantile function
 p <- seq(from=0, to=0.998, length.out=100)
