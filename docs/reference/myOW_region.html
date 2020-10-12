@@ -131,10 +131,10 @@ in order to  set a customized region search for gamlss() function." />
 
     <div class="ref-description">
     <p>This function can be used to modify <code>OW</code> <code>gamlss.family</code> object 
-in order to  set a customized region search for <code>gamlss()</code> function.</p>
+in order to  set a customized region search for <code><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss()</a></code> function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>myOW_region</span>(<span class='kw'>family</span> <span class='kw'>=</span> <span class='no'>OW</span>, <span class='kw'>valid.values</span> <span class='kw'>=</span> <span class='st'>"auto"</span>, <span class='no'>initVal</span>)</pre>
+    <pre class="usage"><span class='fu'>myOW_region</span><span class='op'>(</span>family <span class='op'>=</span> <span class='va'>OW</span>, valid.values <span class='op'>=</span> <span class='st'>"auto"</span>, <span class='va'>initVal</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,45 +164,54 @@ function.</p></td>
 bounding the parametric space for <code>sigma</code> and <code>nu</code>.</p>
 <p>The <code>valid.values</code> must be defined as a list of characters containing a call
 of the <code><a href='https://rdrr.io/r/base/all.html'>all</a></code> function.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jaime Mosquera Gutiérrez <a href='mailto:jmosquerag@unal.edu.co'>jmosquerag@unal.edu.co</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example 1</span>
 <span class='co'># Generating some random values with</span>
 <span class='co'># known mu, sigma and nu</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>200</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.2</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.05</span>)
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>200</span>, mu<span class='op'>=</span><span class='fl'>0.2</span>, sigma<span class='op'>=</span><span class='fl'>4</span>, nu<span class='op'>=</span><span class='fl'>0.05</span><span class='op'>)</span>
 
 <span class='co'># Custom search region</span>
-<span class='no'>myvalues</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>sigma</span><span class='kw'>=</span><span class='st'>"all(sigma &gt; 1)"</span>,
-                 <span class='kw'>nu</span><span class='kw'>=</span><span class='st'>"all(nu &lt; 1) &amp; all(nu &lt; 1)"</span>)
+<span class='va'>myvalues</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>sigma<span class='op'>=</span><span class='st'>"all(sigma &gt; 1)"</span>,
+                 nu<span class='op'>=</span><span class='st'>"all(nu &lt; 1) &amp; all(nu &lt; 1)"</span><span class='op'>)</span>
 
-<span class='no'>my_initial_guess</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='initValuesOW_TTT.html'>initValuesOW_TTT</a></span>(<span class='kw'>formula</span><span class='kw'>=</span><span class='no'>y</span>~<span class='fl'>1</span>)
+<span class='va'>my_initial_guess</span> <span class='op'>&lt;-</span> <span class='fu'><a href='initValuesOW_TTT.html'>initValuesOW_TTT</a></span><span class='op'>(</span>formula<span class='op'>=</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span><span class='op'>)</span>
 
 <span class='co'># OW family modified with 'myOW_region'</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>gamlss</span>)
-<span class='no'>myOW</span> <span class='kw'>&lt;-</span> <span class='fu'>myOW_region</span>(<span class='kw'>valid.values</span><span class='kw'>=</span><span class='no'>myvalues</span>, <span class='kw'>initVal</span><span class='kw'>=</span><span class='no'>my_initial_guess</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>,
-              <span class='kw'>sigma.start</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>nu.start</span><span class='kw'>=</span><span class='fl'>0.1</span>,
-              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>300</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>),
-              <span class='kw'>family</span><span class='kw'>=</span><span class='no'>myOW</span>)
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='http://www.gamlss.com/'>gamlss</a></span><span class='op'>)</span>
+<span class='va'>myOW</span> <span class='op'>&lt;-</span> <span class='fu'>myOW_region</span><span class='op'>(</span>valid.values<span class='op'>=</span><span class='va'>myvalues</span>, initVal<span class='op'>=</span><span class='va'>my_initial_guess</span><span class='op'>)</span>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span>, sigma.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, nu.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, 
+              sigma.start<span class='op'>=</span><span class='fl'>2</span>, nu.start<span class='op'>=</span><span class='fl'>0.1</span>,
+              control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span><span class='op'>(</span>n.cyc<span class='op'>=</span><span class='fl'>300</span>, trace<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>,
+              family<span class='op'>=</span><span class='va'>myOW</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.1955959 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    4.327328 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;  0.04508682 </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'mu'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.2095932 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    3.668956 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'nu'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;  0.05489511 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Same example using another link function and using 'myOW_region'</span>
 <span class='co'># in the argument 'family'</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span>(<span class='no'>y</span>~<span class='fl'>1</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>, <span class='kw'>nu.fo</span><span class='kw'>=</span>~<span class='fl'>1</span>,
-              <span class='kw'>sigma.start</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>nu.start</span><span class='kw'>=</span><span class='fl'>0.1</span>,
-              <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span>(<span class='kw'>n.cyc</span><span class='kw'>=</span><span class='fl'>300</span>, <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>FALSE</span>),
-              <span class='kw'>family</span><span class='kw'>=</span><span class='fu'>myOW_region</span>(<span class='kw'>family</span><span class='kw'>=</span><span class='fu'><a href='OW.html'>OW</a></span>(<span class='kw'>sigma.link</span><span class='kw'>=</span><span class='st'>'identity'</span>),
-                                 <span class='kw'>valid.values</span><span class='kw'>=</span><span class='no'>myvalues</span>,
-                                 <span class='kw'>initVal</span><span class='kw'>=</span><span class='no'>my_initial_guess</span>))
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span>, sigma.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, nu.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, 
+              sigma.start<span class='op'>=</span><span class='fl'>2</span>, nu.start<span class='op'>=</span><span class='fl'>0.1</span>,
+              control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span><span class='op'>(</span>n.cyc<span class='op'>=</span><span class='fl'>300</span>, trace<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>,
+              family<span class='op'>=</span><span class='fu'>myOW_region</span><span class='op'>(</span>family<span class='op'>=</span><span class='fu'><a href='OW.html'>OW</a></span><span class='op'>(</span>sigma.link<span class='op'>=</span><span class='st'>'identity'</span><span class='op'>)</span>,
+                                 valid.values<span class='op'>=</span><span class='va'>myvalues</span>,
+                                 initVal<span class='op'>=</span><span class='va'>my_initial_guess</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'mu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.1956048 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'sigma'</span>)</div><div class='output co'>#&gt; (Intercept) 
-#&gt;    4.327067 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>'nu'</span>))</div><div class='output co'>#&gt; (Intercept) 
-#&gt;  0.04508918 </div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'mu'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.2095908 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'sigma'</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    3.669001 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'nu'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;  0.05489469 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -218,7 +227,7 @@ of the <code><a href='https://rdrr.io/r/base/all.html'>all</a></code> function.<
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

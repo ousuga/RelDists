@@ -134,13 +134,13 @@ and the search region for parameter estimation in OW distribution." />
 and the search region for parameter estimation in <code>OW</code> distribution.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>initValuesOW_TTT</span>(
-  <span class='no'>formula</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>local_reg</span> <span class='kw'>=</span> <span class='fu'><a href='loess.options.html'>loess.options</a></span>(),
-  <span class='kw'>interpolation</span> <span class='kw'>=</span> <span class='fu'><a href='interp.options.html'>interp.options</a></span>(),
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>initValuesOW_TTT</span><span class='op'>(</span>
+  <span class='va'>formula</span>,
+  data <span class='op'>=</span> <span class='cn'>NULL</span>,
+  local_reg <span class='op'>=</span> <span class='fu'><a href='loess.options.html'>loess.options</a></span><span class='op'>(</span><span class='op'>)</span>,
+  interpolation <span class='op'>=</span> <span class='fu'><a href='interp.options.html'>interp.options</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,7 +148,7 @@ and the search region for parameter estimation in <code>OW</code> distribution.<
     <tr>
       <th>formula</th>
       <td><p>an object of class <code><a href='https://rdrr.io/r/stats/formula.html'>formula</a></code> with the response on
-the left of an operator <code>~</code>. The right side must be 
+the left of an operator <code><a href='https://rdrr.io/r/base/tilde.html'>~</a></code>. The right side must be 
 <code>1</code>.</p></td>
     </tr>
     <tr>
@@ -170,7 +170,7 @@ environment from which <code>initValuesOW_TTT</code> is called.</p></td>
     <tr>
       <th>...</th>
       <td><p>further arguments passed to 
-<code><a href='https://rdrr.io/pkg/EstimationTools/man/TTTE_Analytical.html'>TTTE_Analytical</a></code>.</p></td>
+<code><a href='https://jaimemosg.github.io/EstimationTools/reference/TTTE_Analytical.html'>TTTE_Analytical</a></code>.</p></td>
     </tr>
     </table>
 
@@ -180,13 +180,18 @@ environment from which <code>initValuesOW_TTT</code> is called.</p></td>
 time on test (TTT) plot. Then, this estimated curve can be used so as to 
 get suggestions about initial values and the search region for parameters 
 based on hazard shape associated to the  shape of empirical TTT plot.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jaime Mosquera Gutiérrez <a href='mailto:jmosquerag@unal.edu.co'>jmosquerag@unal.edu.co</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example 1</span>
 <span class='co'># Bathtuh hazard and its corresponding TTT plot</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>50</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>)
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>50</span>, mu<span class='op'>=</span><span class='fl'>0.022</span>, sigma<span class='op'>=</span><span class='fl'>8</span>, nu<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span>
 
-<span class='no'>my_initial_guess</span> <span class='kw'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span>(<span class='kw'>formula</span><span class='kw'>=</span><span class='no'>y</span>~<span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Non-parametric estimate is not smooth. Please, use the 'plot' method to see the TTT shape andset the search region manually.  Visit'OW distribution' vignette to get further information.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>my_initial_guess</span>)</div><div class='output co'>#&gt; --------------------------------------------------------------------
+<span class='va'>my_initial_guess</span> <span class='op'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span><span class='op'>(</span>formula<span class='op'>=</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Non-parametric estimate is not smooth. Please, use the 'plot' method to see the TTT shape andset the search region manually.  Visit'OW distribution' vignette to get further information.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>my_initial_guess</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; --------------------------------------------------------------------
 #&gt; Initial Values
 #&gt; sigma = NA
 #&gt; nu = NA
@@ -196,8 +201,9 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
 #&gt; For nu: NA
 #&gt; --------------------------------------------------------------------
 #&gt; Hazard shape: NA</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span>(<span class='fu'><a href='dOW.html'>hOW</a></span>(<span class='no'>x</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fl'>0.022</span>, <span class='kw'>sigma</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>nu</span><span class='kw'>=</span><span class='fl'>0.01</span>), <span class='kw'>from</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>to</span><span class='kw'>=</span><span class='fl'>80</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.04</span>),
-      <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"Hazard function"</span>, <span class='kw'>las</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='initValuesOW_TTT-1.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='dOW.html'>hOW</a></span><span class='op'>(</span><span class='va'>x</span>, mu<span class='op'>=</span><span class='fl'>0.022</span>, sigma<span class='op'>=</span><span class='fl'>8</span>, nu<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span>, from<span class='op'>=</span><span class='fl'>0</span>, to<span class='op'>=</span><span class='fl'>80</span>, ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.04</span><span class='op'>)</span>,
+      col<span class='op'>=</span><span class='st'>"red"</span>, ylab<span class='op'>=</span><span class='st'>"Hazard function"</span>, las<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
+</div><div class='img'><img src='initValuesOW_TTT-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -213,7 +219,7 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
