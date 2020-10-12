@@ -28,6 +28,7 @@ for x > 0.
 # Example 1
 # Generating some random values with
 # known mu, sigma and nu
+\dontrun{
 y <- rEW(n=100, mu=2, sigma=1.5, nu=0.5)
 
 # Fitting the model
@@ -40,9 +41,11 @@ mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='EW',
 exp(coef(mod, what='mu'))
 exp(coef(mod, what='sigma'))
 exp(coef(mod, what='nu'))
+}
 
 # Example 2
 # Generating random values under some model
+\dontrun{
 n <- 200
 x1 <- rpois(n, lambda=2)
 x2 <- runif(n)
@@ -57,6 +60,7 @@ mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=EW,
 coef(mod, what="mu")
 coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
+}
 }
 \seealso{
 \link{dEW}
