@@ -185,13 +185,16 @@ doi: <a href='https://doi.org/10.1080/02664760500165008'>10.1080/026647605001650
 
 <span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span>, sigma.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, nu.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, family<span class='op'>=</span><span class='st'>'MOEW'</span>,
               control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span><span class='op'>(</span>n.cyc<span class='op'>=</span><span class='fl'>5000</span>, trace<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in gamlss(y ~ 1, sigma.fo = ~1, nu.fo = ~1, family = "MOEW", control = gamlss.control(n.cyc = 5000,     trace = FALSE)): response variable out of range</span></div><div class='input'>
+
 <span class='co'># Extracting the fitted values for mu, sigma and nu</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'mu'</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in coef(mod, what = "mu"): objeto 'mod' no encontrado</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in coef(mod, what = "sigma"): objeto 'mod' no encontrado</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'nu'</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in coef(mod, what = "nu"): objeto 'mod' no encontrado</span></div><div class='input'>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.6618011 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.6712138 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'nu'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.304889 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>500</span>
@@ -206,12 +209,12 @@ doi: <a href='https://doi.org/10.1080/02664760500165008'>10.1080/026647605001650
               control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span><span class='op'>(</span>n.cyc<span class='op'>=</span><span class='fl'>5000</span>, trace<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"mu"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  (Intercept)           x1 
-#&gt; -0.008037479  0.602712120 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"sigma"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept)          x1 
+#&gt;   -1.033654    1.811167 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"sigma"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;   0.4498617  -1.2236968 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"nu"</span><span class='op'>)</span><span class='op'>)</span>
+#&gt;    1.307534   -2.679395 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"nu"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.005315 </div></pre>
+#&gt;   0.7335749 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

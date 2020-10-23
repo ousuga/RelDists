@@ -190,17 +190,17 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>50</span>, mu<span class='op'>=</span><span class='fl'>0.022</span>, sigma<span class='op'>=</span><span class='fl'>8</span>, nu<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span>
 
 <span class='va'>my_initial_guess</span> <span class='op'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span><span class='op'>(</span>formula<span class='op'>=</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>my_initial_guess</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Non-parametric estimate is not smooth. Please, use the 'plot' method to see the TTT shape andset the search region manually.  Visit'OW distribution' vignette to get further information.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>my_initial_guess</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; --------------------------------------------------------------------
 #&gt; Initial Values
-#&gt; sigma = 5
-#&gt; nu = 0.1
+#&gt; sigma = NA
+#&gt; nu = NA
 #&gt; --------------------------------------------------------------------
 #&gt; Search Regions
-#&gt; For sigma: all(sigma &gt; 1)
-#&gt; For nu: all(nu &lt; 1/sigma)
+#&gt; For sigma: NA
+#&gt; For nu: NA
 #&gt; --------------------------------------------------------------------
-#&gt; Hazard shape: Bathtub</div><div class='input'>
+#&gt; Hazard shape: NA</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='dOW.html'>hOW</a></span><span class='op'>(</span><span class='va'>x</span>, mu<span class='op'>=</span><span class='fl'>0.022</span>, sigma<span class='op'>=</span><span class='fl'>8</span>, nu<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span>, from<span class='op'>=</span><span class='fl'>0</span>, to<span class='op'>=</span><span class='fl'>80</span>, ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.04</span><span class='op'>)</span>,
       col<span class='op'>=</span><span class='st'>"red"</span>, ylab<span class='op'>=</span><span class='st'>"Hazard function"</span>, las<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
 </div><div class='img'><img src='initValuesOW_TTT-1.png' alt='' width='700' height='433' /></div></pre>
