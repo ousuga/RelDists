@@ -1,0 +1,33 @@
+# Example 1
+# Generating some random values with
+# known mu, sigma and nu
+y <- rGammaW(n=100, mu = 0.5, sigma = 2, nu=1)
+
+# Fitting the model
+require(gamlss)
+
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='GammaW',
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
+
+# Extracting the fitted values for mu, sigma and nu
+# using the inverse link function
+exp(coef(mod, what='mu'))
+exp(coef(mod, what='sigma'))
+exp(coef(mod, what='nu'))
+
+# Example 2
+# Generating random values under some model
+n     <- 200
+x1    <- runif(n)
+x2    <- runif(n)
+mu    <- exp(-1.6 * x1)
+sigma <- exp(1.1 - 1 * x2)
+nu    <- 1
+x     <- rGammaW(n=n, mu, sigma, nu)
+
+mod <- gamlss(x~x1, mu.fo=~x1, sigma.fo=~x2, nu.fo=~1, family=GammaW,
+              control=gamlss.control(n.cyc=50000, trace=FALSE))
+
+coef(mod, what="mu")
+coef(mod, what="sigma")
+coef(mod, what='nu')

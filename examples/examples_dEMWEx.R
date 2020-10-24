@@ -1,5 +1,5 @@
 ## The probability density function 
-curve(dEMWEx(x, mu = 49.046, sigma =3.148, nu=0.00005, tau=0.1), form=0, to=100,
+curve(dEMWEx(x, mu = 49.046, sigma =3.148, nu=0.00005, tau=0.1), from=0, to=100,
       col = "red", las = 1, ylab = "f(x)")
 
 ## The cumulative distribution and the Reliability function
