@@ -185,13 +185,16 @@ doi: <a href='https://doi.org/10.1080/02664763.2011.575126'>10.1080/02664763.201
 
 <span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span>, sigma.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, nu.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, family<span class='op'>=</span><span class='st'>'WP'</span>,
               control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span><span class='op'>(</span>n.cyc<span class='op'>=</span><span class='fl'>5000</span>, trace<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in if (dv &gt; olddv &amp;&amp; itn &gt;= 2 &amp;&amp; auto == TRUE) {    for (i in 1:5) {        lp &lt;- (lp + lpold)/2        eta &lt;- lp + os        fv &lt;- f$linkinv(eta)        di &lt;- f$G.di(fv)        dv &lt;- sum(w * di)        if (length(who) &gt; 0)             s &lt;- (s + sold)/2        if ((olddv - dv) &gt; cc)             break    }}: valor ausente donde TRUE/FALSE es necesario</span></div><div class='input'>
+
 <span class='co'># Extracting the fitted values for mu, sigma and nu</span>
 <span class='co'># using the inverse link function</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'mu'</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in coef(mod, what = "mu"): objeto 'mod' no encontrado</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in coef(mod, what = "sigma"): objeto 'mod' no encontrado</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'nu'</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in coef(mod, what = "nu"): objeto 'mod' no encontrado</span></div><div class='input'>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;    1.505028 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.5363582 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'nu'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.2590984 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>2000</span>
@@ -207,11 +210,11 @@ doi: <a href='https://doi.org/10.1080/02664763.2011.575126'>10.1080/02664763.201
 
 <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"mu"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept)          x1 
-#&gt;   -1.141304    2.570680 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"sigma"</span><span class='op'>)</span>
+#&gt;   -1.292206    3.013553 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"sigma"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;   0.8930473  -2.2036955 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"nu"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   (Intercept) 
-#&gt; 7.278071e-167 </div></pre>
+#&gt;    0.677889   -2.084747 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"nu"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; (Intercept) 
+#&gt;   0.5149699 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
