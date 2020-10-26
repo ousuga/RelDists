@@ -183,9 +183,9 @@ and <code>sigma</code> has density given by</p>
 <span class='co'># using the inverse link function</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'mu'</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.6461932 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
+#&gt;    0.697071 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.249651 </div><div class='input'>
+#&gt;    1.309674 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
@@ -200,9 +200,9 @@ and <code>sigma</code> has density given by</p>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Algorithm RS has not yet converged</span></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"mu"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept)          x1 
-#&gt;    1.154018   -2.657313 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"sigma"</span><span class='op'>)</span>
+#&gt;  0.93059376 -0.05089163 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"sigma"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;    1.609382   -7.510677 </div></pre>
+#&gt; -0.02636404  6.53760853 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
