@@ -11,7 +11,10 @@
 #'              values \code{"sigma"} or \code{"nu"}.
 #' @param initValOW an \code{initValOW} object generated with \code{\link{initValuesOW_TTT}}
 #'                  function.
-#'
+#' @param level A numeric additional argument, useful when working with a covariate. 
+#'              If the covariate is numeric, it refers to the TTT plot corresponding
+#'              interval; if the covariate is a factor, it refers to the level.
+#'              
 #' @details
 #' This function just gets initial values computed with \code{\link{initValuesOW_TTT}} 
 #' for \code{OW} family. It must be called in \code{sigma.start} and \code{nu.start} 
@@ -19,10 +22,10 @@
 #' if user want to set start values automatically with TTT plot.
 #' See example for an illustration.
 #'     
-#' @example examples/examples_param.start_TTT.R      
+#' @example examples/examples_param.start.R      
 #' @export  
-param.start <- function(param, initValOW){
-  space <- paste0("initValOW$", param, ".start")
+param.start <- function(param, initValOW, level = 1){
+  space <- paste0("initValOW$", param, ".start", "[[", level, "]]")
   res.param <- eval(parse(text = space))
   return(res.param)
 }

@@ -14,14 +14,14 @@
   lty = NULL,
   lwd = NA,
   main = "",
-  curve_options = list(col = 2, lwd = 2, lty = 1),
-  par_plot = list(mar = c(5.1, 4.1, 4.1, 2.1)),
+  curve_options = NULL,
+  par_plot = list(mar = c(5.1, 4.1, 4.1, 2.5)),
   legend_options = NULL,
   ...
 )
 }
 \arguments{
-\item{x}{an object of class \code{initVal}, generated with 
+\item{x}{an object of class \code{initValOW}, generated with 
 \code{\link{initValuesOW_TTT}}.}
 
 \item{xlab, ylab}{titles for x and y axes, as in \code{\link{plot}}.}

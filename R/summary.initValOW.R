@@ -14,17 +14,28 @@
 #'              
 #' @export   
 summary.initValOW <- function(object, ...){
-  cat("--------------------------------------------------------------------\n")
-  cat("Initial Values\n")
-  cat(paste0("sigma = ", object$sigma.start, "\n"))
-  cat(paste0("nu = ", object$nu.start, "\n"))
-  cat("--------------------------------------------------------------------\n")
-  cat("Search Regions\n")
-  cat("For sigma: ")
-  cat(paste0(object$sigma.valid, "\n"))
-  cat("For nu: ")
-  cat(paste0(object$nu.valid, "\n"))
-  cat("--------------------------------------------------------------------\n")
-  cat("Hazard shape: ")
-  cat(object$hazard_type)
+  for (i in 1:length(object$strata)){
+    cat("\n")
+    cat(paste(object$type, names(object$strata)[i],'\n'))
+    cat("--------------------------------------------------------------------\n")
+    cat("Initial Values\n")
+    cat(paste0("sigma = ", ifelse(is.null(object$sigma.start[[i]]), NA, 
+                                  object$sigma.start[[i]]), "\n"))
+    cat(paste0("nu = ", ifelse(is.null(object$nu.start[[i]]), NA, 
+                               object$nu.start[[i]]), "\n"))
+    cat("--------------------------------------------------------------------\n")
+    cat("Search Regions\n")
+    cat("For sigma: ")
+    cat(paste0(ifelse(is.null(object$sigma.valid[[i]]), NA,
+                      object$sigma.valid[[i]]), "\n"))
+    cat("For nu: ")
+    cat(paste0(ifelse(is.null(object$nu.valid[[i]]), NA, 
+                      object$nu.valid[[i]]), "\n"))
+    cat("--------------------------------------------------------------------\n")
+    cat("Hazard shape: ")
+    cat(ifelse(is.null(object$hazard_type[[i]]), NA, object$hazard_type[[i]]))
+    cat("\n")
+    cat("====================================================================\n")
+  }
+  if ( !is.null(object$warning) ) warning(object$warning)
 }

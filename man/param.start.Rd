@@ -4,7 +4,7 @@
 \alias{param.start}
 \title{Initial values extraction for Odd Weibull distribution}
 \usage{
-param.start(param, initValOW)
+param.start(param, initValOW, level = 1)
 }
 \arguments{
 \item{param}{a character used to specify the parameter required. It can take the
@@ -12,6 +12,10 @@ values \code{"sigma"} or \code{"nu"}.}
 
 \item{initValOW}{an \code{initValOW} object generated with \code{\link{initValuesOW_TTT}}
 function.}
+
+\item{level}{A numeric additional argument, useful when working with a covariate. 
+If the covariate is numeric, it refers to the TTT plot corresponding
+interval; if the covariate is a factor, it refers to the level.}
 }
 \description{
 This function can be used to extract initial values found with empirical 
@@ -24,6 +28,34 @@ for \code{OW} family. It must be called in \code{sigma.start} and \code{nu.start
 arguments from \code{\link[gamlss]{gamlss}} function. This function is useful only
 if user want to set start values automatically with TTT plot.
 See example for an illustration.
+}
+\examples{
+# Random data generation (OW distributed)
+y <- rOW(n=200, mu=0.05, sigma=0.6, nu=2)
+
+# Initial values with TTT plot
+iv <- initValuesOW_TTT(formula = y ~ 1)
+summary(iv)
+
+# This data is from unimodal hazard
+# See TTT estimate from sample
+plot(iv, legend_options=list(pos=1.03))
+
+# See the true hazard
+curve(hOW(x, mu=0.05, sigma=0.6, nu=2), to=100, lwd=3, ylab="h(x)")
+
+# Finally, we fit the model
+require(gamlss)
+con.out <-gamlss.control(n.cyc = 300, trace = FALSE)
+con.in <- glim.control(cyc = 500)
+
+sigma.start <- param.start("sigma", iv)
+nu.start <- param.start("nu", iv)
+
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, control=con.out, i.control=con.in,
+              family=myOW_region(OW(sigma.link="identity", nu.link="identity"),
+                                 valid.values="auto", iv),
+              sigma.start=sigma.start, nu.start=nu.start)
 }
 \author{
 Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}

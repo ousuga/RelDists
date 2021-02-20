@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -106,7 +106,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/ousuga/RelDists/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -170,7 +170,7 @@
 &#8220;Reliability analysis using an additive Weibull model with bathtub-shaped failure rate function.&#8221;
 <em>Reliability Engineering and System Safety</em>, <b>52</b>, 83--93.
 doi: <a href='https://doi.org/10.1016/0951-8320(95)00149-2'>10.1016/0951-8320(95)00149-2</a>
-.</p>
+, <a href='https://doi.org/10.1016/0951-8320(95)00149-2'>https://doi.org/10.1016/0951-8320(95)00149-2</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='dAddW.html'>dAddW</a></p></div>
@@ -186,7 +186,7 @@ doi: <a href='https://doi.org/10.1016/0951-8320(95)00149-2'>10.1016/0951-8320(95
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dAddW.html'>rAddW</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>100</span>, mu<span class='op'>=</span><span class='fl'>1.5</span>, sigma<span class='op'>=</span><span class='fl'>0.2</span>, nu<span class='op'>=</span><span class='fl'>3</span>, tau<span class='op'>=</span><span class='fl'>0.8</span><span class='op'>)</span>
 
 <span class='co'># Fitting the model</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='http://www.gamlss.com/'>gamlss</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://www.gamlss.com/'>gamlss</a></span><span class='op'>)</span>
 
 <span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span>, sigma.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, nu.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, tau.fo<span class='op'>=</span><span class='op'>~</span><span class='fl'>1</span>, family<span class='op'>=</span><span class='st'>'AddW'</span>,
               control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.control.html'>gamlss.control</a></span><span class='op'>(</span>n.cyc<span class='op'>=</span><span class='fl'>5000</span>, trace<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>

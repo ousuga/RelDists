@@ -7,13 +7,13 @@ summary(iv)
 
 # This data is from unimodal hazard
 # See TTT estimate from sample
-plot(iv)
+plot(iv, legend_options=list(pos=1.03))
 
 # See the true hazard
 curve(hOW(x, mu=0.05, sigma=0.6, nu=2), to=100, lwd=3, ylab="h(x)")
 
 # Finally, we fit the model
-library(gamlss)
+require(gamlss)
 con.out <-gamlss.control(n.cyc = 300, trace = FALSE)
 con.in <- glim.control(cyc = 500)
 

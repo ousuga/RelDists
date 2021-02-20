@@ -81,7 +81,7 @@ and the search region for parameter estimation in OW distribution." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -107,7 +107,7 @@ and the search region for parameter estimation in OW distribution." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/ousuga/RelDists/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +137,7 @@ and the search region for parameter estimation in <code>OW</code> distribution.<
     <pre class="usage"><span class='fu'>initValuesOW_TTT</span><span class='op'>(</span>
   <span class='va'>formula</span>,
   data <span class='op'>=</span> <span class='cn'>NULL</span>,
-  local_reg <span class='op'>=</span> <span class='fu'><a href='loess.options.html'>loess.options</a></span><span class='op'>(</span><span class='op'>)</span>,
+  local_reg <span class='op'>=</span> <span class='cn'>NULL</span>,
   interpolation <span class='op'>=</span> <span class='fu'><a href='interp.options.html'>interp.options</a></span><span class='op'>(</span><span class='op'>)</span>,
   <span class='va'>...</span>
 <span class='op'>)</span></pre>
@@ -187,23 +187,70 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example 1</span>
 <span class='co'># Bathtuh hazard and its corresponding TTT plot</span>
-<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>50</span>, mu<span class='op'>=</span><span class='fl'>0.022</span>, sigma<span class='op'>=</span><span class='fl'>8</span>, nu<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span>
-
-<span class='va'>my_initial_guess</span> <span class='op'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span><span class='op'>(</span>formula<span class='op'>=</span><span class='va'>y</span><span class='op'>~</span><span class='fl'>1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Non-parametric estimate is not smooth. Please, use the 'plot' method to see the TTT shape andset the search region manually.  Visit'OW distribution' vignette to get further information.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>my_initial_guess</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; --------------------------------------------------------------------
+<span class='va'>y1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>50</span>, mu<span class='op'>=</span><span class='fl'>0.022</span>, sigma<span class='op'>=</span><span class='fl'>8</span>, nu<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span>
+<span class='va'>my_initial_guess</span> <span class='op'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span><span class='op'>(</span>formula<span class='op'>=</span><span class='va'>y1</span><span class='op'>~</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>my_initial_guess</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
+#&gt; Level SingleGroup 
+#&gt; --------------------------------------------------------------------
 #&gt; Initial Values
-#&gt; sigma = NA
-#&gt; nu = NA
+#&gt; sigma = 5
+#&gt; nu = 0.1
 #&gt; --------------------------------------------------------------------
 #&gt; Search Regions
-#&gt; For sigma: NA
-#&gt; For nu: NA
+#&gt; For sigma: all(sigma &gt; 1)
+#&gt; For nu: all(nu &lt; 1/sigma)
 #&gt; --------------------------------------------------------------------
-#&gt; Hazard shape: NA</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='dOW.html'>hOW</a></span><span class='op'>(</span><span class='va'>x</span>, mu<span class='op'>=</span><span class='fl'>0.022</span>, sigma<span class='op'>=</span><span class='fl'>8</span>, nu<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span>, from<span class='op'>=</span><span class='fl'>0</span>, to<span class='op'>=</span><span class='fl'>80</span>, ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.04</span><span class='op'>)</span>,
-      col<span class='op'>=</span><span class='st'>"red"</span>, ylab<span class='op'>=</span><span class='st'>"Hazard function"</span>, las<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
-</div><div class='img'><img src='initValuesOW_TTT-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt; Hazard shape: Bathtub
+#&gt; ====================================================================</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>my_initial_guess</span>, legend_options<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>pos<span class='op'>=</span><span class='fl'>1.04</span><span class='op'>)</span>,
+     par_plot<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>mar<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3.7</span>,<span class='fl'>3.7</span>,<span class='fl'>1</span>,<span class='fl'>1.5</span><span class='op'>)</span>, mgp<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2.5</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='img'><img src='initValuesOW_TTT-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='dOW.html'>hOW</a></span><span class='op'>(</span><span class='va'>x</span>, mu <span class='op'>=</span> <span class='fl'>0.022</span>, sigma <span class='op'>=</span> <span class='fl'>8</span>, nu <span class='op'>=</span> <span class='fl'>0.01</span><span class='op'>)</span>, from <span class='op'>=</span> <span class='fl'>0</span>, 
+      to <span class='op'>=</span> <span class='fl'>80</span>, ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.04</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, 
+      ylab <span class='op'>=</span> <span class='st'>"Hazard function"</span>, las <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='img'><img src='initValuesOW_TTT-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># Example 2</span>
+<span class='co'># Parameters explained with a covariate</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>789</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>25</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>25</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>nu</span> <span class='op'>&lt;-</span> <span class='fl'>0.1</span> <span class='op'>+</span> <span class='fl'>1.8</span><span class='op'>*</span><span class='va'>x</span>
+<span class='va'>y2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dOW.html'>rOW</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>50</span>, mu<span class='op'>=</span><span class='fl'>0.05</span>, sigma<span class='op'>=</span><span class='fl'>2</span>, nu<span class='op'>=</span><span class='va'>nu</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># partitions &lt;- list(method='quantile-based', folds=5)</span>
+<span class='co'># my_initial_val &lt;- initValuesOW_TTT(y2 ~ x, partition_method=partitions)</span>
+<span class='va'>my_initial_val</span> <span class='op'>&lt;-</span> <span class='fu'>initValuesOW_TTT</span><span class='op'>(</span><span class='va'>y2</span> <span class='op'>~</span> <span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Non-parametric estimate for Level x=1 is irregular.</span>
+#&gt; <span class='warning'>Please, use the 'plot()' method to see the TTT shape and set the search region manually in 'gamlss()' if there is no conincidence between 'summary()' and 'plot()'. Visit 'OW distribution' vignette to get further information.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>my_initial_val</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
+#&gt; Level x=0 
+#&gt; --------------------------------------------------------------------
+#&gt; Initial Values
+#&gt; sigma = 0.2
+#&gt; nu = 2
+#&gt; --------------------------------------------------------------------
+#&gt; Search Regions
+#&gt; For sigma: all(sigma &lt; 1)
+#&gt; For nu: all(nu &lt; 1/sigma)
+#&gt; --------------------------------------------------------------------
+#&gt; Hazard shape: Decreasing
+#&gt; ====================================================================
+#&gt; 
+#&gt; Level x=1 
+#&gt; --------------------------------------------------------------------
+#&gt; Initial Values
+#&gt; sigma = 2
+#&gt; nu = 6
+#&gt; --------------------------------------------------------------------
+#&gt; Search Regions
+#&gt; For sigma: all(sigma &gt; 1)
+#&gt; For nu: all(nu &gt; 1/sigma)
+#&gt; --------------------------------------------------------------------
+#&gt; Hazard shape: Increasing
+#&gt; ====================================================================</div><div class='output co'>#&gt; <span class='warning'>Warning: Non-parametric estimate for Level x=1 is irregular.</span>
+#&gt; <span class='warning'>Please, use the 'plot()' method to see the TTT shape and set the search region manually in 'gamlss()' if there is no conincidence between 'summary()' and 'plot()'. Visit 'OW distribution' vignette to get further information.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>my_initial_val</span>, legend_options<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>pos<span class='op'>=</span><span class='fl'>1.03</span><span class='op'>)</span>,
+     par_plot<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>mar<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3.7</span>,<span class='fl'>3.7</span>,<span class='fl'>1</span>,<span class='fl'>2.8</span><span class='op'>)</span>, mgp<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2.5</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='img'><img src='initValuesOW_TTT-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
