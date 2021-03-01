@@ -14,8 +14,8 @@
   lty = NULL,
   lwd = NA,
   main = "",
-  curve_options = NULL,
-  par_plot = list(mar = c(5.1, 4.1, 4.1, 2.5)),
+  curve_options = list(col = 2, lwd = 2, lty = 1),
+  par_plot = list(mar = c(5.1, 4.1, 4.1, 2.1)),
   legend_options = NULL,
   ...
 )

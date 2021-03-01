@@ -34,16 +34,16 @@ $$F(x) = 1 - \left[ 1 + \left( e^{(\mu x)^{\sigma}} - 1 \right)^\nu \right]^{-1}
 respectively, where $\mu>0, \quad \sigma\nu>0$. $\mu$ is the scale parameter, $\sigma$ and $\nu$ are the shape parameters. Next figure shows possible shapes of the $f(x)$ and $F(x)$ for several values of the parameters.
 
 ```{r, echo=FALSE, message=F}
-require(RelDists)
 ## 5^(1/3) = 1.71; 2^(1/3) = 1.26; 0.5^(1/2) = 0.71
-curve(dOW(x, 1.71, 3, 0.7), from=0, to=3.5, ylim=c(0,1.6), col="red",
+paleta <- c("#00004A", "#00A4FF", "#F6F906", "#FF3300", "purple")
+curve(dOW(x, 1.71, 3, 0.7), from=0, to=3.5, ylim=c(0,1.6), col=paleta[1],
           ylab=expression(f[' '] (x)), xlab="x", las=1, lwd=2)
-curve(dOW(x, 1.26, 3, 0.2), from=0, to=3.5, col="blue", 
-      add=TRUE, lwd=2, lty=3) 
-curve(dOW(x,0.71, 2, 1.3), from=0, to=3.5, col="darkgreen", 
-      add=TRUE, lwd=2, lty=2)
-curve(dOW(x,1.7,1,0.8), from=0, to=3.5, col="purple", 
-      add=TRUE, lwd=2, lty=4)
+curve(dOW(x, 1.26, 3, 0.2), from=0, to=3.5, col=paleta[2], 
+      add=TRUE, lwd=2) 
+curve(dOW(x,0.71, 2, 1.3), from=0, to=3.5, col=paleta[3], 
+      add=TRUE, lwd=2)
+curve(dOW(x,1.7,1,0.8), from=0, to=3.5, col=paleta[4], 
+      add=TRUE, lwd=2)
 legend("topright", legend=c(expression(paste(mu,
        " = ", 1.71,"      " ,sigma," = ",3,"   " ,nu," = ", 0.7)),
                             expression(paste(mu, 
@@ -52,18 +52,17 @@ legend("topright", legend=c(expression(paste(mu,
        " = ", 0.71,"      " ,sigma," = ",2,"   " ,nu," = ", 1.3)),
                             expression(paste(mu,
        " = ", 1.7,"        " ,sigma," = ",1,"   " ,nu," = ", 0.8))),
-       col=c("red","blue","darkgreen","purple"),lty=c(1,3,2,4), 
-       bty="n", lwd=2)
+       col=paleta[1:4], bty="n", lwd=2)
 
 ## 5^(1/3) = 1.71; 2^(1/3) = 1.26; 0.5^(1/2) = 0.71
-curve(pOW(x, 1.71, 3, 0.7), from=0, to=3.5, col="red",
+curve(pOW(x, 1.71, 3, 0.7), from=0, to=3.5, col=paleta[1],
       ylab=expression(F[' '] (x)), xlab="x", las=1, lwd=2)
-curve(pOW(x, 1.26, 3, 0.2), from=0, to=3.5, col="blue", 
-      add=TRUE, lwd=2, lty=3) 
-curve(pOW(x,0.71, 2, 1.3), from=0, to=3.5, col="darkgreen", 
-      add=TRUE, lwd=2, lty=2)
-curve(pOW(x,1.7,1,0.8), from=0, to=3.5, col="purple", 
-      add=TRUE, lwd=2, lty=4)
+curve(pOW(x, 1.26, 3, 0.2), from=0, to=3.5, col=paleta[2], 
+      add=TRUE, lwd=2) 
+curve(pOW(x,0.71, 2, 1.3), from=0, to=3.5, col=paleta[3], 
+      add=TRUE, lwd=2)
+curve(pOW(x,1.7,1,0.8), from=0, to=3.5, col=paleta[4], 
+      add=TRUE, lwd=2)
 legend("bottomright", legend=c(expression(paste(mu, 
        " = ", 1.71,"      " ,sigma," = ",3,"   " ,nu," = ", 0.7)),
                             expression(paste(mu,
@@ -72,8 +71,7 @@ legend("bottomright", legend=c(expression(paste(mu,
        " = ", 0.71,"      " ,sigma," = ",2,"   " ,nu," = ", 1.3)),
                             expression(paste(mu,
        " = ", 1.7,"        " ,sigma," = ",1,"   " ,nu," = ", 0.8))),
-       col=c("red","blue","darkgreen","purple"),lty=c(1,3,2,4), 
-       bty="n", lwd=2)
+       col=paleta[1:4], bty="n", lwd=2)
 ```
 
 
@@ -95,15 +93,15 @@ The figure shows possible shapes of the hf mentioned above:
 
 ```{r, echo=FALSE}
 par(mgp=c(3,0.7,0))
-curve(hOW(x, 1/85, 9, 0.7), from=0, to=69, ylim=c(0,0.035), col="red",
-      ylab=expression(h[' '] (x)), xlab="x", las=1, lwd=2, lty=1)
-curve(hOW(x, 1/100, 0.5, 0.3), from=0, to=70, col="blue", 
-      add=TRUE, lwd=2, lty=3) 
-curve(hOW(x, 1/50, 1, 1), from=0, to=70, col="darkgreen", 
-      add=TRUE, lwd=2, lty=2)
-curve(hOW(x, 1/45, 8, 0.01), from=0, to=69, col="purple", 
-      add=TRUE, lwd=2, lty=4)
-curve(hOW(x, 1/75, -1.5, -0.1), from=0, to=70, col="black", 
+curve(hOW(x, 1/85, 9, 0.7), from=0, to=69, ylim=c(0,0.035), col=paleta[1],
+      ylab=expression(h[' '] (x)), xlab="x", las=1, lwd=2)
+curve(hOW(x, 1/100, 0.5, 0.3), from=0, to=70, col=paleta[2], 
+      add=TRUE, lwd=2) 
+curve(hOW(x, 1/50, 1, 1), from=0, to=70, col=paleta[3], 
+      add=TRUE, lwd=2)
+curve(hOW(x, 1/45, 8, 0.01), from=0, to=69, col=paleta[4], 
+      add=TRUE, lwd=2)
+curve(hOW(x, 1/75, -1.5, -0.1), from=0, to=70, col=paleta[5], 
       add=TRUE, lwd=2)
 legend("topright", legend=c(expression(paste(mu, 
        " = ", 0.012,"     " ,sigma," = ",9,"        " ,nu," = ", 0.7)),
@@ -115,8 +113,7 @@ legend("topright", legend=c(expression(paste(mu,
        " = ", 0.0222,"  " ,sigma," = ",8,"         " ,nu," = ", 0.01)),
                             expression(paste(mu, 
        " = ", 0.0133,"  " ,sigma," = ",-1.5,"   " ,nu," = ", -0.1))), 
-       col=c("red","blue","darkgreen","purple","black"),lty=c(1,3,2,4,1), 
-       bty="n", lwd=2)
+       col=paleta, bty="n", lwd=2)
 ```
 
 The following figure illustrate the regios corresponding to the different hazard shapes:
@@ -197,8 +194,6 @@ Cooray [-@Cooray2015] used the following data provided by Wang [-@Wang2000] in o
 The data above is the time to failure of an electronic device in hours. As an alternative to classical MLE, We used the function \verb|gamlss| to fit an only-intercept model in order to estimate parameters of OW distribution without covariates. Using our `initValuesOW_TTT()`, we can obtain an initial guess and the valid region.
 
 ```{r}
-require(RelDists)
-
 data("equipment")
 my_initial_guess <- initValuesOW_TTT(formula = equipment ~ 1)
 
@@ -208,17 +203,17 @@ summary(my_initial_guess)
 `initValuesOW_TTT()` function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
 
 ```{r}
-plot(my_initial_guess, las=1,
-       legend_options=list(pos=1.04),
-       par_plot=list(mar=c(3.7,3.7,1,2.1), mgp=c(2.5,1,0))) 
+plot(my_initial_guess, las = 1,
+     legend_options = list(pos = 1.04),
+     par_plot = list(mar = c(3.7,3.7,1,2.1), mgp = c(2.5,1,0))) 
 ```
 
 Therefore, we define the search region according to `initValuesOW_TTT()` outputs
 
 ```{r}
 # Custom search region
-myvalues <- list(sigma="all(sigma > 1)",
-                 nu="all(nu < 1/sigma)")
+myvalues <- list(sigma = "all(sigma > 1)",
+                 nu = "all(nu < 1/sigma)")
 ```
 
 and we perform the fit using `gamlss()`
@@ -234,9 +229,9 @@ param_ee <- gamlss(equipment ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,
 summary(param_ee)
 ```
 ```{r, echo=FALSE, include=FALSE}
-mu1 <- exp(coef(param_ee, what='mu'))
-sigma1 <- coef(param_ee, what='sigma')
-nu1 <- exp(coef(param_ee, what='nu'))
+mu1 <- exp(coef(param_ee, what = 'mu'))
+sigma1 <- coef(param_ee, what = 'sigma')
+nu1 <- exp(coef(param_ee, what = 'nu'))
 
 mymu1 <- formatC(mu1, format = "e", digits = 2)
 mysigma1 <- round(sigma1, 4)
@@ -267,8 +262,8 @@ With `initValuesOW_TTT()` function we identified an increasing hazard shape, as 
 
 ```{r}
 plot(init_vals,
-     legend_options=list(pos=1.04),
-     par_plot=list(mar=c(3.7,3.7,1,2.1), mgp=c(2.5,1,0)))
+     legend_options = list(pos=1.04),
+     par_plot = list(mar = c(3.7,3.7,1,2.1), mgp = c(2.5,1,0)))
 ```
 
 Hence, we implement the estimation procedure
@@ -286,9 +281,9 @@ param_mm <- gamlss(mice ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,
 summary(param_mm)
 ```
 ```{r, echo=FALSE, include=FALSE}
-mu2 <- exp(coef(param_mm, what='mu'))
-sigma2 <- coef(param_mm, what='sigma')
-nu2 <- exp(coef(param_mm, what='nu'))
+mu2 <- exp(coef(param_mm, what = 'mu'))
+sigma2 <- coef(param_mm, what = 'sigma')
+nu2 <- exp(coef(param_mm, what = 'nu'))
 
 mymu2 <- formatC(mu2, format = "e", digits = 2)
 mysigma2 <- round(sigma2, 4)

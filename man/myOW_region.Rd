@@ -4,7 +4,7 @@
 \alias{myOW_region}
 \title{Custimized region search for odd Weibull distribution}
 \usage{
-myOW_region(family = OW, valid.values = "auto", initVal, level = 1)
+myOW_region(family = OW, valid.values = "auto", initVal)
 }
 \arguments{
 \item{family}{The \code{\link{OW}} family. This arguments allows the user to
@@ -17,10 +17,6 @@ section to learn about its use.}
 
 \item{initVal}{An \code{initValOW} object generated with \code{\link{initValuesOW_TTT}}
 function.}
-
-\item{level}{A numeric additional argument, useful when working with a covariate. 
-If the covariate is numeric, it refers to the TTT plot corresponding
-interval; if the covariate is a factor, it refers to the level.}
 }
 \description{
 This function can be used to modify \code{OW} \code{gamlss.family} object 
@@ -71,31 +67,6 @@ mod2 <- gamlss(y~1, sigma.fo=~1, nu.fo=~1,
 exp(coef(mod2, what='mu'))
 coef(mod2, what='sigma')
 exp(coef(mod2, what='nu'))
-
-# Example 3
-# Fitting an OW model with covariates
-set.seed(321)
-x <- c(rep(0,30), rep(1,30))
-nu <- 2
-sigma <- 0.7 + 2*x
-probs <- runif(n=length(x))
-y2 <- qOW(p=probs, mu=0.005, sigma=sigma, nu=nu)
-x <- as.factor(x)
-
-myoptions <- list(loess.options(), loess.options(span = 0.75))
-my_initial_val <- initValuesOW_TTT(y2 ~ x, local_reg = myoptions)
-summary(my_initial_val)
-plot(my_initial_val, legend_options=list(pos=1.03),
-     par_plot=list(mar=c(3.7,3.7,1,2.8), mgp=c(2.5,1,0)))
-
-mod3 <- gamlss(y2~1, sigma.fo=~x, nu.fo=~1, 
-               sigma.start=2, nu.start=0.1,
-               control=gamlss.control(n.cyc=300, trace=FALSE),
-               family=myOW_region(family=OW,
-                                  initVal=my_initial_val, level=2))
-exp(coef(mod3, what='mu'))
-exp(coef(mod3, what='sigma'))
-exp(coef(mod3, what='nu'))
 }
 \author{
 Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}

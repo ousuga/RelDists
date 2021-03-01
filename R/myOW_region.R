@@ -14,9 +14,6 @@
 #' section to learn about its use.
 #' @param initVal An \code{initValOW} object generated with \code{\link{initValuesOW_TTT}}
 #' function.
-#' @param level A numeric additional argument, useful when working with a covariate. 
-#'              If the covariate is numeric, it refers to the TTT plot corresponding
-#'              interval; if the covariate is a factor, it refers to the level.
 #' 
 #' @details 
 #' This function was created to help users to fit \code{OW} distribution easily 
@@ -27,8 +24,7 @@
 #' 
 #' @example examples/examples_myOW_region.R
 #' @export
-myOW_region <- function(family=OW, valid.values="auto", initVal, 
-                        level = 1){
+myOW_region <- function(family=OW, valid.values="auto", initVal){
   
   response <- initVal$response
   mydata <- paste0("data.frame(", all.vars(initVal$formula)[1], "=response)")
@@ -43,16 +39,16 @@ myOW_region <- function(family=OW, valid.values="auto", initVal,
   cens_id <- grep("cens.*", family_call)
   
   family <- if ( is.null(OWcall) ){family} 
-    else {
-      if (length(cens_id) > 0){
-          eval(as.call( c(OWcall[[1]], OWcall[[2]])) )
-      } else {
-        if (length(OWcall)>1)
-          eval(OWcall[[1]])
-        else
-          eval(OWcall)
-        }
+  else {
+    if (length(cens_id) > 0){
+      eval(as.call( c(OWcall[[1]], OWcall[[2]])) )
+    } else {
+      if (length(OWcall)>1)
+        eval(OWcall[[1]])
+      else
+        eval(OWcall)
     }
+  }
   
   original_body <- body(family)
   size <- length(original_body)
@@ -66,15 +62,15 @@ myOW_region <- function(family=OW, valid.values="auto", initVal,
   
   new_body[[(nopar+2)]] <- substitute(sigma.space <- 
                                         valid.region("sigma", valid.values, 
-                                                     initVal, level), 
+                                                     initVal), 
                                       list(valid.values=valid.values,
-                                           initVal=initVal, level=level))
+                                           initVal=initVal))
   
   new_body[[(nopar+3)]] <- substitute(nu.space <- 
                                         valid.region("nu", valid.values, 
-                                                     initVal, level), 
+                                                     initVal), 
                                       list(valid.values=valid.values,
-                                           initVal=initVal, level=level))
+                                           initVal=initVal))
   
   new_body[(nopar+4):(size+2)] <- original_body[(nopar+2):size]
   new_body[[(nopar+4)]][[2]]$sigma.valid <- substitute(sigma.space)

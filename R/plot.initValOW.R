@@ -72,15 +72,15 @@
 #' @export   
 plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(i/n)), xlim=c(0,1),
                            ylim=c(0,1), col=1, lty=NULL, lwd=NA, main="", 
-                           curve_options=NULL,
-                           par_plot=list(mar=c(5.1,4.1,4.1,2.5)),
+                           curve_options=list(col=2, lwd=2, lty=1),
+                           par_plot=list(mar=c(5.1,4.1,4.1,2.1)),
                            legend_options=NULL, ...){
   object <- x
   rm(x)
   
   autoimage::reset.par()
   if (is.null(par_plot$mar)){
-    par_plot$mar=c(5.1,4.1,4.1,2.5)
+    par_plot$mar=c(5.1,4.1,4.1,2.1)
   }
   
   if (is.character(legend_options)){
@@ -95,47 +95,19 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(i/n)), xlim=c(0,1)
   par_plot$mar <- NULL
   do.call("par", c(list(mar=mar, xpd=xpd), par_plot))
   
-  num_strata <- length(object$strata)
-  
-  plot_options <- substitute(...())
-  if (is.null(plot_options$pch)) plot_options$pch <- 1:num_strata
-  if (is.null(plot_options$cex)) plot_options$cex <- 1
-  
-  plot(object$TTTplot[[1]][,1], object$TTTplot[[1]][,2], xlab=xlab, 
-       ylab=ylab, xlim=xlim, ylim=ylim, main=main, col=col, lty=lty, 
-       lwd=lwd, pch=plot_options$pch[1], ...)
+  plot(object$TTTplot[,1], object$TTTplot[,2], xlab=xlab, ylab=ylab, xlim=xlim, 
+       ylim=ylim, main=main, col=col, lty=lty, lwd=lwd, ...)
   lines(c(0,1), c(0,1), lwd=2, lty=2)
   
-  if ( is.null(curve_options) ){
-    curve_options <- list(col=(1:num_strata + 1), lwd=rep(2, num_strata), 
-                          lty=rep(1,  num_strata))
-  }
-  curve_options_i <- lapply(curve_options, function(x) x[1])
-  do.call("curve", c(list(expr=substitute(object$interpolation[[1]](x)), 
-                          add=TRUE), curve_options_i))
+  do.call("curve", c(list(expr=substitute(object$interpolation(x)), add=TRUE),
+                     curve_options))
   
-  i <- 2
-  while (i <= num_strata){
-    points(object$TTTplot[[i]][,1], object$TTTplot[[i]][,2], xlab=xlab, 
-           ylab=ylab, xlim=xlim, ylim=ylim, main=main, col=col, lty=lty, 
-           lwd=lwd, pch=plot_options$pch[i], ...)
-
-    curve_options_i <- lapply(curve_options, function(x) x[i])
-      
-    do.call("curve", c(list(expr=substitute(object$interpolation[[i]](x)), 
-                            add=TRUE), curve_options_i))
-    i <- i + 1
-  }
+  plot_options <- substitute(...())
+  if (is.null(plot_options$pch)) plot_options$pch <- 1
+  if (is.null(plot_options$cex)) plot_options$cex <- 1
   
   if (!is.character(legend_options)){
-    if (num_strata == 1){
-      empirical <- "Emp. TTT"
-      spline_curve <- "Spline curve"
-    } else {
-      empirical <- paste("Emp. TTT for ", names(object$strata))
-      spline_curve <- paste("Spline for ", names(object$strata))
-    }
-    legend_text <- c(empirical, spline_curve)
+    legend_text <- c("Empirical TTT", "Spline curve")
     if (is.null(legend_options$pos)){
       x <- "topright"; y <- NULL
     } else {
@@ -164,13 +136,12 @@ plot.initValOW <- function(x, xlab="i/n", ylab=expression(phi(i/n)), xlim=c(0,1)
     }
     
     do.call("legend", c(list(x=x, y=y, legend=legend_text,
-                             pch=c(plot_options$pch,rep(NA, num_strata)), 
-                             inset=c(-0.41,0),
-                             col=c(rep(col, num_strata), curve_options$col),
-                             lty=c(rep(lty, num_strata), curve_options$lty),
+                             pch=c(plot_options$pch,NA), inset=c(-0.41,0),
+                             col=c(col, curve_options$col),
+                             lty=c(lty,curve_options$lty),
                              pt.cex=plot_options$cex,
-                             lwd=c(rep(lwd, num_strata), curve_options$lwd), 
-                             xpd=TRUE), legend_options))
+                             lwd=c(lwd,curve_options$lwd), xpd=TRUE), 
+                        legend_options))
   } else {
     if (legend_options != "NoLegend") 
       stop("'NoLegend' option is the only character string valid")
