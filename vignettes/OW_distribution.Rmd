@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(RelDists)
+library(gamlss)
 ```
 
 # Odd Weibull distribution
@@ -219,13 +220,14 @@ myvalues <- list(sigma = "all(sigma > 1)",
 and we perform the fit using `gamlss()`
 
 ```{r, message=FALSE, warning=FALSE}
-require(gamlss)
+# gamlss set up
+con.out <-gamlss.control(n.cyc = 300, trace=TRUE)
+myOW <- myOW_region(family = OW(sigma.link='identity'),
+                    valid.values = myvalues, initVal = my_initial_guess)
+
 param_ee <- gamlss(equipment ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1, 
                    sigma.start = 5, nu.start = 0.1,
-                   control = gamlss.control(n.cyc=300, trace=FALSE),
-                   family = myOW_region(family = OW(sigma.link='identity'),
-                                        valid.values = myvalues,
-                                        initVal = my_initial_guess))
+                   control = con.out, family = myOW)
 summary(param_ee)
 ```
 ```{r, echo=FALSE, include=FALSE}
@@ -270,14 +272,15 @@ Hence, we implement the estimation procedure
 
 
 ```{r, message=FALSE, warning=FALSE}
+# gamlss set up
+myOW <- myOW_region(initVal = init_vals)
+
 # Custom search region
 # Do not forget to load 'gamlss' library
 param_mm <- gamlss(mice ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,
                    sigma.start = 2, nu.start = 6,
-                   control = gamlss.control(n.cyc=300, trace=FALSE),
-                   family = myOW_region(family = OW(sigma.link='identity'),
-                                        valid.values = "auto",
-                                        initVal = init_vals))
+                   control = con.out,
+                   family = myOW)
 summary(param_mm)
 ```
 ```{r, echo=FALSE, include=FALSE}

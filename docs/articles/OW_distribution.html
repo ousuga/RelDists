@@ -96,7 +96,22 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ousuga.github.io/RelDists/">RelDists</a></span><span class="op">)</span>
-<span class="co">#&gt; Loading required package: survival</span></code></pre></div>
+<span class="co">#&gt; Loading required package: survival</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/">gamlss</a></span><span class="op">)</span>
+<span class="co">#&gt; Loading required package: splines</span>
+<span class="co">#&gt; Loading required package: gamlss.data</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'gamlss.data'</span>
+<span class="co">#&gt; The following object is masked from 'package:datasets':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     sleep</span>
+<span class="co">#&gt; Loading required package: gamlss.dist</span>
+<span class="co">#&gt; Loading required package: MASS</span>
+<span class="co">#&gt; Loading required package: nlme</span>
+<span class="co">#&gt; Loading required package: parallel</span>
+<span class="co">#&gt;  **********   GAMLSS Version 5.2-0  **********</span>
+<span class="co">#&gt; For more on GAMLSS look at https://www.gamlss.com/</span>
+<span class="co">#&gt; Type gamlssNews() to see new features/changes/bug fixes.</span></code></pre></div>
 <div id="odd-weibull-distribution" class="section level1">
 <h1 class="hasAnchor">
 <a href="#odd-weibull-distribution" class="anchor"></a>Odd Weibull distribution</h1>
@@ -164,22 +179,59 @@
                  nu <span class="op">=</span> <span class="st">"all(nu &lt; 1/sigma)"</span><span class="op">)</span></code></pre></div>
 <p>and we perform the fit using <code><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html">gamlss()</a></code></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/">gamlss</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="co"># gamlss set up</span>
+<span class="va">con.out</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html">gamlss.control</a></span><span class="op">(</span>n.cyc <span class="op">=</span> <span class="fl">300</span>, trace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">myOW</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/myOW_region.html">myOW_region</a></span><span class="op">(</span>family <span class="op">=</span> <span class="fu"><a href="../reference/OW.html">OW</a></span><span class="op">(</span>sigma.link<span class="op">=</span><span class="st">'identity'</span><span class="op">)</span>,
+                    valid.values <span class="op">=</span> <span class="va">myvalues</span>, initVal <span class="op">=</span> <span class="va">my_initial_guess</span><span class="op">)</span>
+
 <span class="va">param_ee</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html">gamlss</a></span><span class="op">(</span><span class="va">equipment</span> <span class="op">~</span> <span class="fl">1</span>, sigma.fo <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span>, nu.fo <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span>, 
                    sigma.start <span class="op">=</span> <span class="fl">5</span>, nu.start <span class="op">=</span> <span class="fl">0.1</span>,
-                   control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">300</span>, trace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,
-                   family <span class="op">=</span> <span class="fu"><a href="../reference/myOW_region.html">myOW_region</a></span><span class="op">(</span>family <span class="op">=</span> <span class="fu"><a href="../reference/OW.html">OW</a></span><span class="op">(</span>sigma.link<span class="op">=</span><span class="st">'identity'</span><span class="op">)</span>,
-                                        valid.values <span class="op">=</span> <span class="va">myvalues</span>,
-                                        initVal <span class="op">=</span> <span class="va">my_initial_guess</span><span class="op">)</span><span class="op">)</span>
+                   control <span class="op">=</span> <span class="va">con.out</span>, family <span class="op">=</span> <span class="va">myOW</span><span class="op">)</span>
+<span class="co">#&gt; GAMLSS-RS iteration 1: Global Deviance = 220.3699 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 2: Global Deviance = 218.2162 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 3: Global Deviance = 217.5282 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 4: Global Deviance = 217.3291 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 5: Global Deviance = 217.2142 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 6: Global Deviance = 217.1047 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 7: Global Deviance = 216.9932 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 8: Global Deviance = 216.8872 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 9: Global Deviance = 216.7914 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 10: Global Deviance = 216.707 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 11: Global Deviance = 216.6337 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 12: Global Deviance = 216.5706 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 13: Global Deviance = 216.5168 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 14: Global Deviance = 216.471 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 15: Global Deviance = 216.4324 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 16: Global Deviance = 216.3997 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 17: Global Deviance = 216.3723 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 18: Global Deviance = 216.3492 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 19: Global Deviance = 216.3299 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 20: Global Deviance = 216.3136 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 21: Global Deviance = 216.3 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 22: Global Deviance = 216.2885 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 23: Global Deviance = 216.2789 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 24: Global Deviance = 216.2708 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 25: Global Deviance = 216.264 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 26: Global Deviance = 216.2583 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 27: Global Deviance = 216.2533 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 28: Global Deviance = 216.2488 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 29: Global Deviance = 216.245 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 30: Global Deviance = 216.2418 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 31: Global Deviance = 216.2391 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 32: Global Deviance = 216.2369 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 33: Global Deviance = 216.2351 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 34: Global Deviance = 216.2336 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 35: Global Deviance = 216.232 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 36: Global Deviance = 216.2306 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 37: Global Deviance = 216.2294 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 38: Global Deviance = 216.2284</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">param_ee</span><span class="op">)</span>
 <span class="co">#&gt; ******************************************************************</span>
 <span class="co">#&gt; Family:  c("OW", "Odd Weibull") </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:  gamlss(formula = equipment ~ 1, sigma.formula = ~1,  </span>
-<span class="co">#&gt;     nu.formula = ~1, family = myOW_region(family = OW(sigma.link = "identity"),  </span>
-<span class="co">#&gt;         valid.values = myvalues, initVal = my_initial_guess),  </span>
-<span class="co">#&gt;     sigma.start = 5, nu.start = 0.1, control = gamlss.control(n.cyc = 300,  </span>
-<span class="co">#&gt;         trace = FALSE)) </span>
+<span class="co">#&gt;     nu.formula = ~1, family = myOW, sigma.start = 5,  </span>
+<span class="co">#&gt;     nu.start = 0.1, control = con.out) </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitting method: RS() </span>
 <span class="co">#&gt; </span>
@@ -272,23 +324,114 @@
 <p><img src="OW_distribution_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 <p>Hence, we implement the estimation procedure</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Custom search region</span>
+<code class="sourceCode R"><span class="co"># gamlss set up</span>
+<span class="va">myOW</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/myOW_region.html">myOW_region</a></span><span class="op">(</span>initVal <span class="op">=</span> <span class="va">init_vals</span><span class="op">)</span>
+
+<span class="co"># Custom search region</span>
 <span class="co"># Do not forget to load 'gamlss' library</span>
 <span class="va">param_mm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html">gamlss</a></span><span class="op">(</span><span class="va">mice</span> <span class="op">~</span> <span class="fl">1</span>, sigma.fo <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span>, nu.fo <span class="op">=</span> <span class="op">~</span> <span class="fl">1</span>,
                    sigma.start <span class="op">=</span> <span class="fl">2</span>, nu.start <span class="op">=</span> <span class="fl">6</span>,
-                   control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">300</span>, trace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,
-                   family <span class="op">=</span> <span class="fu"><a href="../reference/myOW_region.html">myOW_region</a></span><span class="op">(</span>family <span class="op">=</span> <span class="fu"><a href="../reference/OW.html">OW</a></span><span class="op">(</span>sigma.link<span class="op">=</span><span class="st">'identity'</span><span class="op">)</span>,
-                                        valid.values <span class="op">=</span> <span class="st">"auto"</span>,
-                                        initVal <span class="op">=</span> <span class="va">init_vals</span><span class="op">)</span><span class="op">)</span>
+                   control <span class="op">=</span> <span class="va">con.out</span>,
+                   family <span class="op">=</span> <span class="va">myOW</span><span class="op">)</span>
+<span class="co">#&gt; GAMLSS-RS iteration 1: Global Deviance = 2031.511 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 2: Global Deviance = 2006.257 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 3: Global Deviance = 2005.168 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 4: Global Deviance = 2005.063 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 5: Global Deviance = 2004.941 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 6: Global Deviance = 2004.817 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 7: Global Deviance = 2004.69 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 8: Global Deviance = 2004.558 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 9: Global Deviance = 2004.423 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 10: Global Deviance = 2004.283 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 11: Global Deviance = 2004.139 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 12: Global Deviance = 2003.991 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 13: Global Deviance = 2003.838 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 14: Global Deviance = 2003.68 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 15: Global Deviance = 2003.517 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 16: Global Deviance = 2003.348 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 17: Global Deviance = 2003.174 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 18: Global Deviance = 2002.993 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 19: Global Deviance = 2002.807 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 20: Global Deviance = 2002.613 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 21: Global Deviance = 2002.413 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 22: Global Deviance = 2002.205 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 23: Global Deviance = 2001.989 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 24: Global Deviance = 2001.766 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 25: Global Deviance = 2001.533 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 26: Global Deviance = 2001.292 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 27: Global Deviance = 2001.041 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 28: Global Deviance = 2000.78 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 29: Global Deviance = 2000.507 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 30: Global Deviance = 2000.224 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 31: Global Deviance = 1999.929 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 32: Global Deviance = 1999.621 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 33: Global Deviance = 1999.299 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 34: Global Deviance = 1998.964 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 35: Global Deviance = 1998.613 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 36: Global Deviance = 1998.247 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 37: Global Deviance = 1997.864 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 38: Global Deviance = 1997.463 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 39: Global Deviance = 1997.037 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 40: Global Deviance = 1996.591 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 41: Global Deviance = 1996.124 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 42: Global Deviance = 1995.634 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 43: Global Deviance = 1995.121 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 44: Global Deviance = 1994.584 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 45: Global Deviance = 1994.022 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 46: Global Deviance = 1993.434 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 47: Global Deviance = 1992.822 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 48: Global Deviance = 1992.183 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 49: Global Deviance = 1991.518 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 50: Global Deviance = 1990.826 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 51: Global Deviance = 1990.111 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 52: Global Deviance = 1989.373 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 53: Global Deviance = 1988.617 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 54: Global Deviance = 1987.847 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 55: Global Deviance = 1987.068 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 56: Global Deviance = 1986.285 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 57: Global Deviance = 1985.506 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 58: Global Deviance = 1984.74 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 59: Global Deviance = 1983.994 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 60: Global Deviance = 1983.277 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 61: Global Deviance = 1982.597 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 62: Global Deviance = 1981.963 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 63: Global Deviance = 1981.381 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 64: Global Deviance = 1980.854 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 65: Global Deviance = 1980.384 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 66: Global Deviance = 1979.972 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 67: Global Deviance = 1979.619 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 68: Global Deviance = 1979.317 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 69: Global Deviance = 1979.062 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 70: Global Deviance = 1978.85 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 71: Global Deviance = 1978.676 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 72: Global Deviance = 1978.533 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 73: Global Deviance = 1978.417 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 74: Global Deviance = 1978.324 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 75: Global Deviance = 1978.25 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 76: Global Deviance = 1978.192 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 77: Global Deviance = 1978.146 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 78: Global Deviance = 1978.112 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 79: Global Deviance = 1978.085 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 80: Global Deviance = 1978.064 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 81: Global Deviance = 1978.047 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 82: Global Deviance = 1978.034 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 83: Global Deviance = 1978.024 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 84: Global Deviance = 1978.016 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 85: Global Deviance = 1978.01 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 86: Global Deviance = 1978.005 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 87: Global Deviance = 1978.001 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 88: Global Deviance = 1977.998 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 89: Global Deviance = 1977.996 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 90: Global Deviance = 1977.994 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 91: Global Deviance = 1977.992 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 92: Global Deviance = 1977.991 </span>
+<span class="co">#&gt; GAMLSS-RS iteration 93: Global Deviance = 1977.99</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">param_mm</span><span class="op">)</span>
 <span class="co">#&gt; ******************************************************************</span>
 <span class="co">#&gt; Family:  c("OW", "Odd Weibull") </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:  gamlss(formula = mice ~ 1, sigma.formula = ~1, nu.formula = ~1,  </span>
-<span class="co">#&gt;     family = myOW_region(family = OW(sigma.link = "identity"),  </span>
-<span class="co">#&gt;         valid.values = "auto", initVal = init_vals),  </span>
-<span class="co">#&gt;     sigma.start = 2, nu.start = 6, control = gamlss.control(n.cyc = 300,  </span>
-<span class="co">#&gt;         trace = FALSE)) </span>
+<span class="co">#&gt;     family = myOW, sigma.start = 2, nu.start = 6, control = con.out) </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitting method: RS() </span>
 <span class="co">#&gt; </span>
@@ -301,10 +444,10 @@
 <span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ------------------------------------------------------------------</span>
-<span class="co">#&gt; Sigma link function:  identity</span>
+<span class="co">#&gt; Sigma link function:  log</span>
 <span class="co">#&gt; Sigma Coefficients:</span>
 <span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="co">#&gt; (Intercept)   6.1753     0.8304   7.437 2.77e-12 ***</span>
+<span class="co">#&gt; (Intercept)   1.8206     0.1349    13.5   &lt;2e-16 ***</span>
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="co">#&gt; </span>
@@ -312,7 +455,7 @@
 <span class="co">#&gt; Nu link function:  log </span>
 <span class="co">#&gt; Nu Coefficients:</span>
 <span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)  </span>
-<span class="co">#&gt; (Intercept)  -0.2793     0.1636  -1.708   0.0892 .</span>
+<span class="co">#&gt; (Intercept)  -0.2794     0.1640  -1.704     0.09 .</span>
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="co">#&gt; </span>
@@ -343,7 +486,7 @@
 <tr class="even">
 <td align="center"><span class="math inline">\(\sigma\)</span></td>
 <td align="center">6.2278</td>
-<td align="center">6.1753</td>
+<td align="center">1.8206</td>
 </tr>
 <tr class="odd">
 <td align="center"><span class="math inline">\(\nu\)</span></td>
