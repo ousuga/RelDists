@@ -30,7 +30,8 @@
 #' @importFrom gamlss gamlss
 #' @importFrom stats terms predict na.omit formula 
 #' @importFrom survival is.Surv
-#' @importFrom EstimationTools formula2Surv TTTE_Analytical
+#' @importFrom EstimationTools formula2Surv TTTE_Analytical TTT_hazard_shape
+#' @importFrom EstimationTools loess.options interp.options
 #' @importFrom BBmisc is.error
 #' @export                                                                                                                                               
 initValuesOW_TTT <- function(formula, data=NULL,
@@ -49,169 +50,71 @@ initValuesOW_TTT <- function(formula, data=NULL,
                                data, fo2Surv=FALSE)
   fo <- outs$fo; data <- outs$data
   
-  method <- if ( is.Surv(y) ){'censored'} else {'Barlow'}
-  
   dots <- substitute(...())
-  args_matches <- match(names(formals(EstimationTools::TTTE_Analytical)), 
+  args_matches <- match(names(formals(EstimationTools::TTT_hazard_shape)), 
                         names(dots), nomatch = 0)
   TTTE_params <- dots[args_matches]
   TTTE_dots <- dots[-args_matches]
   TTTE_dots <- if ( length(TTTE_dots) == 0 ){ NULL }
   
-  g1 <- do.call("TTTE_Analytical", 
-                args = c(list(formula = fo, response = NULL,
-                              data = data, method = method,
-                              scale = TRUE), TTTE_params, TTTE_dots))
-  
-  the_warning <- NULL
-  
-  g2 <- cbind(g1$`i/n`, g1$phi_n)
-  g3 <- try(do.call("loess", 
-                    c(list(formula=g2[,2] ~ g2[,1]),
-                      local_reg)), silent=TRUE)
-  g4 <- do.call(interpolation$interp.fun, 
-                list(x = g2[,1], y=predict(g3),
-                     interpolation$passing_args))
+  Hazard_Shape <- do.call("TTT_hazard_shape",
+                          args = c(list(formula = formula, data = data,
+                                        local_reg = local_reg,
+                                        interpolation = interpolation),
+                                   TTTE_dots))
+  formula <- Hazard_Shape$formula; y <- Hazard_Shape$response
+  g3 <- Hazard_Shape$local_reg; g4 <- Hazard_Shape$interpolation
+  g2 <- Hazard_Shape$TTTplot; hazard_type <- Hazard_Shape$hazard_type
+  the_warning <- Hazard_Shape$warning
   
   if (is.error(g3) | is.nan(g3$s)){
     sigma <- NA;  nu <- NA; g3 <- NA
     sigma.valid <- NA; nu.valid <- NA
-    hazard_type <- NA
     warning(paste0("Problem with LOESS estimation. The sample",
                    "size may be too small"))
   } else {
-    lout <- (length(y) - 1)*5
-    dTTT_dp <- g4(seq(0,1,length.out = interpolation$length.out), deriv=1)
-    d2TTT_dp2 <- g4(seq(0,1,length.out = interpolation$length.out), deriv=2)
-    
-    target <- diff(sign(d2TTT_dp2))
-    inflex <- which( target != 0 )
-    diff_val <- try(target[inflex], silent = TRUE)
-    
-    if ( length(inflex) < 2 ){
-      if ( length(inflex) > 0 ){
-        if (diff_val == 2){
-          # Unimodal hazard
-          sigma <- 0.6
-          nu <- 7
-          sigma.valid <- "all(sigma < 1)"
-          nu.valid <- "all(nu > 1/sigma)"
-          # nu.valid <- paste0("all(nu > 1/seq(1e-12, 1, length.out=",
-          #                    as.character(as.name(lout)), "))")
-          # all(nu > 1)"
-          hazard_type <- "Unimodal"
-        }
-        if (diff_val == -2){
-          # Bathtub hazard
-          sigma <- 5
-          nu <- 0.1
-          sigma.valid <- "all(sigma > 1)"
-          nu.valid <- "all(nu < 1/sigma)"
-          # nu.valid <- paste0("all(nu < 1/seq(1, 100, length.out=", 
-          #                    as.character(as.name(lout)), "))")
-          # "all(nu < 1) & all(nu > 0)"
-          hazard_type <- "Bathtub"
-        }
-      } else {
-        sign_search <- any(sign(d2TTT_dp2) < 0) # if (is.na(sum(sign_search))){ 
-        if (sign_search){# negative second derivative
-          # Increasing hazard
-          sigma <- 2
-          nu <- 6
-          sigma.valid <- "all(sigma > 1)"
-          nu.valid <- "all(nu > 1/sigma)"
-          # nu.valid <- paste0("all(nu > 1/seq(1,100, length.out=",
-          #                    as.character(as.name(lout)), "))")
-          # "all(nu > 0)"
-          hazard_type <- "Increasing"
-        } else { # positive second derivative
-          # Decreasing hazard
-          sigma <- 0.2
-          nu <- 2
-          sigma.valid <- "all(sigma < 1)"
-          nu.valid <- "all(nu < 1/sigma)"
-          # nu.valid <- paste0("all(nu < 1/seq(1e-12, 1, length.out=",
-          #                    as.character(as.name(lout)), "))")
-          # "all(nu > 0)"
-          hazard_type <- "Decreasing"
-        }
+    if ( !is.na(hazard_type) ){
+      if (hazard_type == "Unimodal"){
+        sigma <- 0.6
+        nu <- 7
+        sigma.valid <- "all(sigma < 1)"
+        nu.valid <- "all(nu > 1/sigma)"
       }
-    } else {
-      the_warning <- paste0("Non-parametric estimate for Empirical TTT", 
-                            " is irregular.\nPlease, ",
-                            "use the 'plot()' method to see the TTT ", 
-                            "shape and set the search region manually in ",
-                            "'gamlss()' if there is no conincidence between ",
-                            "'summary()' and 'plot()'. Visit ", 
-                            "'OW distribution' vignette to get further ", 
-                            "information.")
-      warning(the_warning)
-      criterion <- sapply(g2[,1], criteria, x_val=0, y_val=1, g3=g3)
-      control1 <- all(criterion)
-      control2 <- all(criterion[2:(criterion[length(g2[,1])] - 1)])
-      if ( control1 ){
-        # Decreasing hazard
+      
+      if (hazard_type == "Bathtub"){
+        sigma <- 5
+        nu <- 0.1
+        sigma.valid <- "all(sigma > 1)"
+        nu.valid <- "all(nu < 1/sigma)"
+      }
+      
+      if (hazard_type == "Decreasing"){
         sigma <- 0.2
         nu <- 2
         sigma.valid <- "all(sigma < 1)"
         nu.valid <- "all(nu < 1/sigma)"
-        hazard_type <- "Decreasing"
-      } else if ( !control2 ){
-        # Increasing hazard
+      }
+      
+      if (hazard_type == "Increasing"){
         sigma <- 2
         nu <- 6
         sigma.valid <- "all(sigma > 1)"
         nu.valid <- "all(nu > 1/sigma)"
-        hazard_type <- "Increasing"
-      } else {
-        sigma <- NA;  nu <- NA;
-        sigma.valid <- NA; nu.valid <- NA
-        hazard_type <- NA
       }
+    } else {
+      sigma <- NA;  nu <- NA;
+      sigma.valid <- NA; nu.valid <- NA
     }
   }
 
-  output <- list(formula=formula, response=y,
-                 strata=g1$strata, sigma.start=sigma, nu.start=nu,
+
+  output <- list(formula=formula, response=y, strata=Hazard_Shape$strata, 
+                 sigma.start=sigma, nu.start=nu,
                  sigma.valid=sigma.valid, nu.valid=nu.valid,
                  local_reg=g3, interpolation=g4, TTTplot=g2, 
                  hazard_type=hazard_type, warning=the_warning)
-  class(output) <- "initValOW"
+  class(output) <- c("initValOW", "HazardShape")
   return(output)
-}
-
-valid.region <- function(param, valid.values, initVal){
-  Error_valid <- "Please, define ther argument 'valid.values'
-  in the right way. Visit 'OW distribution' vignette for further information."
-  
-  type <- class(valid.values)
-  space <- paste0("initVal$", param, ".valid")
-  
-  case_auto <- function(){
-    if ( valid.values == "auto" ){
-      param_space <- eval(parse(text = space))
-    } else {
-      stop(Error_valid)
-    }
-    return(param_space)
-  }
-  
-  case_manual <- function(){
-    list_pos <- paste0("valid.values$", param)
-    param_eval <- try(eval(parse(text = list_pos)),
-                      silent = TRUE)
-    if ( class(param_eval) == "try-error") stop(Error_valid)
-    if ( class(param_eval) != "character") stop(Error_valid)
-    return(param_eval)
-  }
-  
-  res.param <- switch(type,
-                      "character" = case_auto(),
-                      "numeric" = stop(Error_valid),
-                      "list" = case_manual())
-  
-  fun.param <- paste0("function(", param, ") ", res.param)
-  return(eval(parse(text = fun.param)))
 }
 #==============================================================================
 # Data preparation for TTT computation ----------------------------------------
@@ -242,19 +145,4 @@ fo_and_data_RelDists <- function(y, fo, model_frame, data, fo2Surv = TRUE){
     }
   }
   return(list(data = data, fo = fo))
-}
-#==============================================================================
-# Convexity criterion ---------------------------------------------------------
-#
-# f(lambda*x + (1 - lambda)*y) <= lambda*f(x) + (1 - lambda)*f(y)
-#==============================================================================
-#' @keywords internal
-#'
-criteria <- function(lambda, x_val, y_val, g3){
-  f_xy <- predict(g3, newdata = c(x_val, y_val))
-  right <- matrix(c(lambda, 1-lambda), ncol=2) %*% matrix(f_xy, nrow=2)
-  right <- as.numeric(right)
-  argument <- lambda*x_val + (1 - lambda)*y_val
-  left <- predict(g3, newdata = argument)
-  return(left <= right)
 }
