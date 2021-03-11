@@ -1,6 +1,6 @@
 # Example 1
 # Bathtuh hazard and its corresponding TTT plot
-y1 <- rOW(n = 100, mu = 0.1, sigma = 7, nu = 0.08)
+y1 <- rOW(n = 1000, mu = 0.1, sigma = 7, nu = 0.08)
 my_initial_guess <- initValuesOW_TTT(formula=y1~1)
 summary(my_initial_guess)
 plot(my_initial_guess, par_plot=list(mar=c(3.7,3.7,1,2),
