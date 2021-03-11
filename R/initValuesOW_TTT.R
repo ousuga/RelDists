@@ -14,9 +14,9 @@
 #'             data is not specified, the variables are taken from the 
 #'             environment from which \code{initValuesOW_TTT} is called.
 #' @param local_reg a list of control parameters for LOESS. See 
-#'                  \code{\link{loess.options}}.
+#'                  \code{\link[EstimationTools]{loess.options}}.
 #' @param interpolation a list of control parameters for interpolation function. See 
-#'                  \code{\link{interp.options}}.  
+#'                  \code{\link[EstimationTools]{interp.options}}.  
 #' @param ... further arguments passed to 
 #'            \code{\link[EstimationTools]{TTTE_Analytical}}.                  
 #'                  
