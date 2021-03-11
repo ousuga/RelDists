@@ -22,10 +22,10 @@ data is not specified, the variables are taken from the
 environment from which \code{initValuesOW_TTT} is called.}
 
 \item{local_reg}{a list of control parameters for LOESS. See 
-\code{\link{loess.options}}.}
+\code{\link[EstimationTools]{loess.options}}.}
 
 \item{interpolation}{a list of control parameters for interpolation function. See 
-\code{\link{interp.options}}.}
+\code{\link[EstimationTools]{interp.options}}.}
 
 \item{...}{further arguments passed to 
 \code{\link[EstimationTools]{TTTE_Analytical}}.}
@@ -43,10 +43,10 @@ based on hazard shape associated to the  shape of empirical TTT plot.
 \examples{
 # Example 1
 # Bathtuh hazard and its corresponding TTT plot
-y1 <- rOW(n = 100, mu = 0.1, sigma = 7, nu = 0.08)
+y1 <- rOW(n = 1000, mu = 0.1, sigma = 7, nu = 0.08)
 my_initial_guess <- initValuesOW_TTT(formula=y1~1)
 summary(my_initial_guess)
-plot(my_initial_guess, par_plot=list(mar=c(3.7,3.7,1,2),
+plot(my_initial_guess, par_plot=list(mar=c(3.7,3.7,1,2.5),
                                      mgp=c(2.5,1,0)))
 
 curve(hOW(x, mu = 0.022, sigma = 8, nu = 0.01), from = 0, 
