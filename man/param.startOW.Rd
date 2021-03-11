@@ -45,8 +45,8 @@ require(gamlss)
 con.out <-gamlss.control(n.cyc = 300, trace = FALSE)
 con.in <- glim.control(cyc = 500)
 
-sigma.start <- param.start("sigma", iv)
-nu.start <- param.start("nu", iv)
+sigma.start <- param.startOW("sigma", iv)
+nu.start <- param.startOW("nu", iv)
 
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, control=con.out, i.control=con.in,
               family=myOW_region(OW(sigma.link="identity", nu.link="identity"),
