@@ -88,3 +88,39 @@ myOW_region <- function(family=OW, valid.values="auto", initVal){
   body(family) <- new_body
   return(family)
 }
+#==============================================================================
+# Selection of parametric space -----------------------------------------------
+#==============================================================================
+valid.region <- function(param, valid.values, initVal){
+  Error_valid <- "Please, define ther argument 'valid.values'
+  in the right way. Visit 'OW distribution' vignette for further information."
+  
+  type <- class(valid.values)
+  space <- paste0("initVal$", param, ".valid")
+  
+  case_auto <- function(){
+    if ( valid.values == "auto" ){
+      param_space <- eval(parse(text = space))
+    } else {
+      stop(Error_valid)
+    }
+    return(param_space)
+  }
+  
+  case_manual <- function(){
+    list_pos <- paste0("valid.values$", param)
+    param_eval <- try(eval(parse(text = list_pos)),
+                      silent = TRUE)
+    if ( class(param_eval) == "try-error") stop(Error_valid)
+    if ( class(param_eval) != "character") stop(Error_valid)
+    return(param_eval)
+  }
+  
+  res.param <- switch(type,
+                      "character" = case_auto(),
+                      "numeric" = stop(Error_valid),
+                      "list" = case_manual())
+  
+  fun.param <- paste0("function(", param, ") ", res.param)
+  return(eval(parse(text = fun.param)))
+}
