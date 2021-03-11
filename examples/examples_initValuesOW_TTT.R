@@ -3,7 +3,7 @@
 y1 <- rOW(n = 1000, mu = 0.1, sigma = 7, nu = 0.08)
 my_initial_guess <- initValuesOW_TTT(formula=y1~1)
 summary(my_initial_guess)
-plot(my_initial_guess, par_plot=list(mar=c(3.7,3.7,1,2),
+plot(my_initial_guess, par_plot=list(mar=c(3.7,3.7,1,2.5),
                                      mgp=c(2.5,1,0)))
 
 curve(hOW(x, mu = 0.022, sigma = 8, nu = 0.01), from = 0, 
