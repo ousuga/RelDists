@@ -46,9 +46,16 @@ initValuesOW_TTT <- function(formula, data=NULL,
   temp[[1L]] <- quote(stats::model.frame)
   modfrm <- eval.parent(temp)
   y <- stats::model.extract(modfrm, 'response')
-  outs <- fo_and_data_RelDists(y, formula, model_frame=modfrm, 
+  outs <- fo_and_data_RelDists(y, formula, model_frame=modfrm,
                                data, fo2Surv=FALSE)
   fo <- outs$fo; data <- outs$data
+  # if ( is.Surv(y) ){
+  #   method <- 'censored'
+  #   data <- as.data.frame(as.matrix(y))
+  # } else {
+  #   method <- 'Barlow'
+  #   data <- as.data.frame(modfrm)
+  # }
   
   dots <- substitute(...())
   args_matches <- match(names(formals(EstimationTools::TTT_hazard_shape)), 
