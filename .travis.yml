@@ -3,11 +3,9 @@
 language: R
 sudo: false
 cache: packages
-pandoc_version: 1.19.2.1
 
 os:
   - linux
-  # - osx
 
 after_failure:
   - cat $TRAVIS_BUILD_DIR/RelDists.Rcheck/00install.out
