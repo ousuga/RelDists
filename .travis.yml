@@ -12,4 +12,10 @@ os:
 after_failure:
   - cat $TRAVIS_BUILD_DIR/RelDists.Rcheck/00install.out
   - cat $TRAVIS_BUILD_DIR/RelDists.Rcheck/00check.log
-  
+before_install:
+      - brew update
+      - brew cask reinstall xquartz
+      - brew install tcl-tk
+      - brew link --overwrite --force tcl-tk; brew unlink tcl-tk
+      - sudo tlmgr update --self
+      - sudo tlmgr install framed titling
