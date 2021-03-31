@@ -66,6 +66,17 @@ initValuesOW_TTT <- function(formula, data=NULL,
   g3 <- Hazard_Shape$local_reg; g4 <- Hazard_Shape$interpolation
   g2 <- Hazard_Shape$TTTplot; hazard_type <- Hazard_Shape$hazard_type
   the_warning <- Hazard_Shape$warning
+
+  if (!is.null(the_warning)){
+    the_warning <- paste0("Non-parametric estimate for Empirical TTT",
+                            " is irregular.\nPlease, ",
+                            "use the 'plot()' method to see the TTT ",
+                            "shape and set the search region manually in ",
+                            "'gamlss()' if there is no conincidence between ",
+                            "'Hazard_Shape()' and 'plot()'. Visit ",
+                            "'OW distribution' vignette to get further ",
+                            "information.")
+  }
   
   if (is.error(g3) | is.nan(g3$s)){
     sigma <- NA;  nu <- NA; g3 <- NA

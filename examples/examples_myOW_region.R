@@ -14,7 +14,8 @@ summary(my_initial_guess)
 require(gamlss)
 myOW <- myOW_region(valid.values=myvalues, initVal=my_initial_guess)
 mod1 <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, 
-               sigma.start=2, nu.start=0.1,
+               sigma.start=param.startOW('sigma', my_initial_guess), 
+               nu.start=param.startOW('nu', my_initial_guess),
                control=gamlss.control(n.cyc=300, trace=FALSE),
                family=myOW)
 
