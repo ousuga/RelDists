@@ -65,7 +65,7 @@ initValuesOW_TTT <- function(formula, data=NULL,
   TTTE_dots <- if ( length(TTTE_dots) == 0 ){ NULL }
   
   Hazard_Shape <- do.call("TTT_hazard_shape",
-                          args = c(list(formula = formula, data = data,
+                          args = c(list(formula = fo, data = data,
                                         local_reg = local_reg,
                                         interpolation = interpolation),
                                    TTTE_dots))
