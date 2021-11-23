@@ -42,8 +42,9 @@ Imports:
     zipfR,
     EstimationTools,
     autoimage,
-    BBmisc
+    BBmisc,
+    lamW
 LazyData: true
 Suggests: knitr, rmarkdown, viridis
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr
