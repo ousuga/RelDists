@@ -14,7 +14,7 @@
 #' 
 #' \eqn{f(x) = \frac{\mu^2}{\mu+1} (1+x) \exp(-\mu x),}
 #'
-#' for x > 0.
+#' for x > 0 and \eqn{\mu > 0}.
 #' 
 #' @references
 #' \insertRef{lindley1958fiducial}{RelDists}

@@ -3,7 +3,7 @@ devtools::document()
 
 devtools::install()
 
-require(RelDists)
+library(RelDists)
 
 # Para hacer un chequeo
 devtools::check(remote=TRUE)

@@ -46,7 +46,7 @@ Lindley Distribution with parameter \code{mu} has density given by
 
 \eqn{f(x) = \frac{\mu^2}{\mu+1} (1+x) \exp(-\mu x),}
 
-for x > 0. These function were taken form LindleyR package.
+for x > 0 and \eqn{\mu > 0}. These function were taken form LindleyR package.
 }
 \examples{
 ## The probability density function
