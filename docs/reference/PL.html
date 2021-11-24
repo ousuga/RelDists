@@ -162,7 +162,7 @@ and <code>sigma</code> has density given by</p>
 &#8220;Power Lindley distribution and associated inference.&#8221;
 <em>Computational Statistics and Data Analysis</em>, <b>64</b>, 20--33.
 doi: <a href='https://doi.org/10.1016/j.csda.2013.02.026'>10.1016/j.csda.2013.02.026</a>
-, <a href='https://doi.org/10.1016/j.csda.2013.02.026'>https://doi.org/10.1016/j.csda.2013.02.026</a>.</p>
+.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='dPL.html'>dPL</a></p></div>
@@ -186,9 +186,9 @@ doi: <a href='https://doi.org/10.1016/j.csda.2013.02.026'>10.1016/j.csda.2013.02
 <span class='co'># using the inverse link function</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, <span class='st'>'mu'</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept) 
-#&gt;    1.483341 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, <span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
+#&gt;    1.513733 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, <span class='st'>'sigma'</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept) 
-#&gt;   0.2164386 </div><div class='input'>
+#&gt;   0.2169805 </div><div class='input'>
 <span class='co'># Example 2</span>
 <span class='co'># Generating random values under some model</span>
 <span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
@@ -203,9 +203,9 @@ doi: <a href='https://doi.org/10.1016/j.csda.2013.02.026'>10.1016/j.csda.2013.02
 
 <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"mu"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept)          x1 
-#&gt;    1.246421   -2.122295 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"sigma"</span><span class='op'>)</span>
+#&gt;    1.794332   -2.959582 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>mod</span>, what<span class='op'>=</span><span class='st'>"sigma"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; (Intercept)          x2 
-#&gt;   0.8251324  -2.8885634 </div></pre>
+#&gt;   0.7395513  -3.0004836 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

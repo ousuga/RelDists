@@ -17,7 +17,7 @@
 #' @details 
 #' Lindley Distribution with parameter \code{mu} has density given by
 #' 
-#' \eqn{f(x) = (\frac{\mu^2}{\mu+1} (1+x) \exp(-\mu x),}
+#' \eqn{f(x) = \frac{\mu^2}{\mu+1} (1+x) \exp(-\mu x),}
 #' 
 #' for x > 0. These function were taken form LindleyR package.
 #' 
@@ -29,9 +29,9 @@
 #' @example examples/examples_dLIN.R  
 #'
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' \insertRef{lindley1958fiducial}{RelDists}
 #' 
-#' \insertRef{Xie1996}{RelDists}
+#' \insertRef{lindley1965introduction}{RelDists}
 #'
 #' @importFrom Rdpack reprompt
 #'
