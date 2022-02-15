@@ -42,7 +42,7 @@ LIN <- function (mu.link = "log") {
                                           type = "Continuous",
                                           y = y, 
                                           mu = mu)), 
-                 mu.initial = expression((-(mean(y)-1) + sqrt((mean(y)-1)^2 + 8 * mean(y))) / (2 * mean(y)), length(y)),
+                 mu.initial = expression(mu <- rep((-(mean(y)-1) + sqrt((mean(y)-1)^2 + 8 * mean(y))) / (2 * mean(y)), length(y))),
                  mu.valid = function(mu) all(mu > 0), 
                  y.valid = function(y) all(y > 0), 
                  mean = function(mu) (mu + 2) / (mu * (mu + 1)), 
@@ -50,3 +50,4 @@ LIN <- function (mu.link = "log") {
   ), 
   class = c("gamlss.family", "family"))
 }
+
