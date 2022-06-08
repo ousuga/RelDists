@@ -1,7 +1,7 @@
 #' The Flexible Weibull Extension family
 #' 
 #' @description 
-#' The function \code{OW()} defines the Flexible Weibull distribution, a two parameter 
+#' The function \code{FWE()} defines the Flexible Weibull distribution, a two parameter 
 #' distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 
 #' using the function \code{gamlss()}.
 #' 
@@ -72,8 +72,8 @@ FWE <- function (mu.link="log", sigma.link="log") {
                     G.dev.incr = function(y, mu, sigma, ...) -2*dFWE(y, mu, sigma, log=TRUE), 
                          rqres = expression(rqres(pfun="pFWE", type="Continuous", y=y, mu=mu, sigma=sigma)),
                  
-                    mu.initial = expression( mu <-  rep(0.5, length(y)) ),     
-                 sigma.initial = expression( sigma <- rep(0.5, length(y)) ), 
+                 mu.initial    = expression(    mu <- rep(estim_mu_sigma_FWE(y)[1], length(y)) ),     
+                 sigma.initial = expression( sigma <- rep(estim_mu_sigma_FWE(y)[2], length(y)) ), 
                  
                       mu.valid = function(mu) all(mu > 0) , 
                    sigma.valid = function(sigma)  all(sigma > 0), 
@@ -81,4 +81,27 @@ FWE <- function (mu.link="log", sigma.link="log") {
                        y.valid = function(y)  all(y > 0)
   ),
   class = c("gamlss.family","family"))
+}
+#'
+#' estim_mu_sigma_FWE
+#' 
+#' This function generates initial values for FWE distribution.
+#' 
+#' @param y vector with the random sample
+#' @examples
+#' y <- rFWE(n=100, mu=0.75, sigma=1.3)
+#' estim_mu_sigma_FWE(y=y)
+#' @importFrom stats coef ecdf lm
+#' @export
+estim_mu_sigma_FWE <- function(y) {
+  F_hat <- ecdf(y)
+  p <- F_hat(y)
+  p[p == 1] <- 0.999
+  yy <- log(-log(1-p))
+  x1 <- y
+  x2 <- -1/y
+  mod <- lm(yy ~ 0 + x1 + x2)
+  res <- coef(mod)
+  names(res) <- c("mu_hat", "sigma_hat")
+  return(res)
 }
