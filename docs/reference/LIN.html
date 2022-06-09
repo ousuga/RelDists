@@ -105,13 +105,13 @@ CUP Archive.</p>
 <span class="r-in"><span class="co"># Fitting the model</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span>
 <span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="fl">1</span>, family<span class="op">=</span><span class="st">"LIN"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 216.3764 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 233.4259 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Extracting the fitted values for mu</span></span>
 <span class="r-in"><span class="co"># using the inverse link function</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'mu'</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2.092754 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2.014782 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Example 2</span></span>
 <span class="r-in"><span class="co"># Generating random values under some model</span></span>
@@ -123,12 +123,12 @@ CUP Archive.</p>
 <span class="r-in"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="dLIN.html">rLIN</a></span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span>, mu<span class="op">=</span><span class="va">mu</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span>, family<span class="op">=</span><span class="va">LIN</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = -72.6653 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = -72.6653 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = -69.3554 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = -69.3554 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'mu'</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x1          x2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.057576    2.624551   -1.862589 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.028931    2.951929   -2.027851 </span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

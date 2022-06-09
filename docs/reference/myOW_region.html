@@ -126,14 +126,16 @@ of the <code><a href="https://rdrr.io/r/base/all.html" class="external-link">all
 <span class="r-in">               nu.start<span class="op">=</span><span class="fu"><a href="param.startOW.html">param.startOW</a></span><span class="op">(</span><span class="st">'nu'</span>, <span class="va">my_initial_guess</span><span class="op">)</span>,</span>
 <span class="r-in">               control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">300</span>, trace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,</span>
 <span class="r-in">               family<span class="op">=</span><span class="va">myOW</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in while (abs(G.dev.old - G.dev) &gt; c.crit &amp;&amp; iter &lt; n.cyc) {    if ("mu" %in% names(family$parameters)) {        if (family$parameter$mu == TRUE &amp; mu.fix == FALSE) {            mu.fit &lt;&lt;- glim.fit(f = mu.object, X = mu.X, y = y,                 w = w, fv = mu, os = mu.offset, step = mu.step,                 control = i.control, gd.tol = gd.tol, auto = autostep)            mu &lt;&lt;- mu.fit$fv            mu.object$smooth &lt;- mu.fit$smooth        }    }    if ("sigma" %in% names(family$parameters)) {        if (family$parameter$sigma == TRUE &amp; sigma.fix == FALSE) {            sigma.fit &lt;&lt;- glim.fit(f = sigma.object, X = sigma.X,                 y = y, w = w, fv = sigma, os = sigma.offset,                 step = sigma.step, control = i.control, gd.tol = gd.tol,                 auto = autostep)            sigma &lt;&lt;- sigma.fit$fv            sigma.object$smooth &lt;- sigma.fit$smooth        }    }    if ("nu" %in% names(family$parameters)) {        if (family$parameter$nu == TRUE &amp; nu.fix == FALSE) {            nu.fit &lt;&lt;- glim.fit(f = nu.object, X = nu.X, y = y,                 w = w, fv = nu, os = nu.offset, step = nu.step,                 control = i.control, gd.tol = gd.tol, auto = autostep)            nu &lt;&lt;- nu.fit$fv            nu.object$smooth &lt;- nu.fit$smooth        }    }    if ("tau" %in% names(family$parameters)) {        if (family$parameter$tau == TRUE &amp; tau.fix == FALSE) {            tau.fit &lt;&lt;- glim.fit(f = tau.object, X = tau.X, y = y,                 w = w, fv = tau, os = tau.offset, step = tau.step,                 control = i.control, gd.tol = gd.tol, auto = autostep)            tau &lt;&lt;- tau.fit$fv            tau.object$smooth &lt;- tau.fit$smooth        }    }    G.dev.old &lt;- G.dev    G.dev.incr &lt;- eval(G.dev.expr)    G.dev &lt;- sum(w * G.dev.incr)    iter &lt;- iter + 1    fiter &lt;&lt;- iter    if (trace)         cat("GAMLSS-RS iteration ", iter, ": Global Deviance = ",             format(round(G.dev, 4)), " \n", sep = "")    if (G.dev &gt; (G.dev.old + gd.tol) &amp;&amp; iter &gt; 1)         stop(paste("The global deviance is increasing", "\n",             "Try different steps for the parameters or the model maybe inappropriate"))}:</span> missing value where TRUE/FALSE needed</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">'mu'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in coef(mod1, what = "mu"):</span> object 'mod1' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.1788224 </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">'sigma'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in coef(mod1, what = "sigma"):</span> object 'mod1' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4.712575 </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">'nu'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in coef(mod1, what = "nu"):</span> object 'mod1' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.04422731 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Example 2</span></span>
 <span class="r-in"><span class="co"># Same example using another link function and using 'myOW_region'</span></span>
@@ -147,13 +149,13 @@ of the <code><a href="https://rdrr.io/r/base/all.html" class="external-link">all
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod2</span>, what<span class="op">=</span><span class="st">'mu'</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.2146868 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.1788504 </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod2</span>, what<span class="op">=</span><span class="st">'sigma'</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3.560331 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4.71156 </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod2</span>, what<span class="op">=</span><span class="st">'nu'</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.0580717 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.0442344 </span>
 </code></pre></div>
     </div>
   </div>

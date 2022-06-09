@@ -5,12 +5,12 @@
 status](https://travis-ci.org/ousuga/RelDists.svg?branch=master)](https://travis-ci.org/ousuga/RelDists)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/ousuga/RelDists?branch=master&svg=true)](https://ci.appveyor.com/project/ousuga/RelDists)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version-ago/RelDists)](https://cran.r-project.org/package=RelDists)
-[![CRAN\_Download\_Badge](http://cranlogs.r-pkg.org/badges/RelDists)](https://cran.r-project.org/package=RelDists)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-ago/RelDists)](https://cran.r-project.org/package=RelDists)
+[![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/RelDists)](https://cran.r-project.org/package=RelDists)
 
-# RelDists <img src="man/figures/RelDists4.3_gris.png" align="right" height="180" align="right"/>
+# RelDists <img src="auxiliar/figures/RelDists4.3_gris.png" align="right" height="180" align="right"/>
 
-In this package are available several distributions useful for
+In this package are available multiple useful distributions for
 reliability analysis. With this package it is possible to estimate
 parameters and fit regression models within GAMLSS framework.
 
