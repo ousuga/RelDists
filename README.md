@@ -8,7 +8,7 @@ Status](https://ci.appveyor.com/api/projects/status/github/ousuga/RelDists?branc
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-ago/RelDists)](https://cran.r-project.org/package=RelDists)
 [![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/RelDists)](https://cran.r-project.org/package=RelDists)
 
-# RelDists <img src="auxiliar/figures/RelDists4.3_gris.png" align="right" height="180" align="right"/>
+# RelDists <img src="auxiliar/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
 
 In this package are available multiple useful distributions for
 reliability analysis. With this package it is possible to estimate
