@@ -67,7 +67,7 @@ This is used for parameter estimation in <code>OW</code> distribution.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">param.startOW</span><span class="op">(</span><span class="va">param</span>, <span class="va">initValOW</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">param.startOW</span><span class="op">(</span><span class="va">param</span>, <span class="va">initValOW</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -75,9 +75,12 @@ This is used for parameter estimation in <code>OW</code> distribution.</p>
     <dl><dt>param</dt>
 <dd><p>a character used to specify the parameter required. It can take the
 values <code>"sigma"</code> or <code>"nu"</code>.</p></dd>
+
+
 <dt>initValOW</dt>
 <dd><p>an <code>initValOW</code> object generated with <code><a href="initValuesOW_TTT.html">initValuesOW_TTT</a></code>
 function.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -94,12 +97,12 @@ See example for an illustration.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Random data generation (OW distributed)</span></span>
-<span class="r-in"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="dOW.html">rOW</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">1000</span>, mu<span class="op">=</span><span class="fl">0.05</span>, sigma<span class="op">=</span><span class="fl">0.6</span>, nu<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Initial values with TTT plot</span></span>
-<span class="r-in"><span class="va">iv</span> <span class="op">&lt;-</span> <span class="fu"><a href="initValuesOW_TTT.html">initValuesOW_TTT</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">iv</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Random data generation (OW distributed)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="dOW.html">rOW</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">1000</span>, mu<span class="op">=</span><span class="fl">0.05</span>, sigma<span class="op">=</span><span class="fl">0.6</span>, nu<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Initial values with TTT plot</span></span></span>
+<span class="r-in"><span><span class="va">iv</span> <span class="op">&lt;-</span> <span class="fu"><a href="initValuesOW_TTT.html">initValuesOW_TTT</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">iv</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Initial Values</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> sigma = 0.6</span>
@@ -110,28 +113,30 @@ See example for an illustration.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> For nu: all(nu &gt; 1/sigma)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Hazard shape: Unimodal</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># This data is from unimodal hazard</span></span>
-<span class="r-in"><span class="co"># See TTT estimate from sample</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">iv</span>, legend_options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pos<span class="op">=</span><span class="fl">1.03</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># This data is from unimodal hazard</span></span></span>
+<span class="r-in"><span><span class="co"># See TTT estimate from sample</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">iv</span>, legend_options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pos<span class="op">=</span><span class="fl">1.03</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The `legend_options` argument of `plot.HazardShape()` is deprecated as of EstimationTools 4.0.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Please use `plot.HazardShape()` instead.</span>
 <span class="r-plt img"><img src="param.startOW-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># See the true hazard</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu"><a href="dOW.html">hOW</a></span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.05</span>, sigma<span class="op">=</span><span class="fl">0.6</span>, nu<span class="op">=</span><span class="fl">2</span><span class="op">)</span>, to<span class="op">=</span><span class="fl">100</span>, lwd<span class="op">=</span><span class="fl">3</span>, ylab<span class="op">=</span><span class="st">"h(x)"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># See the true hazard</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu"><a href="dOW.html">hOW</a></span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.05</span>, sigma<span class="op">=</span><span class="fl">0.6</span>, nu<span class="op">=</span><span class="fl">2</span><span class="op">)</span>, to<span class="op">=</span><span class="fl">100</span>, lwd<span class="op">=</span><span class="fl">3</span>, ylab<span class="op">=</span><span class="st">"h(x)"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="param.startOW-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Finally, we fit the model</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="va">con.out</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc <span class="op">=</span> <span class="fl">300</span>, trace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">con.in</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/glim.control.html" class="external-link">glim.control</a></span><span class="op">(</span>cyc <span class="op">=</span> <span class="fl">500</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">sigma.start</span> <span class="op">&lt;-</span> <span class="fu">param.startOW</span><span class="op">(</span><span class="st">"sigma"</span>, <span class="va">iv</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">nu.start</span> <span class="op">&lt;-</span> <span class="fu">param.startOW</span><span class="op">(</span><span class="st">"nu"</span>, <span class="va">iv</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, nu.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, control<span class="op">=</span><span class="va">con.out</span>, i.control<span class="op">=</span><span class="va">con.in</span>,</span>
-<span class="r-in">              family<span class="op">=</span><span class="fu"><a href="myOW_region.html">myOW_region</a></span><span class="op">(</span><span class="fu"><a href="OW.html">OW</a></span><span class="op">(</span>sigma.link<span class="op">=</span><span class="st">"identity"</span>, nu.link<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span>,</span>
-<span class="r-in">                                 valid.values<span class="op">=</span><span class="st">"auto"</span>, <span class="va">iv</span><span class="op">)</span>,</span>
-<span class="r-in">              sigma.start<span class="op">=</span><span class="va">sigma.start</span>, nu.start<span class="op">=</span><span class="va">nu.start</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Finally, we fit the model</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">con.out</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc <span class="op">=</span> <span class="fl">300</span>, trace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">con.in</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/glim.control.html" class="external-link">glim.control</a></span><span class="op">(</span>cyc <span class="op">=</span> <span class="fl">500</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">sigma.start</span> <span class="op">&lt;-</span> <span class="fu">param.startOW</span><span class="op">(</span><span class="st">"sigma"</span>, <span class="va">iv</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">nu.start</span> <span class="op">&lt;-</span> <span class="fu">param.startOW</span><span class="op">(</span><span class="st">"nu"</span>, <span class="va">iv</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, nu.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, control<span class="op">=</span><span class="va">con.out</span>, i.control<span class="op">=</span><span class="va">con.in</span>,</span></span>
+<span class="r-in"><span>              family<span class="op">=</span><span class="fu"><a href="myOW_region.html">myOW_region</a></span><span class="op">(</span><span class="fu"><a href="OW.html">OW</a></span><span class="op">(</span>sigma.link<span class="op">=</span><span class="st">"identity"</span>, nu.link<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                                 valid.values<span class="op">=</span><span class="st">"auto"</span>, <span class="va">iv</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>              sigma.start<span class="op">=</span><span class="va">sigma.start</span>, nu.start<span class="op">=</span><span class="va">nu.start</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -146,7 +151,7 @@ See example for an illustration.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

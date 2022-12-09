@@ -264,9 +264,9 @@ summary(init_vals)
 With `initValuesOW_TTT()` function we identified an increasing hazard shape, as well as was stated by Cooray [-@Cooray2006], because TTT plot is concave.
 
 ```{r}
-plot(init_vals,
-     legend_options = list(pos=1.04),
-     par_plot = list(mar = c(3.7,3.7,1,2.1), mgp = c(2.5,1,0)))
+par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
+plot(init_vals, las = 1)
+legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
 ```
 
 Hence, we implement the estimation procedure
