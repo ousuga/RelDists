@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(RelDists)
+library(EstimationTools)
 library(gamlss)
 ```
 
@@ -204,9 +205,9 @@ summary(my_initial_guess)
 `initValuesOW_TTT()` function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
 
 ```{r}
-plot(my_initial_guess, las = 1,
-     legend_options = list(pos = 1.04),
-     par_plot = list(mar = c(3.7,3.7,1,2.1), mgp = c(2.5,1,0))) 
+par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
+plot(my_initial_guess, las = 1)
+legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
 ```
 
 Therefore, we define the search region according to `initValuesOW_TTT()` outputs
