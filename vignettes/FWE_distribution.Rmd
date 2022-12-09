@@ -33,7 +33,7 @@ respectively, where $\mu > 0$, $\sigma > 0$ and $x > 0$.
 
 Next figure shows possible shapes of the $f(x)$ and $F(x)$ for several values of the parameters.
 
-```{r echo=FALSE}
+```{r fig.height=5, fig.width=8, echo=FALSE}
 paleta <- c("#00004A", "#00A4FF", "#F6F906", "#FF3300")
 par(mfrow=c(1, 2))
 
