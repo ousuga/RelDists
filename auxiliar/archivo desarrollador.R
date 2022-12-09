@@ -10,3 +10,7 @@ devtools::check(remote=TRUE)
 
 # Para crear la pagina web
 pkgdown::build_site()
+
+# Badges
+usethis::use_github_action_check_standard()
+
