@@ -37,14 +37,12 @@ RdMacros: Rdpack
 Imports:
     gamlss,
     gamlss.dist,
-    gamlss.cens,
     Rdpack,
     zipfR,
     EstimationTools,
-    autoimage,
     BBmisc,
     lamW
 LazyData: true
-Suggests: knitr, rmarkdown, viridis
-RoxygenNote: 7.2.0
+Suggests: knitr, rmarkdown, viridis, autoimage, gamlss.cens
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr

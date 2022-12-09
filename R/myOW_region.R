@@ -111,8 +111,8 @@ valid.region <- function(param, valid.values, initVal){
     list_pos <- paste0("valid.values$", param)
     param_eval <- try(eval(parse(text = list_pos)),
                       silent = TRUE)
-    if ( class(param_eval) == "try-error") stop(Error_valid)
-    if ( class(param_eval) != "character") stop(Error_valid)
+    if ( inherits(param_eval, "try-error") ) stop(Error_valid)
+    if ( !inherits(param_eval, "character") ) stop(Error_valid)
     return(param_eval)
   }
   
