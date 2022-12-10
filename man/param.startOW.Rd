@@ -27,7 +27,7 @@ See example for an illustration.
 }
 \examples{
 # Random data generation (OW distributed)
-y <- rOW(n=1000, mu=0.05, sigma=0.6, nu=2)
+y <- rOW(n=500, mu=0.05, sigma=0.6, nu=2)
 
 # Initial values with TTT plot
 iv <- initValuesOW_TTT(formula = y ~ 1)
