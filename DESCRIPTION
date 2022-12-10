@@ -42,6 +42,6 @@ Imports:
     BBmisc,
     lamW
 LazyData: true
-Suggests: knitr, rmarkdown, viridis, autoimage, gamlss.cens
+Suggests: knitr, rmarkdown, viridis, autoimage, gamlss.cens, V8
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
