@@ -28,7 +28,7 @@ Authors@R: c(
   )
 Description: Parameters estimation and regression linear models 
     of Reliability distributions within GAMLSS framework.
-Depends: R (>= 3.5.0), survival, EstimationTools
+Depends: R (>= 3.5.0), survival, EstimationTools (>= 4.0.0)
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues

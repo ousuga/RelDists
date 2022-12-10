@@ -32,7 +32,7 @@ jobs:
         with:
           extra-packages: |
             any::pkgdown
-            any::EstimationTools
+            EstimationTools=?ignore-before-r=4.0.0
             local::.
           needs: website
 
