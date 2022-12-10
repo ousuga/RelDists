@@ -16,7 +16,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/RelDists)](https://cran.r-project.org/package=RelDists)
 <!-- badges: end -->
 
-# RelDists <img src="auxiliar/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
+# RelDists <img src="man/figures/RelDists4.3_gris.png" align="right" height="200" align="right"/>
 
 In this package are available multiple useful distributions for
 reliability analysis. With this package it is possible to estimate
