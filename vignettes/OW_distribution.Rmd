@@ -207,7 +207,7 @@ summary(my_initial_guess)
 ```{r}
 par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
 plot(my_initial_guess, las = 1)
-legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
+EstimationTools::legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
 ```
 
 Therefore, we define the search region according to `initValuesOW_TTT()` outputs
@@ -266,7 +266,7 @@ With `initValuesOW_TTT()` function we identified an increasing hazard shape, as 
 ```{r}
 par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
 plot(init_vals, las = 1)
-legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
+EstimationTools::legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
 ```
 
 Hence, we implement the estimation procedure
