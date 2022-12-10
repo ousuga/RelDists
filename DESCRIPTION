@@ -44,5 +44,5 @@ Imports:
     lamW
 LazyData: true
 Suggests: knitr, rmarkdown, viridis, autoimage, gamlss.cens
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr

@@ -2,6 +2,7 @@
 title: "FWE distribution"
 author: "Freddy Hernandez"
 date: "`r Sys.Date()`"
+bibliography: ../inst/REFERENCES.bib
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{FWE distribution}
@@ -21,7 +22,7 @@ library(RelDists)
 ```
 
 # Flexible Weibull extension distribution
-This distribution was proposed by Bebbington, Chin-Diew and Zitikis (2007). The probability density function $f(x)$ and cumulative density function $F(x)$ are given by:
+This distribution was proposed by Bebbington [-@Bebbington2007]. The probability density function $f(x)$ and cumulative density function $F(x)$ are given by:
 
 $$f(x) = \left( \mu+ \frac{\sigma}{x^2} \right) e^{\mu x - \sigma / x} \exp \left( -e^{\mu x - \sigma / x} \right),$$   
 
@@ -33,7 +34,7 @@ respectively, where $\mu > 0$, $\sigma > 0$ and $x > 0$.
 
 Next figure shows possible shapes of the $f(x)$ and $F(x)$ for several values of the parameters.
 
-```{r echo=FALSE}
+```{r fig.height=5, fig.width=8, echo=FALSE}
 paleta <- c("#00004A", "#00A4FF", "#F6F906", "#FF3300")
 par(mfrow=c(1, 2))
 
