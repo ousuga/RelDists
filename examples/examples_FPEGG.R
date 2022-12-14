@@ -1,6 +1,7 @@
 # Example 1
 # Generating some random values with
 # known mu, sigma, nu and tau
+\dontrun{
 y <- rFPEGG(n=200, mu=0.1, sigma=0.8, nu=10, tau=1.5)
 
 # Fitting the model
@@ -15,9 +16,11 @@ exp(coef(mod, what='mu'))
 exp(coef(mod, what='sigma'))
 exp(coef(mod, what='nu'))
 exp(coef(mod, what='tau'))
+}
 
 # Example 2
 # Generating random values under some model
+\dontrun{
 n <- 200
 x1 <- runif(n, min=0.4, max=0.6)
 x2 <- runif(n, min=0.4, max=0.6)
@@ -34,3 +37,4 @@ coef(mod, what="mu")
 coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
+}

@@ -22,7 +22,7 @@ The Four-Parameter Exponentiated Generalized Gamma distribution
 Four-Parameter Exponentiated Generalized Gamma distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
-\eqn{f(x) = \frac {\nu \sigma}{\mu \tau(\tau)} (\frac {x}{\mu})^{\sigma \tau -1} exp\{(-{\frac {x}{\mu})^{\sigma}})\} 
+\eqn{f(x) = \frac {\nu \sigma}{\mu \Gamma(\tau)} (\frac {x}{\mu})^{\sigma \tau -1} exp\{(-{\frac {x}{\mu})^{\sigma}})\} 
 \{ \gamma~_1~ (\tau, (\frac {x}{\mu})^{\sigma}) \}^{\nu -1} ,}
 
 for x > 0.
@@ -31,6 +31,7 @@ for x > 0.
 # Example 1
 # Generating some random values with
 # known mu, sigma, nu and tau
+\dontrun{
 y <- rFPEGG(n=200, mu=0.1, sigma=0.8, nu=10, tau=1.5)
 
 # Fitting the model
@@ -45,9 +46,11 @@ exp(coef(mod, what='mu'))
 exp(coef(mod, what='sigma'))
 exp(coef(mod, what='nu'))
 exp(coef(mod, what='tau'))
+}
 
 # Example 2
 # Generating random values under some model
+\dontrun{
 n <- 200
 x1 <- runif(n, min=0.4, max=0.6)
 x2 <- runif(n, min=0.4, max=0.6)
@@ -64,6 +67,7 @@ coef(mod, what="mu")
 coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
+}
 }
 \references{
 \insertRef{almalki2014modifications}{RelDists}

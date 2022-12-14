@@ -51,7 +51,7 @@ with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 Four-Parameter Exponentiated Generalized Gamma distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
-\eqn{f(x) = \frac {\nu \sigma}{\mu \tau(\tau)} (\frac {x}{\mu})^{\sigma \tau -1} exp\{(-{\frac {x}{\mu})^{\sigma}})\} 
+\eqn{f(x) = \frac {\nu \sigma}{\mu \Gamma(\tau)} (\frac {x}{\mu})^{\sigma \tau -1} exp\{(-{\frac {x}{\mu})^{\sigma}})\} 
 \{ \gamma~_1~ (\tau, (\frac {x}{\mu})^{\sigma}) \}^{\nu -1} ,}
 
 for x > 0.
