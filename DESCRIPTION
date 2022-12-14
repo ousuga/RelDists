@@ -1,5 +1,5 @@
 Package: RelDists
-Title: Estimation for some Reliability Distributions within Gneralized Additive
+Title: Estimation for some Reliability Distributions Within Generalized Additive
        Models for Location, Scale  and Shape (GAMLSS) Framework
 Version: 1.0.0
 Authors@R: c(
