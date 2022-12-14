@@ -290,7 +290,7 @@ sigma2 <- coef(param_mm, what = 'sigma')
 nu2 <- exp(coef(param_mm, what = 'nu'))
 
 mymu2 <- formatC(mu2, format = "e", digits = 2)
-mysigma2 <- round(sigma2, 4)
+mysigma2 <- round(exp(sigma2), 4)
 mynu2 <- round(nu2, 4)
 ```
 
