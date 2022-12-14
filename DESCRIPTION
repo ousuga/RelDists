@@ -1,6 +1,5 @@
 Package: RelDists
-Title: Estimation for some Reliability Distributions Within Generalized Additive
-       Models for Location, Scale  and Shape (GAMLSS) Framework
+Title: Estimation for some Reliability Distributions With GAMLSS
 Version: 1.0.0
 Authors@R: c(
     person(given="Freddy", 
@@ -27,8 +26,11 @@ Authors@R: c(
            email="amylkar.urrea@udea.edu.co", 
            role = "aut")
   )
-Description: Parameters estimation and regression linear models 
-    of Reliability distributions within GAMLSS framework.
+Description: Parameters estimation and regression linear models  of Reliability 
+    distributions families reviewed by Almalki & Nadarajah (2014)
+    <doi: 10.1016/j.ress.2013.11.010> using Generalized Additive
+    Models for Location, Scale and Shape, aka GAMLSS by Rigby & Stasinopoulos
+    (2005) <doi: 10.1111/j.1467-9876.2005.00510.x>.
 Depends: R (>= 3.5.0), survival, EstimationTools (>= 4.0.0)
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
