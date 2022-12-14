@@ -15,12 +15,12 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/ousuga/RelDists/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ousuga/RelDists/actions/workflows/R-CMD-check.yaml)
-[![Travis build status](https://travis-ci.org/ousuga/RelDists.svg?branch=master)](https://travis-ci.org/ousuga/RelDists)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ousuga/RelDists?branch=master&svg=true)](https://ci.appveyor.com/project/ousuga/RelDists)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version-ago/RelDists)](https://cran.r-project.org/package=RelDists)
 [![CRAN\_Download\_Badge](http://cranlogs.r-pkg.org/badges/RelDists)](https://cran.r-project.org/package=RelDists)
+<!-- [![Travis build status](https://travis-ci.org/ousuga/RelDists.svg?branch=master)](https://travis-ci.org/ousuga/RelDists) -->
 <!-- badges: end -->
 
 # RelDists <img src="man/figures/RelDists4.3_gris.png"  height="200" style="float:right; height:200px;"/>
