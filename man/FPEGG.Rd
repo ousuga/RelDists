@@ -31,7 +31,7 @@ for x > 0.
 # Example 1
 # Generating some random values with
 # known mu, sigma, nu and tau
-\dontrun{
+\donttest{{
 y <- rFPEGG(n=200, mu=0.1, sigma=0.8, nu=10, tau=1.5)
 
 # Fitting the model
@@ -50,7 +50,7 @@ exp(coef(mod, what='tau'))
 
 # Example 2
 # Generating random values under some model
-\dontrun{
+\donttest{
 n <- 200
 x1 <- runif(n, min=0.4, max=0.6)
 x2 <- runif(n, min=0.4, max=0.6)
