@@ -31,6 +31,9 @@
     <loc>http://ousuga.github.io/RelDists/reference/EEG.html</loc>
   </url>
   <url>
+    <loc>http://ousuga.github.io/RelDists/reference/EGG.html</loc>
+  </url>
+  <url>
     <loc>http://ousuga.github.io/RelDists/reference/EMWEx.html</loc>
   </url>
   <url>
@@ -41,9 +44,6 @@
   </url>
   <url>
     <loc>http://ousuga.github.io/RelDists/reference/ExW.html</loc>
-  </url>
-  <url>
-    <loc>http://ousuga.github.io/RelDists/reference/FPEGG.html</loc>
   </url>
   <url>
     <loc>http://ousuga.github.io/RelDists/reference/FWE.html</loc>
@@ -121,6 +121,9 @@
     <loc>http://ousuga.github.io/RelDists/reference/dEEG.html</loc>
   </url>
   <url>
+    <loc>http://ousuga.github.io/RelDists/reference/dEGG.html</loc>
+  </url>
+  <url>
     <loc>http://ousuga.github.io/RelDists/reference/dEMWEx.html</loc>
   </url>
   <url>
@@ -131,9 +134,6 @@
   </url>
   <url>
     <loc>http://ousuga.github.io/RelDists/reference/dExW.html</loc>
-  </url>
-  <url>
-    <loc>http://ousuga.github.io/RelDists/reference/dFPEGG.html</loc>
   </url>
   <url>
     <loc>http://ousuga.github.io/RelDists/reference/dFWE.html</loc>
@@ -202,10 +202,10 @@
     <loc>http://ousuga.github.io/RelDists/reference/equipment.html</loc>
   </url>
   <url>
-    <loc>http://ousuga.github.io/RelDists/reference/estim_mu_sigma_FWE.html</loc>
+    <loc>http://ousuga.github.io/RelDists/reference/index.html</loc>
   </url>
   <url>
-    <loc>http://ousuga.github.io/RelDists/reference/index.html</loc>
+    <loc>http://ousuga.github.io/RelDists/reference/initValuesFWE.html</loc>
   </url>
   <url>
     <loc>http://ousuga.github.io/RelDists/reference/initValuesOW_TTT.html</loc>
