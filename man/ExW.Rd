@@ -13,6 +13,9 @@ ExW(mu.link = "log", sigma.link = "log", nu.link = "log")
 
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a ExW distribution in the \code{gamlss()} function.
+}
 \description{
 The Extended Weibull family
 }
@@ -21,7 +24,7 @@ The Extended Weibull distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma \nu x^{\sigma -1} exp({-\mu x^{\sigma}})} {[1 -(1-\nu) exp({-\mu x^{\sigma}})]^2},}
-
+ 
 for x > 0.
 }
 \examples{

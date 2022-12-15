@@ -73,6 +73,9 @@
     <loc>http://ousuga.github.io/RelDists/reference/dEEG.html</loc>
   </url>
   <url>
+    <loc>http://ousuga.github.io/RelDists/reference/dEGG.html</loc>
+  </url>
+  <url>
     <loc>http://ousuga.github.io/RelDists/reference/dEMWEx.html</loc>
   </url>
   <url>
@@ -196,6 +199,9 @@
     <loc>http://ousuga.github.io/RelDists/reference/EEG.html</loc>
   </url>
   <url>
+    <loc>http://ousuga.github.io/RelDists/reference/EGG.html</loc>
+  </url>
+  <url>
     <loc>http://ousuga.github.io/RelDists/reference/EMWEx.html</loc>
   </url>
   <url>
@@ -236,6 +242,9 @@
   </url>
   <url>
     <loc>http://ousuga.github.io/RelDists/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>http://ousuga.github.io/RelDists/reference/initValuesFWE.html</loc>
   </url>
   <url>
     <loc>http://ousuga.github.io/RelDists/reference/initValuesOW_TTT.html</loc>

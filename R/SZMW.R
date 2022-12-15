@@ -19,8 +19,9 @@
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}. 
 #' 
-#' @example examples/examples_SZMW.R
+#' @returns Returns a gamlss.family object which can be used to fit a SZMW distribution in the \code{gamlss()} function.
 #' 
+#' @example examples/examples_SZMW.R
 #' 
 #' @references
 #'\insertRef{almalki2014modifications}{RelDists}

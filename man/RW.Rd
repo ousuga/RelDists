@@ -11,6 +11,9 @@ RW(mu.link = "log", sigma.link = "log")
 
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a RW distribution in the \code{gamlss()} function.
+}
 \description{
 Reflected Weibull distribution
 }

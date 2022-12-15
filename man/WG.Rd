@@ -13,6 +13,9 @@ WG(mu.link = "log", sigma.link = "log", nu.link = "logit")
 
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a WG distribution in the \code{gamlss()} function.
+}
 \description{
 The Weibull Geometric distribution
 }

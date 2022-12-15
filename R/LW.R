@@ -18,6 +18,8 @@
 #' 
 #' for - \code{infty} < y < \code{infty}.
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a LW distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_LW.R 
 #' 
 #' @references

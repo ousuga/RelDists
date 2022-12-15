@@ -18,6 +18,8 @@
 #' \eqn{f(x)= \nu \mu \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))) (1 - \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))))^{(\nu - 1)} ,}
 #' 
 #' for \eqn{x \geq 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}
+#' 
+#' @returns Returns a gamlss.family object which can be used to fit a GGD distribution in the \code{gamlss()} function.
 #' . 
 #' @example examples/examples_GGD.R
 #' 

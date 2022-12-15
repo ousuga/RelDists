@@ -11,6 +11,9 @@ LW(mu.link = "identity", sigma.link = "log")
 
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a LW distribution in the \code{gamlss()} function.
+}
 \description{
 The Log-Weibull distribution
 }

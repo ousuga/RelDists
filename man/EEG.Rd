@@ -11,6 +11,9 @@ EEG(mu.link = "log", sigma.link = "log")
 
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a EEG distribution in the \code{gamlss()} function.
+}
 \description{
 The Extended Exponential Geometric family
 }

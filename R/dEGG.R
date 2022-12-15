@@ -1,10 +1,10 @@
-#' The Four-Parameter Exponentiated Generalized Gamma distribution
+#' The four parameter Exponentiated Generalized Gamma distribution
 #' 
 #' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
-#' random generation and hazard function for the Four-Parameter Exponentiated Generalized Gamma distribution
+#' random generation and hazard function for the four parameter Exponentiated Generalized Gamma distribution
 #' with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 #' 
 #' @param x,q	vector of quantiles.
@@ -26,11 +26,11 @@
 #' for x > 0. 
 #' 
 #' @return 
-#' \code{dFPEGG} gives the density, \code{pFPEGG} gives the distribution 
-#' function, \code{qFPEGG} gives the quantile function, \code{rFPEGG}
-#' generates random deviates and \code{hFPEGG} gives the hazard function.
+#' \code{dEGG} gives the density, \code{pEGG} gives the distribution 
+#' function, \code{qEGG} gives the quantile function, \code{rEGG}
+#' generates random deviates and \code{hEGG} gives the hazard function.
 #'
-#' @example examples/examples_dFPEGG.R  
+#' @example examples/examples_dEGG.R  
 #'
 #' @references
 #' \insertRef{almalki2014modifications}{RelDists}
@@ -40,7 +40,7 @@
 #' @importFrom Rdpack reprompt
 #'
 #' @export
-dFPEGG <- function(x, mu, sigma,
+dEGG <- function(x, mu, sigma,
                    nu, tau, log=FALSE){
   if (any(x <= 0)) 
     stop(paste("x must be positive", "\n", ""))
@@ -66,8 +66,8 @@ dFPEGG <- function(x, mu, sigma,
   return(density)
 }
 #' @export
-#' @rdname dFPEGG
-pFPEGG <- function(q, mu, sigma, nu, tau, 
+#' @rdname dEGG
+pEGG <- function(q, mu, sigma, nu, tau, 
                    lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
@@ -91,8 +91,8 @@ pFPEGG <- function(q, mu, sigma, nu, tau,
   cdf
 }
 #' @export
-#' @rdname dFPEGG
-qFPEGG <- function(p, mu, sigma, nu, tau,
+#' @rdname dEGG
+qEGG <- function(p, mu, sigma, nu, tau,
                    lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
@@ -130,8 +130,8 @@ qFPEGG <- function(p, mu, sigma, nu, tau,
 }
 #' @importFrom stats runif
 #' @export
-#' @rdname dFPEGG
-rFPEGG <- function(n, mu, sigma, nu, tau){
+#' @rdname dEGG
+rEGG <- function(n, mu, sigma, nu, tau){
   if (any(mu <= 0)) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
@@ -143,12 +143,12 @@ rFPEGG <- function(n, mu, sigma, nu, tau){
   
   n <- ceiling(n)
   p <- runif(n)
-  r <- qFPEGG(p, mu, sigma, nu, tau)
+  r <- qEGG(p, mu, sigma, nu, tau)
   r
 }
 #' @export
-#' @rdname dFPEGG
-hFPEGG <- function(x, mu, sigma, nu, tau){
+#' @rdname dEGG
+hEGG <- function(x, mu, sigma, nu, tau){
   if (any(x <= 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0)) 
@@ -160,7 +160,7 @@ hFPEGG <- function(x, mu, sigma, nu, tau){
   if (any(tau <= 0)) 
     stop(paste("tau must be postive", "\n", "")) 
   
-  h <- dFPEGG(x, mu, sigma, nu, tau, log=FALSE) / 
-    pFPEGG(q=x, mu, sigma, nu, tau, lower.tail=FALSE, log.p=FALSE)
+  h <- dEGG(x, mu, sigma, nu, tau, log=FALSE) / 
+    pEGG(q=x, mu, sigma, nu, tau, lower.tail=FALSE, log.p=FALSE)
   h  
 }

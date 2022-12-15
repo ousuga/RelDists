@@ -13,6 +13,9 @@ WP(mu.link = "log", sigma.link = "log", nu.link = "log")
 
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a WP distribution in the \code{gamlss()} function.
+}
 \description{
 The Weibull Poisson family
 }

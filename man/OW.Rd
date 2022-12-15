@@ -13,6 +13,9 @@ OW(mu.link = "log", sigma.link = "log", nu.link = "log")
 
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a OW distribution in the \code{gamlss()} function.
+}
 \description{
 The function \code{OW()} defines the Odd Weibull distribution, a three parameter 
 distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 

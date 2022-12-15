@@ -13,6 +13,10 @@ GGD(mu.link = "log", sigma.link = "log", nu.link = "log")
 
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a GGD distribution in the \code{gamlss()} function.
+.
+}
 \description{
 The Generalized Gompertz  family
 }
@@ -23,7 +27,6 @@ The Generalized Gompertz  Distribution with parameters \code{mu},
 \eqn{f(x)= \nu \mu \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))) (1 - \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))))^{(\nu - 1)} ,}
 
 for \eqn{x \geq 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}
-.
 }
 \examples{
 #Example 1

@@ -20,6 +20,8 @@
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{0 < \nu < 1}.
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a WG distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_WG.R
 #' 
 #' @references

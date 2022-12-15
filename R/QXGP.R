@@ -24,6 +24,8 @@
 #' 
 #' \eqn{K(\mu, \sigma, \nu) = \frac{\nu \sigma}{(exp(\nu)-1)(1+\mu)}} 
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a QXGP distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_QXGP.R
 #' 
 #' @references

@@ -18,6 +18,8 @@
 #' 
 #' for y < 0
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a RW distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_RW.R
 #' 
 #' @references

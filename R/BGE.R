@@ -20,6 +20,8 @@
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu > 0} and \eqn{\tau > 0}. 
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a BGE distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_BGE.R 
 #'
 #' @references

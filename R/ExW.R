@@ -16,8 +16,10 @@
 #' \code{sigma} and \code{nu} has density given by
 #' 
 #' \eqn{f(x) = \frac{\mu \sigma \nu x^{\sigma -1} exp({-\mu x^{\sigma}})} {[1 -(1-\nu) exp({-\mu x^{\sigma}})]^2},}
-#' 
+#'  
 #' for x > 0. 
+#' 
+#' @returns Returns a gamlss.family object which can be used to fit a ExW distribution in the \code{gamlss()} function. 
 #' 
 #' @example examples/examples_ExW.R 
 #' 

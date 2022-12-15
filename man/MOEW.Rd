@@ -13,6 +13,9 @@ MOEW(mu.link = "log", sigma.link = "log", nu.link = "log")
 
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a MOEW distribution in the \code{gamlss()} function.
+}
 \description{
 The Marshall-Olkin Extended Weibull family
 }

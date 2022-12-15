@@ -20,6 +20,8 @@
 #' 
 #' for x > 0. 
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a AddW distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_AddW.R 
 #' 
 #' @references

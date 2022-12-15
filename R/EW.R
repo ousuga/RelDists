@@ -17,6 +17,8 @@
 #' 
 #' for x > 0. 
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a EW distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_EW.R
 #' 
 #' @importFrom gamlss.dist checklink

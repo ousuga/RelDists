@@ -16,6 +16,8 @@
 #' 
 #' for x>0.
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a FWE distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_FWE.R
 #' 
 #' @importFrom gamlss.dist checklink
@@ -72,8 +74,8 @@ FWE <- function (mu.link="log", sigma.link="log") {
                     G.dev.incr = function(y, mu, sigma, ...) -2*dFWE(y, mu, sigma, log=TRUE), 
                          rqres = expression(rqres(pfun="pFWE", type="Continuous", y=y, mu=mu, sigma=sigma)),
                  
-                 mu.initial    = expression(    mu <- rep(estim_mu_sigma_FWE(y)[1], length(y)) ),     
-                 sigma.initial = expression( sigma <- rep(estim_mu_sigma_FWE(y)[2], length(y)) ), 
+                 mu.initial    = expression(    mu <- rep(initValuesFWE(y)[1], length(y)) ),     
+                 sigma.initial = expression( sigma <- rep(initValuesFWE(y)[2], length(y)) ), 
                  
                       mu.valid = function(mu) all(mu > 0) , 
                    sigma.valid = function(sigma)  all(sigma > 0), 
@@ -83,17 +85,15 @@ FWE <- function (mu.link="log", sigma.link="log") {
   class = c("gamlss.family","family"))
 }
 #'
-#' estim_mu_sigma_FWE
+#' initValuesFWE
 #' 
 #' This function generates initial values for FWE distribution.
 #' 
 #' @param y vector with the random sample
-#' @examples
-#' y <- rFWE(n=100, mu=0.75, sigma=1.3)
-#' estim_mu_sigma_FWE(y=y)
-#' @importFrom stats coef ecdf lm
+#' @keywords internal
 #' @export
-estim_mu_sigma_FWE <- function(y) {
+#' @importFrom stats coef ecdf lm
+initValuesFWE <- function(y) {
   F_hat <- ecdf(y)
   p <- F_hat(y)
   p[p == 1] <- 0.999

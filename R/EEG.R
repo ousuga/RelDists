@@ -18,6 +18,8 @@
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0} and \eqn{\sigma > 0}. 
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a EEG distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_EEG.R 
 #' 
 #' @references

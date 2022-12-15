@@ -19,6 +19,8 @@
 #' \eqn{f(x)= \frac{\mu\sigma\nu\tau(1+\nu x)^{\sigma-1}e^{(1-(1+\nu x)^\sigma)}[1-(1-e^{(1-(1+\nu x)^\sigma)})^{\mu}]^{\tau-1}}{(1-e^{(1-(1+\nu x)^{\sigma})})^{\mu\tau+1}} e^{-[(1-e^{(1-(1+\nu x)^\sigma)})^{-\mu}-1]^{\tau}},}
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu > 0} and \eqn{\tau > 0}.
+#' 
+#' @returns Returns a gamlss.family object which can be used to fit a EOFNH distribution in the \code{gamlss()} function.
 #'  
 #' @example examples/examples_EOFNH.R
 #'

@@ -9,6 +9,9 @@ LIN(mu.link = "log")
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a LIN distribution in the \code{gamlss()} function.
+}
 \description{
 The function \code{LIN()} defines the Lindley distribution with only one parameter 
 for a \code{gamlss.family} object to be used in GAMLSS fitting 

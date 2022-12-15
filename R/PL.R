@@ -18,6 +18,8 @@
 #' 
 #' for x > 0.
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a PL distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_PL.R
 #' 
 #' @references

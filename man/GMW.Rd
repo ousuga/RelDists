@@ -15,6 +15,9 @@ GMW(mu.link = "log", sigma.link = "log", nu.link = "sqrt", tau.link = "sqrt")
 
 \item{tau.link}{defines the tau.link, with "sqrt" link as the default for the tau parameter.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a GMW distribution in the \code{gamlss()} function.
+}
 \description{
 The Generalized modified Weibull distribution
 }

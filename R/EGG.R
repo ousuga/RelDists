@@ -1,26 +1,28 @@
-#' The Four-Parameter Exponentiated Generalized Gamma family
+#' The four parameter Exponentiated Generalized Gamma family
 #' 
 #' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
 #' 
 #' @description 
-#' The Four-Parameter Exponentiated Generalized Gamma distribution
+#' The four parameter Exponentiated Generalized Gamma distribution
 #' 
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
 #' @param nu.link defines the nu.link, with "log" link as the default for the nu parameter.
 #' @param tau.link defines the tau.link, with "log" link as the default for the tau parameter. 
 #' 
-#' @seealso \link{dFPEGG}
+#' @seealso \link{dEGG}
 #' 
 #' @details 
-#' Four-Parameter Exponentiated Generalized Gamma distribution with parameters \code{mu}, 
+#' Four parameter Exponentiated Generalized Gamma distribution with parameters \code{mu}, 
 #' \code{sigma}, \code{nu} and \code{tau} has density given by
 #' 
 #' \eqn{f(x) = \frac{\nu \sigma}{\mu \Gamma(\tau)} \left(\frac{x}{\mu}\right)^{\sigma \tau -1} \exp\left\{ - \left( \frac{x}{\mu} \right)^\sigma \right\} \left\{ \gamma_1\left( \tau, \left( \frac{x}{\mu} \right)^\sigma \right) \right\}^{\nu-1} ,}
 #' 
 #' for x > 0. 
 #' 
-#' @example examples/examples_FPEGG.R 
+#' @returns Returns a gamlss.family object which can be used to fit a EGG distribution in the \code{gamlss()} function.
+#' 
+#' @example examples/examples_EGG.R 
 #' 
 #' @references
 #' \insertRef{almalki2014modifications}{RelDists}
@@ -33,17 +35,17 @@
 #' @importFrom stats pgamma
 #' @importFrom VGAM pgamma.deriv
 #' @export
-FPEGG <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log") {
-  mstats <- checklink("mu.link", "Four-Parameter Exponentiated Generalized Gamma", 
+EGG <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log") {
+  mstats <- checklink("mu.link", "Exponentiated Generalized Gamma", 
                       substitute(mu.link), c("log", "own"))
-  dstats <- checklink("sigma.link", "Four-Parameter Exponentiated Generalized Gamma",
+  dstats <- checklink("sigma.link", "Exponentiated Generalized Gamma",
                       substitute(sigma.link), c("log", "own"))
-  vstats <- checklink("nu.link", "Four-Parameter Exponentiated Generalized Gamma", 
+  vstats <- checklink("nu.link", "Exponentiated Generalized Gamma", 
                       substitute(nu.link), c("log", "own"))
-  tstats <- checklink("tau.link", "Four-Parameter Exponentiated Generalized Gamma", 
+  tstats <- checklink("tau.link", "Exponentiated Generalized Gamma", 
                       substitute(tau.link), c("log", "own"))
   
-  structure(list(family=c("FPEGG", "Four-Parameter Exponentiated Generalized Gamma"), 
+  structure(list(family=c("EGG", "Exponentiated Generalized Gamma"), 
                  parameters=list(mu=TRUE, sigma=TRUE, nu=TRUE, tau=TRUE), 
                  nopar=4, 
                  type="Continuous", 
@@ -250,8 +252,8 @@ FPEGG <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log
                    d2ldt2
                  },
                  
-                 G.dev.incr = function(y, mu, sigma, nu, tau, ...) -2*dFPEGG(y, mu, sigma, nu, tau, log=TRUE), 
-                 rqres = expression(rqres(pfun="pFPEGG", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu, tau=tau)), 
+                 G.dev.incr = function(y, mu, sigma, nu, tau, ...) -2*dEGG(y, mu, sigma, nu, tau, log=TRUE), 
+                 rqres = expression(rqres(pfun="pEGG", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu, tau=tau)), 
                  
                  mu.initial    = expression(mu    <- rep(1, length(y))),
                  sigma.initial = expression(sigma <- rep(1, length(y))),

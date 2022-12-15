@@ -16,6 +16,8 @@
 #'
 #' for x > 0 and \eqn{\mu > 0}.
 #' 
+#' @returns Returns a gamlss.family object which can be used to fit a LIN distribution in the \code{gamlss()} function.
+#' 
 #' @references
 #' \insertRef{lindley1958fiducial}{RelDists}
 #' 

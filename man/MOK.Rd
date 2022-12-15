@@ -15,6 +15,9 @@ MOK(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
 
 \item{tau.link}{defines the tau.link, with "log" link as the default for the tau parameter.}
 }
+\value{
+Returns a gamlss.family object which can be used to fit a MOK distribution in the \code{gamlss()} function.
+}
 \description{
 The Marshall-Olkin Kappa family
 }
