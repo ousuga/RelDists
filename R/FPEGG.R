@@ -16,8 +16,7 @@
 #' Four-Parameter Exponentiated Generalized Gamma distribution with parameters \code{mu}, 
 #' \code{sigma}, \code{nu} and \code{tau} has density given by
 #' 
-#' \eqn{f(x) = \frac {\nu \sigma}{\mu \Gamma(\tau)} (\frac {x}{\mu})^{\sigma \tau -1} exp\{(-{\frac {x}{\mu})^{\sigma}})\} 
-#' \{ \gamma~_1~ (\tau, (\frac {x}{\mu})^{\sigma}) \}^{\nu -1} ,}
+#' \eqn{f(x) = \frac{\nu \sigma}{\mu \Gamma(\tau)} \left(\frac{x}{\mu}\right)^{\sigma \tau -1} \exp\left\{ - \left( \frac{x}{\mu} \right)^\sigma \right\} \left\{ \gamma_1\left( \tau, \left( \frac{x}{\mu} \right)^\sigma \right) \right\}^{\nu-1} ,}
 #' 
 #' for x > 0. 
 #' 
@@ -31,6 +30,8 @@
 #' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
+#' @importFrom stats pgamma
+#' @importFrom VGAM pgamma.deriv
 #' @export
 FPEGG <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log") {
   mstats <- checklink("mu.link", "Four-Parameter Exponentiated Generalized Gamma", 
@@ -68,157 +69,200 @@ FPEGG <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log
                  tau.dr = tstats$mu.eta,
                  
                  # Primeras derivadas ---------------------------------
+                 
                  dldm = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "mu", delta = 1e-04)
-                   dldm = as.vector(attr(nd, "gradient"))
+                   p1 <- -1/mu + (sigma*tau-1) * (-1/mu) 
+                   p2 <- - sigma * (y/mu)^(sigma) * (-1/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * sigma * (y/mu)^(sigma) * (-1/mu)
+                   dldm <- p1 + p2 + p3
                    dldm
                  },
                  
                  dldd = function(y, mu, sigma, nu, tau) {
-                   t <- (y / mu)
-                   A <- 1 / sigma + tau * log(t) - log(t) * t^sigma
-                   B <- (nu - 1) * exp(-(t)^sigma) * ((t^sigma)^tau) * log(t)
-                   C <-  zipfR::Igamma(tau, t^sigma)
-                   dldd <- A + B / C
+                   p1 <- 1/sigma + tau * (log(y)-log(mu))
+                   p2 <- -(y/mu)^sigma * log(y/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * (y/mu)^sigma * log(y/mu)
+                   dldd <- p1 + p2 + p3
                    dldd
                  },
                  
                  dldv = function(y, mu, sigma, nu, tau) {
-                   t <- (y / mu)
-                   A <- 1 / nu + log(zipfR::Igamma(tau, t^sigma) / base::gamma(tau))
-                   dldv <- A 
+                   aux <- (y/mu)^sigma
+                   dldv <- 1/nu + log(pgamma(aux, tau))
                    dldv
                  },
                  
                  dldt = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "tau", delta = 1e-04)
-                   dldt = as.vector(attr(nd, "gradient"))
+                   p1 <- - digamma(tau) + sigma * (log(y)-log(mu))
+                   aux <- (y/mu)^sigma
+                   p2 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,3] / pgamma(aux, tau)
+                   dldt <- p1 + p2
                    dldt
                  },
                  
                  # Segundas derivadas ---------------------------------
+                 
                  d2ldm2 = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "mu", delta = 1e-04)
-                   dldm = as.vector(attr(nd, "gradient"))
+                   p1 <- -1/mu + (sigma*tau-1) * (-1/mu) 
+                   p2 <- - sigma * (y/mu)^(sigma) * (-1/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * sigma * (y/mu)^(sigma) * (-1/mu)
+                   dldm <- p1 + p2 + p3
+                   
                    d2ldm2 <- -dldm * dldm
                    d2ldm2
                  },
                  
                  d2ldmdd = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "mu", delta = 1e-04)
-                   dldm = as.vector(attr(nd, "gradient"))
-                   t <- (y / mu)
-                   A <- 1 / sigma + tau * log(t) - log(t) * t^sigma
-                   B <- (nu - 1) * exp(-(t)^sigma) * ((t^sigma)^tau) * log(t)
-                   C <-  zipfR::Igamma(tau, t^sigma)
-                   dldd <- A + B / C
+                   
+                   p1 <- -1/mu + (sigma*tau-1) * (-1/mu) 
+                   p2 <- - sigma * (y/mu)^(sigma) * (-1/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * sigma * (y/mu)^(sigma) * (-1/mu)
+                   dldm <- p1 + p2 + p3
+                   
+                   p1 <- 1/sigma + tau * (log(y)-log(mu))
+                   p2 <- -(y/mu)^sigma * log(y/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * (y/mu)^sigma * log(y/mu)
+                   dldd <- p1 + p2 + p3
+                   
                    d2ldmdd <- -dldm * dldd
                    d2ldmdd
                  },
                  
                  d2ldmdv = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "mu", delta = 1e-04)
-                   dldm = as.vector(attr(nd, "gradient"))
-                   t <- (y / mu)
-                   A <- 1 / nu + log(zipfR::Igamma(tau, t^sigma) / base::gamma(tau))
-                   dldv <- A 
+                   
+                   p1 <- -1/mu + (sigma*tau-1) * (-1/mu) 
+                   p2 <- - sigma * (y/mu)^(sigma) * (-1/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * sigma * (y/mu)^(sigma) * (-1/mu)
+                   dldm <- p1 + p2 + p3
+                   
+                   aux <- (y/mu)^sigma
+                   dldv <- 1/nu + log(pgamma(aux, tau))
+                   
                    d2ldmdv <- -dldm * dldv
                    d2ldmdv
                  },
                  
                  d2ldmdt = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "mu", delta = 1e-04)
-                   dldm = as.vector(attr(nd, "gradient"))
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "tau", delta = 1e-04)
-                   dldt = as.vector(attr(nd, "gradient"))
+                   
+                   p1 <- -1/mu + (sigma*tau-1) * (-1/mu) 
+                   p2 <- - sigma * (y/mu)^(sigma) * (-1/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * sigma * (y/mu)^(sigma) * (-1/mu)
+                   dldm <- p1 + p2 + p3
+                   
+                   p1 <- - digamma(tau) + sigma * (log(y)-log(mu))
+                   aux <- (y/mu)^sigma
+                   p2 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,3] / pgamma(aux, tau)
+                   dldt <- p1 + p2
+                   
                    d2ldmdt <- -dldm * dldt
                    d2ldmdt
                  },
                  
                  d2ldd2 = function(y, mu, sigma, nu, tau) {
-                   t <- (y / mu)
-                   A <- 1 / sigma + tau * log(t) - log(t) * t^sigma
-                   B <- (nu - 1) * exp(-(t)^sigma) * ((t^sigma)^tau) * log(t)
-                   C <-  zipfR::Igamma(tau, t^sigma)
-                   dldd <- A + B / C
+                   p1 <- 1/sigma + tau * (log(y)-log(mu))
+                   p2 <- -(y/mu)^sigma * log(y/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * (y/mu)^sigma * log(y/mu)
+                   dldd <- p1 + p2 + p3
+                   
                    d2ldd2 <- -dldd * dldd
                    d2ldd2
                  },
                  
                  d2ldddv = function(y, mu, sigma, nu, tau) {
-                   t <- (y / mu)
-                   A <- 1 / sigma + tau * log(t) - log(t) * t^sigma
-                   B <- (nu - 1) * exp(-(t)^sigma) * ((t^sigma)^tau) * log(t)
-                   C <-  zipfR::Igamma(tau, t^sigma)
-                   dldd <- A + B / C
-                   D <- 1 / nu + log(zipfR::Igamma(tau, t^sigma) / base::gamma(tau))
-                   dldv <- D
+                   
+                   p1 <- 1/sigma + tau * (log(y)-log(mu))
+                   p2 <- -(y/mu)^sigma * log(y/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * (y/mu)^sigma * log(y/mu)
+                   dldd <- p1 + p2 + p3
+                   
+                   aux <- (y/mu)^sigma
+                   dldv <- 1/nu + log(pgamma(aux, tau))
+                   
                    d2ldddv <- -dldd * dldv
                    d2ldddv
                  },
                  
                  d2ldddt = function(y, mu, sigma, nu, tau) {
-                   t <- (y / mu)
-                   A <- 1 / sigma + tau * log(t) - log(t) * t^sigma
-                   B <- (nu - 1) * exp(-(t)^sigma) * ((t^sigma)^tau) * log(t)
-                   C <-  zipfR::Igamma(tau, t^sigma)
-                   dldd <- A + B / C
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "tau", delta = 1e-04)
-                   dldt = as.vector(attr(nd, "gradient"))
+                   
+                   p1 <- 1/sigma + tau * (log(y)-log(mu))
+                   p2 <- -(y/mu)^sigma * log(y/mu)
+                   aux <- (y/mu)^sigma
+                   p3 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,1] / pgamma(aux, tau)
+                   p3 <- p3 * (y/mu)^sigma * log(y/mu)
+                   dldd <- p1 + p2 + p3
+                   
+                   p1 <- - digamma(tau) + sigma * (log(y)-log(mu))
+                   aux <- (y/mu)^sigma
+                   p2 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,3] / pgamma(aux, tau)
+                   dldt <- p1 + p2
+                   
                    d2ldddt <- -dldd * dldt
                    d2ldddt
                  },
                  
                  d2ldv2 = function(y, mu, sigma, nu, tau) {
-                   t <- (y / mu)
-                   A <- 1 / nu + log(zipfR::Igamma(tau, t^sigma) / base::gamma(tau))
-                   dldv <- A 
+                   aux <- (y/mu)^sigma
+                   dldv <- 1/nu + log(pgamma(aux, tau)) 
+                   
                    d2ldv2 <- -dldv * dldv
                    d2ldv2
                  },
                  
                  d2ldvdt = function(y, mu, sigma, nu, tau) {
-                   t <- (y / mu)
-                   A <- 1 / nu + log(zipfR::Igamma(tau, t^sigma) / base::gamma(tau))
-                   dldv <- A 
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "tau", delta = 1e-04)
-                   dldt = as.vector(attr(nd, "gradient"))
+                   
+                   aux <- (y/mu)^sigma
+                   dldv <- 1/nu + log(pgamma(aux, tau))
+                   
+                   p1 <- - digamma(tau) + sigma * (log(y)-log(mu))
+                   aux <- (y/mu)^sigma
+                   p2 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,3] / pgamma(aux, tau)
+                   dldt <- p1 + p2
+                   
                    d2ldvdt <- -dldv * dldt
                    d2ldvdt
                  },
                  
                  d2ldt2 = function(y, mu, sigma, nu, tau) {
-                   nd = gamlss::numeric.deriv(dFPEGG(y, mu, sigma, nu, tau,
-                                                      log = TRUE), "tau", delta = 1e-04)
-                   dldt = as.vector(attr(nd, "gradient"))
+                   p1 <- - digamma(tau) + sigma * (log(y)-log(mu))
+                   aux <- (y/mu)^sigma
+                   p2 <- (nu-1) * VGAM::pgamma.deriv(aux, tau)[,3] / pgamma(aux, tau)
+                   dldt <- p1 + p2
+                   
                    d2ldt2 <- -dldt * dldt
                    d2ldt2
                  },
                  
-                 
                  G.dev.incr = function(y, mu, sigma, nu, tau, ...) -2*dFPEGG(y, mu, sigma, nu, tau, log=TRUE), 
                  rqres = expression(rqres(pfun="pFPEGG", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu, tau=tau)), 
                  
-                 mu.initial = expression(mu    <- rep(1, length(y))), 
-                 sigma.initial = expression(sigma <- rep(1, length(y))), 
-                 nu.initial = expression(nu    <- rep(1, length(y))),
-                 tau.initial = expression(tau    <- rep(1, length(y))),
+                 mu.initial    = expression(mu    <- rep(1, length(y))),
+                 sigma.initial = expression(sigma <- rep(1, length(y))),
+                 nu.initial    = expression(nu    <- rep(1, length(y))),
+                 tau.initial   = expression(tau   <- rep(1, length(y))),
                  
-                 mu.valid = function(mu)    all(mu > 0), 
+                 mu.valid    = function(mu)    all(mu > 0), 
                  sigma.valid = function(sigma) all(sigma > 0), 
-                 nu.valid = function(nu)    all(nu > 0),
-                 tau.valid = function(tau)    all(tau > 0),
-                 
-                 y.valid = function(y) all(y > 0)
+                 nu.valid    = function(nu)    all(nu > 0),
+                 tau.valid   = function(tau)   all(tau > 0),
+                 y.valid     = function(y)     all(y > 0)
   ), 
   class=c("gamlss.family", "family"))
 }

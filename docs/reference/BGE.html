@@ -87,7 +87,9 @@
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Almalki SJ, Nadarajah S (2014).
 “Modifications of the Weibull distribution: A review.”
-<em>Reliability Engineering &amp; System Safety</em>, <b>124</b>, 32--55.</p>
+<em>Reliability Engineering &amp; System Safety</em>, <b>124</b>, 32--55.
+<a href="https://doi.org/10.1016/j.ress.2013.11.010" class="external-link">doi:10.1016/j.ress.2013.11.010</a>
+.</p>
 <p>Barreto-Souza W, Santos AH, Cordeiro GM (2010).
 “The beta generalized exponential distribution.”
 <em>Journal of Statistical Computation and Simulation</em>, <b>80</b>(2), 159--172.</p>
@@ -110,7 +112,6 @@
 <span class="r-in"><span><span class="co"># Fitting the model</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: gamlss</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'gamlss' was built under R version 4.2.2</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: splines</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: gamlss.data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -121,7 +122,11 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: gamlss.dist</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: MASS</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: nlme</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: parallel</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'nlme'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:BBmisc':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     collapse</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  **********   GAMLSS Version 5.4-10  ********** </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> For more on GAMLSS look at https://www.gamlss.com/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Type gamlssNews() to see new features/changes/bug fixes.</span>
@@ -133,16 +138,16 @@
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'mu'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.7643547 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.037594 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'sigma'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4.036838 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2.062621 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'nu'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.7210613 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.9873518 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'tau'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1.97868 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.472089 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Generating random values under some model</span></span></span>
@@ -160,16 +165,16 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.5459494  -1.5255612 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.9772754  -2.2129696 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.362149   -2.101722 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.8908878  -1.4544556 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.005597 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.9975359 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"tau"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.189359 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.103769 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

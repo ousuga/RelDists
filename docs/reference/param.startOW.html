@@ -92,7 +92,7 @@ See example for an illustration.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Random data generation (OW distributed)</span></span></span>
-<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="dOW.html">rOW</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">1000</span>, mu<span class="op">=</span><span class="fl">0.05</span>, sigma<span class="op">=</span><span class="fl">0.6</span>, nu<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="dOW.html">rOW</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">500</span>, mu<span class="op">=</span><span class="fl">0.05</span>, sigma<span class="op">=</span><span class="fl">0.6</span>, nu<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Initial values with TTT plot</span></span></span>
 <span class="r-in"><span><span class="va">iv</span> <span class="op">&lt;-</span> <span class="fu"><a href="initValuesOW_TTT.html">initValuesOW_TTT</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="fl">1</span><span class="op">)</span></span></span>
@@ -111,8 +111,9 @@ See example for an illustration.</p>
 <span class="r-in"><span><span class="co"># This data is from unimodal hazard</span></span></span>
 <span class="r-in"><span><span class="co"># See TTT estimate from sample</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">iv</span>, legend_options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pos<span class="op">=</span><span class="fl">1.03</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The `legend_options` argument of `plot.HazardShape()` is deprecated as of EstimationTools 4.0.0.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Please use `plot.HazardShape()` instead.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The `legend_options` argument of `plot.HazardShape()` is deprecated as of</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> EstimationTools 4.0.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `plot.HazardShape()` instead.</span>
 <span class="r-plt img"><img src="param.startOW-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># See the true hazard</span></span></span>
@@ -137,13 +138,13 @@ See example for an illustration.</p>
 <span class="r-in"><span><span class="co"># Estimates are close to actual values</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"mu"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  0.04768578 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.05105139 </span>
 <span class="r-in"><span><span class="op">(</span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.5356913 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.5874719 </span>
 <span class="r-in"><span><span class="op">(</span><span class="va">nu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2.169115 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2.02519 </span>
 <span class="r-in"><span>  </span></span>
 </code></pre></div>
     </div>

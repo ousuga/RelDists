@@ -43,7 +43,8 @@ Imports:
     Rdpack,
     zipfR,
     BBmisc,
-    lamW
+    lamW,
+    VGAM
 LazyData: true
 Suggests: knitr, rmarkdown, viridis, autoimage, gamlss.cens, V8
 RoxygenNote: 7.2.3

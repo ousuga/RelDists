@@ -21,8 +21,7 @@
 #' Four-Parameter Exponentiated Generalized Gamma distribution with parameters \code{mu}, 
 #' \code{sigma}, \code{nu} and \code{tau} has density given by
 #' 
-#' \eqn{f(x) = \frac {\nu \sigma}{\mu \Gamma(\tau)} (\frac {x}{\mu})^{\sigma \tau -1} exp\{(-{\frac {x}{\mu})^{\sigma}})\} 
-#' \{ \gamma~_1~ (\tau, (\frac {x}{\mu})^{\sigma}) \}^{\nu -1} ,}
+#' \eqn{f(x) = \frac{\nu \sigma}{\mu \Gamma(\tau)} \left(\frac{x}{\mu}\right)^{\sigma \tau -1} \exp\left\{ - \left( \frac{x}{\mu} \right)^\sigma \right\} \left\{ \gamma_1\left( \tau, \left( \frac{x}{\mu} \right)^\sigma \right) \right\}^{\nu-1} ,}
 #' 
 #' for x > 0. 
 #' 
