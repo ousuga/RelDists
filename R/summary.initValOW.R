@@ -9,7 +9,7 @@
 #' @author Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}
 #' 
 #' @param object an object of class \code{initVal}, generated with 
-#'               \code{\link{initValuesOW_TTT}}.
+#'               \code{\link{initValuesOW}}.
 #' @param ... extra arguments
 #'              
 #' @export   

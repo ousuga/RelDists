@@ -12,7 +12,7 @@
 #' @param valid.values a list of character elements specifying the region for 
 #' \code{sigma} and/or \code{nu}. See \strong{Details} and \strong{Examples}
 #' section to learn about its use.
-#' @param initVal An \code{initValOW} object generated with \code{\link{initValuesOW_TTT}}
+#' @param initVal An \code{initValOW} object generated with \code{\link{initValuesOW}}
 #' function.
 #' 
 #' @details 

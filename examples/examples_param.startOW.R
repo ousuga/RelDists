@@ -2,7 +2,7 @@
 y <- rOW(n=500, mu=0.05, sigma=0.6, nu=2)
 
 # Initial values with TTT plot
-iv <- initValuesOW_TTT(formula = y ~ 1)
+iv <- initValuesOW(formula = y ~ 1)
 summary(iv)
 
 # This data is from unimodal hazard
