@@ -36,6 +36,8 @@ $$F(x) = 1 - \left[ 1 + \left( e^{(\mu x)^{\sigma}} - 1 \right)^\nu \right]^{-1}
 respectively, where $\mu>0, \quad \sigma\nu>0$. $\mu$ is the scale parameter, $\sigma$ and $\nu$ are the shape parameters. Next figure shows possible shapes of the $f(x)$ and $F(x)$ for several values of the parameters.
 
 ```{r, echo=FALSE, message=F}
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## 5^(1/3) = 1.71; 2^(1/3) = 1.26; 0.5^(1/2) = 0.71
 paleta <- c("#00004A", "#00A4FF", "#F6F906", "#FF3300", "purple")
 curve(dOW(x, 1.71, 3, 0.7), from=0, to=3.5, ylim=c(0,1.6), col=paleta[1],
@@ -74,6 +76,8 @@ legend("bottomright", legend=c(expression(paste(mu,
                             expression(paste(mu,
        " = ", 1.7,"        " ,sigma," = ",1,"   " ,nu," = ", 0.8))),
        col=paleta[1:4], bty="n", lwd=2)
+
+par(old_par) # restore previous graphical parameters
 ```
 
 
@@ -94,6 +98,8 @@ where the hf can take the following shapes:
 The figure shows possible shapes of the hf mentioned above: 
 
 ```{r, echo=FALSE}
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 par(mgp=c(3,0.7,0))
 curve(hOW(x, 1/85, 9, 0.7), from=0, to=69, ylim=c(0,0.035), col=paleta[1],
       ylab=expression(h[' '] (x)), xlab="x", las=1, lwd=2)
@@ -116,11 +122,15 @@ legend("topright", legend=c(expression(paste(mu,
                             expression(paste(mu, 
        " = ", 0.0133,"  " ,sigma," = ",-1.5,"   " ,nu," = ", -0.1))), 
        col=paleta, bty="n", lwd=2)
+
+par(old_par) # restore previous graphical parameters
 ```
 
-The following figure illustrate the regios corresponding to the different hazard shapes:
+The following figure illustrate the regions corresponding to the different hazard shapes:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=6}
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 hyp <- function(x) 1/x
 
 library(viridis)
@@ -129,7 +139,7 @@ col2 <- magma(18)[12]
 col3 <- magma(18)[7]
 col4 <- magma(18)[10]
 col5 <- magma(18)[1]
-col6 <- "blue"#magma(18)[5]
+col6 <- "blue"
 
 par(mfrow=c(1,1), mar=c(5,5,1,1), mai=c(1,1,0.2,0.2), 
     mgp=c(3.6,1.1,0))
@@ -137,8 +147,6 @@ x <- seq(-3.5, 3.5, length.out = 500)
 y <- hyp(x)
 plot(x, y, type="l", xlim=c(-3,3), ylim=c(-3,3),
      xlab=expression(sigma), ylab=expression(nu), las=1)
-# abline(v=1, lwd=2, lty=3, col=1)
-# abline(h=1, lwd=2, lty=3, col=1)
 
 # Increasing zone
 x_inc <- x[which(x > 1)]
@@ -173,6 +181,8 @@ legend("topleft", legend=c("Increasing", "Unimodal 1",
                            "Decreasing 1", "Decreasing 2"),
        col=1, pch=21, pt.cex=2.5, pt.bg=c(col1,col2,col3,col4,col6,col5), 
        y.intersp=1.2)
+
+par(old_par) # restore previous graphical parameters
 ```
 
 
@@ -193,24 +203,28 @@ Cooray [-@Cooray2015] used the following data provided by Wang [-@Wang2000] in o
  
 5, 11, 21, 31, 46, 75, 98, 122, 145, 165, 195, 224, 245, 293, 321, 330, 350, 420.
 
-The data above is the time to failure of an electronic device in hours. As an alternative to classical MLE, We used the function \verb|gamlss| to fit an only-intercept model in order to estimate parameters of OW distribution without covariates. Using our `initValuesOW_TTT()`, we can obtain an initial guess and the valid region.
+The data above is the time to failure of an electronic device in hours. As an alternative to classical MLE, We used the function \verb|gamlss| to fit an only-intercept model in order to estimate parameters of OW distribution without covariates. Using our `initValuesOW()`, we can obtain an initial guess and the valid region.
 
 ```{r}
 data("equipment")
-my_initial_guess <- initValuesOW_TTT(formula = equipment ~ 1)
+my_initial_guess <- initValuesOW(formula = equipment ~ 1)
 
 summary(my_initial_guess)
 ```
 
-`initValuesOW_TTT()` function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
+`initValuesOW()` function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
 
 ```{r}
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
 plot(my_initial_guess, las = 1)
 legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
+
+par(old_par) # restore previous graphical parameters
 ```
 
-Therefore, we define the search region according to `initValuesOW_TTT()` outputs
+Therefore, we define the search region according to `initValuesOW()` outputs
 
 ```{r}
 # Custom search region
@@ -256,17 +270,21 @@ Cooray [-@Cooray2006] used a dataset with 208 data points provided by Kimball [-
 ```{r}
 # Do not forget to load 'RelDists' package
 data("mice")
-init_vals <- initValuesOW_TTT(formula = mice ~ 1)
+init_vals <- initValuesOW(formula = mice ~ 1)
 
 summary(init_vals)
 ```
 
-With `initValuesOW_TTT()` function we identified an increasing hazard shape, as well as was stated by Cooray [-@Cooray2006], because TTT plot is concave.
+With `initValuesOW()` function we identified an increasing hazard shape, as well as was stated by Cooray [-@Cooray2006], because TTT plot is concave.
 
 ```{r}
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
 plot(init_vals, las = 1)
 legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
+
+par(old_par) # restore previous graphical parameters
 ```
 
 Hence, we implement the estimation procedure

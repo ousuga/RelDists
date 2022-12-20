@@ -1,3 +1,5 @@
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function 
 curve(dEMWEx(x, mu = 49.046, sigma =3.148, nu=0.00005, tau=0.1), from=0, to=100,
       col = "red", las = 1, ylab = "f(x)")
@@ -26,3 +28,5 @@ curve(dEMWEx(x, mu = (1/4), sigma =1, nu=1, tau=2),  from = 0, add = TRUE,
 par(mfrow=c(1,1))
 curve(hEMWEx(x, mu = 49.046, sigma =3.148, nu=0.00005, tau=0.1), from = 0, to = 80, 
       col = "red", ylab = "Hazard function", las = 1)
+
+par(old_par) # restore previous graphical parameters

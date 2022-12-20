@@ -1,3 +1,5 @@
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dIW(x, mu=5, sigma=2.5), from=0, to=10,
       ylim=c(0, 0.55), col="red", las=1, ylab="f(x)")
@@ -24,3 +26,5 @@ curve(dIW(x, mu=5, sigma=2.5), from=0, add=TRUE, col="red")
 par(mfrow=c(1,1))
 curve(hIW(x, mu=5, sigma=2.5), from=0, to=15, ylim=c(0, 0.9),
    col="red", ylab="Hazard function", las=1)
+
+par(old_par) # restore previous graphical parameters

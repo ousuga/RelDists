@@ -1,3 +1,5 @@
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function 
 curve(dBGE(x, mu = 1.5, sigma =1.7, nu=1, tau=1), from = 0, to = 3, 
       col = "red", las = 1, ylab = "f(x)")
@@ -26,3 +28,5 @@ curve(dBGE(x, mu = 1.5, sigma =1.7, nu=1, tau=1),  from = 0, add = TRUE,
 par(mfrow=c(1,1))
 curve(hBGE(x, mu = 0.9, sigma =0.5, nu=1, tau=1), from = 0, to = 2, 
       col = "red", ylab = "Hazard function", las = 1)
+
+par(old_par) # restore previous graphical parameters

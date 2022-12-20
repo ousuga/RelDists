@@ -1,3 +1,5 @@
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function 
 par(mfrow=c(1,1))
 curve(dEEG(x, mu = 1, sigma =3), from = 0, to = 10, 
@@ -27,3 +29,5 @@ curve(dEEG(x, mu = 1, sigma =1),  from = 0, add = TRUE,
 par(mfrow=c(1,1))
 curve(hEEG(x, mu = 1, sigma =0.5), from = 0, to = 2, 
       col = "red", ylab = "Hazard function", las = 1)
+
+par(old_par) # restore previous graphical parameters

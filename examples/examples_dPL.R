@@ -1,3 +1,5 @@
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dPL(x, mu=1.5, sigma=0.2), from=0.1, to=10,
       col="red", las=1, ylab="f(x)")
@@ -24,3 +26,5 @@ curve(dPL(x, mu=1.5, sigma=0.2), from=0.1, to=15, add=TRUE, col="red")
 par(mfrow=c(1,1))
 curve(hPL(x, mu=1.5, sigma=0.2), from=0.1, to=15,
       col="red", ylab="Hazard function", las=1)
+
+par(old_par) # restore previous graphical parameters

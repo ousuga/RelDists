@@ -1,3 +1,5 @@
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dMOEW(x, mu=0.5, sigma=0.7, nu=1), from=0.001, to=1,
       col="red", ylab="f(x)", las=1)
@@ -26,3 +28,4 @@ curve(dMOEW(x, mu=0.5, sigma=0.7, nu=1),
 curve(hMOEW(x, mu=0.5, sigma=0.7, nu=1), from=0.001, to=3,
       col="red", ylab="Hazard function", las=1)
 
+par(old_par) # restore previous graphical parameters

@@ -1,3 +1,5 @@
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 par(mfrow = c(1,1))
 curve(dMOK(x = x, mu = 1, sigma = 3.5, nu = 3, tau = 2), from = 0, to = 15,
@@ -30,3 +32,4 @@ par(mfrow = c(1,1))
 curve(hMOK(x = x, mu = 1, sigma = 2.5, nu = 3, tau = 2), from = 0, to = 20,
       col = 2, ylab = 'Hazard function', las = 1)
 
+par(old_par) # restore previous graphical parameters
