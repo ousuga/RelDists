@@ -56,6 +56,8 @@ Four-Parameter Exponentiated Generalized Gamma distribution with parameters \cod
 for x > 0.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dEGG(x, mu=0.1, sigma=0.8, nu=10, tau=1.5), from=0.000001, to=1.5, ylim=c(0, 2.5),
       col="red", las=1, ylab="f(x)")
@@ -84,6 +86,7 @@ curve(dEGG(x, mu=0.1, sigma=0.8, nu=10, tau=1.5),
 curve(hEGG(x,  mu=0.1, sigma=0.8, nu=10, tau=1.5), from=0.0001, to=1.5,
       col="red", ylab="Hazard function", las=1)
 
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{almalki2014modifications}{RelDists}

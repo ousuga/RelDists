@@ -56,6 +56,8 @@ The Weibull geometric distribution with parameters \code{mu},
 for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{0 < \nu < 1}.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function 
 curve(dWG(x, mu = 0.9, sigma = 2, nu = 0.5), from = 0, to = 3, 
 ylim = c(0, 1.1), col = "red", las = 1, ylab = "f(x)")
@@ -85,6 +87,7 @@ par(mfrow=c(1,1))
 curve(hWG(x, mu = 0.9, sigma = 2, nu = 0.5), from = 0, to = 8, 
 ylim = c(0, 12), col = "red", ylab = "Hazard function", las = 1)
 
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{barreto2011weibull}{RelDists}

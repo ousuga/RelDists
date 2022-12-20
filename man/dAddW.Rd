@@ -56,6 +56,8 @@ Additive Weibull Distribution with parameters \code{mu},
 for x > 0.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dAddW(x, mu=1.5, sigma=0.5, nu=3, tau=0.8), from=0.0001, to=2,
       col="red", las=1, ylab="f(x)")
@@ -84,6 +86,7 @@ curve(dAddW(x, mu=1.5, sigma=0.2, nu=3, tau=0.8),
 curve(hAddW(x, mu=1.5, sigma=0.2, nu=3, tau=0.8), from=0.001, to=1,
       col="red", ylab="Hazard function", las=1)
 
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{almalki2014modifications}{RelDists}

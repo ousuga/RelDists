@@ -54,6 +54,8 @@ The Gamma Weibull Distribution with parameters \code{mu},
 for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function 
 curve(dGammaW(x, mu = 0.5, sigma = 2, nu=1), from = 0, to = 6, 
       col = "red", las = 1, ylab = "f(x)")
@@ -82,6 +84,8 @@ col = "red", ylim = c(0, 1))
 par(mfrow=c(1,1))
 curve(hGammaW(x, mu = 0.5, sigma = 2, nu=1), from = 0, to = 2, 
 ylim = c(0, 1), col = "red", ylab = "Hazard function", las = 1)
+
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{almalki2014modifications}{RelDists}

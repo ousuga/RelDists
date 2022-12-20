@@ -54,6 +54,8 @@ The Generalized Inverse Weibull distribution \code{mu},
 for x > 0.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dGIW(x, mu=3, sigma=5, nu=0.5), from=0.001, to=8,
       col="red", ylab="f(x)", las=1)
@@ -81,7 +83,8 @@ curve(dGIW(x, mu=3, sigma=5, nu=0.5),
 ## The Hazard function
 curve(hGIW(x, mu=3, sigma=5, nu=0.5), from=0.001, to=30,
       col="red", ylab="Hazard function", las=1)
-#
+
+par(old_par) # restore previous graphical parameters
 
 }
 \references{

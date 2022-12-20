@@ -54,6 +54,8 @@ The Marshall-Olkin Extended Inverse Weibull distribution \code{mu},
 for x > 0.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dMOEIW(x, mu=0.6, sigma=1.7, nu=0.3), from=0, to=2,
       col="red", ylab="f(x)", las=1)
@@ -81,6 +83,8 @@ curve(dMOEIW(x, mu=0.6, sigma=1.7, nu=0.3),
 ## The Hazard function
 curve(hMOEIW(x, mu=0.5, sigma=0.7, nu=1), from=0.001, to=3,
       col="red", ylab="Hazard function", las=1)
+
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{okasha2017}{RelDists}

@@ -52,6 +52,8 @@ and \code{sigma} has density given by
 for - \code{infty} < y < \code{infty}.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dLW(x, mu=0, sigma=1.5), from=-8, to=5,
       col="red", las=1, ylab="f(x)")
@@ -78,6 +80,8 @@ curve(dLW(x, mu=0, sigma=1.5), from=-15, to=6, add=TRUE, col="red")
 par(mfrow=c(1,1))
 curve(hLW(x, mu=0, sigma=1.5), from=-8, to=7,
       col="red", ylab="Hazard function", las=1)
+
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{almalki2014modifications}{RelDists}

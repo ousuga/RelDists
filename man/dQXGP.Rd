@@ -59,6 +59,8 @@ where
 \eqn{K(\mu, \sigma, \nu) = \frac{\nu \sigma}{(exp(\nu)-1)(1+\mu)}}
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dQXGP(x, mu=0.5, sigma=1, nu=1), from=0.1, to=8,
       ylim=c(0, 0.6), col="red", las=1, ylab="f(x)")
@@ -86,6 +88,8 @@ curve(dQXGP(x, mu=0.5, sigma=1, nu=1),
 ## The Hazard function
 curve(hQXGP(x, mu=0.5, sigma=1, nu=1), from=0.01, to=3,
       col="red", ylab="Hazard function", las=1)
+
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{subhradev2018}{RelDists}

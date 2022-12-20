@@ -33,7 +33,7 @@ for x > 0.
 # Example 1
 # Generating some random values with
 # known mu, sigma, nu and tau
-\dontrun{
+\donttest{
 y <- rAddW(n=100, mu=1.5, sigma=0.2, nu=3, tau=0.8)
 
 # Fitting the model

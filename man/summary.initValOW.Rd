@@ -8,7 +8,7 @@
 }
 \arguments{
 \item{object}{an object of class \code{initVal}, generated with 
-\code{\link{initValuesOW_TTT}}.}
+\code{\link{initValuesOW}}.}
 
 \item{...}{extra arguments}
 }

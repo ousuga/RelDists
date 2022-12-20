@@ -54,6 +54,8 @@ The Extended Weibull distribution with parameters \code{mu},
 for x > 0.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dExW(x, mu=0.3, sigma=2, nu=0.05), from=0.0001, to=2,
       col="red", las=1, ylab="f(x)")
@@ -81,6 +83,8 @@ curve(dExW(x, mu=0.3, sigma=2, nu=0.05),
 ## The Hazard function
 curve(hExW(x, mu=0.3, sigma=2, nu=0.05), from=0.001, to=4,
       col="red", ylab="Hazard function", las=1)
+
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{almalki2014modifications}{RelDists}

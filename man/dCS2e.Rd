@@ -54,6 +54,8 @@ The Cosine Sine Exponential Distribution with parameters \code{mu},
 for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 par(mfrow=c(1,1))
 curve(dCS2e(x, mu=1, sigma=0.1, nu =0.1), from=0, to=1,
@@ -81,6 +83,8 @@ curve(dCS2e(x, mu=0.1, sigma=1, nu=0.1), from=0, add=TRUE, col="red")
 par(mfrow=c(1,1))
 curve(hCS2e(x, mu=1, sigma=0.1, nu =0.1), from=0, to=1, ylim=c(0, 10),
       col=2, ylab="Hazard function", las=1)
+
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{chesneau2018new}{RelDists}

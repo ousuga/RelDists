@@ -15,7 +15,7 @@ functions.}
 \code{sigma} and/or \code{nu}. See \strong{Details} and \strong{Examples}
 section to learn about its use.}
 
-\item{initVal}{An \code{initValOW} object generated with \code{\link{initValuesOW_TTT}}
+\item{initVal}{An \code{initValOW} object generated with \code{\link{initValuesOW}}
 function.}
 }
 \description{
@@ -39,7 +39,7 @@ y <- rOW(n=200, mu=0.2, sigma=4, nu=0.05)
 myvalues <- list(sigma="all(sigma > 1)",
                  nu="all(nu < 1) & all(nu < 1)")
 
-my_initial_guess <- initValuesOW_TTT(formula=y~1)
+my_initial_guess <- initValuesOW(formula=y~1)
 summary(my_initial_guess)
 
 # OW family modified with 'myOW_region'

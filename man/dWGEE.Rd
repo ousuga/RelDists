@@ -54,6 +54,8 @@ The Weighted Generalized Exponential-Exponential Distribution with parameters \c
 for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function 
 curve(dWGEE(x, mu = 5, sigma = 0.5, nu = 1), from = 0, to = 6, 
 ylim = c(0, 1), col = "red", las = 1, ylab = "The probability density function")
@@ -82,6 +84,8 @@ col = "red", ylim = c(0, 1))
 par(mfrow=c(1,1))
 curve(hWGEE(x, mu = 5, sigma = 0.5, nu = 1), from = 0, to = 6, 
 ylim = c(0, 1.4), col = "red", ylab = "The hazard function", las = 1)
+
+par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{Mahdavi2015}{RelDists}

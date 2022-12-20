@@ -59,6 +59,8 @@ The generalized modified weibull with parameters \code{mu},
 for x>0.
 }
 \examples{
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
 ## The probability density function
 curve(dGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5), from=0, to=0.8,
       ylim=c(0, 2), col="red", las=1, ylab="f(x)") 
@@ -85,5 +87,6 @@ curve(dGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5),  from=0, add=TRUE, col="red")
 par(mfrow=c(1,1))
 curve(hGMW(x, mu=2, sigma=0.5, nu=2, tau=1.5), from=0, to=1, ylim=c(0, 16),
       col="red", ylab="Hazard function", las=1)
-      
+
+par(old_par) # restore previous graphical parameters
 }
