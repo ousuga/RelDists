@@ -12,7 +12,7 @@
 #'                \code{1}.
 #' @param data an optional data frame containing the response variables. If 
 #'             data is not specified, the variables are taken from the 
-#'             environment from which \code{initValuesOW_TTT} is called.
+#'             environment from which \code{initValuesOW} is called.
 #' @param local_reg a list of control parameters for LOESS. See 
 #'                  \code{\link[EstimationTools]{loess.options}}.
 #' @param interpolation a list of control parameters for interpolation function. See 
@@ -34,11 +34,11 @@
 #' @importFrom EstimationTools loess.options interp.options
 #' @importFrom BBmisc is.error
 #' @export                                                                                                                                               
-initValuesOW_TTT <- function(formula, data=NULL,
+initValuesOW <- function(formula, data=NULL,
                              local_reg = loess.options(),
                              interpolation = interp.options(), ...){
   if ( length(attr(terms(formula), "term.labels")) > 0 )
-    stop('initValuesOW_TTT function only uses response variable.')
+    stop('initValuesOW function only uses response variable.')
   mycall <- match.call()
   id_arg <- match(c('formula', 'data'), names(mycall),
                   nomatch=0)
