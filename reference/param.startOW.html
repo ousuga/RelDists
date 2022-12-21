@@ -77,6 +77,16 @@ function.</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>A length-one vector numeric value corresponding to the initial value of the
+parameter specified in <code>param</code> extracted from a <code><a href="initValuesOW.html">initValuesOW</a></code></p>
+ 
+
+<p>object specified in the <code>initValOW</code> input argument.</p>
+    </div>
+    <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>This function just gets initial values computed with <code><a href="initValuesOW.html">initValuesOW</a></code> 
 for <code>OW</code> family. It must be called in <code>sigma.start</code> and <code>nu.start</code> 
@@ -138,13 +148,13 @@ See example for an illustration.</p>
 <span class="r-in"><span><span class="co"># Estimates are close to actual values</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"mu"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  0.05620922 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.04368233 </span>
 <span class="r-in"><span><span class="op">(</span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.8887502 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.5361459 </span>
 <span class="r-in"><span><span class="op">(</span><span class="va">nu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what <span class="op">=</span> <span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.419917 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2.16061 </span>
 <span class="r-in"><span>  </span></span>
 </code></pre></div>
     </div>

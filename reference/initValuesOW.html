@@ -97,6 +97,21 @@ environment from which <code>initValuesOW</code> is called.</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>Returns an object of class <code>c("initValOW", "HazardShape")</code> containing:</p>
+
+
+<ul><li><p><code>sigma.start</code> value for \(sigma\) parameter of OW distribution.</p></li>
+<li><p><code>nu.start</code> value for \(nu\) parameter of OW distribution.</p></li>
+<li><p><code>sigma.valid</code> search region for \(sigma\) parameter of OW distribution.</p></li>
+<li><p><code>nu.valid</code> search region for \(nu\) parameter of OW distribution.</p></li>
+<li><p><code>TTTplot</code> Total Time on Test transform computed from the data.</p></li>
+<li><p><code>hazard_type</code> shape of the hazard function determined from the TTT
+plot.</p></li>
+</ul></div>
+    <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>This function performs a non-parametric estimation of the empirical total 
 time on test (TTT) plot. Then, this estimated curve can be used so as to 
@@ -139,18 +154,30 @@ based on hazard shape associated to the  shape of empirical TTT plot.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Bathtuh hazard and its corresponding TTT plot with right censored data</span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">y2</span> <span class="op">&lt;-</span> <span class="fu"><a href="dOW.html">rOW</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1000</span>, mu <span class="op">=</span> <span class="fl">0.1</span>, sigma <span class="op">=</span> <span class="fl">7</span>, nu <span class="op">=</span> <span class="fl">0.08</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">status</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">980</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">my_initial_guess2</span> <span class="op">&lt;-</span> <span class="fu">initValuesOW</span><span class="op">(</span>formula<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></span><span class="op">(</span><span class="va">y2</span>, <span class="va">status</span><span class="op">)</span><span class="op">~</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">my_initial_guess2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Initial Values</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sigma = 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> nu = 0.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Search Regions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> For sigma: all(sigma &gt; 1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> For nu: all(nu &lt; 1/sigma)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Hazard shape: Bathtub</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">my_initial_guess2</span>, par_plot<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3.7</span>,<span class="fl">3.7</span>,<span class="fl">1</span>,<span class="fl">2.5</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                                     mgp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="initValuesOW-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu"><a href="dOW.html">hOW</a></span><span class="op">(</span><span class="va">x</span>, mu <span class="op">=</span> <span class="fl">0.022</span>, sigma <span class="op">=</span> <span class="fl">8</span>, nu <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span>, from <span class="op">=</span> <span class="fl">0</span>, </span></span>
 <span class="r-in"><span>      to <span class="op">=</span> <span class="fl">80</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.04</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"red"</span>, </span></span>
 <span class="r-in"><span>      ylab <span class="op">=</span> <span class="st">"Hazard function"</span>, las <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-plt img"><img src="initValuesOW-4.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
