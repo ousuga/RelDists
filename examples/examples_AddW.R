@@ -1,7 +1,9 @@
 # Example 1
 # Generating some random values with
 # known mu, sigma, nu and tau
-\donttest{
+# Will not be run this example because high number is cycles
+# is needed in order to get good estimates
+\dontrun{
 y <- rAddW(n=100, mu=1.5, sigma=0.2, nu=3, tau=0.8)
 
 # Fitting the model
@@ -20,7 +22,9 @@ exp(coef(mod, what='tau'))
 
 # Example 2
 # Generating random values under some model
-\donttest{
+# Will not be run this example because high number is cycles
+# is needed in order to get good estimates
+\dontrun{
 n <- 200
 x1 <- runif(n, min=0.4, max=0.6)
 x2 <- runif(n, min=0.4, max=0.6)

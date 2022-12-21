@@ -1,7 +1,9 @@
 # Example 1
 # Generating some random values with
 # known mu, sigma and nu
-\donttest{
+# Will not be run this example because high number is cycles
+# is needed in order to get good estimates
+\dontrun{
 y <- rEW(n=100, mu=2, sigma=1.5, nu=0.5)
 
 # Fitting the model
@@ -18,7 +20,9 @@ exp(coef(mod, what='nu'))
 
 # Example 2
 # Generating random values under some model
-\donttest{
+# Will not be run this example because high number is cycles
+# is needed in order to get good estimates
+\dontrun{
 n <- 200
 x1 <- rpois(n, lambda=2)
 x2 <- runif(n)
