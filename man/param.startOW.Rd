@@ -13,6 +13,11 @@ values \code{"sigma"} or \code{"nu"}.}
 \item{initValOW}{an \code{initValOW} object generated with \code{\link{initValuesOW}}
 function.}
 }
+\value{
+A length-one vector numeric value corresponding to the initial value of the
+parameter specified in \code{param} extracted from a \code{\link{initValOW}} 
+object specified in the \code{initValOW} input argument.
+}
 \description{
 This function can be used to extract initial values found with empirical 
 time on test transform (TTT) through  \code{\link{initValuesOW}} function. 

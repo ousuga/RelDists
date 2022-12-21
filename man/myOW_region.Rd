@@ -18,6 +18,10 @@ section to learn about its use.}
 \item{initVal}{An \code{initValOW} object generated with \code{\link{initValuesOW}}
 function.}
 }
+\value{
+Returns a \code{gamlss.family} object which can be used to fit an OW 
+distribution in the \code{gamlss()} function.
+}
 \description{
 This function can be used to modify \code{OW} \code{gamlss.family} object 
 in order to  set a customized region search for \code{gamlss()} function.

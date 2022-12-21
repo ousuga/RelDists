@@ -91,6 +91,11 @@ FWE <- function (mu.link="log", sigma.link="log") {
 #' 
 #' @param y vector with the random sample
 #' @keywords internal
+#' 
+#' @return 
+#' A two-length numeric vector with initial estimates for \eqn{mu} and \eqn{sigma} 
+#' parameters from FWE distribution (see \code{\link{dFWE}}).
+#' 
 #' @export
 #' @importFrom stats coef ecdf lm
 initValuesFWE <- function(y) {

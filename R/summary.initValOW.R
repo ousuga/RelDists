@@ -11,6 +11,11 @@
 #' @param object an object of class \code{initVal}, generated with 
 #'               \code{\link{initValuesOW}}.
 #' @param ... extra arguments
+#' 
+#' @return 
+#' No return value, it just prints out in the console the initial values and the
+#' search regions for \eqn{sigma} and \eqn{nu} from OW distribution (see 
+#' \code{\link{dOW}}).
 #'              
 #' @export   
 summary.initValOW <- function(object, ...){

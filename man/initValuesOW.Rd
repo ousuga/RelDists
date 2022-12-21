@@ -30,6 +30,19 @@ environment from which \code{initValuesOW} is called.}
 \item{...}{further arguments passed to 
 \code{\link[EstimationTools]{TTTE_Analytical}}.}
 }
+\value{
+Returns an object of class \code{c("initValOW", "HazardShape")} containing:
+
+\itemize{
+\item \code{sigma.start} value for \eqn{sigma} parameter of OW distribution.  
+\item \code{nu.start} value for \eqn{nu} parameter of OW distribution.
+\item \code{sigma.valid} search region for \eqn{sigma} parameter of OW distribution.  
+\item \code{nu.valid} search region for \eqn{nu} parameter of OW distribution.
+\item \code{TTTplot} Total Time on Test transform computed from the data.
+\item \code{hazard_type} shape of the hazard function determined from the TTT
+plot.
+}
+}
 \description{
 This function can be used so as to get suggestions about initial values
 and the search region for parameter estimation in \code{OW} distribution.

@@ -26,6 +26,19 @@
 #' get suggestions about initial values and the search region for parameters 
 #' based on hazard shape associated to the  shape of empirical TTT plot.
 #' 
+#' @return
+#' Returns an object of class \code{c("initValOW", "HazardShape")} containing:
+#' 
+#' \itemize{
+#' \item \code{sigma.start} value for \eqn{sigma} parameter of OW distribution.  
+#' \item \code{nu.start} value for \eqn{nu} parameter of OW distribution.
+#' \item \code{sigma.valid} search region for \eqn{sigma} parameter of OW distribution.  
+#' \item \code{nu.valid} search region for \eqn{nu} parameter of OW distribution.
+#' \item \code{TTTplot} Total Time on Test transform computed from the data.
+#' \item \code{hazard_type} shape of the hazard function determined from the TTT
+#' plot.
+#' }
+#' 
 #' @example examples/examples_initValuesOW_TTT.R
 #' @importFrom gamlss gamlss
 #' @importFrom stats terms predict na.omit formula 

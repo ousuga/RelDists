@@ -18,6 +18,11 @@
 #' arguments from \code{\link[gamlss]{gamlss}} function. This function is useful only
 #' if user want to set start values automatically with TTT plot.
 #' See example for an illustration.
+#' 
+#' @return 
+#' A length-one vector numeric value corresponding to the initial value of the
+#' parameter specified in \code{param} extracted from a \code{\link{initValOW}} 
+#' object specified in the \code{initValOW} input argument.
 #'     
 #' @example examples/examples_param.startOW.R      
 #' @export  

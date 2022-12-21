@@ -12,6 +12,11 @@
 
 \item{...}{extra arguments}
 }
+\value{
+No return value, it just prints out in the console the initial values and the
+search regions for \eqn{sigma} and \eqn{nu} from OW distribution (see 
+\code{\link{dOW}}).
+}
 \description{
 This \code{summary} method displays initial values and search regions
 for \code{\link{OW}} family.

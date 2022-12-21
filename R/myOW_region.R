@@ -22,6 +22,10 @@
 #' The \code{valid.values} must be defined as a list of characters containing a call
 #' of the \code{\link{all}} function.
 #' 
+#' @return 
+#' Returns a \code{gamlss.family} object which can be used to fit an OW 
+#' distribution in the \code{gamlss()} function.
+#' 
 #' @example examples/examples_myOW_region.R
 #' @export
 myOW_region <- function(family=OW, valid.values="auto", initVal){
