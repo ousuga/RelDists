@@ -15,7 +15,7 @@ function.}
 }
 \value{
 A length-one vector numeric value corresponding to the initial value of the
-parameter specified in \code{param} extracted from a \code{\link{initValOW}} 
+parameter specified in \code{param} extracted from a \code{\link{initValuesOW}} 
 object specified in the \code{initValOW} input argument.
 }
 \description{
