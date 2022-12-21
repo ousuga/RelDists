@@ -34,6 +34,9 @@
 #'
 #' @example examples/examples_dOW.R
 #' 
+#' @references
+#' \insertRef{Cooray2006}{RelDists}
+#' 
 #' @export
 dOW <- function(x, mu, sigma, nu, log=FALSE){
   if (any(x < 0))

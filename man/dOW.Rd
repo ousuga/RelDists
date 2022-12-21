@@ -90,6 +90,9 @@ curve(hOW(x, mu=2, sigma=3, nu=0.2), from=0, to=2.5, ylim=c(0, 3),
 
 par(old_par) # restore previous graphical parameters
 }
+\references{
+\insertRef{Cooray2006}{RelDists}
+}
 \author{
 Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}
 }

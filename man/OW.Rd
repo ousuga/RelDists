@@ -67,6 +67,9 @@ coef(mod, what='mu')
 coef(mod, what='sigma')
 coef(mod, what='nu')
 }
+\references{
+\insertRef{Cooray2006}{RelDists}
+}
 \author{
 Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}
 }

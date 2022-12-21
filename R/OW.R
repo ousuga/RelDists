@@ -24,6 +24,10 @@
 #' @returns Returns a gamlss.family object which can be used to fit a OW distribution in the \code{gamlss()} function.
 #' 
 #' @example examples/examples_OW.R
+#' 
+#' @references
+#' \insertRef{Cooray2006}{RelDists}
+#' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
