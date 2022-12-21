@@ -28,9 +28,9 @@ Authors@R: c(
   )
 Description: Parameters estimation and linear regression models for Reliability 
     distributions families reviewed by Almalki & Nadarajah (2014)
-    <doi: 10.1016/j.ress.2013.11.010> using Generalized Additive
+    <doi:10.1016/j.ress.2013.11.010> using Generalized Additive
     Models for Location, Scale and Shape, aka GAMLSS by Rigby & Stasinopoulos
-    (2005) <doi: 10.1111/j.1467-9876.2005.00510.x>.
+    (2005) <doi:10.1111/j.1467-9876.2005.00510.x>.
 Depends: R (>= 3.5.0), survival, EstimationTools (>= 4.0.0)
 License: GPL-3
 URL: https://ousuga.github.io/RelDists/
