@@ -12,7 +12,7 @@ curve(hOW(x, mu = 0.022, sigma = 8, nu = 0.01), from = 0,
 
 # Example 2
 # Bathtuh hazard and its corresponding TTT plot with right censored data
-\dontrun{
+\donttest{
 y2 <- rOW(n = 1000, mu = 0.1, sigma = 7, nu = 0.08)
 status <- c(rep(1, 980), rep(0, 20))
 my_initial_guess2 <- initValuesOW(formula=Surv(y2, status)~1)
