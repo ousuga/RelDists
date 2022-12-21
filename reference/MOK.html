@@ -121,16 +121,16 @@
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'mu'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.495897 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1.10185 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'sigma'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    6.030484 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5.091947 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'nu'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2.410067 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2.595682 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'tau'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.5400337 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.9726941 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Generating random values under some model</span></span></span>
@@ -148,16 +148,16 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.0752852   1.5811896 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.3328576   2.2911324 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.9232432   0.0339188 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.2789794   2.2564561 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.9576668 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.7899851 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"tau"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.835729 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.6300365 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
