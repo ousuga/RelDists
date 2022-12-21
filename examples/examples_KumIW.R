@@ -1,7 +1,6 @@
 # Example 1
 # Generating some random values with
 # known mu, sigma, nu and tau
-\donttest{
 y <- rKumIW(n=1000, mu = 1.5, sigma=  1.5, nu = 5)
 
 # Fitting the model
@@ -15,11 +14,9 @@ mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='KumIW',
 exp(coef(mod, what='mu'))
 exp(coef(mod, what='sigma'))
 exp(coef(mod, what='nu'))
-}
 
 # Example 2
 # Generating random values under some model
-\donttest{
 n <- 200
 x1 <- runif(n, min=0.4, max=0.6)
 x2 <- runif(n, min=0.4, max=0.6)
@@ -34,4 +31,3 @@ mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=KumIW,
 coef(mod, what="mu")
 coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
-}
