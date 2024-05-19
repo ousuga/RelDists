@@ -93,8 +93,10 @@ qKumIW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
-  
-  q <- (-sigma / (log(1 - (1 - p)^(1/nu))))
+
+  ## FIXME: might be able to improve precision/stability via
+  ## logspace computation, e.g. see ?statnet.common::logspace.utils
+  q <- (-sigma / (log(1 - (1 - p)^(1/nu))))^(1/mu)
   q
 }
 #' @importFrom stats runif
