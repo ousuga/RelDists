@@ -1,6 +1,6 @@
 #' The Inverse Weibull family
 #' 
-#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' @author Freddy Hernandez, \email{fhernanb@@unal.edu.co}
 #' 
 #' @description 
 #' The Inverse Weibull distribution

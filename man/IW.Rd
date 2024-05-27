@@ -66,5 +66,5 @@ coef(mod, what="sigma")
 \link{dIW}
 }
 \author{
-Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
+Freddy Hernandez, \email{fhernanb@unal.edu.co}
 }
