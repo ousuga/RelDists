@@ -23,39 +23,41 @@ The Kumaraswamy Inverse Weibull family
 The Kumaraswamy Inverse Weibull Distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
-\eqn{f(x)= \mu \sigma \nu x^{-\mu - 1} \exp{- \sigma x^{-\mu}} (1 - \exp{- \sigma x^{-\mu}})^{\nu - 1},}
+\eqn{f(x)= \mu \sigma \nu x^{-\sigma - 1} \exp{- \mu x^{-\sigma}} (1 - \exp{- \mu x^{-\sigma}})^{\nu - 1},}
 
-for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}.
+for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}. 
+
+The KumIW distribution with \eqn{\nu=1} corresponds with the IW distribution.
 }
 \examples{
 # Example 1
 # Generating some random values with
-# known mu, sigma, nu and tau
-y <- rKumIW(n=1000, mu = 1.5, sigma=  1.5, nu = 5)
+# known mu, sigma and nu
+y <- rKumIW(n=100, mu=1.5, sigma=2.3, nu=1)
 
 # Fitting the model
 require(gamlss)
 
-mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='KumIW',
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family=KumIW,
               control=gamlss.control(n.cyc=5000, trace=FALSE))
 
 # Extracting the fitted values for mu, sigma and nu 
 # using the inverse link function
-exp(coef(mod, what='mu'))
-exp(coef(mod, what='sigma'))
-exp(coef(mod, what='nu'))
+exp(coef(mod, what="mu"))
+exp(coef(mod, what="sigma"))
+exp(coef(mod, what="nu"))
 
 # Example 2
 # Generating random values under some model
 n <- 200
-x1 <- runif(n, min=0.4, max=0.6)
-x2 <- runif(n, min=0.4, max=0.6)
-mu <- exp(1 - x1)
-sigma <- exp(1 - x2)
+x1 <- runif(n)
+x2 <- runif(n)
+mu <- exp(1 +  -1 * x1)
+sigma <- exp(1 + -1 * x2)
 nu <- 5
-x <- rKumIW(n=n, mu, sigma, nu)
+y <- rKumIW(n=n, mu=mu, sigma=sigma, nu=nu)
 
-mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=KumIW,
+mod <- gamlss(y~x1, sigma.fo=~x2, nu.fo=~1, family=KumIW,
               control=gamlss.control(n.cyc=5000, trace=FALSE))
 
 coef(mod, what="mu")
@@ -71,5 +73,5 @@ exp(coef(mod, what="nu"))
 \link{dKumIW}
 }
 \author{
-Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
+Freddy Hernandez, \email{fhernanb@unal.edu.co}
 }
