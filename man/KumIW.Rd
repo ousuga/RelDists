@@ -33,13 +33,13 @@ The KumIW distribution with \eqn{\nu=1} corresponds with the IW distribution.
 # Example 1
 # Generating some random values with
 # known mu, sigma and nu
-y <- rKumIW(n=100, mu=1.5, sigma=2.3, nu=1)
+y <- rKumIW(n=1000, mu=1.5, sigma=0.3, nu=1)
 
 # Fitting the model
 require(gamlss)
 
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family=KumIW,
-              control=gamlss.control(n.cyc=5000, trace=FALSE))
+              control=gamlss.control(n.cyc=5000, trace=TRUE))
 
 # Extracting the fitted values for mu, sigma and nu 
 # using the inverse link function
@@ -58,7 +58,7 @@ nu <- 5
 y <- rKumIW(n=n, mu=mu, sigma=sigma, nu=nu)
 
 mod <- gamlss(y~x1, sigma.fo=~x2, nu.fo=~1, family=KumIW,
-              control=gamlss.control(n.cyc=5000, trace=FALSE))
+              control=gamlss.control(n.cyc=5000, trace=TRUE))
 
 coef(mod, what="mu")
 coef(mod, what="sigma")
