@@ -66,7 +66,7 @@ curve(dOW(x, mu=2, sigma=3, nu=0.2), from=0, to=4, ylim=c(0, 2),
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
 curve(pOW(x, mu=2, sigma=3, nu=0.2), from=0, to=4, ylim=c(0, 1), 
-      col="red", las=1, ylab="f(x)")
+      col="red", las=1, ylab="F(x)")
 curve(pOW(x, mu=2, sigma=3, nu=0.2, lower.tail=FALSE), from=0, 
       to=4,  ylim=c(0, 1), col="red", las=1, 
       ylab = "R(x)")
