@@ -1,6 +1,6 @@
 #' The Kumaraswamy Inverse Weibull distribution
 #' 
-#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' @author Freddy Hernandez, \email{fhernanb@@unal.edu.co}
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -20,9 +20,11 @@
 #' The Kumaraswamy Inverse Weibull Distribution with parameters \code{mu}, 
 #' \code{sigma} and \code{nu} has density given by
 #' 
-#' \eqn{f(x)= \mu \sigma \nu x^{-\mu - 1} \exp{- \sigma x^{-\mu}} (1 - \exp{- \sigma x^{-\mu}})^{\nu - 1},}
+#' \eqn{f(x)= \mu \sigma \nu x^{-\sigma - 1} \exp{- \mu x^{-\sigma}} (1 - \exp{- \mu x^{-\sigma}})^{\nu - 1},}
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}. 
+#' 
+#' The KumIW distribution with \eqn{\nu=1} corresponds with the IW distribution.
 #' 
 #' @return 
 #' \code{dKumIW} gives the density, \code{pKumIW} gives the distribution 
@@ -47,9 +49,8 @@ dKumIW <- function(x, mu, sigma, nu, log=FALSE){
   if (any(nu <= 0 )) 
     stop(paste("nu must be positive", "\n", ""))
   
-  
-  loglik <- log(mu) + log(sigma) + log(nu) - (mu + 1)*log(x) - sigma*x^(-mu) +
-    (nu -1)*log(1 - exp(- sigma*x^(-mu))) 
+  loglik <- log(mu) + log(sigma) + log(nu) - (sigma+1)*log(x) - mu*x^(-sigma) +
+    (nu-1)*log(1 - exp(-mu*x^(-sigma))) 
   
   if (log == FALSE) 
     density <- exp(loglik)
@@ -69,7 +70,7 @@ pKumIW <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
   
-  cdf  <- 1 - (1 - exp(- sigma*q^(-mu)))^nu
+  cdf  <- 1 - (1 - exp(-mu*q^(-sigma)))^nu
   
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf 
@@ -93,8 +94,7 @@ qKumIW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   else p <- 1 - p
   if (any(p < 0) | any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
-  
-  q <- (-sigma / (log(1 - (1 - p)^(1/nu))))
+  q <- ((-1/mu) * log(1 - (1 - p)^(1/nu)))^(-1/sigma)
   q
 }
 #' @importFrom stats runif

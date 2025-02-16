@@ -47,5 +47,5 @@ Imports:
     VGAM
 LazyData: true
 Suggests: knitr, rmarkdown, viridis, autoimage, gamlss.cens, V8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr
