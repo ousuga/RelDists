@@ -1,4 +1,7 @@
 #' The New Modified Weibull distribution
+#' 
+#' @author Jaime Mosquera, \email{jmosquerag@unal.edu.co}
+#' 
 #' @description
 #' Density, distribution function, quantile function,
 #' random generation and hazard function for the reduced new modified Weibull
@@ -16,13 +19,13 @@
 #'
 #' @details
 #' The reduced new modified Weibull with parameters \code{mu}, \code{sigma}
-#' and \code{theta} has density given by
+#' and \code{nu} has density given by
 #'
 #' \deqn{f(x) = \frac{1}{2 \sqrt{x}}
 #'    \left( \mu + \sigma (1 + 2 \nu x) e^{\nu x} \right)
 #'    e^{-\mu \sqrt{x} - \sigma \sqrt{x} e^{\nu x}}}
 #'
-#' for x > 0, \deqn{\mu}, \deqn{\sigma} and \deqn{\nu} > 0.
+#' for \eqn{x > 0}, \eqn{\mu>0}, \eqn{\sigma>0} and \eqn{\nu>0}.
 #'
 #' @return
 #' \code{dRNMW} gives the density, \code{pRNMW} gives the distribution
@@ -125,6 +128,7 @@ rRNMW <- function(n, mu, sigma, nu) {
   return(r)
 }
 #' @export
+#' @rdname dRNMW
 hRNMW <- function(x, mu, sigma, nu) {
   if (any(x < 0)) {
     stop(paste("x must be positive", "\n", ""))

@@ -2,9 +2,21 @@
 % Please edit documentation in R/dRNMW.R
 \name{dRNMW}
 \alias{dRNMW}
+\alias{pRNMW}
+\alias{qRNMW}
+\alias{rRNMW}
+\alias{hRNMW}
 \title{The New Modified Weibull distribution}
 \usage{
 dRNMW(x, mu, sigma, nu, log = FALSE)
+
+pRNMW(q, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE)
+
+qRNMW(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE)
+
+rRNMW(n, mu, sigma, nu)
+
+hRNMW(x, mu, sigma, nu)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
@@ -17,12 +29,12 @@ dRNMW(x, mu, sigma, nu, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
+\item{lower.tail}{logical; if TRUE (default), probabilities are
+P[T <= t], otherwise, P[T > t].}
+
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
-
-\item{lower.tail}{logical; if TRUE (default), probabilities are
-P[T <= t], otherwise, P[T > t].}
 }
 \value{
 \code{dRNMW} gives the density, \code{pRNMW} gives the distribution
@@ -36,13 +48,13 @@ distribution with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
 The reduced new modified Weibull with parameters \code{mu}, \code{sigma}
-and \code{theta} has density given by
+and \code{nu} has density given by
 
 \deqn{f(x) = \frac{1}{2 \sqrt{x}}
    \left( \mu + \sigma (1 + 2 \nu x) e^{\nu x} \right)
    e^{-\mu \sqrt{x} - \sigma \sqrt{x} e^{\nu x}}}
 
-for x > 0, \deqn{\mu}, \deqn{\sigma} and \deqn{\lambda} > 0.
+for \eqn{x > 0}, \eqn{\mu>0}, \eqn{\sigma>0} and \eqn{\nu>0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -53,7 +65,7 @@ curve(
     from = 0, to = 5, col = "red", las = 1, ylab = "f(x)"
 )
 
-## The cualphalative distribution and the Reliability function
+## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
 curve(
     pRNMW(x, mu = 0.05, sigma = 0.00025, nu = 2.2),
@@ -102,4 +114,7 @@ par(old_par) # restore previous graphical parameters
 }
 \references{
 \insertRef{almalki2013reduced}{RelDists}
+}
+\author{
+Jaime Mosquera, \email{jmosquerag@unal.edu.co}
 }

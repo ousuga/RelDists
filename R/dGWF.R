@@ -1,5 +1,7 @@
 #' Generalized Weibull distribution (GWF)
 #'
+#' @author Jaime Mosquera, \email{jmosquerag@unal.edu.co}
+#'
 #' @description
 #' Density, distribution function, quantile function, random generation and
 #' hazard function for the generalized Weibull distribution with parameters
@@ -15,14 +17,17 @@
 #' @param lower.tail logical; if TRUE (default), probabilities are
 #' P[T <= t], otherwise, P[T > t].
 #'
+#' @references
+#' Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family: a structural analysis. Communications in statistics-theory and methods, 23(4), 1149-1171.
+#'
 #' @details
 #' The generalized Weibull with parameters \code{mu}, \code{sigma} and
-#' \code{theta} has density given by
+#' \code{nu} has density given by
 #'
 #' \deqn{f(x) = \mu \sigma x^{\sigma - 1}
 #'    \left( 1 - \mu \nu x^\sigma \right)^{\frac{1}{\nu} - 1}}
 #'
-#' for x > 0, \deqn{\mu}, \deqn{\sigma} and \deqn{\nu} > 0.
+#' for \eqn{x > 0}, \eqn{\mu>0}, \eqn{\sigma>0} and \eqn{-\infty<\nu<\infty}.
 #'
 #' @return
 #' \code{dGWF} gives the density, \code{pGWF} gives the distribution
@@ -75,7 +80,7 @@ pGWF <- function(q, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE) {
 #' @export
 #' @rdname dGWF
 qGWF <- function(p, mu, sigma, nu) {
-  if (mu <= 0 || sigma <= 0 || nu <= 0) {
+  if (mu <= 0 || sigma <= 0) {
     stop(paste("mu, sigma, and nu must be positive", "\n", ""))
   }
   if (any(p < 0) | any(p > 1)) {
@@ -87,7 +92,7 @@ qGWF <- function(p, mu, sigma, nu) {
 #' @export
 #' @rdname dGWF
 rGWF <- function(n, mu, sigma, nu) {
-  if (mu <= 0 || sigma <= 0 || nu <= 0) {
+  if (mu <= 0 || sigma <= 0) {
     stop(paste("mu, sigma, and nu must be positive", "\n", ""))
   }
   if (n <= 0) {
