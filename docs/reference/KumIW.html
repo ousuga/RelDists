@@ -76,8 +76,14 @@
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>almalki2014modificationsRelDists</p>
-<p>shahbaz2012kumaraswamyRelDists</p>
+    <p>Almalki SJ, Nadarajah S (2014).
+“Modifications of the Weibull distribution: A review.”
+<em>Reliability Engineering &amp; System Safety</em>, <b>124</b>, 32–55.
+<a href="https://doi.org/10.1016/j.ress.2013.11.010" class="external-link">doi:10.1016/j.ress.2013.11.010</a>
+.</p>
+<p>Shahbaz MQ, Shahbaz S, Butt NS (2012).
+“The Kumaraswamy-Inverse Weibull Distribution.”
+<em>Pakistan journal of statistics and operation research</em>, <b>8</b>(3), 479–489.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -100,93 +106,97 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, nu.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">KumIW</span>,</span></span>
 <span class="r-in"><span>              control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">5000</span>, trace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 13136.25 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 12758.93 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 12756.74 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = 12755.28 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = 12753.99 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 6: Global Deviance = 12752.83 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 7: Global Deviance = 12751.79 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 8: Global Deviance = 12750.85 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 9: Global Deviance = 12750.02 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 10: Global Deviance = 12749.27 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 11: Global Deviance = 12748.6 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 12: Global Deviance = 12748 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 13: Global Deviance = 12747.47 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 14: Global Deviance = 12746.98 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 15: Global Deviance = 12746.55 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 16: Global Deviance = 12746.16 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 17: Global Deviance = 12745.81 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 18: Global Deviance = 12745.5 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 19: Global Deviance = 12745.22 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 20: Global Deviance = 12744.97 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 21: Global Deviance = 12744.74 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 22: Global Deviance = 12744.54 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 23: Global Deviance = 12744.35 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 24: Global Deviance = 12744.19 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 25: Global Deviance = 12744.04 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 26: Global Deviance = 12743.91 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 27: Global Deviance = 12743.79 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 28: Global Deviance = 12743.68 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 29: Global Deviance = 12743.58 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 30: Global Deviance = 12743.49 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 31: Global Deviance = 12743.41 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 32: Global Deviance = 12743.34 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 33: Global Deviance = 12743.27 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 34: Global Deviance = 12743.22 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 35: Global Deviance = 12743.16 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 36: Global Deviance = 12743.12 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 37: Global Deviance = 12743.07 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 38: Global Deviance = 12743.03 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 39: Global Deviance = 12743 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 40: Global Deviance = 12742.97 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 41: Global Deviance = 12742.94 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 42: Global Deviance = 12742.91 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 43: Global Deviance = 12742.89 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 44: Global Deviance = 12742.87 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 45: Global Deviance = 12742.85 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 46: Global Deviance = 12742.83 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 47: Global Deviance = 12742.81 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 48: Global Deviance = 12742.8 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 49: Global Deviance = 12742.79 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 50: Global Deviance = 12742.78 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 51: Global Deviance = 12742.77 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 52: Global Deviance = 12742.76 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 53: Global Deviance = 12742.75 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 54: Global Deviance = 12742.74 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 55: Global Deviance = 12742.73 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 56: Global Deviance = 12742.73 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 57: Global Deviance = 12742.72 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 58: Global Deviance = 12742.72 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 59: Global Deviance = 12742.71 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 60: Global Deviance = 12742.71 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 61: Global Deviance = 12742.7 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 62: Global Deviance = 12742.7 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 63: Global Deviance = 12742.7 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 64: Global Deviance = 12742.69 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 65: Global Deviance = 12742.69 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 66: Global Deviance = 12742.69 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 67: Global Deviance = 12742.69 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 68: Global Deviance = 12742.68 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 69: Global Deviance = 12742.68 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 70: Global Deviance = 12742.68 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 71: Global Deviance = 12742.68 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 72: Global Deviance = 12742.68 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 73: Global Deviance = 12742.68 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 74: Global Deviance = 12742.68 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 75: Global Deviance = 12742.67 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 12836.61 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 12494.11 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 12491.52 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = 12489.82 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = 12488.33 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 6: Global Deviance = 12486.99 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 7: Global Deviance = 12485.78 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 8: Global Deviance = 12484.69 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 9: Global Deviance = 12483.71 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 10: Global Deviance = 12482.83 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 11: Global Deviance = 12482.04 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 12: Global Deviance = 12481.33 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 13: Global Deviance = 12480.69 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 14: Global Deviance = 12480.12 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 15: Global Deviance = 12479.61 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 16: Global Deviance = 12479.15 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 17: Global Deviance = 12478.73 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 18: Global Deviance = 12478.36 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 19: Global Deviance = 12478.02 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 20: Global Deviance = 12477.72 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 21: Global Deviance = 12477.44 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 22: Global Deviance = 12477.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 23: Global Deviance = 12476.97 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 24: Global Deviance = 12476.77 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 25: Global Deviance = 12476.59 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 26: Global Deviance = 12476.43 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 27: Global Deviance = 12476.28 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 28: Global Deviance = 12476.15 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 29: Global Deviance = 12476.03 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 30: Global Deviance = 12475.92 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 31: Global Deviance = 12475.82 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 32: Global Deviance = 12475.74 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 33: Global Deviance = 12475.66 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 34: Global Deviance = 12475.58 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 35: Global Deviance = 12475.52 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 36: Global Deviance = 12475.46 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 37: Global Deviance = 12475.4 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 38: Global Deviance = 12475.35 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 39: Global Deviance = 12475.31 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 40: Global Deviance = 12475.27 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 41: Global Deviance = 12475.23 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 42: Global Deviance = 12475.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 43: Global Deviance = 12475.17 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 44: Global Deviance = 12475.14 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 45: Global Deviance = 12475.12 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 46: Global Deviance = 12475.1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 47: Global Deviance = 12475.07 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 48: Global Deviance = 12475.06 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 49: Global Deviance = 12475.04 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 50: Global Deviance = 12475.02 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 51: Global Deviance = 12475.01 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 52: Global Deviance = 12475 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 53: Global Deviance = 12474.99 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 54: Global Deviance = 12474.98 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 55: Global Deviance = 12474.97 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 56: Global Deviance = 12474.96 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 57: Global Deviance = 12474.95 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 58: Global Deviance = 12474.94 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 59: Global Deviance = 12474.94 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 60: Global Deviance = 12474.93 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 61: Global Deviance = 12474.93 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 62: Global Deviance = 12474.92 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 63: Global Deviance = 12474.92 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 64: Global Deviance = 12474.91 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 65: Global Deviance = 12474.91 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 66: Global Deviance = 12474.91 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 67: Global Deviance = 12474.9 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 68: Global Deviance = 12474.9 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 69: Global Deviance = 12474.9 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 70: Global Deviance = 12474.9 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 71: Global Deviance = 12474.89 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 72: Global Deviance = 12474.89 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 73: Global Deviance = 12474.89 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 74: Global Deviance = 12474.89 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 75: Global Deviance = 12474.89 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 76: Global Deviance = 12474.89 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 77: Global Deviance = 12474.89 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 78: Global Deviance = 12474.88 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 79: Global Deviance = 12474.88 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extracting the fitted values for mu, sigma and nu </span></span></span>
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.587114 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.615627 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.2893338 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.2796471 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.007727 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.082394 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Generating random values under some model</span></span></span>
@@ -200,206 +210,199 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">x1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="va">x2</span>, nu.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">KumIW</span>,</span></span>
 <span class="r-in"><span>              control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">5000</span>, trace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 106.6089 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 86.9101 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 86.7592 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = 86.6677 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = 86.579 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 6: Global Deviance = 86.4931 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 7: Global Deviance = 86.4099 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 8: Global Deviance = 86.3294 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 9: Global Deviance = 86.2514 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 10: Global Deviance = 86.1759 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 11: Global Deviance = 86.1027 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 12: Global Deviance = 86.0318 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 13: Global Deviance = 85.9632 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 14: Global Deviance = 85.8966 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 15: Global Deviance = 85.8321 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 16: Global Deviance = 85.7696 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 17: Global Deviance = 85.709 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 18: Global Deviance = 85.6503 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 19: Global Deviance = 85.5933 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 20: Global Deviance = 85.5381 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 21: Global Deviance = 85.4845 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 22: Global Deviance = 85.4326 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 23: Global Deviance = 85.3822 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 24: Global Deviance = 85.3356 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 25: Global Deviance = 85.2903 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 26: Global Deviance = 85.2462 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 27: Global Deviance = 85.2034 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 28: Global Deviance = 85.1617 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 29: Global Deviance = 85.1211 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 30: Global Deviance = 85.0817 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 31: Global Deviance = 85.0433 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 32: Global Deviance = 85.0059 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 33: Global Deviance = 84.9696 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 34: Global Deviance = 84.9342 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 35: Global Deviance = 84.8998 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 36: Global Deviance = 84.8663 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 37: Global Deviance = 84.8337 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 38: Global Deviance = 84.802 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 39: Global Deviance = 84.771 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 40: Global Deviance = 84.7409 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 41: Global Deviance = 84.7116 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 42: Global Deviance = 84.6831 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 43: Global Deviance = 84.6553 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 44: Global Deviance = 84.6282 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 45: Global Deviance = 84.6019 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 46: Global Deviance = 84.5762 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 47: Global Deviance = 84.5512 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 48: Global Deviance = 84.5268 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 49: Global Deviance = 84.5031 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 50: Global Deviance = 84.4799 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 51: Global Deviance = 84.4574 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 52: Global Deviance = 84.4354 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 53: Global Deviance = 84.414 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 54: Global Deviance = 84.3931 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 55: Global Deviance = 84.3727 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 56: Global Deviance = 84.3529 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 57: Global Deviance = 84.3335 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 58: Global Deviance = 84.3147 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 59: Global Deviance = 84.2963 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 60: Global Deviance = 84.2783 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 61: Global Deviance = 84.2608 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 62: Global Deviance = 84.2438 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 63: Global Deviance = 84.2271 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 64: Global Deviance = 84.2109 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 65: Global Deviance = 84.1951 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 66: Global Deviance = 84.1796 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 67: Global Deviance = 84.1645 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 68: Global Deviance = 84.1498 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 69: Global Deviance = 84.1355 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 70: Global Deviance = 84.1215 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 71: Global Deviance = 84.1078 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 72: Global Deviance = 84.0945 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 73: Global Deviance = 84.0815 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 74: Global Deviance = 84.0687 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 75: Global Deviance = 84.0563 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 76: Global Deviance = 84.0442 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 77: Global Deviance = 84.0324 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 78: Global Deviance = 84.0209 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 79: Global Deviance = 84.0096 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 80: Global Deviance = 83.9986 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 81: Global Deviance = 83.9878 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 82: Global Deviance = 83.9773 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 83: Global Deviance = 83.9671 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 84: Global Deviance = 83.957 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 85: Global Deviance = 83.9473 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 86: Global Deviance = 83.9377 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 87: Global Deviance = 83.9284 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 88: Global Deviance = 83.9192 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 89: Global Deviance = 83.9103 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 90: Global Deviance = 83.9016 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 91: Global Deviance = 83.8931 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 92: Global Deviance = 83.8848 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 93: Global Deviance = 83.8767 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 94: Global Deviance = 83.8687 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 95: Global Deviance = 83.861 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 96: Global Deviance = 83.8534 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 97: Global Deviance = 83.846 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 98: Global Deviance = 83.8387 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 99: Global Deviance = 83.8316 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 100: Global Deviance = 83.8247 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 101: Global Deviance = 83.8179 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 102: Global Deviance = 83.8113 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 103: Global Deviance = 83.8048 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 104: Global Deviance = 83.7985 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 105: Global Deviance = 83.7923 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 106: Global Deviance = 83.7862 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 107: Global Deviance = 83.7803 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 108: Global Deviance = 83.7745 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 109: Global Deviance = 83.7688 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 110: Global Deviance = 83.7625 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 111: Global Deviance = 83.7566 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 112: Global Deviance = 83.7507 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 113: Global Deviance = 83.7451 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 114: Global Deviance = 83.7395 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 115: Global Deviance = 83.7341 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 116: Global Deviance = 83.7288 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 117: Global Deviance = 83.7237 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 118: Global Deviance = 83.7186 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 119: Global Deviance = 83.7137 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 120: Global Deviance = 83.7089 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 121: Global Deviance = 83.7042 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 122: Global Deviance = 83.6996 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 123: Global Deviance = 83.6951 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 124: Global Deviance = 83.6908 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 125: Global Deviance = 83.6865 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 126: Global Deviance = 83.6823 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 127: Global Deviance = 83.6783 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 128: Global Deviance = 83.6743 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 129: Global Deviance = 83.6704 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 130: Global Deviance = 83.6666 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 131: Global Deviance = 83.6629 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 132: Global Deviance = 83.6592 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 133: Global Deviance = 83.6557 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 134: Global Deviance = 83.6522 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 135: Global Deviance = 83.6488 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 136: Global Deviance = 83.6455 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 137: Global Deviance = 83.6423 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 138: Global Deviance = 83.6391 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 139: Global Deviance = 83.6361 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 140: Global Deviance = 83.633 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 141: Global Deviance = 83.6301 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 142: Global Deviance = 83.6272 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 143: Global Deviance = 83.6244 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 144: Global Deviance = 83.6216 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 145: Global Deviance = 83.619 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 146: Global Deviance = 83.6163 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 147: Global Deviance = 83.6138 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 148: Global Deviance = 83.6113 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 149: Global Deviance = 83.6085 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 150: Global Deviance = 83.6058 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 151: Global Deviance = 83.6032 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 152: Global Deviance = 83.6007 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 153: Global Deviance = 83.5982 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 154: Global Deviance = 83.5958 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 155: Global Deviance = 83.5934 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 156: Global Deviance = 83.5911 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 157: Global Deviance = 83.5888 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 158: Global Deviance = 83.5867 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 159: Global Deviance = 83.5845 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 160: Global Deviance = 83.5824 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 161: Global Deviance = 83.5804 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 162: Global Deviance = 83.5784 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 163: Global Deviance = 83.5765 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 164: Global Deviance = 83.5746 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 165: Global Deviance = 83.5728 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 166: Global Deviance = 83.571 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 167: Global Deviance = 83.5693 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 168: Global Deviance = 83.5677 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 169: Global Deviance = 83.5661 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 170: Global Deviance = 83.5645 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 171: Global Deviance = 83.5629 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 172: Global Deviance = 83.5614 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 173: Global Deviance = 83.56 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 174: Global Deviance = 83.5585 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 175: Global Deviance = 83.5571 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 176: Global Deviance = 83.5558 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 177: Global Deviance = 83.5544 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 178: Global Deviance = 83.5531 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 179: Global Deviance = 83.5518 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 180: Global Deviance = 83.5506 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 181: Global Deviance = 83.5494 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 182: Global Deviance = 83.5482 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 183: Global Deviance = 83.547 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 184: Global Deviance = 83.5459 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 185: Global Deviance = 83.5448 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 186: Global Deviance = 83.5437 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 187: Global Deviance = 83.5427 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 188: Global Deviance = 83.5416 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 189: Global Deviance = 83.5406 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 190: Global Deviance = 83.5396 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 104.6923 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 92.5663 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 92.3988 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = 92.2324 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = 92.0726 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 6: Global Deviance = 91.9191 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 7: Global Deviance = 91.7717 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 8: Global Deviance = 91.6318 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 9: Global Deviance = 91.4971 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 10: Global Deviance = 91.3675 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 11: Global Deviance = 91.2428 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 12: Global Deviance = 91.1227 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 13: Global Deviance = 91.0071 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 14: Global Deviance = 90.8959 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 15: Global Deviance = 90.789 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 16: Global Deviance = 90.6875 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 17: Global Deviance = 90.5897 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 18: Global Deviance = 90.4954 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 19: Global Deviance = 90.4045 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 20: Global Deviance = 90.3168 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 21: Global Deviance = 90.2322 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 22: Global Deviance = 90.1506 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 23: Global Deviance = 90.0718 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 24: Global Deviance = 89.9958 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 25: Global Deviance = 89.9225 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 26: Global Deviance = 89.8516 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 27: Global Deviance = 89.7833 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 28: Global Deviance = 89.7173 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 29: Global Deviance = 89.6535 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 30: Global Deviance = 89.592 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 31: Global Deviance = 89.5325 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 32: Global Deviance = 89.4751 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 33: Global Deviance = 89.4217 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 34: Global Deviance = 89.3701 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 35: Global Deviance = 89.3201 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 36: Global Deviance = 89.2717 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 37: Global Deviance = 89.2247 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 38: Global Deviance = 89.1793 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 39: Global Deviance = 89.1352 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 40: Global Deviance = 89.0925 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 41: Global Deviance = 89.0511 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 42: Global Deviance = 89.011 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 43: Global Deviance = 88.9721 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 44: Global Deviance = 88.9344 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 45: Global Deviance = 88.8978 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 46: Global Deviance = 88.8624 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 47: Global Deviance = 88.828 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 48: Global Deviance = 88.7947 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 49: Global Deviance = 88.7624 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 50: Global Deviance = 88.731 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 51: Global Deviance = 88.7006 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 52: Global Deviance = 88.671 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 53: Global Deviance = 88.6424 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 54: Global Deviance = 88.6146 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 55: Global Deviance = 88.5876 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 56: Global Deviance = 88.5614 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 57: Global Deviance = 88.536 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 58: Global Deviance = 88.5114 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 59: Global Deviance = 88.4874 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 60: Global Deviance = 88.4642 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 61: Global Deviance = 88.4416 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 62: Global Deviance = 88.4196 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 63: Global Deviance = 88.3983 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 64: Global Deviance = 88.3777 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 65: Global Deviance = 88.3576 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 66: Global Deviance = 88.338 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 67: Global Deviance = 88.3191 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 68: Global Deviance = 88.3007 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 69: Global Deviance = 88.2827 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 70: Global Deviance = 88.2653 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 71: Global Deviance = 88.2484 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 72: Global Deviance = 88.232 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 73: Global Deviance = 88.216 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 74: Global Deviance = 88.2005 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 75: Global Deviance = 88.1854 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 76: Global Deviance = 88.1707 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 77: Global Deviance = 88.1564 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 78: Global Deviance = 88.1425 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 79: Global Deviance = 88.129 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 80: Global Deviance = 88.1159 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 81: Global Deviance = 88.1031 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 82: Global Deviance = 88.0907 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 83: Global Deviance = 88.0786 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 84: Global Deviance = 88.0669 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 85: Global Deviance = 88.0554 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 86: Global Deviance = 88.0443 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 87: Global Deviance = 88.0334 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 88: Global Deviance = 88.0229 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 89: Global Deviance = 88.0126 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 90: Global Deviance = 88.0026 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 91: Global Deviance = 87.9929 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 92: Global Deviance = 87.9835 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 93: Global Deviance = 87.9742 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 94: Global Deviance = 87.9653 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 95: Global Deviance = 87.9565 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 96: Global Deviance = 87.948 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 97: Global Deviance = 87.9397 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 98: Global Deviance = 87.9317 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 99: Global Deviance = 87.9238 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 100: Global Deviance = 87.9162 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 101: Global Deviance = 87.9087 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 102: Global Deviance = 87.9015 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 103: Global Deviance = 87.8944 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 104: Global Deviance = 87.8875 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 105: Global Deviance = 87.8808 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 106: Global Deviance = 87.8742 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 107: Global Deviance = 87.8676 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 108: Global Deviance = 87.8612 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 109: Global Deviance = 87.855 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 110: Global Deviance = 87.849 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 111: Global Deviance = 87.8431 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 112: Global Deviance = 87.8373 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 113: Global Deviance = 87.8317 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 114: Global Deviance = 87.8263 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 115: Global Deviance = 87.821 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 116: Global Deviance = 87.8158 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 117: Global Deviance = 87.8108 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 118: Global Deviance = 87.8058 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 119: Global Deviance = 87.8011 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 120: Global Deviance = 87.7964 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 121: Global Deviance = 87.7918 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 122: Global Deviance = 87.7874 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 123: Global Deviance = 87.7831 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 124: Global Deviance = 87.7789 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 125: Global Deviance = 87.7748 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 126: Global Deviance = 87.7708 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 127: Global Deviance = 87.7669 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 128: Global Deviance = 87.7631 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 129: Global Deviance = 87.7594 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 130: Global Deviance = 87.7558 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 131: Global Deviance = 87.7522 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 132: Global Deviance = 87.7488 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 133: Global Deviance = 87.7455 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 134: Global Deviance = 87.7422 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 135: Global Deviance = 87.739 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 136: Global Deviance = 87.7359 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 137: Global Deviance = 87.7329 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 138: Global Deviance = 87.7299 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 139: Global Deviance = 87.727 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 140: Global Deviance = 87.7242 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 141: Global Deviance = 87.7215 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 142: Global Deviance = 87.7188 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 143: Global Deviance = 87.7162 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 144: Global Deviance = 87.7136 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 145: Global Deviance = 87.7112 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 146: Global Deviance = 87.7085 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 147: Global Deviance = 87.706 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 148: Global Deviance = 87.7034 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 149: Global Deviance = 87.701 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 150: Global Deviance = 87.6986 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 151: Global Deviance = 87.6963 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 152: Global Deviance = 87.6941 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 153: Global Deviance = 87.6919 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 154: Global Deviance = 87.6898 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 155: Global Deviance = 87.6877 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 156: Global Deviance = 87.6857 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 157: Global Deviance = 87.6837 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 158: Global Deviance = 87.6818 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 159: Global Deviance = 87.6799 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 160: Global Deviance = 87.6781 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 161: Global Deviance = 87.6763 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 162: Global Deviance = 87.6746 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 163: Global Deviance = 87.6729 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 164: Global Deviance = 87.6712 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 165: Global Deviance = 87.6696 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 166: Global Deviance = 87.6681 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 167: Global Deviance = 87.6666 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 168: Global Deviance = 87.6651 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 169: Global Deviance = 87.6637 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 170: Global Deviance = 87.6623 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 171: Global Deviance = 87.6609 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 172: Global Deviance = 87.6596 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 173: Global Deviance = 87.6583 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 174: Global Deviance = 87.657 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 175: Global Deviance = 87.6558 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 176: Global Deviance = 87.6546 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 177: Global Deviance = 87.6534 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 178: Global Deviance = 87.6523 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 179: Global Deviance = 87.6512 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 180: Global Deviance = 87.6501 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 181: Global Deviance = 87.649 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 182: Global Deviance = 87.648 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 183: Global Deviance = 87.647 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.001282   -1.074256 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.9748666  -0.7999194 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1.03179    -1.08353 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.002897   -1.088306 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4.682122 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5.32747 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -411,7 +414,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer></div>

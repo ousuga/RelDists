@@ -114,7 +114,11 @@ and <code>nu</code> has density given by</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Cooray2006RelDists</p>
+    <p>Cooray K (2006).
+“Generalization of the Weibull distribution: The odd Weibull family.”
+<em>Statistical Modelling</em>, <b>6</b>(3), 265–277.
+ISSN 1471082X, <a href="https://doi.org/10.1191/1471082X06st116oa" class="external-link">doi:10.1191/1471082X06st116oa</a>
+.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -133,7 +137,7 @@ and <code>nu</code> has density given by</p>
 <span class="r-in"><span><span class="co">## The cumulative distribution and the Reliability function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">pOW</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">2</span>, sigma<span class="op">=</span><span class="fl">3</span>, nu<span class="op">=</span><span class="fl">0.2</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">4</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>      col<span class="op">=</span><span class="st">"red"</span>, las<span class="op">=</span><span class="fl">1</span>, ylab<span class="op">=</span><span class="st">"f(x)"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>      col<span class="op">=</span><span class="st">"red"</span>, las<span class="op">=</span><span class="fl">1</span>, ylab<span class="op">=</span><span class="st">"F(x)"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">pOW</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">2</span>, sigma<span class="op">=</span><span class="fl">3</span>, nu<span class="op">=</span><span class="fl">0.2</span>, lower.tail<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, </span></span>
 <span class="r-in"><span>      to<span class="op">=</span><span class="fl">4</span>,  ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span>, las<span class="op">=</span><span class="fl">1</span>, </span></span>
 <span class="r-in"><span>      ylab <span class="op">=</span> <span class="st">"R(x)"</span><span class="op">)</span></span></span>
@@ -170,7 +174,7 @@ and <code>nu</code> has density given by</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer></div>

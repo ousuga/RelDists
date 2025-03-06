@@ -71,8 +71,15 @@ and <code>sigma</code> has density given by</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>almalki2014modificationsRelDists</p>
-<p>Gumbel1958RelDists</p>
+    <p>Almalki SJ, Nadarajah S (2014).
+“Modifications of the Weibull distribution: A review.”
+<em>Reliability Engineering &amp; System Safety</em>, <b>124</b>, 32–55.
+<a href="https://doi.org/10.1016/j.ress.2013.11.010" class="external-link">doi:10.1016/j.ress.2013.11.010</a>
+.</p>
+<p>E.J G (1958).
+<em>Statistics of extremes</em>.
+Columbia University Press.
+ISBN 10:0231021909.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -100,10 +107,10 @@ and <code>sigma</code> has density given by</p>
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, <span class="st">'mu'</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.182279 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0.006368723 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, <span class="st">'sigma'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.382635 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.384446 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Generating random values under some model</span></span></span>
@@ -119,10 +126,10 @@ and <code>sigma</code> has density given by</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.778802   -1.488695 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2.764391   -5.546735 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.044759   -1.256725 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.620197   -2.311737 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -134,7 +141,7 @@ and <code>sigma</code> has density given by</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer></div>

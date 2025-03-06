@@ -75,8 +75,16 @@
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>almalki2014modificationsRelDists</p>
-<p>Zhang2007RelDists</p>
+    <p>Almalki SJ, Nadarajah S (2014).
+“Modifications of the Weibull distribution: A review.”
+<em>Reliability Engineering &amp; System Safety</em>, <b>124</b>, 32–55.
+<a href="https://doi.org/10.1016/j.ress.2013.11.010" class="external-link">doi:10.1016/j.ress.2013.11.010</a>
+.</p>
+<p>Tieling Z, Min X (2007).
+“Failure Data Analysis with Extended Weibull Distribution.”
+<em>Communications in Statistics - Simulation and Computation</em>, <b>36</b>, 579–592.
+<a href="https://doi.org/10.1080/03610910701236081" class="external-link">doi:10.1080/03610910701236081</a>
+.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -104,13 +112,13 @@
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'mu'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2.644052 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2.957026 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'sigma'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.088926 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.225708 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">'nu'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.941297 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1.94751 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Generating random values under some model</span></span></span>
@@ -124,17 +132,16 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">x</span><span class="op">~</span><span class="va">x1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="va">x2</span>, nu.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">ExW</span>,</span></span>
 <span class="r-in"><span>              control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">5000</span>, trace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in gamlss(x ~ x1, sigma.fo = ~x2, nu.fo = ~1, family = ExW, control = gamlss.control(n.cyc = 5000,     trace = FALSE)):</span> response variable out of range</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.9723126 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.1367679   0.4107476 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  0.08519205 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          x2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.084149   -2.774546 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.941297 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.938714 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -146,7 +153,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer></div>
