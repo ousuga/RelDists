@@ -153,9 +153,9 @@ MOEW <- function (mu.link="log", sigma.link="log", nu.link="log") {
                  G.dev.incr = function(y, mu, sigma, nu, ...) -2*dMOEW(y, mu, sigma, nu, log=TRUE), 
                  rqres = expression(rqres(pfun="pMOEW", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu)), 
                  
-                 mu.initial = expression(mu       <- rep(1, length(y))), 
-                 sigma.initial = expression(sigma <- rep(1, length(y))), 
-                 nu.initial = expression(nu       <- rep(1, length(y))),
+                 mu.initial = expression(mu       <- rep(estim_mu_sigma_MOEW(y)[1], length(y))), 
+                 sigma.initial = expression(sigma <- rep(estim_mu_sigma_MOEW(y)[2], length(y))), 
+                 nu.initial = expression(nu       <- rep(estim_mu_sigma_MOEW(y)[3], length(y))),
                  
                  mu.valid = function(mu)       all(mu > 0), 
                  sigma.valid = function(sigma) all(sigma > 0), 
@@ -164,4 +164,37 @@ MOEW <- function (mu.link="log", sigma.link="log", nu.link="log") {
                  y.valid = function(y) all(y > 0)
   ), 
   class=c("gamlss.family", "family"))
+}
+#' logLik function for MOEW
+#' @description Calculates logLik for MOEW distribution.
+#' @param logparam vector with parameters in log scale.
+#' @param x vector with the response variable.
+#' @return returns the loglikelihood given the parameters and random sample.
+#' @keywords internal
+#' @export
+logLik_MOEW <- function(logparam=c(0, 0, 0), x){
+  return(sum(dMOEW(x     = x,
+                   mu    = exp(logparam[1]),
+                   sigma = exp(logparam[2]),
+                   nu    = exp(logparam[3]),
+                   log=TRUE)))
+}
+#' Initial values for MOEW
+#' @description This function generates initial values for the parameters.
+#' @param y vector with the response variable.
+#' @return returns a vector with the MLE estimations.
+#' @keywords internal
+#' @export
+#' @importFrom stats optim
+estim_mu_sigma_MOEW <- function(y) {
+  mod <- optim(par=c(0, 0, 0),
+               fn=logLik_MOEW,
+               method="Nelder-Mead",
+               control=list(fnscale=-1, maxit=100000),
+               x=y)
+  res <- c(mu_hat    = exp(mod$par[1]),
+           sigma_hat = exp(mod$par[2]),
+           nu_hat    = exp(mod$par[3]))
+  names(res) <- c("mu_hat", "sigma_hat", "nu_hat")
+  return(res)
 }
