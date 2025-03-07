@@ -7,16 +7,20 @@
 EXL(mu.link = "log", sigma.link = "log")
 }
 \arguments{
-\item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}
+\item{mu.link}{defines the mu.link, with "log" link as the default 
+for the mu parameter.}
 
-\item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
+\item{sigma.link}{defines the sigma.link, with "log" link as the default 
+for the sigma.}
 }
 \value{
-Returns a gamlss.family object which can be used to fit a EXL distribution in the \code{gamlss()} function.
+Returns a gamlss.family object which can be used to fit a 
+EXL distribution in the \code{gamlss()} function.
 }
 \description{
-The function \code{EXL()} defines The exponentiated XLindley, a two parameter 
-distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 
+The function \code{EXL()} defines The exponentiated XLindley, 
+a two parameter distribution, for a \code{gamlss.family} object 
+to be used in GAMLSS fitting 
 using the function \code{gamlss()}.
 }
 \details{
@@ -27,9 +31,9 @@ has density given by
  \left(1+\frac{\mu x}{(1 + \mu)^2}\right) \exp(-\mu x)\right] ^ {\sigma-1} }
 for \eqn{x \geq 0}, \eqn{\mu \geq 0} and \eqn{\sigma \geq 0}.
 
-Note: In this implementation we changed the original parameters \eqn{\delta} for \eqn{\mu}
-and \eqn{\alpha} for \eqn{\sigma} we did it to implement this distribution
-within gamlss framework.
+Note: In this implementation we changed the original parameters 
+\eqn{\delta} for \eqn{\mu} and \eqn{\alpha} for \eqn{\sigma} we 
+did it to implement this distribution within gamlss framework.
 }
 \examples{
 # Example 1
@@ -61,7 +65,9 @@ mod <- gamlss(y~x1, sigma.fo=~x2, family=EXL)
 summary(mod)
 }
 \references{
-Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J. (2024). An exponentiated XLindley distribution with properties, inference and applications. Heliyon, 10(3).
+Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J. 
+(2024). An exponentiated XLindley distribution with properties, 
+inference and applications. Heliyon, 10(3).
 }
 \seealso{
 \link{EXL}.
