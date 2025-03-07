@@ -6,7 +6,7 @@
 \alias{qGWF}
 \alias{rGWF}
 \alias{hGWF}
-\title{Generalized Weibull distribution (GWF)}
+\title{Generalized Weibull distribution}
 \usage{
 dGWF(x, mu, sigma, nu, log = FALSE)
 
@@ -113,8 +113,6 @@ par(old_par) # restore previous graphical parameters
 }
 \references{
 Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family: a structural analysis. Communications in statistics-theory and methods, 23(4), 1149-1171.
-
-\insertRef{almalki2013reduced}{RelDists}
 }
 \author{
 Jaime Mosquera, \email{jmosquerag@unal.edu.co}

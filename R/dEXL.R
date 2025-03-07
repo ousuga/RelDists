@@ -18,6 +18,8 @@
 #' @references
 #' Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J. (2024). An exponentiated XLindley distribution with properties, inference and applications. Heliyon, 10(3).
 #' 
+#' @seealso \link{dEXL}.
+#' 
 #' @details 
 #' The exponentiated XLindley with parameters \code{mu} and \code{sigma}
 #' has density given by

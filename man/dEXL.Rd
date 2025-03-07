@@ -189,6 +189,9 @@ curve(hEXL(x, mu=1.5, sigma=2), from=0.001, to=4,
 \references{
 Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J. (2024). An exponentiated XLindley distribution with properties, inference and applications. Heliyon, 10(3).
 }
+\seealso{
+\link{dEXL}.
+}
 \author{
 Manuel Gutierrez Tangarife, \email{mgutierrezta@unal.edu.co}
 }

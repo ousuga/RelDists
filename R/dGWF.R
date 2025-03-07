@@ -1,4 +1,4 @@
-#' Generalized Weibull distribution (GWF)
+#' Generalized Weibull distribution
 #'
 #' @author Jaime Mosquera, \email{jmosquerag@unal.edu.co}
 #'
@@ -35,9 +35,6 @@
 #' generates random deviates and \code{hGWF} gives the hazard function.
 #'
 #' @example examples/examples_dGWF.R
-#'
-#' @references
-#' \insertRef{almalki2013reduced}{RelDists}
 #'
 #' @export
 dGWF <- function(x, mu, sigma, nu, log = FALSE) {

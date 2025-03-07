@@ -6,7 +6,7 @@
 \alias{qRNMW}
 \alias{rRNMW}
 \alias{hRNMW}
-\title{The New Modified Weibull distribution}
+\title{The Reduced New Modified Weibull distribution}
 \usage{
 dRNMW(x, mu, sigma, nu, log = FALSE)
 
@@ -113,7 +113,7 @@ curve(
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2013reduced}{RelDists}
+Almalki, S. J. (2018). A reduced new modified Weibull distribution. Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
 }
 \author{
 Jaime Mosquera, \email{jmosquerag@unal.edu.co}

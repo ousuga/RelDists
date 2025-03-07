@@ -1,4 +1,4 @@
-#' The New Modified Weibull distribution
+#' The Reduced New Modified Weibull distribution
 #' 
 #' @author Jaime Mosquera, \email{jmosquerag@unal.edu.co}
 #' 
@@ -17,6 +17,9 @@
 #' @param lower.tail logical; if TRUE (default), probabilities are
 #' P[T <= t], otherwise, P[T > t].
 #'
+#' @references
+#' Almalki, S. J. (2018). A reduced new modified Weibull distribution. Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
+#'
 #' @details
 #' The reduced new modified Weibull with parameters \code{mu}, \code{sigma}
 #' and \code{nu} has density given by
@@ -33,9 +36,6 @@
 #' generates random deviates and \code{hRNMW} gives the hazard function.
 #'
 #' @example examples/examples_dRNMW.R
-#'
-#' @references
-#' \insertRef{almalki2013reduced}{RelDists}
 #'
 #' @export
 dRNMW <- function(x, mu, sigma, nu, log = FALSE) {
