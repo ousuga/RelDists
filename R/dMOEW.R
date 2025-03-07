@@ -98,7 +98,7 @@ qMOEW <- function(p, mu, sigma, nu,
   if (lower.tail == TRUE) 
     p <- p
   else p <- 1 - p
-  if (any(p < 0) | any(p > 1)) 
+  if (any(p < 0) || any(p > 1)) 
     stop(paste("p must be between 0 and 1", "\n", ""))
   
   fda <- function(x, mu, sigma, nu){
