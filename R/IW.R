@@ -1,6 +1,6 @@
 #' The Inverse Weibull family
 #' 
-#' @author Freddy Hernandez, \email{fhernanb@@unal.edu.co}
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
 #' 
 #' @description 
 #' The Inverse Weibull distribution
@@ -14,7 +14,7 @@
 #' The Inverse Weibull distribution with parameters \code{mu}, 
 #' \code{sigma} has density given by
 #' 
-#' \eqn{f(x) = \mu \sigma x^{-\sigma-1} \exp(-\mu x^{-\sigma})}
+#' \eqn{f(x) = \mu \sigma x^{-\sigma-1} \exp(\mu x^{-\sigma})}
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0} and \eqn{\sigma > 0} 
 #' 
@@ -54,7 +54,6 @@ IW <- function (mu.link="log", sigma.link="log"){
                  mu.dr         = mstats$mu.eta, 
                  sigma.dr      = dstats$mu.eta, 
                  
-                 # First derivates
                  dldm = function(y, mu, sigma) {
                    dldm <- 1/mu - y^(-sigma)
                    dldm
@@ -65,7 +64,6 @@ IW <- function (mu.link="log", sigma.link="log"){
                    dldd
                  },
                  
-                 # Second derivates
                  d2ldm2 = function(y, mu, sigma) {
                    dldm   <- 1/mu - y^(-sigma)
                    d2ldm2 <- -dldm * dldm
@@ -73,14 +71,14 @@ IW <- function (mu.link="log", sigma.link="log"){
                  },
                  
                  d2ldd2 = function(y, mu, sigma) {
-                   dldd   <- 1/sigma - log(y) + mu*y^(-sigma)*log(y)
+                   dldd   <- 1/sigma - log(y)+ mu*y^(-sigma)*log(y)
                    d2ldd2 <- -dldd * dldd
                    d2ldd2
                  },
                  
                  d2ldmdd = function(y, mu, sigma) {
                    dldm    <- 1/mu - y^(-sigma)
-                   dldd    <- 1/sigma - log(y) + mu*y^(-sigma)*log(y)
+                   dldd    <- 1/sigma - log(y) +  mu*y^(-sigma)*log(y)
                    d2ldmdd <- -dldm * dldd
                    d2ldmdd
                  },

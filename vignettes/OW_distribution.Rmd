@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, message=FALSE}
+```{r setup}
 library(RelDists)
 library(EstimationTools)
 library(gamlss)
@@ -35,7 +35,7 @@ $$F(x) = 1 - \left[ 1 + \left( e^{(\mu x)^{\sigma}} - 1 \right)^\nu \right]^{-1}
 
 respectively, where $\mu>0, \quad \sigma\nu>0$. $\mu$ is the scale parameter, $\sigma$ and $\nu$ are the shape parameters. Next figure shows possible shapes of the $f(x)$ and $F(x)$ for several values of the parameters.
 
-```{r, OWplot01, fig.alt="OW pdf and cdf", echo=FALSE, message=F}
+```{r, echo=FALSE, message=F}
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 ## 5^(1/3) = 1.71; 2^(1/3) = 1.26; 0.5^(1/2) = 0.71
@@ -97,7 +97,7 @@ where the hf can take the following shapes:
       
 The figure shows possible shapes of the hf mentioned above: 
 
-```{r, OWplot02, fig.alt="OW hazard", echo=FALSE}
+```{r, echo=FALSE}
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 par(mgp=c(3,0.7,0))
@@ -128,7 +128,7 @@ par(old_par) # restore previous graphical parameters
 
 The following figure illustrate the regions corresponding to the different hazard shapes:
 
-```{r, OWplot03, fig.alt="OW hazard shapes", echo=FALSE, message=FALSE, warning=FALSE, fig.height=6}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=6}
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 hyp <- function(x) 1/x
@@ -214,7 +214,7 @@ summary(my_initial_guess)
 
 `initValuesOW()` function detected the Bathtub hazard shape, which corresponds to a convex-then-concave shape of total time on test (TTT) plot
 
-```{r OWplot04, fig.alt="OW Hazard shape",}
+```{r}
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
@@ -277,7 +277,7 @@ summary(init_vals)
 
 With `initValuesOW()` function we identified an increasing hazard shape, as well as was stated by Cooray [-@Cooray2006], because TTT plot is concave.
 
-```{r OWplot05, fig.alt="OW empirical hazard shape",}
+```{r}
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))

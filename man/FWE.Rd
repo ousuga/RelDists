@@ -35,12 +35,13 @@ y <- rFWE(n=100, mu=0.75, sigma=1.3)
 
 # Fitting the model
 require(gamlss)
-mod <- gamlss(y~1, sigma.fo=~1, family="FWE")
+mod <- gamlss(y~1, sigma.fo=~1, family='FWE',
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
-exp(coef(mod, what="mu"))
-exp(coef(mod, what="sigma"))
+exp(coef(mod, what='mu'))
+exp(coef(mod, what='sigma'))
 
 # Example 2
 # Generating random values under some model
@@ -49,9 +50,10 @@ x1 <- runif(n)
 x2 <- runif(n)
 mu <- exp(1.21 - 3 * x1)
 sigma <- exp(1.26 - 2 * x2)
-y <- rFWE(n=n, mu=mu, sigma=sigma)
+x <- rFWE(n=n, mu, sigma)
 
-mod <- gamlss(y~x1, sigma.fo=~x2, family=FWE)
+mod <- gamlss(x~x1, sigma.fo=~x2, family=FWE, 
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
 
 coef(mod, what="mu")
 coef(mod, what="sigma")

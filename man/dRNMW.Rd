@@ -65,7 +65,7 @@ curve(
     from = 0, to = 5, col = "red", las = 1, ylab = "f(x)"
 )
 
-## The cumulative distribution and the Reliability function
+## The cualphalative distribution and the Reliability function
 par(mfrow = c(1, 2))
 curve(
     pRNMW(x, mu = 0.05, sigma = 0.00025, nu = 2.2),

@@ -1,6 +1,6 @@
 #' The Kumaraswamy Inverse Weibull family
 #' 
-#' @author Freddy Hernandez, \email{fhernanb@@unal.edu.co}
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
 #' 
 #' @description 
 #' The Kumaraswamy Inverse Weibull family
@@ -15,11 +15,9 @@
 #' The Kumaraswamy Inverse Weibull Distribution with parameters \code{mu}, 
 #' \code{sigma} and \code{nu} has density given by
 #' 
-#' \eqn{f(x)= \mu \sigma \nu x^{-\sigma - 1} \exp{- \mu x^{-\sigma}} (1 - \exp{- \mu x^{-\sigma}})^{\nu - 1},}
+#' \eqn{f(x)= \mu \sigma \nu x^{-\mu - 1} \exp{- \sigma x^{-\mu}} (1 - \exp{- \sigma x^{-\mu}})^{\nu - 1},}
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}. 
-#' 
-#' The KumIW distribution with \eqn{\nu=1} corresponds with the IW distribution.
 #' 
 #' @returns Returns a gamlss.family object which can be used to fit a KumIW distribution in the \code{gamlss()} function.
 #' 
@@ -43,7 +41,7 @@ KumIW <- function (mu.link="log", sigma.link="log", nu.link="log"){
   
   structure(list(family=c("KumIW", "Kumaraswamy Inverse-Weibull"), 
                  parameters=list(mu=TRUE, sigma=TRUE, nu=TRUE), 
-                 nopar=3, 
+                 nopar=4, 
                  type="Continuous", 
                  
                  mu.link    = as.character(substitute(mu.link)), 
@@ -62,65 +60,85 @@ KumIW <- function (mu.link="log", sigma.link="log", nu.link="log"){
                  sigma.dr = dstats$mu.eta, 
                  nu.dr    = vstats$mu.eta, 
                  
-                 # First derivates
                  dldm = function(y, mu, sigma, nu) {
-                   dldm <- 1/mu - y^(-sigma) + (nu-1) * y^(-sigma) / (exp(mu*y^-sigma)-1)
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   exp3 <- (nu - 1) * (exp(-exp1)/(exp2))
+                   dldm <- 1/mu - log(y) + exp1*log(y) - exp3*exp1*log(y)
                    dldm
                  },
                  
                  dldd = function(y, mu, sigma, nu) {
-                   temp <- -(nu-1)*mu*log(y)*y^(-sigma) / (exp(mu*y^(-sigma))-1)
-                   dldd <- 1/sigma - log(y) + mu*log(y)*y^(-sigma) + temp
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   exp3 <- (nu - 1) * (exp(-exp1)/(exp2))
+                   dldd <- 1/sigma - y^(-mu) + exp3*y^(-mu) 
                    dldd
                  },
                  
-                 dldv = function(y, mu, sigma, nu) {
-                   dldv <- 1/nu + log(1-exp(-mu*y^(-sigma)))
+                 dldv = function(y, mu, sigma, nu){
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   dldv <- 1/nu + log(exp2)
                    dldv
                  },
                  
-                 # Second derivates
                  d2ldm2 = function(y, mu, sigma, nu) {
-                   dldm <- 1/mu - y^(-sigma) + (nu-1) * y^(-sigma) / (exp(mu*y^-sigma)-1)
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   exp3 <- (nu - 1) * (exp(-exp1)/(exp2))
+                   dldm  <-  1/mu - log(y) + exp1*log(y) - exp3*exp1*log(y)
                    d2ldm2 <- -dldm * dldm
                    d2ldm2
                  },
                  
                  d2ldmdd = function(y, mu, sigma, nu) {
-                   dldm <- 1/mu - y^(-sigma) + (nu-1) * y^(-sigma) / (exp(mu*y^-sigma)-1)
-                   temp <- -(nu-1)*mu*log(y)*y^(-sigma) / (exp(mu*y^(-sigma))-1)
-                   dldd <- 1/sigma - log(y) + mu*log(y)*y^(-sigma) + temp
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   exp3 <- (nu - 1) * (exp(-exp1)/(exp2))
+                   dldm <- 1/mu - log(y) + exp1*log(y) - exp3*exp1*log(y)
+                   dldd <- 1/sigma - y^(-mu) + exp3*y^(-mu)
                    d2ldmdd <- -dldm * dldd
                    d2ldmdd
                  },
                  
                  d2ldmdv = function(y, mu, sigma, nu) {
-                   dldm <- 1/mu - y^(-sigma) + (nu-1) * y^(-sigma) / (exp(mu*y^-sigma)-1)
-                   dldv <- 1/nu + log(1-exp(-mu*y^(-sigma)))
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   exp3 <- (nu - 1) * (exp(-exp1)/(exp2))
+                   dldm <-  1/mu - log(y) + exp1*log(y) - exp3*exp1*log(y)
+                   dldv <- 1/nu + log(exp2)
                    d2ldmdv <- -dldm * dldv
                    d2ldmdv
                  },
                  
                  d2ldd2  = function(y, mu, sigma, nu) {
-                   temp <- -(nu-1)*mu*log(y)*y^(-sigma) / (exp(mu*y^(-sigma))-1)
-                   dldd <- 1/sigma - log(y) + mu*log(y)*y^(-sigma) + temp
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   exp3 <- (nu - 1) * (exp(-exp1)/(exp2))
+                   dldd <- 1/sigma - y^(-mu) + exp3*y^(-mu)
                    d2ldd2 <- -dldd * dldd
                    d2ldd2
                  },
                  
                  d2ldddv = function(y, mu, sigma, nu) {
-                   temp <- -(nu-1)*mu*log(y)*y^(-sigma) / (exp(mu*y^(-sigma))-1)
-                   dldd <- 1/sigma - log(y) + mu*log(y)*y^(-sigma) + temp
-                   dldv <- 1/nu + log(1-exp(-mu*y^(-sigma)))
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   exp3 <- (nu - 1) * (exp(-exp1)/(exp2))
+                   dldd <- 1/sigma - y^(-mu) + exp3*y^(-mu)
+                   dldv  <- 1/nu + log(exp2)
                    d2ldddv <- -dldd * dldv
                    d2ldddv
                  },
                  
                  d2ldv2 = function(y, mu, sigma, nu) {
-                   dldv <- 1/nu + log(1-exp(-mu*y^(-sigma)))
+                   exp1 <- sigma * y^(-mu)
+                   exp2 <- 1- exp(-exp1)
+                   dldv  <- 1/nu + log(exp2)
                    d2ldv2 <- -dldv * dldv
                    d2ldv2
                  },
+                 
                  
                  G.dev.incr = function(y, mu, sigma, nu, ...) -2*dKumIW(y, mu, sigma, nu, log=TRUE), 
                  rqres      = expression(rqres(pfun="pKumIW", type="Continuous", y=y, mu=mu, sigma=sigma, nu=nu)), 

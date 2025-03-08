@@ -1,6 +1,6 @@
 #' The Inverse Weibull distribution
 #'
-#' @author Freddy Hernandez, \email{fhernanb@@unal.edu.co}
+#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -19,7 +19,7 @@
 #' The inverse weibull distribution with parameters \code{mu} and
 #' \code{sigma} has density given by
 #' 
-#' \eqn{f(x) = \mu \sigma x^{-\sigma-1} \exp(-\mu x^{-\sigma})}
+#' \eqn{f(x) = \mu \sigma x^{-\sigma-1} \exp(\mu x^{-\sigma})}
 #' 
 #' for \eqn{x > 0}, \eqn{\mu > 0} and \eqn{\sigma > 0} 
 #' 
@@ -44,7 +44,7 @@ dIW <- function(x, mu, sigma, log=FALSE){
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
   
-  loglik <- log(mu) + log(sigma) - (sigma+1)*log(x) - mu*(x^-sigma)
+  loglik <- log(mu*sigma) - (sigma+1)*log(x) - mu*(x^-sigma)
   
   if (log == FALSE) 
     density <- exp(loglik) 
@@ -61,7 +61,7 @@ pIW <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   if (any(sigma <= 0)) 
     stop(paste("sigma must be positive", "\n", ""))
   
-  cdf <- exp(-mu*(q^(-sigma)))
+  cdf <- exp((-mu)*(q^(-sigma)))
   if (lower.tail == TRUE) 
     cdf <- cdf
   else cdf <- 1 - cdf
@@ -108,7 +108,7 @@ rIW <- function(n,mu,sigma){
 }
 #' @export
 #' @rdname dIW
-hIW <- function(x, mu, sigma){
+hIW<-function(x, mu, sigma){
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0 )) 
