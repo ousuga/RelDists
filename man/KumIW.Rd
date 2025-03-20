@@ -31,19 +31,19 @@ for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}.
 # Example 1
 # Generating some random values with
 # known mu, sigma, nu and tau
-y <- rKumIW(n=1000, mu = 1.5, sigma=  1.5, nu = 5)
+y <- rKumIW(n=100, mu = 1.5, sigma=  1.5, nu = 5)
 
 # Fitting the model
 require(gamlss)
 
-mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='KumIW',
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family="KumIW",
               control=gamlss.control(n.cyc=5000, trace=FALSE))
 
 # Extracting the fitted values for mu, sigma and nu 
 # using the inverse link function
-exp(coef(mod, what='mu'))
-exp(coef(mod, what='sigma'))
-exp(coef(mod, what='nu'))
+exp(coef(mod, what="mu"))
+exp(coef(mod, what="sigma"))
+exp(coef(mod, what="nu"))
 
 # Example 2
 # Generating random values under some model

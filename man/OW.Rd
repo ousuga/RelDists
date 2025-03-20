@@ -44,28 +44,28 @@ mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family="OW",
 
 # Extracting the fitted values for mu, sigma and nu
 # using the inverse link function
-exp(coef(mod, what='mu'))
-exp(coef(mod, what='sigma'))
-exp(coef(mod, what='nu'))
+exp(coef(mod, what="mu"))
+exp(coef(mod, what="sigma"))
+exp(coef(mod, what="nu"))
 
 # Example 2
 # Generating random values under some model
-n <- 500
+n <- 200
 x1 <- runif(n)
 x2 <- runif(n)
 x3 <- runif(n)
 mu <- exp(1.2 + 2 * x1)
 sigma <- 2.12 + 3 * x2
 nu <- exp(0.2 - x3)
-x <- rOW(n=n, mu, sigma, nu)
+y <- rOW(n=n, mu, sigma, nu)
 
-mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~x3, 
-              family=OW(sigma.link='identity'), 
+mod <- gamlss(y~x1, sigma.fo=~x2, nu.fo=~x3, 
+              family=OW(sigma.link="identity"), 
               control=gamlss.control(n.cyc=300, trace=FALSE))
 
-coef(mod, what='mu')
-coef(mod, what='sigma')
-coef(mod, what='nu')
+coef(mod, what="mu")
+coef(mod, what="sigma")
+coef(mod, what="nu")
 }
 \references{
 \insertRef{Cooray2006}{RelDists}
