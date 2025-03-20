@@ -1,6 +1,6 @@
-#' The Extended Odd Frechet-Nadarjad-Hanhighi family
+#' The Extended Odd Frechet-Nadarajah-Haghighi family
 #' 
-#' @author Johan David Marin Benjumea, \email{johand.marin@@udea.edu.co}
+#' @author Helber Santiago Padilla, \email{hspadillar@unal.edu.co}
 #' 
 #' @description 
 #' The Extended Odd Frechet-Nadarjad-Hanhighi family
@@ -10,10 +10,14 @@
 #' @param nu.link defines the nu.link, with "log" link as the default for the nu parameter.
 #' @param tau.link defines the tau.link, with "log" link as the default for the tau parameter. 
 #' 
+#' @references
+#' Nasiru, S. (2018). Extended Odd Fréchet‐G Family of Distributions 
+#' Journal of Probability and Statistics, 2018(1), 2931326.
+#' 
 #' @seealso \link{dEOFNH}
 #' 
 #' @details 
-#' The Extended Odd Frechet-Nadarjad-Hanhighi  distribution with parameters \code{mu}, 
+#' The Extended Odd Frechet-Nadarajah-Haghighi distribution with parameters \code{mu}, 
 #' \code{sigma}, \code{nu} and \code{tau} has density given by
 #' 
 #' \eqn{f(x)= \frac{\mu\sigma\nu\tau(1+\nu x)^{\sigma-1}e^{(1-(1+\nu x)^\sigma)}[1-(1-e^{(1-(1+\nu x)^\sigma)})^{\mu}]^{\tau-1}}{(1-e^{(1-(1+\nu x)^{\sigma})})^{\mu\tau+1}} e^{-[(1-e^{(1-(1+\nu x)^\sigma)})^{-\mu}-1]^{\tau}},}

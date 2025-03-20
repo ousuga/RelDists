@@ -1,6 +1,6 @@
 #' The Extended Odd Frechet-Nadarajah-Haghighi
 #' 
-#' @author Helber Santiago Padilla
+#' @author Helber Santiago Padilla, \email{hspadillar@unal.edu.co}
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -17,6 +17,10 @@
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).
 #' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
 #' 
+#' @references
+#' Nasiru, S. (2018). Extended Odd Fréchet‐G Family of Distributions 
+#' Journal of Probability and Statistics, 2018(1), 2931326.
+#' 
 #' @details 
 #'  Tthe Extended Odd Frechet-Nadarajah-Haghighi \code{mu}, 
 #' \code{sigma}, \code{nu} and \code{tau} has density given by
@@ -31,9 +35,6 @@
 #' generates random numbers and \code{hEOFNH} gives the hazard function.
 #' 
 #' @example examples/examples_dEOFNH.R
-#'      
-#' @references
-#'\insertRef{nasiru2018extended}{RelDists}
 #'
 #' @export
 dEOFNH <- function(x, mu, sigma, nu, tau, log=FALSE){
@@ -47,17 +48,23 @@ dEOFNH <- function(x, mu, sigma, nu, tau, log=FALSE){
     stop(paste("nu must be positive", "\n", ""))
   if (any(tau <= 0)) 
     stop(paste("tau must be positive", "\n", ""))
-  term1 <- 1+nu*x
-  term2 <- exp(1-(term1)^sigma)
-  term3 <- 1-term2
-  term4 <- exp(-(term3^(-mu)-1)^tau)
-  lik <- term4*(mu*sigma*tau*nu*term1^(sigma-1)*term2*(1-term3^mu)^(tau-1))/(term3^(mu*tau+1))
   
-  if (log == FALSE)
-    density <- lik 
-  else density <- log(lik)
+  w <- 1 + nu * x
+  z <- 1 - exp(1 - w^sigma)
   
-  return(density)
+  part1 <- log(mu) + log(sigma) + log(nu) + log(tau)
+  part2 <- (sigma-1) * log(w) + log(1-z)
+  part3 <- (tau-1) * log(1-z^mu) - (mu*tau+1) * log(z)
+  part4 <- -(z^(-mu) - 1)^tau
+  
+  pdf <- part1 + part2 + part3 + part4
+  
+  if (log)
+    pdf <- pdf
+  else
+    pdf <- exp(pdf)
+  
+  return(pdf)
 }
 #' @export
 #' @rdname dEOFNH

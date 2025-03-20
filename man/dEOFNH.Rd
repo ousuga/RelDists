@@ -59,9 +59,11 @@ for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu > 0} and \eqn{\tau > 
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 ##The probability density function
-par(mfrow=c(1,1))
- curve(dEOFNH(x, mu=18.5, sigma=5.1, nu=0.1, tau=0.1), from=0, to=10,
-     ylim=c(0, 0.25), col="red", las=1, ylab="f(x)")
+par(mfrow=c(1, 1))
+
+curve(dEOFNH(x, mu=18.5, sigma=5.1, nu=0.1, tau=0.1), 
+      from=0, to=10, ylim=c(0, 0.25), 
+      col="red", las=1, ylab="f(x)")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))
@@ -89,8 +91,9 @@ curve(hEOFNH(x, mu=18.5, sigma=5.1, nu=0.1, tau=0.1), from=0, to=10, ylim=c(0, 1
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{nasiru2018extended}{RelDists}
+Nasiru, S. (2018). Extended Odd Fréchet‐G Family of Distributions 
+Journal of Probability and Statistics, 2018(1), 2931326.
 }
 \author{
-Helber Santiago Padilla
+Helber Santiago Padilla, \email{hspadillar@unal.edu.co}
 }

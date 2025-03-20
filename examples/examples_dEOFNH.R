@@ -1,9 +1,11 @@
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 ##The probability density function
-par(mfrow=c(1,1))
- curve(dEOFNH(x, mu=18.5, sigma=5.1, nu=0.1, tau=0.1), from=0, to=10,
-     ylim=c(0, 0.25), col="red", las=1, ylab="f(x)")
+par(mfrow=c(1, 1))
+
+curve(dEOFNH(x, mu=18.5, sigma=5.1, nu=0.1, tau=0.1), 
+      from=0, to=10, ylim=c(0, 0.25), 
+      col="red", las=1, ylab="f(x)")
 
 ## The cumulative distribution and the Reliability function
 par(mfrow = c(1, 2))

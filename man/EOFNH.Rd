@@ -2,7 +2,7 @@
 % Please edit documentation in R/EOFNH.R
 \name{EOFNH}
 \alias{EOFNH}
-\title{The Extended Odd Frechet-Nadarjad-Hanhighi family}
+\title{The Extended Odd Frechet-Nadarajah-Haghighi family}
 \usage{
 EOFNH(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
 }
@@ -22,7 +22,7 @@ Returns a gamlss.family object which can be used to fit a EOFNH distribution in 
 The Extended Odd Frechet-Nadarjad-Hanhighi family
 }
 \details{
-The Extended Odd Frechet-Nadarjad-Hanhighi  distribution with parameters \code{mu}, 
+The Extended Odd Frechet-Nadarajah-Haghighi distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \frac{\mu\sigma\nu\tau(1+\nu x)^{\sigma-1}e^{(1-(1+\nu x)^\sigma)}[1-(1-e^{(1-(1+\nu x)^\sigma)})^{\mu}]^{\tau-1}}{(1-e^{(1-(1+\nu x)^{\sigma})})^{\mu\tau+1}} e^{-[(1-e^{(1-(1+\nu x)^\sigma)})^{-\mu}-1]^{\tau}},}
@@ -33,46 +33,50 @@ for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0}, \eqn{\nu > 0} and \eqn{\tau > 
 # Example 1
 # Generating some random values with
 # known mu, sigma, nu and tau
+set.seed(123)
 y <- rEOFNH(n=100, mu=1, sigma=2.1, nu=0.8, tau=1)
 
 # Fitting the model
 require(gamlss)
 
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, tau.fo=~1, family=EOFNH,
-              control=gamlss.control(n.cyc=5000, trace=FALSE))
+              control=gamlss.control(n.cyc=5000, trace=TRUE))
 
 # Extracting the fitted values for mu, sigma, nu and tau
 # using the inverse link function
-exp(coef(mod, what='mu'))
-exp(coef(mod, what='sigma'))
-exp(coef(mod, what='nu'))
-exp(coef(mod, what='tau'))
+exp(coef(mod, what="mu"))
+exp(coef(mod, what="sigma"))
+exp(coef(mod, what="nu"))
+exp(coef(mod, what="tau"))
 
 # Example 2
-# Generating random values under some model
-n <- 200
-x1 <- runif(n, min=0.4, max=0.6)
-x2 <- runif(n, min=0.4, max=0.6)
-mu <- exp(0.5 + x1)
-sigma <- exp(0.8 + x2)
-nu <- 1
-tau <- 0.5
-x <- rEOFNH(n=n, mu, sigma, nu, tau)
+# Generating random values under the model
+n <- 100
+x1 <- runif(n)
+x2 <- runif(n)
+mu <- exp(0.5 - 1.2 * x1)
+sigma <- 2.1
+nu <- 0.8
+tau <- 1
+y <- rEOFNH(n=n, mu, sigma, nu, tau)
 
-mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, tau.fo=~1, family=EOFNH,
-              control=gamlss.control(n.cyc=5000, trace=FALSE))
+mod <- gamlss(y~x1, sigma.fo=~1, nu.fo=~1, tau.fo=~1, family=EOFNH,
+              control=gamlss.control(n.cyc=5000, trace=TRUE))
 
 coef(mod, what="mu")
-coef(mod, what="sigma")
+exp(coef(mod, what="sigma"))
 exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
 }
 \references{
+Nasiru, S. (2018). Extended Odd Fréchet‐G Family of Distributions 
+Journal of Probability and Statistics, 2018(1), 2931326.
+
 \insertRef{nasiru2018extended}{RelDists}
 }
 \seealso{
 \link{dEOFNH}
 }
 \author{
-Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
+Helber Santiago Padilla, \email{hspadillar@unal.edu.co}
 }
