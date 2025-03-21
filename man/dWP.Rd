@@ -49,9 +49,9 @@ with parameters \code{mu}, \code{sigma} and \code{nu}.
 The Weibull Poisson distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
-\eqn{f(x) = \frac{\mu \sigma \nu e^{-\nu}} {1-e^{-\nu}} x^{\mu-1} exp({-\sigma x^{\mu}+\nu exp({-\sigma} x^{\mu}) }),}
+\eqn{f(x) = \frac{\mu \sigma \nu e^{-\nu}} {1-e^{-\nu}} x^{\mu-1} \exp({-\sigma x^{\mu}+\nu \exp({-\sigma} x^{\mu}) }),}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters

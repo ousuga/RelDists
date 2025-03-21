@@ -15,9 +15,9 @@
 #' The Weibull Poisson distribution with parameters \code{mu}, 
 #' \code{sigma} and \code{nu} has density given by
 #' 
-#' \eqn{f(x) = \frac{\mu \sigma \nu e^{-\nu}} {1-e^{-\nu}} x^{\mu-1} exp({-\sigma x^{\mu}+\nu exp({-\sigma} x^{\mu}) }),}
+#' \eqn{f(x) = \frac{\mu \sigma \nu e^{-\nu}} {1-e^{-\nu}} x^{\mu-1} \exp({-\sigma x^{\mu}+\nu \exp({-\sigma} x^{\mu}) }),}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}. 
 #' 
 #' @returns Returns a gamlss.family object which can be used to fit a WP distribution in the \code{gamlss()} function.
 #' 
