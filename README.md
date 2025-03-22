@@ -27,8 +27,12 @@ To install the `RelDists` package you need to install `devtools` package
 before, follow the instructions below:
 
 ``` r
-if (!require('devtools')) install.packages('devtools')
-devtools::install_github('ousuga/RelDists', force=TRUE)
+# Installing from CRAN:
+install.packages("DiscreteDists")
+
+# Or the development version from GitHub:
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ousuga/RelDists", force=TRUE)
 require(RelDists)
 ```
 
