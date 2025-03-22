@@ -75,16 +75,9 @@
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Almalki SJ, Nadarajah S (2014).
-“Modifications of the Weibull distribution: A review.”
-<em>Reliability Engineering &amp; System Safety</em>, <b>124</b>, 32–55.
-<a href="https://doi.org/10.1016/j.ress.2013.11.010" class="external-link">doi:10.1016/j.ress.2013.11.010</a>
-.</p>
-<p>Wanbo L, Daimin S (1967).
-“A new compounding life distribution: the Weibull–Poisson distribution.”
-<em>Journal of Applied Statistics</em>, <b>9</b>(1), 21–38.
-<a href="https://doi.org/10.1080/02664763.2011.575126" class="external-link">doi:10.1080/02664763.2011.575126</a>
-, <a href="https://doi.org/10.1080/02664763.2011.575126" class="external-link">https://doi.org/10.1080/02664763.2011.575126</a>.</p>
+    <p>Lu, Wanbo, and Daimin Shi. "A new compounding life distribution:
+the Weibull–Poisson distribution." Journal of applied
+statistics 39.1 (2012): 21-38.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -112,16 +105,16 @@
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.579451 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.506795 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.391028 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.4869927 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.270361 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.6006863 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
-<span class="r-in"><span><span class="co"># Generating random values under some model</span></span></span>
+<span class="r-in"><span><span class="co"># Generating random values for a regression model</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># A function to simulate a data set with Y ~ WP</span></span></span>
 <span class="r-in"><span><span class="va">gendat</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span></span></span>

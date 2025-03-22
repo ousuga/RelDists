@@ -112,7 +112,9 @@ curve(
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family: a structural analysis. Communications in statistics-theory and methods, 23(4), 1149-1171.
+Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family: 
+a structural analysis. Communications in statistics-theory and methods, 
+23(4), 1149-1171.
 }
 \author{
 Jaime Mosquera, \email{jmosquerag@unal.edu.co}

@@ -16,7 +16,7 @@ exp(coef(mod1, what="sigma"))
 exp(coef(mod1, what="nu"))
 
 # Example 2
-# Generating random values under some model
+# Generating random values for a regression model
 
 # A function to simulate a data set with Y ~ WP
 gendat <- function(n) {

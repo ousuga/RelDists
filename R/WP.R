@@ -24,9 +24,9 @@
 #' @example examples/examples_WP.R 
 #' 
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
-#' 
-#' \insertRef{Wanbo2012}{RelDists}
+#' Lu, Wanbo, and Daimin Shi. "A new compounding life distribution: 
+#' the Weibull–Poisson distribution." Journal of applied 
+#' statistics 39.1 (2012): 21-38.
 #'
 #' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink

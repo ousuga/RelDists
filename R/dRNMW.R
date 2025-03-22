@@ -18,7 +18,8 @@
 #' P[T <= t], otherwise, P[T > t].
 #'
 #' @references
-#' Almalki, S. J. (2018). A reduced new modified Weibull distribution. Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
+#' Almalki, S. J. (2018). A reduced new modified Weibull distribution. 
+#' Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
 #'
 #' @details
 #' The reduced new modified Weibull with parameters \code{mu}, \code{sigma}

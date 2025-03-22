@@ -87,9 +87,9 @@ curve(hWP(x, mu=1.5, sigma=0.5, nu=10), from=0.001, to=5,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
-
-\insertRef{Wanbo2012}{RelDists}
+Lu, Wanbo, and Daimin Shi. "A new compounding life distribution: 
+the Weibull–Poisson distribution." Journal of applied 
+statistics 39.1 (2012): 21-38.
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

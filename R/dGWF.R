@@ -18,7 +18,9 @@
 #' P[T <= t], otherwise, P[T > t].
 #'
 #' @references
-#' Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family: a structural analysis. Communications in statistics-theory and methods, 23(4), 1149-1171.
+#' Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family: 
+#' a structural analysis. Communications in statistics-theory and methods, 
+#' 23(4), 1149-1171.
 #'
 #' @details
 #' The generalized Weibull with parameters \code{mu}, \code{sigma} and

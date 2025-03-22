@@ -46,7 +46,7 @@ exp(coef(mod1, what="sigma"))
 exp(coef(mod1, what="nu"))
 
 # Example 2
-# Generating random values under some model
+# Generating random values for a regression model
 
 # A function to simulate a data set with Y ~ WP
 gendat <- function(n) {
@@ -74,9 +74,9 @@ exp(coef(mod2, what="nu"))
 
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
-
-\insertRef{Wanbo2012}{RelDists}
+Lu, Wanbo, and Daimin Shi. "A new compounding life distribution: 
+the Weibull–Poisson distribution." Journal of applied 
+statistics 39.1 (2012): 21-38.
 }
 \seealso{
 \link{dWP}

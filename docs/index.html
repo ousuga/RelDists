@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Estimation for some Reliability Distributions">
-<meta name="description" content="Parameters estimation and linear regression models for Reliability distributions families reviewed by Almalki &amp; Nadarajah (2014) &lt;doi:10.1016/j.ress.2013.11.010&gt; using Generalized Additive Models for Location, Scale and Shape, aka GAMLSS by Rigby &amp; Stasinopoulos (2005) &lt;doi:10.1111/j.1467-9876.2005.00510.x&gt;.">
-<meta property="og:description" content="Parameters estimation and linear regression models for Reliability distributions families reviewed by Almalki &amp; Nadarajah (2014) &lt;doi:10.1016/j.ress.2013.11.010&gt; using Generalized Additive Models for Location, Scale and Shape, aka GAMLSS by Rigby &amp; Stasinopoulos (2005) &lt;doi:10.1111/j.1467-9876.2005.00510.x&gt;.">
+<meta name="description" content="Parameters estimation and linear regression models for Reliability distributions families reviewed by Almalki &amp; Nadarajah (2014) &lt;doi:10.1016/j.ress.2013.11.010&gt; using Generalized Additive Models for Location, Scale and Shape, GAMLSS by Rigby &amp; Stasinopoulos (2005) &lt;doi:10.1111/j.1467-9876.2005.00510.x&gt;.">
+<meta property="og:description" content="Parameters estimation and linear regression models for Reliability distributions families reviewed by Almalki &amp; Nadarajah (2014) &lt;doi:10.1016/j.ress.2013.11.010&gt; using Generalized Additive Models for Location, Scale and Shape, GAMLSS by Rigby &amp; Stasinopoulos (2005) &lt;doi:10.1111/j.1467-9876.2005.00510.x&gt;.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -62,9 +62,13 @@
 </h2>
 <p>To install the <code>RelDists</code> package you need to install <code>devtools</code> package before, follow the instructions below:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://devtools.r-lib.org/" class="external-link">'devtools'</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'ousuga/RelDists'</span>, force<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://ousuga.github.io/RelDists/" class="external-link">RelDists</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Installing from CRAN:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"DiscreteDists"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Or the development version from GitHub:</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://devtools.r-lib.org/" class="external-link">"devtools"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ousuga/RelDists"</span>, force<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="http://ousuga.github.io/RelDists/">RelDists</a></span><span class="op">)</span></span></code></pre></div>
 <p>You can visit the <a href="https://ousuga.github.io/RelDists/" class="external-link">package website</a> to explore the vignettes (articles) and function reference.</p>
 </div>
 </div>
@@ -96,10 +100,10 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Freddy Hernandez <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-7459-3329" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Freddy Hernandez <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7459-3329" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Olga Usuga <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-3062-1820" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Carmen Patino <br><small class="roles"> Author </small>  </li>
-<li>Jaime Mosquera <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-1684-4756" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Jaime Mosquera <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1684-4756" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Amylkar Urrea <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>

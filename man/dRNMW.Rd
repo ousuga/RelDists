@@ -113,7 +113,8 @@ curve(
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Almalki, S. J. (2018). A reduced new modified Weibull distribution. Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
+Almalki, S. J. (2018). A reduced new modified Weibull distribution. 
+Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
 }
 \author{
 Jaime Mosquera, \email{jmosquerag@unal.edu.co}
