@@ -1,7 +1,7 @@
 # Example 1
 # Generating some random values with
 # known mu and sigma
-y <- rEXL(n=1000, mu=0.75, sigma=1.3)
+y <- rEXL(n=300, mu=0.75, sigma=1.3)
 
 # Fitting the model
 require(gamlss)
