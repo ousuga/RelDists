@@ -76,9 +76,12 @@ exp(coef(mod, what="tau"))
 }
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J. (2018). A reduced new modified Weibull distribution. 
+Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
 
-\insertRef{Xie1996}{RelDists}
+Xie, M., & Lai, C. D. (1996). Reliability analysis using an additive 
+Weibull model with bathtub-shaped failure rate function. 
+Reliability Engineering & System Safety, 52(1), 87-93.
 }
 \seealso{
 \link{dAddW}

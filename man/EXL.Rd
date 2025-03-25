@@ -108,6 +108,7 @@ qqline(x, distribution=function(p) qEXL(p, mu=0.4089915, sigma=2.710467))
 # Precipitation in inches
 # Taken from Alomair et al. (2024) page 13.
 
+# Manuel
 }
 \references{
 Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J. 

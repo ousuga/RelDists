@@ -67,9 +67,12 @@ exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J. (2018). A reduced new modified Weibull distribution. 
+Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
 
-\insertRef{barreto2010beta}{RelDists}
+Barreto-Souza, W., Santos, A. H., & Cordeiro, G. M. (2010). 
+The beta generalized exponential distribution. Journal of 
+statistical Computation and Simulation, 80(2), 159-172.
 }
 \seealso{
 \link{dBGE}
