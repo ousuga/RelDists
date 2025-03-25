@@ -3,7 +3,7 @@ Title: Estimation for some Reliability Distributions
 Version: 1.0.0
 Authors@R: c(
     person(given="Freddy", 
-           family="Hernandez",
+           family="Hernandez-Barajas",
            email="fhernanb@unal.edu.co",
            role = c("aut", "cre"), 
            comment = c(ORCID = "0000-0001-7459-3329")),
