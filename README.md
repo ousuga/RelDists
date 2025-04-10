@@ -35,5 +35,6 @@ devtools::install_github("ousuga/RelDists", force=TRUE)
 require(RelDists)
 ```
 
-You can visit the [package website](https://ousuga.github.io/RelDists/)
-to explore the vignettes (articles) and function reference.
+You can visit the [package
+website](https://fhernanb.github.io/RelDists/) to explore the vignettes
+(articles) and function reference.
