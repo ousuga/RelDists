@@ -7,17 +7,19 @@
 CJ2(mu.link = "log", sigma.link = "log")
 }
 \arguments{
-\item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}
+\item{mu.link}{defines the mu.link, with "log" link as the default for 
+the mu parameter.}
 
-\item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
+\item{sigma.link}{defines the sigma.link, with "log" link as the default 
+for the sigma.}
 }
 \value{
 Returns a gamlss.family object which can be used to fit a CJ2 distribution in the \code{gamlss()} function.
 }
 \description{
-The function \code{CJ2()} defines The  two-parameter  Chris-Jerry distribution, a two parameter 
-distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 
-using the function \code{gamlss()}.
+The function \code{CJ2()} defines The  two-parameter  Chris-Jerry distribution, 
+a two parameter distribution, for a \code{gamlss.family} object to be used 
+in GAMLSS fitting using the function \code{gamlss()}.
 }
 \details{
 The  two-parameter  Chris-Jerry distribution with parameters \code{mu} and \code{sigma}
@@ -71,6 +73,9 @@ summary(mod2)
 Chinedu, Eberechukwu Q., et al. "New lifetime distribution with applications 
 to single acceptance sampling plan and scenarios of increasing hazard 
 rates" Symmetry 15.10 (2023): 188.
+}
+\seealso{
+\link{dCJ2}
 }
 \author{
 Manuel Gutierrez Tangarife, \email{mgutierrezta@unal.edu.co}

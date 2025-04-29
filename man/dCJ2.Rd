@@ -162,6 +162,9 @@ Chinedu, Eberechukwu Q., et al. "New lifetime distribution with applications
 to single acceptance sampling plan and scenarios of increasing hazard 
 rates" Symmetry 15.10 (2023): 188.
 }
+\seealso{
+\link{CJ2}
+}
 \author{
 Manuel Gutierrez Tangarife, \email{mgutierrezta@unal.edu.co}
 }

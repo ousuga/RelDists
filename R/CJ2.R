@@ -3,12 +3,16 @@
 #' @author Manuel Gutierrez Tangarife, \email{mgutierrezta@unal.edu.co}
 #' 
 #' @description 
-#' The function \code{CJ2()} defines The  two-parameter  Chris-Jerry distribution, a two parameter 
-#' distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 
-#' using the function \code{gamlss()}.
+#' The function \code{CJ2()} defines The  two-parameter  Chris-Jerry distribution, 
+#' a two parameter distribution, for a \code{gamlss.family} object to be used 
+#' in GAMLSS fitting using the function \code{gamlss()}.
 #' 
-#' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
-#' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
+#' @param mu.link defines the mu.link, with "log" link as the default for 
+#' the mu parameter.
+#' @param sigma.link defines the sigma.link, with "log" link as the default 
+#' for the sigma.
+#' 
+#' @seealso \link{dCJ2}
 #' 
 #' @details 
 #' The  two-parameter  Chris-Jerry distribution with parameters \code{mu} and \code{sigma}
