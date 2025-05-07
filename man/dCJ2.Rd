@@ -6,7 +6,7 @@
 \alias{qCJ2}
 \alias{rCJ2}
 \alias{hCJ2}
-\title{The  two-parameter  Chris-Jerry distribution}
+\title{The two-parameter Chris-Jerry distribution}
 \usage{
 dCJ2(x, mu, sigma, log = FALSE)
 
@@ -46,7 +46,7 @@ Chris-Jerry distribution with
 parameters \code{mu} and \code{sigma}.
 }
 \details{
-The  two-parameter Chris-Jerry distribution with parameters \code{mu} 
+The two-parameter Chris-Jerry distribution with parameters \code{mu} 
 and \code{sigma} has density given by
 
 \eqn{
@@ -58,8 +58,6 @@ Note: In this implementation we changed the original parameters
 we did it to implement this distribution within gamlss framework.
 }
 \examples{
-old_par <- par(mfrow = c(1, 1))
-
 # Example 1
 # Plotting the density function for different parameter values
 curve(dCJ2(x, mu=3.5, sigma=0.01), 
@@ -85,8 +83,6 @@ legend("topright", legend=c("mu=3.5, sigma=0.01",
                             "mu=1.5, sigma=0.01",
                             "mu=2.5, sigma=0.1"),
        col=c( "red", "green","blue","lightblue"), lwd=2, cex=0.6)
-
-
 
 # Example 2
 # Checking if the cumulative curves converge to 1
@@ -115,7 +111,7 @@ legend("bottomright", legend=c("mu=2.75, sigma=0.1",
        col=c( "red", "green","blue","lightblue"), lwd=2, cex=0.6)
 
 # Example 3
-# The quantile function
+# Checking the quantile function
 p <- seq(from=0.0001, to=0.99999, length.out=100)
 plot(x=qCJ2(p, mu=2.3, sigma=1.7), y=p, xlab="Quantile",
      las=1, ylab="Probability", main="Quantile function ")
@@ -123,7 +119,8 @@ curve(pCJ2(x, mu=2.3, sigma=1.7),
       from=0.0001, add=TRUE, col="red", lwd=2.5)
 
 # Example 4
-# The random function
+# Comparing the random generator output with
+# the theoretical probabilities
 x <- rCJ2(n=10000, mu=1.5, sigma=2.5)
 hist(x, freq=FALSE)
 curve(dCJ2(x, mu=1.5, sigma=2.5), from=0.001, to=8, 
@@ -154,8 +151,6 @@ legend("bottomright", legend=c("mu=0.85, sigma=0.15",
                                "mu=0.9, sigma=0.1",
                                "mu=1.15, sigma=0.1"),
        col=c( "red", "green","blue","lightblue"), lwd=2, cex=0.5)
-
-par(old_par)
 }
 \references{
 Chinedu, Eberechukwu Q., et al. "New lifetime distribution with applications 

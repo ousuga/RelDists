@@ -104,7 +104,7 @@ generates random deviates and <code>hCJ2</code> gives the hazard function.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The  two-parameter Chris-Jerry distribution with parameters <code>mu</code>
+    <p>The two-parameter Chris-Jerry distribution with parameters <code>mu</code>
 and <code>sigma</code> has density given by</p>
 <p>\(
 f(x; \sigma, \mu) = \frac{\mu^2}{\sigma \mu + 2} (\sigma + \mu x^2) e^{-\mu x}; \quad x &gt; 0, \quad \mu &gt; 0, \quad \sigma &gt; 0
@@ -130,9 +130,7 @@ rates" Symmetry 15.10 (2023): 188.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">old_par</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Example 1</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example 1</span></span></span>
 <span class="r-in"><span><span class="co"># Plotting the density function for different parameter values</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">dCJ2</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">3.5</span>, sigma<span class="op">=</span><span class="fl">0.01</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>      from<span class="op">=</span><span class="fl">0.0001</span>, to<span class="op">=</span><span class="fl">5</span>,</span></span>
@@ -158,8 +156,6 @@ rates" Symmetry 15.10 (2023): 188.</p>
 <span class="r-in"><span>                            <span class="st">"mu=2.5, sigma=0.1"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="st">"red"</span>, <span class="st">"green"</span>,<span class="st">"blue"</span>,<span class="st">"lightblue"</span><span class="op">)</span>, lwd<span class="op">=</span><span class="fl">2</span>, cex<span class="op">=</span><span class="fl">0.6</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="dCJ2-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Checking if the cumulative curves converge to 1</span></span></span>
@@ -189,7 +185,7 @@ rates" Symmetry 15.10 (2023): 188.</p>
 <span class="r-plt img"><img src="dCJ2-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 3</span></span></span>
-<span class="r-in"><span><span class="co"># The quantile function</span></span></span>
+<span class="r-in"><span><span class="co"># Checking the quantile function</span></span></span>
 <span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">0.0001</span>, to<span class="op">=</span><span class="fl">0.99999</span>, length.out<span class="op">=</span><span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu">qCJ2</span><span class="op">(</span><span class="va">p</span>, mu<span class="op">=</span><span class="fl">2.3</span>, sigma<span class="op">=</span><span class="fl">1.7</span><span class="op">)</span>, y<span class="op">=</span><span class="va">p</span>, xlab<span class="op">=</span><span class="st">"Quantile"</span>,</span></span>
 <span class="r-in"><span>     las<span class="op">=</span><span class="fl">1</span>, ylab<span class="op">=</span><span class="st">"Probability"</span>, main<span class="op">=</span><span class="st">"Quantile function "</span><span class="op">)</span></span></span>
@@ -198,7 +194,8 @@ rates" Symmetry 15.10 (2023): 188.</p>
 <span class="r-plt img"><img src="dCJ2-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 4</span></span></span>
-<span class="r-in"><span><span class="co"># The random function</span></span></span>
+<span class="r-in"><span><span class="co"># Comparing the random generator output with</span></span></span>
+<span class="r-in"><span><span class="co"># the theoretical probabilities</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">rCJ2</span><span class="op">(</span>n<span class="op">=</span><span class="fl">10000</span>, mu<span class="op">=</span><span class="fl">1.5</span>, sigma<span class="op">=</span><span class="fl">2.5</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">x</span>, freq<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">dCJ2</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">1.5</span>, sigma<span class="op">=</span><span class="fl">2.5</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0.001</span>, to<span class="op">=</span><span class="fl">8</span>, </span></span>
@@ -231,8 +228,6 @@ rates" Symmetry 15.10 (2023): 188.</p>
 <span class="r-in"><span>                               <span class="st">"mu=1.15, sigma=0.1"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="st">"red"</span>, <span class="st">"green"</span>,<span class="st">"blue"</span>,<span class="st">"lightblue"</span><span class="op">)</span>, lwd<span class="op">=</span><span class="fl">2</span>, cex<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="dCJ2-5.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">old_par</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -244,7 +239,7 @@ rates" Symmetry 15.10 (2023): 188.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer></div>

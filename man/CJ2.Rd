@@ -2,7 +2,7 @@
 % Please edit documentation in R/CJ2.R
 \name{CJ2}
 \alias{CJ2}
-\title{The  two-parameter  Chris-Jerry distribution family}
+\title{The two-parameter Chris-Jerry distribution family}
 \usage{
 CJ2(mu.link = "log", sigma.link = "log")
 }
@@ -22,7 +22,7 @@ a two parameter distribution, for a \code{gamlss.family} object to be used
 in GAMLSS fitting using the function \code{gamlss()}.
 }
 \details{
-The  two-parameter  Chris-Jerry distribution with parameters \code{mu} and \code{sigma}
+The two-parameter  Chris-Jerry distribution with parameters \code{mu} and \code{sigma}
 has density given by
 
 \eqn{

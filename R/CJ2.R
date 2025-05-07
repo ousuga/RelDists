@@ -1,4 +1,4 @@
-#' The  two-parameter  Chris-Jerry distribution family
+#' The two-parameter Chris-Jerry distribution family
 #' 
 #' @author Manuel Gutierrez Tangarife, \email{mgutierrezta@unal.edu.co}
 #' 
@@ -15,7 +15,7 @@
 #' @seealso \link{dCJ2}
 #' 
 #' @details 
-#' The  two-parameter  Chris-Jerry distribution with parameters \code{mu} and \code{sigma}
+#' The two-parameter  Chris-Jerry distribution with parameters \code{mu} and \code{sigma}
 #' has density given by
 #' 
 #' \eqn{

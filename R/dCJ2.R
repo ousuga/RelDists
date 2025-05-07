@@ -1,4 +1,4 @@
-#' The  two-parameter  Chris-Jerry distribution
+#' The two-parameter Chris-Jerry distribution
 #' 
 #' @author Manuel Gutierrez Tangarife, \email{mgutierrezta@unal.edu.co}
 #' 
@@ -25,7 +25,7 @@
 #' rates" Symmetry 15.10 (2023): 188.
 #' 
 #' @details 
-#' The  two-parameter Chris-Jerry distribution with parameters \code{mu} 
+#' The two-parameter Chris-Jerry distribution with parameters \code{mu} 
 #' and \code{sigma} has density given by
 #' 
 #' \eqn{
@@ -62,7 +62,6 @@ dCJ2 <- function(x, mu, sigma, log=FALSE){
   
   return(pdf)
 }
-
 #' @export
 #' @rdname dCJ2
 pCJ2 <- function(q, mu, sigma, log.p=FALSE, lower.tail=TRUE){
