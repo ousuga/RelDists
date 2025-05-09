@@ -63,8 +63,8 @@ gendat <- function(n) {
   data.frame(y=y, x1=x1, x2=x2)
 }
 
-set.seed(123)
-dat <- gendat(n=100)
+set.seed(1234)
+dat <- gendat(n=200)
 
 # Fitting the model
 mod2 <- gamlss(y ~ x1,
