@@ -29,7 +29,6 @@
 #'
 #' \insertRef{cordeiro2011}{RelDists}
 #' 
-#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @importFrom stats pgamma
