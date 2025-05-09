@@ -49,8 +49,12 @@ dExWALD <- function(x, mu=1.5, sigma=1.5, nu=2, log=FALSE) {
   k <- mu^2 - 2/nu
   if (k < 0) {
     part1 <- -log(nu) + mu*sigma - sigma^2/(2*x) - x*mu^2/2
-    part2 <- log(rew(sqrt(-x*k/2), sigma/sqrt(2*x)))
-    part2 <- ifelse(is.na(part2), 0, part2)
+    element1 <- sqrt(-x*k/2)
+    element2 <- sigma/sqrt(2*x)
+    element3 <- ifelse(element1 < 30 & element2 < 25, 
+                       rew(element1, element2), 
+                       0)
+    part2 <- log(element3)
     res <- part1 + part2
   }
   else {
