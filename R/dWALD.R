@@ -25,7 +25,7 @@
 #' @details
 #' The Wald distribution with parameters \eqn{\mu} and \eqn{\sigma} has density given by
 #'
-#' \eqn{\operatorname{f}(x |\mu, \sigma)=\frac{\sigma}{\sqrt{2 \pi x^3}} \exp \left[-\frac{(\sigma-\mu x)^2}{2x}\right ], x>0 }
+#' \eqn{f(x |\mu, \sigma)=\frac{\sigma}{\sqrt{2 \pi x^3}} \exp \left[-\frac{(\sigma-\mu x)^2}{2x}\right ], x>0 }
 #'
 #' @return
 #' \code{dWALD} gives the density, \code{pWALD} gives the distribution

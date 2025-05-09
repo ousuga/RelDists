@@ -16,10 +16,12 @@
 <url><loc>http://ousuga.github.io/RelDists/reference/dEEG.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dEGG.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dEMWEx.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/den_exw.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dEOFNH.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dEW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dEXL.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dExW.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/dExWALD.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dFWE.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dGammaW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/dGGD.html</loc></url>
@@ -54,6 +56,9 @@
 <url><loc>http://ousuga.github.io/RelDists/reference/EW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/EXL.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/ExW.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/ExWALD.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/exwstpt.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/fitexw.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/FWE.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/GammaW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/GGD.html</loc></url>
@@ -73,6 +78,7 @@
 <url><loc>http://ousuga.github.io/RelDists/reference/MOK.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/MW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/myOW_region.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/negllexw.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/OW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/param.startOW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/PL.html</loc></url>
@@ -80,6 +86,7 @@
 <url><loc>http://ousuga.github.io/RelDists/reference/RW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/summary.initValOW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/SZMW.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/uandv.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/WALD.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/wald_start.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/WG.html</loc></url>

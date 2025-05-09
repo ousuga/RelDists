@@ -20,15 +20,15 @@ exp(coef(mod1, what="sigma"))
 gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
-  mu <- exp(0.75 - 0.69*x1)   # Approx 1.5
-  sigma <- exp(0.5 - 0.64*x2) # Approx 1.20
+  mu <- exp(0.75 - 0.69 * x1)   # Approx 1.5
+  sigma <- exp(0.5 - 0.64 * x2) # Approx 1.20
   y <- rWALD(n, mu, sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }
 
-datos <- gendat(n=200)
+dat <- gendat(n=200)
 
-mod2 <- gamlss(y~x1, sigma.fo=~x2, family=WALD, data=datos, 
+mod2 <- gamlss(y~x1, sigma.fo=~x2, family=WALD, data=dat, 
                control=gamlss.control(n.cyc=5000, trace=TRUE))
 
 summary(mod2)

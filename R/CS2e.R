@@ -24,9 +24,11 @@
 #' @example examples/examples_CS2e.R
 #'
 #' @references
-#'\insertRef{chesneau2018new}{RelDists}
+#' Chesneau, C., Bakouch, H. S., & Hussain, T. (2019). A new 
+#' class of probability distributions via cosine and sine 
+#' functions with applications. Communications in 
+#' Statistics-Simulation and Computation, 48(8), 2287-2300.
 #' 
-#'@importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 CS2e <- function (mu.link="log", sigma.link="log", nu.link="log"){

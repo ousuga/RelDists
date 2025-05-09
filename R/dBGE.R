@@ -33,9 +33,13 @@
 #' @example examples/examples_dBGE.R    
 #' 
 #' @references
-#'\insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #'
-#'\insertRef{barreto2010beta}{RelDists}
+#' Barreto-Souza, W., Santos, A. H., & Cordeiro, G. M. (2010). 
+#' The beta generalized exponential distribution. Journal of 
+#' statistical Computation and Simulation, 80(2), 159-172.
 #' 
 #' @export
 dBGE <- function(x, mu, sigma, nu, tau, log=FALSE){

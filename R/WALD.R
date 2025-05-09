@@ -4,11 +4,11 @@
 #'
 #' @description
 #' The function \code{WALD()} defines the wALD distribution, two-parameter
-#' Continuous distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting
+#' continuous distribution for a \code{gamlss.family} object to be used in GAMLSS fitting
 #' using the function \code{gamlss()}.
 #'
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
-#' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
+#' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma parameter.
 #'
 #' @references
 #' Heathcote, A. (2004). Fitting Wald and ex-Wald distributions to 

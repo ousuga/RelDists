@@ -89,9 +89,14 @@ curve(hAddW(x, mu=1.5, sigma=0.2, nu=3, tau=0.8), from=0.001, to=1,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
+System Safety, 124, 32-55.
 
-\insertRef{Xie1996}{RelDists}
+Xie, M., & Lai, C. D. (1996). Reliability analysis using an 
+additive Weibull model with bathtub-shaped failure rate 
+function. Reliability Engineering & System Safety, 
+52(1), 87-93.
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

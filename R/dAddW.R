@@ -33,11 +33,15 @@
 #' @example examples/examples_dAddW.R  
 #'
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{Xie1996}{RelDists}
+#' Xie, M., & Lai, C. D. (1996). Reliability analysis using an 
+#' additive Weibull model with bathtub-shaped failure rate 
+#' function. Reliability Engineering & System Safety, 
+#' 52(1), 87-93.
 #'
-#' @importFrom Rdpack reprompt
 #'
 #' @export
 dAddW <- function(x, mu, sigma,

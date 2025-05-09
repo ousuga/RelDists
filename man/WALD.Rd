@@ -9,14 +9,14 @@ WALD(mu.link = "log", sigma.link = "log")
 \arguments{
 \item{mu.link}{defines the mu.link, with "log" link as the default for the mu parameter.}
 
-\item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
+\item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma parameter.}
 }
 \value{
 Returns a gamlss.family object which can be used to fit a WALD distribution in the \code{gamlss()} function.
 }
 \description{
 The function \code{WALD()} defines the wALD distribution, two-parameter
-Continuous distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting
+continuous distribution for a \code{gamlss.family} object to be used in GAMLSS fitting
 using the function \code{gamlss()}.
 }
 \details{
@@ -47,15 +47,15 @@ exp(coef(mod1, what="sigma"))
 gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
-  mu <- exp(0.75 - 0.69*x1)   # Approx 1.5
-  sigma <- exp(0.5 - 0.64*x2) # Approx 1.20
+  mu <- exp(0.75 - 0.69 * x1)   # Approx 1.5
+  sigma <- exp(0.5 - 0.64 * x2) # Approx 1.20
   y <- rWALD(n, mu, sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }
 
-datos <- gendat(n=200)
+dat <- gendat(n=200)
 
-mod2 <- gamlss(y~x1, sigma.fo=~x2, family=WALD, data=datos, 
+mod2 <- gamlss(y~x1, sigma.fo=~x2, family=WALD, data=dat, 
                control=gamlss.control(n.cyc=5000, trace=TRUE))
 
 summary(mod2)
