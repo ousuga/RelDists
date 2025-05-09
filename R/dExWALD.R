@@ -50,6 +50,7 @@ dExWALD <- function(x, mu=1.5, sigma=1.5, nu=2, log=FALSE) {
   if (k < 0) {
     part1 <- -log(nu) + mu*sigma - sigma^2/(2*x) - x*mu^2/2
     part2 <- log(rew(sqrt(-x*k/2), sigma/sqrt(2*x)))
+    part2 <- ifelse(is.na(part2), 0, part2)
     res <- part1 + part2
   }
   else {
@@ -105,7 +106,8 @@ qExWALD <- function(p, mu=1.5, sigma=1.5, nu=2) {
   my_aux <- function(x, p, mu, sigma, nu) 
     pExWALD(x, mu, sigma, nu) - p
   # End auxiliar function
-  uniroot(my_aux, c(0.01, 1000), tol=0.0001, 
+  
+  uniroot(my_aux, c(0.001, 10000), tol=0.0001, 
           mu=mu, sigma=sigma, nu=nu, p=p)$root
 }
 # Vectorizing

@@ -1,26 +1,63 @@
-## The probability density function
+# Example 1
+# Plotting the mass function for different parameter values
+curve(dExWALD(x, mu=0.15, sigma=52.5, nu=50), ylim=c(0, 0.005),
+      from=0, to=1200, col="cadetblue3", las=1, ylab="f(x)")
 
-curve(dExWALD(x, mu=1, sigma=4, nu=1), from=0, to=10, 
-      ylim=c(0, 0.3), col="red", las=1, ylab="f(x)")
+curve(dExWALD(x, mu=0.20, sigma=70, nu=50),
+      add=TRUE, col= "purple")
 
-## The cumulative distribution and the Reliability function
-curve(pExWALD(x, mu=1, sigma=4, nu=1), from=0, to=10, 
-      col="red", las=1, ylab="F(x)")
+curve(dExWALD(x, mu=0.25, sigma=87.5, nu=50),
+      add=TRUE, col="goldenrod")
 
-curve(pExWALD(x, mu=1, sigma=4, nu=1, lower.tail=FALSE), 
-      from=0, to=10, col="red", las=1, ylab="R(x)")
+curve(dExWALD(x, mu=0.20, sigma=70, nu=115),
+      add=TRUE, col="tomato")
 
-## The quantile function
-p <- seq(from=0.01, to=0.99, length.out=100)
-plot(x=qExWALD(p, mu=1.5, sigma=1.5, nu=2), y=p, xlab="Quantile",
+curve(dExWALD(x, mu=0.20, sigma=70, nu=35),
+      add=TRUE, col="blue")
+
+legend("topright", col=c("cadetblue3", "purple", "goldenrod",
+                         "tomato", "blue"), 
+       lty=1, bty="n",
+       legend=c("mu=0.15, sigma=52.5, nu=50",
+                "mu=0.20, sigma=70.0, nu=50",
+                "mu=0.25, sigma=87.5, nu=50",
+                "mu=0.20, sigma=70.0, nu=115",
+                "mu=0.20, sigma=70.0, nu=35"))
+
+# Example 2
+# Checking if the cumulative curves converge to 1
+curve(pExWALD(x, mu=0.15, sigma=52.5, nu=50), ylim=c(0, 1),
+      from=0, to=1200, col="cadetblue3", las=1, ylab="F(x)")
+
+curve(pExWALD(x, mu=0.20, sigma=70, nu=50),
+      add=TRUE, col= "purple")
+
+curve(pExWALD(x, mu=0.25, sigma=87.5, nu=50),
+      add=TRUE, col="goldenrod")
+
+curve(pExWALD(x, mu=0.20, sigma=70, nu=115),
+      add=TRUE, col="tomato")
+
+curve(pExWALD(x, mu=0.20, sigma=70, nu=35),
+      add=TRUE, col="blue")
+
+legend("bottomright", col=c("cadetblue3", "purple", "goldenrod",
+                         "tomato", "blue"), 
+       lty=1, bty="n",
+       legend=c("mu=0.15, sigma=52.5, nu=50",
+                "mu=0.20, sigma=70.0, nu=50",
+                "mu=0.25, sigma=87.5, nu=50",
+                "mu=0.20, sigma=70.0, nu=115",
+                "mu=0.20, sigma=70.0, nu=35"))
+
+# Example 3
+# Checking the quantile function
+mu <- 5
+sigma <- 3
+nu <- 2
+p <- seq(from=0.1, to=0.99, length.out=100)
+plot(x=qExWALD(p, mu=mu, sigma=sigma, nu=nu), y=p, xlab="Quantile",
      las=1, ylab="Probability")
-curve(pExWALD(x, mu=1.5, sigma=1.5, nu=2), from=0, add=TRUE, col="red")
-
-## The random function
-x <- rExWALD(n=1000, mu=1.5, sigma=1.5, nu=2)
-hist(x, freq=FALSE, xlab="x", 
-     ylim=c(0, 0.35), las=1, main="")
-curve(dExWALD(x, mu=1.5, sigma=1.5, nu=2), 
-      from=0, to=20, add=TRUE, col="red")
+curve(pExWALD(x, mu=mu, sigma=sigma, nu=nu), from=0, add=TRUE, col="red")
 
 
