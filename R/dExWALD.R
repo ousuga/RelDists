@@ -54,6 +54,7 @@ dExWALD <- function(x, mu=1.5, sigma=1.5, nu=2, log=FALSE) {
     element3 <- ifelse(element1 < 30 & element2 < 25, 
                        rew(element1, element2), 
                        0)
+    element3 <- abs(element3)
     part2 <- log(element3)
     res <- part1 + part2
   }
