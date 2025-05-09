@@ -37,6 +37,7 @@ mu <- 0.20
 sigma <- 70
 nu <- 115
 
+set.seed(123)
 y <- rExWALD(n=100, mu, sigma, nu)
 
 library(gamlss)
