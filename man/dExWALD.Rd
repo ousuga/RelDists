@@ -46,7 +46,17 @@ with parameter \eqn{\mu}, \eqn{\sigma} and \eqn{\nu}.
 The Wald distribution with parameters \eqn{\mu}, \eqn{\sigma} 
 and \eqn{\nu} has density given by
 
-\eqn{f(x |\mu, \sigma)= x+1}
+\eqn{f(x |\mu, \sigma, \nu) = \frac{1}{\nu} \exp(\frac{-x}{\nu} + \sigma(\mu-k)) F_W(x|k, \sigma) \, \text{for} \, k \geq 0}
+
+\eqn{f(x |\mu, \sigma, \nu) = \frac{1}{\nu} \exp\left( \frac{-(\sigma-\mu)^2}{2x} \right) Re \left( w(k^\prime \sqrt{x/2} + \frac{\sigma i}{\sqrt{2x}}) \right)  \, \text{for} \, k < 0}
+
+where \eqn{k=\sqrt{\mu^2-\frac{2}{\nu}}}, 
+\eqn{k^\prime=\sqrt{\frac{2}{\nu}-\mu^2}} and
+\eqn{F_W} corresponds to the cumulative function of 
+the Wald distribution. 
+
+More details about those expressions
+can be found on page 680 from Heathcote (2004).
 }
 \examples{
 # Example 1
@@ -111,6 +121,15 @@ plot(x=qExWALD(p, mu=mu, sigma=sigma, nu=nu), y=p, xlab="Quantile",
      las=1, ylab="Probability")
 curve(pExWALD(x, mu=mu, sigma=sigma, nu=nu), from=0, add=TRUE, col="red")
 
+# Example 4
+# Comparing the random generator output with
+# the theoretical probabilities
+mu <- 0.2
+sigma <- 70
+nu <- 35
+x <- rExWALD(n=10000, mu=mu, sigma=sigma, nu=nu)
+hist(x, freq=FALSE)
+curve(dExWALD(x, mu=mu, sigma=sigma, nu=nu), col="tomato", add=TRUE)
 
 }
 \references{

@@ -77,7 +77,14 @@ Ex-WALD distribution in the <code><a href="https://rdrr.io/pkg/gamlss/man/gamlss
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The Ex-Wald distribution with parameters \(\mu\), \(\sigma\)
 and \(\nu\) has density given by</p>
-<p>\(f(x |\mu, \sigma) = x + 1 \)</p>
+<p>\(f(x |\mu, \sigma, \nu) = \frac{1}{\nu} \exp(\frac{-x}{\nu} + \sigma(\mu-k)) F_W(x|k, \sigma) \, \text{for} \, k \geq 0\)</p>
+<p>\(f(x |\mu, \sigma, \nu) = \frac{1}{\nu} \exp\left( \frac{-(\sigma-\mu)^2}{2x} \right) Re \left( w(k^\prime \sqrt{x/2} + \frac{\sigma i}{\sqrt{2x}}) \right)  \, \text{for} \, k &lt; 0\)</p>
+<p>where \(k=\sqrt{\mu^2-\frac{2}{\nu}}\),
+\(k^\prime=\sqrt{\frac{2}{\nu}-\mu^2}\) and
+\(F_W\) corresponds to the cumulative function of
+the Wald distribution.</p>
+<p>More details about those expressions
+can be found on page 680 from Heathcote (2004).</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
@@ -104,22 +111,23 @@ Behavior Research Methods, Instruments, &amp; Computers, 36, 678-694.</p>
 <span class="r-in"><span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fl">70</span></span></span>
 <span class="r-in"><span><span class="va">nu</span> <span class="op">&lt;-</span> <span class="fl">115</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="dExWALD.html">rExWALD</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">100</span>, <span class="va">mu</span>, <span class="va">sigma</span>, <span class="va">nu</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">ExWALD</span>,</span></span>
 <span class="r-in"><span>               control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">1000</span>, trace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 1284.621 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 1258.666 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.2048618 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.2392296 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    72.03127 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     74.6907 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"nu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    140.3192 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     129.982 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Generating random values under some model</span></span></span>
@@ -136,8 +144,8 @@ Behavior Research Methods, Instruments, &amp; Computers, 36, 678-694.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">y</span>, x1<span class="op">=</span><span class="va">x1</span>, x2<span class="op">=</span><span class="va">x2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">gendat</span><span class="op">(</span>n<span class="op">=</span><span class="fl">100</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">gendat</span><span class="op">(</span>n<span class="op">=</span><span class="fl">200</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fitting the model</span></span></span>
 <span class="r-in"><span><span class="va">mod2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x1</span>,</span></span>
@@ -147,24 +155,19 @@ Behavior Research Methods, Instruments, &amp; Computers, 36, 678-694.</p>
 <span class="r-in"><span>               data <span class="op">=</span> <span class="va">dat</span>,</span></span>
 <span class="r-in"><span>               control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">1000</span>, </span></span>
 <span class="r-in"><span>                                        trace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 615.001 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 427.7696 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 406.2887 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = 405.5854 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = 405.2429 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 6: Global Deviance = 405.0361 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 7: Global Deviance = 404.9048 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 8: Global Deviance = 404.823 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 9: Global Deviance = 404.7733 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 10: Global Deviance = 404.7417 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 11: Global Deviance = 404.7216 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 12: Global Deviance = 404.7085 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 13: Global Deviance = 404.7002 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 14: Global Deviance = 404.6949 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 15: Global Deviance = 404.6914 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 16: Global Deviance = 404.6893 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 17: Global Deviance = 404.6876 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 18: Global Deviance = 404.6867 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 822.0462 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 819.875 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 818.6914 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = 817.9948 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = 817.6103 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 6: Global Deviance = 817.4151 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 7: Global Deviance = 817.3221 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 8: Global Deviance = 817.28 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 9: Global Deviance = 817.2608 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 10: Global Deviance = 817.2515 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 11: Global Deviance = 817.2476 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 12: Global Deviance = 817.246 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 13: Global Deviance = 817.2453 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>summary: vcov has failed, option qr is used instead</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ******************************************************************</span>
@@ -180,8 +183,8 @@ Behavior Research Methods, Instruments, &amp; Computers, 36, 678-694.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Mu link function:  log</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Mu Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  -0.8144     0.3179  -2.562   0.0119 *  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> x1            3.0736     0.6930   4.435 2.41e-05 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  -0.9079     0.1767  -5.139 6.59e-07 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x1            2.2407     0.3472   6.453 8.25e-10 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -189,8 +192,8 @@ Behavior Research Methods, Instruments, &amp; Computers, 36, 678-694.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sigma link function:  log</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sigma Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   1.5540     0.2340   6.640 1.76e-09 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> x2           -1.8191     0.5254  -3.463 0.000794 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   0.8353     0.1504   5.553 8.95e-08 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x2           -0.6647     0.2863  -2.322   0.0212 *  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -198,19 +201,19 @@ Behavior Research Methods, Instruments, &amp; Computers, 36, 678-694.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Nu link function:  log </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Nu Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   0.7790     0.1122   6.941  4.1e-10 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  0.63266    0.09008   7.023 3.36e-11 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> No. of observations in the fit:  100 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> No. of observations in the fit:  200 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom for the fit:  5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Residual Deg. of Freedom:  95 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       at cycle:  18 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Residual Deg. of Freedom:  195 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       at cycle:  13 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Global Deviance:     404.6867 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             AIC:     414.6867 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             SBC:     427.7126 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Global Deviance:     817.2453 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             AIC:     827.2453 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             SBC:     843.7368 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ******************************************************************</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

@@ -60,4 +60,13 @@ plot(x=qExWALD(p, mu=mu, sigma=sigma, nu=nu), y=p, xlab="Quantile",
      las=1, ylab="Probability")
 curve(pExWALD(x, mu=mu, sigma=sigma, nu=nu), from=0, add=TRUE, col="red")
 
+# Example 4
+# Comparing the random generator output with
+# the theoretical probabilities
+mu <- 0.2
+sigma <- 70
+nu <- 35
+x <- rExWALD(n=10000, mu=mu, sigma=sigma, nu=nu)
+hist(x, freq=FALSE)
+curve(dExWALD(x, mu=mu, sigma=sigma, nu=nu), col="tomato", add=TRUE)
 
