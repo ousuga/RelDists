@@ -29,21 +29,21 @@ hMW(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are 
-P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are
+P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dMW} gives the density, \code{pMW} gives the distribution 
+\code{dMW} gives the density, \code{pMW} gives the distribution
 function, \code{qMW} gives the quantile function, \code{rMW}
 generates random deviates and \code{hMW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
-random generation and hazard function for the modified weibull distribution 
+Density, distribution function, quantile function,
+random generation and hazard function for the modified weibull distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
@@ -87,9 +87,13 @@ curve(hMW(x, mu=2, sigma=1.5, nu=0.2), from=0, to=1.5, ylim=c(0, 5),
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{lai2003modified}{RelDists}
+Lai, C. D., Xie, M., & Murthy, D. N. P. (2003).
+A modified Weibull distribution.
+IEEE Transactions on reliability, 52(1), 33-37.
 }
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}

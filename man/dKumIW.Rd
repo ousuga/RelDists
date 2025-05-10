@@ -29,24 +29,24 @@ hKumIW(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dKumIW} gives the density, \code{pKumIW} gives the distribution 
+\code{dKumIW} gives the density, \code{pKumIW} gives the distribution
 function, \code{qKumIW} gives the quantile function, \code{rKumIW}
 generates random deviates and \code{hKumIW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
-random generation and hazard function for the Kumaraswamy Inverse Weibull distribution 
+Density, distribution function, quantile function,
+random generation and hazard function for the Kumaraswamy Inverse Weibull distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Kumaraswamy Inverse Weibull Distribution with parameters \code{mu}, 
+The Kumaraswamy Inverse Weibull Distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)= \mu \sigma \nu x^{-\mu - 1} \exp{- \sigma x^{-\mu}} (1 - \exp{- \sigma x^{-\mu}})^{\nu - 1},}
@@ -89,9 +89,13 @@ curve(hKumIW(x, mu = 1.5, sigma=  1.5, nu = 1), from = 0, to = 3,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{shahbaz2012kumaraswamy}{RelDists}
+Shahbaz, M. Q., Shahbaz, S., & Butt, N. S. (2012).
+The Kumaraswamy Inverse Weibull Distribution.
+Pakistan journal of statistics and operation research, 479-489.
 }
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}

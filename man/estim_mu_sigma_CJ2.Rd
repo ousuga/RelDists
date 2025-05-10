@@ -10,7 +10,7 @@ estim_mu_sigma_CJ2(y)
 \item{y}{vector with the random sample}
 }
 \value{
-A two-length numeric vector with initial estimates for \eqn{mu} and \eqn{sigma} 
+A two-length numeric vector with initial estimates for \eqn{mu} and \eqn{sigma}
 parameters from CJ2 distribution (see \code{\link{dCJ2}}).
 }
 \description{

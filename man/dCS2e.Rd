@@ -29,24 +29,24 @@ hCS2e(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dCS2e} gives the density, \code{pCS2e} gives the distribution 
+\code{dCS2e} gives the density, \code{pCS2e} gives the distribution
 function, \code{qCS2e} gives the quantile function, \code{rCS2e}
 generates random deviates and \code{hCS2e} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
-random generation and hazard function for the Cosine Sine Exponential distribution 
+Density, distribution function, quantile function,
+random generation and hazard function for the Cosine Sine Exponential distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Cosine Sine Exponential Distribution with parameters \code{mu}, 
+The Cosine Sine Exponential Distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)=\frac{\pi \sigma \mu \exp(\frac{-x} {\nu})}{2 \nu [(\mu\sin(\frac{\pi}{2} \exp(\frac{-x} {\nu})) + \sigma\cos(\frac{\pi}{2} \exp(\frac{-x} {\nu}))]^2}, }
@@ -87,7 +87,10 @@ curve(hCS2e(x, mu=1, sigma=0.1, nu =0.1), from=0, to=1, ylim=c(0, 10),
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{chesneau2018new}{RelDists}
+Chesneau, C., Bakouch, H. S., & Hussain, T. (2019). A new class
+of probability distributions via cosine and sine functions
+with applications. Communications in Statistics-Simulation
+and Computation, 48(8), 2287-2300.
 }
 \author{
 Juan Pablo Ramirez

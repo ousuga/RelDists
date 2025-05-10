@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a WP distribution in the
 The Weibull Poisson family
 }
 \details{
-The Weibull Poisson distribution with parameters \code{mu}, 
+The Weibull Poisson distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma \nu e^{-\nu}} {1-e^{-\nu}} x^{\mu-1} \exp({-\sigma x^{\mu}+\nu \exp({-\sigma} x^{\mu}) }),}
@@ -74,8 +74,8 @@ exp(coef(mod2, what="nu"))
 
 }
 \references{
-Lu, Wanbo, and Daimin Shi. "A new compounding life distribution: 
-the Weibull–Poisson distribution." Journal of applied 
+Lu, Wanbo, and Daimin Shi. "A new compounding life distribution:
+the Weibull–Poisson distribution." Journal of applied
 statistics 39.1 (2012): 21-38.
 }
 \seealso{

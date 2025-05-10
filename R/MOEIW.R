@@ -24,9 +24,10 @@
 #' @example examples/examples_MOEIW.R 
 #' 
 #' @references
-#' \insertRef{okasha2017}{RelDists}
+#' Okasha, H. M., El-Baz, A. H., Tarabia, A. M. K., & Basheer, A. M. (2017). 
+#' Extended inverse Weibull distribution with reliability application. 
+#' Journal of the Egyptian Mathematical Society, 25(3), 343-349.
 #'
-#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

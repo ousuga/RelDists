@@ -32,7 +32,10 @@
 #' @example examples/examples_dCS2e.R
 #'       
 #' @references
-#'\insertRef{chesneau2018new}{RelDists}
+#' Chesneau, C., Bakouch, H. S., & Hussain, T. (2019). A new class 
+#' of probability distributions via cosine and sine functions 
+#' with applications. Communications in Statistics-Simulation 
+#' and Computation, 48(8), 2287-2300.
 #'
 #' @export
 dCS2e <- function(x, mu, sigma, nu, log=FALSE){

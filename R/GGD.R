@@ -20,13 +20,15 @@
 #' for \eqn{x \geq 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}
 #' 
 #' @returns Returns a gamlss.family object which can be used to fit a GGD distribution in the \code{gamlss()} function.
-#' . 
+#' 
 #' @example examples/examples_GGD.R
 #' 
 #' @references
-#'\insertRef{el2013generalized}{RelDists}
+#' #' El-Gohary, A., Alshamrani, A., & Al-Otaibi, A. N. (2013). 
+#' The generalized Gompertz distribution. Applied mathematical 
+#' modelling, 37(1-2), 13-24.
 #' 
-#'@importFrom gamlss.dist checklink
+#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 GGD <- function (mu.link="log", sigma.link="log", nu.link="log"){

@@ -14,29 +14,29 @@ initValuesOW(
 }
 \arguments{
 \item{formula}{an object of class \code{\link{formula}} with the response on
-the left of an operator \code{~}. The right side must be 
+the left of an operator \code{~}. The right side must be
 \code{1}.}
 
-\item{data}{an optional data frame containing the response variables. If 
-data is not specified, the variables are taken from the 
+\item{data}{an optional data frame containing the response variables. If
+data is not specified, the variables are taken from the
 environment from which \code{initValuesOW} is called.}
 
-\item{local_reg}{a list of control parameters for LOESS. See 
+\item{local_reg}{a list of control parameters for LOESS. See
 \code{\link[EstimationTools]{loess.options}}.}
 
-\item{interpolation}{a list of control parameters for interpolation function. See 
+\item{interpolation}{a list of control parameters for interpolation function. See
 \code{\link[EstimationTools]{interp.options}}.}
 
-\item{...}{further arguments passed to 
+\item{...}{further arguments passed to
 \code{\link[EstimationTools]{TTTE_Analytical}}.}
 }
 \value{
 Returns an object of class \code{c("initValOW", "HazardShape")} containing:
 
 \itemize{
-\item \code{sigma.start} value for \eqn{sigma} parameter of OW distribution.  
+\item \code{sigma.start} value for \eqn{sigma} parameter of OW distribution.
 \item \code{nu.start} value for \eqn{nu} parameter of OW distribution.
-\item \code{sigma.valid} search region for \eqn{sigma} parameter of OW distribution.  
+\item \code{sigma.valid} search region for \eqn{sigma} parameter of OW distribution.
 \item \code{nu.valid} search region for \eqn{nu} parameter of OW distribution.
 \item \code{TTTplot} Total Time on Test transform computed from the data.
 \item \code{hazard_type} shape of the hazard function determined from the TTT
@@ -48,9 +48,9 @@ This function can be used so as to get suggestions about initial values
 and the search region for parameter estimation in \code{OW} distribution.
 }
 \details{
-This function performs a non-parametric estimation of the empirical total 
-time on test (TTT) plot. Then, this estimated curve can be used so as to 
-get suggestions about initial values and the search region for parameters 
+This function performs a non-parametric estimation of the empirical total
+time on test (TTT) plot. Then, this estimated curve can be used so as to
+get suggestions about initial values and the search region for parameters
 based on hazard shape associated to the  shape of empirical TTT plot.
 }
 \examples{

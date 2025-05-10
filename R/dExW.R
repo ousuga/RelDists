@@ -32,11 +32,13 @@
 #' @example examples/examples_dExW.R
 #'
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{Zhang2007}{RelDists}
-#'
-#' @importFrom Rdpack reprompt
+#' Zhang, T., & Xie, M. (2007). Failure data analysis with 
+#' extended Weibull distribution. Communications in 
+#' Statistics—Simulation and Computation, 36(3), 579-592.
 #'
 #' @export
 dExW <- function(x, mu, sigma, nu, log=FALSE){

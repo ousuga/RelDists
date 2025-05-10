@@ -22,7 +22,7 @@ Returns a gamlss.family object which can be used to fit a GMW distribution in th
 The Generalized modified Weibull distribution
 }
 \details{
-The Generalized modified Weibull distribution with parameters \code{mu}, 
+The Generalized modified Weibull distribution with parameters \code{mu},
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \mu \sigma x^{\nu - 1}(\nu + \tau x) \exp(\tau x - \mu x^{\nu} e^{\tau x})

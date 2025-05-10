@@ -25,9 +25,14 @@
 #' @example examples/examples_EGG.R 
 #' 
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #'
-#' \insertRef{cordeiro2011}{RelDists}
+#' Cordeiro, G. M., Ortega, E. M., & Silva, G. O. (2011). 
+#' The exponentiated generalized gamma distribution with 
+#' application to lifetime data. Journal of statistical 
+#' computation and simulation, 81(7), 827-842.
 #' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot

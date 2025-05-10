@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a SZMW distribution in t
 The Sarhan and Zaindin's Modified Weibull distribution
 }
 \details{
-The Sarhan and Zaindin's Modified Weibull distribution with parameters \code{mu}, 
+The Sarhan and Zaindin's Modified Weibull distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)=(\mu + \sigma \nu x^(\nu - 1)) \exp(- \mu x - \sigma x^\nu),}
@@ -63,9 +63,12 @@ coef(mod, what="sigma")
 coef(mod, what='nu')
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{sarhan2009modified}{RelDists}
+Sarhan, A. M., & Zaindin, M. (2009).
+Modified Weibull distribution. APPS. Applied Sciences, 11, 123-136.
 }
 \seealso{
 \link{dSZMW}

@@ -31,11 +31,12 @@
 #' @example examples/examples_dRW.R
 #'
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{Clifford1973}{RelDists}
-#'
-#' @importFrom Rdpack reprompt
+#' Cohen, A. C. (1973). The reflected Weibull distribution. 
+#' Technometrics, 15(4), 867-873.
 #'
 #' @export
 dRW <- function(x, mu, sigma, log=FALSE){

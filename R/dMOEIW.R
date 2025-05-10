@@ -32,9 +32,9 @@
 #' @example examples/examples_dMOEIW.R  
 #'
 #' @references
-#' \insertRef{okasha2017}{RelDists}
-#'
-#' @importFrom Rdpack reprompt
+#' Okasha, H. M., El-Baz, A. H., Tarabia, A. M. K., & Basheer, A. M. (2017). 
+#' Extended inverse Weibull distribution with reliability application. 
+#' Journal of the Egyptian Mathematical Society, 25(3), 343-349.
 #'
 #' @export
 dMOEIW <- function(x, mu, sigma, nu, log=FALSE){

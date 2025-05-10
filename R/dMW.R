@@ -33,9 +33,13 @@
 #' @example examples/examples_dMW.R
 #' 
 #' @references
-#'\insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #'
-#'\insertRef{lai2003modified}{RelDists}
+#' Lai, C. D., Xie, M., & Murthy, D. N. P. (2003). 
+#' A modified Weibull distribution. 
+#' IEEE Transactions on reliability, 52(1), 33-37.
 #' 
 #' @export
 dMW <- function(x, mu, sigma, nu, log = FALSE){

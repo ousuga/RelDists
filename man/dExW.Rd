@@ -29,24 +29,24 @@ hExW(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dExW} gives the density, \code{pExW} gives the distribution 
+\code{dExW} gives the density, \code{pExW} gives the distribution
 function, \code{qExW} gives the quantile function, \code{rExW}
 generates random deviates and \code{hExW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
+Density, distribution function, quantile function,
 random generation and hazard function for the Extended Weibull distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Extended Weibull distribution with parameters \code{mu}, 
+The Extended Weibull distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma \nu x^{\sigma -1} exp({-\mu x^{\sigma}})} {[1 -(1-\nu) exp({-\mu x^{\sigma}})]^2},}
@@ -87,9 +87,13 @@ curve(hExW(x, mu=0.3, sigma=2, nu=0.05), from=0.001, to=4,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{Zhang2007}{RelDists}
+Zhang, T., & Xie, M. (2007). Failure data analysis with
+extended Weibull distribution. Communications in
+Statistics—Simulation and Computation, 36(3), 579-592.
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

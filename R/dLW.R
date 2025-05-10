@@ -31,11 +31,12 @@
 #' @example examples/examples_dLW.R  
 #'
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{Gumbel1958}{RelDists}
-#'
-#' @importFrom Rdpack reprompt
+#' Gumbel, E. J. (1958). Statistics of extremes. 
+#' Columbia university press.
 #'
 #' @export
 dLW <- function(x, mu, sigma, log=FALSE){

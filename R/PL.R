@@ -23,11 +23,15 @@
 #' @example examples/examples_PL.R
 #' 
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{Ghitanya2013}{RelDists}
+#' Ghitany, M. E., Al-Mutairi, D. K., Balakrishnan, N., & 
+#' Al-Enezi, L. J. (2013). Power Lindley distribution 
+#' and associated inference. Computational Statistics & Data 
+#' Analysis, 64, 20-33.
 #' 
-#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

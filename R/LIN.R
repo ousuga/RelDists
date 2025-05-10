@@ -18,12 +18,13 @@
 #' 
 #' @returns Returns a gamlss.family object which can be used to fit a LIN distribution in the \code{gamlss()} function.
 #' 
-#' @references
-#' \insertRef{lindley1958fiducial}{RelDists}
-#' 
-#' \insertRef{lindley1965introduction}{RelDists}
-#' 
 #' @example examples/examples_LIN.R
+#' 
+#' @references
+#' Lindley, D. V. (1958). Fiducial distributions and Bayes' theorem. 
+#' Journal of the Royal Statistical Society. 
+#' Series B (Methodological), 102-107.
+#' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

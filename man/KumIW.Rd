@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a KumIW distribution in 
 The Kumaraswamy Inverse Weibull family
 }
 \details{
-The Kumaraswamy Inverse Weibull Distribution with parameters \code{mu}, 
+The Kumaraswamy Inverse Weibull Distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)= \mu \sigma \nu x^{-\mu - 1} \exp{- \sigma x^{-\mu}} (1 - \exp{- \sigma x^{-\mu}})^{\nu - 1},}
@@ -63,9 +63,13 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{shahbaz2012kumaraswamy}{RelDists}
+Shahbaz, M. Q., Shahbaz, S., & Butt, N. S. (2012).
+The Kumaraswamy Inverse Weibull Distribution.
+Pakistan journal of statistics and operation research, 479-489.
 }
 \seealso{
 \link{dKumIW}

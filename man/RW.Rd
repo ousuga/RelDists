@@ -18,7 +18,7 @@ Returns a gamlss.family object which can be used to fit a RW distribution in the
 Reflected Weibull distribution
 }
 \details{
-The Reflected Weibull Distribution with parameters \code{mu} 
+The Reflected Weibull Distribution with parameters \code{mu}
 and \code{sigma} has density given by
 
 \eqn{f(y) = \mu\sigma (-y) ^{\sigma - 1} e ^ {-\mu(-y)^\sigma},}
@@ -59,9 +59,12 @@ coef(mod, what="sigma")
 
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{Clifford1973}{RelDists}
+Cohen, A. C. (1973). The reflected Weibull distribution.
+Technometrics, 15(4), 867-873.
 }
 \seealso{
 \link{dRW}

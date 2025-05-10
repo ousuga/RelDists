@@ -18,7 +18,7 @@ Returns a gamlss.family object which can be used to fit a PL distribution in the
 Power Lindley distribution
 }
 \details{
-The Power Lindley Distribution with parameters \code{mu} 
+The Power Lindley Distribution with parameters \code{mu}
 and \code{sigma} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma^2}{\sigma + 1} (1 + x^\mu) x ^ {\mu - 1} \exp({-\sigma x ^\mu}),}
@@ -58,9 +58,14 @@ coef(mod, what="mu")
 coef(mod, what="sigma")
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{Ghitanya2013}{RelDists}
+Ghitany, M. E., Al-Mutairi, D. K., Balakrishnan, N., &
+Al-Enezi, L. J. (2013). Power Lindley distribution
+and associated inference. Computational Statistics & Data
+Analysis, 64, 20-33.
 }
 \seealso{
 \link{dPL}

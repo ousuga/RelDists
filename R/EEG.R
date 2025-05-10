@@ -23,9 +23,13 @@
 #' @example examples/examples_EEG.R 
 #' 
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #'
-#' \insertRef{adamidis2005extension}{RelDists}
+#' Adamidis, K., Dimitrakopoulou, T., & Loukas, S. (2005). 
+#' On an extension of the exponential-geometric distribution. 
+#' Statistics & probability letters, 73(3), 259-269.
 #' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot

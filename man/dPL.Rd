@@ -27,24 +27,24 @@ hPL(x, mu, sigma)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dPL} gives the density, \code{pPL} gives the distribution 
+\code{dPL} gives the density, \code{pPL} gives the distribution
 function, \code{qPL} gives the quantile function, \code{rPL}
 generates random deviates and \code{hPL} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
-random generation and hazard function for the Power Lindley distribution 
+Density, distribution function, quantile function,
+random generation and hazard function for the Power Lindley distribution
 with parameters \code{mu} and \code{sigma}.
 }
 \details{
-The Power Lindley Distribution with parameters \code{mu} 
+The Power Lindley Distribution with parameters \code{mu}
 and \code{sigma} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma^2}{\sigma + 1} (1 + x^\mu) x ^ {\mu - 1} \exp({-\sigma x ^\mu}),}
@@ -84,9 +84,14 @@ curve(hPL(x, mu=1.5, sigma=0.2), from=0.1, to=15,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{Ghitanya2013}{RelDists}
+Ghitany, M. E., Al-Mutairi, D. K., Balakrishnan, N., &
+Al-Enezi, L. J. (2013). Power Lindley distribution
+and associated inference. Computational Statistics & Data
+Analysis, 64, 20-33.
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

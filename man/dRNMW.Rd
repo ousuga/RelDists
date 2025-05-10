@@ -30,7 +30,7 @@ hRNMW(x, mu, sigma, nu)
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
 \item{lower.tail}{logical; if TRUE (default), probabilities are
-P[T <= t], otherwise, P[T > t].}
+P\link{T <= t}, otherwise, P\link{T > t}.}
 
 \item{p}{vector of probabilities.}
 
@@ -113,7 +113,7 @@ curve(
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Almalki, S. J. (2018). A reduced new modified Weibull distribution. 
+Almalki, S. J. (2018). A reduced new modified Weibull distribution.
 Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
 }
 \author{

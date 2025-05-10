@@ -29,25 +29,25 @@ hSZMW(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are 
-P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are
+P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dSZMW} gives the density, \code{pSZMW} gives the distribution 
+\code{dSZMW} gives the density, \code{pSZMW} gives the distribution
 function, \code{qSZMW} gives the quantile function, \code{rSZMW}
 generates random deviates and \code{hSZMW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
+Density, distribution function, quantile function,
 random generation and hazard function for Sarhan and Zaindins modified weibull distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Sarhan and Zaindins modified weibull with parameters \code{mu}, 
+The Sarhan and Zaindins modified weibull with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)=(\mu + \sigma \nu x^(\nu - 1)) \exp(- \mu x - \sigma x^\nu)}
@@ -86,9 +86,12 @@ curve(hSZMW(x, mu = 2, sigma = 1.5, nu = 0.2), from = 0, to = 3, ylim = c(0, 8),
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{sarhan2009modified}{RelDists}
+Sarhan, A. M., & Zaindin, M. (2009).
+Modified Weibull distribution. APPS. Applied Sciences, 11, 123-136.
 }
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}

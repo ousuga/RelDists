@@ -31,24 +31,24 @@ hAddW(x, mu, sigma, nu, tau)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dAddW} gives the density, \code{pAddW} gives the distribution 
+\code{dAddW} gives the density, \code{pAddW} gives the distribution
 function, \code{qAddW} gives the quantile function, \code{rAddW}
 generates random deviates and \code{hAddW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
+Density, distribution function, quantile function,
 random generation and hazard function for the Additive Weibull distribution
 with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 }
 \details{
-Additive Weibull Distribution with parameters \code{mu}, 
+Additive Weibull Distribution with parameters \code{mu},
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x) = (\mu\nu x^{\nu - 1} + \sigma\tau x^{\tau - 1}) \exp({-\mu x^{\nu} - \sigma x^{\tau} }),}
@@ -89,13 +89,13 @@ curve(hAddW(x, mu=1.5, sigma=0.2, nu=3, tau=0.8), from=0.001, to=1,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
-Weibull distribution: A review. Reliability Engineering & 
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
 System Safety, 124, 32-55.
 
-Xie, M., & Lai, C. D. (1996). Reliability analysis using an 
-additive Weibull model with bathtub-shaped failure rate 
-function. Reliability Engineering & System Safety, 
+Xie, M., & Lai, C. D. (1996). Reliability analysis using an
+additive Weibull model with bathtub-shaped failure rate
+function. Reliability Engineering & System Safety,
 52(1), 87-93.
 }
 \author{

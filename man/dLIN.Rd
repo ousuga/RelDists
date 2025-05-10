@@ -25,19 +25,19 @@ hLIN(x, mu, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dLIN} gives the density, \code{pLIN} gives the distribution 
+\code{dLIN} gives the density, \code{pLIN} gives the distribution
 function, \code{qLIN} gives the quantile function, \code{rLIN}
 generates random deviates and \code{hLIN} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
+Density, distribution function, quantile function,
 random generation and hazard function for the Lindley distribution
 with parameter \code{mu}.
 }
@@ -76,9 +76,9 @@ curve(hLIN(x, mu=2), from=0.001, to=10, col="red", ylab="Hazard function", las=1
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{lindley1958fiducial}{RelDists}
-
-\insertRef{lindley1965introduction}{RelDists}
+Lindley, D. V. (1958). Fiducial distributions and Bayes' theorem.
+Journal of the Royal Statistical Society.
+Series B (Methodological), 102-107.
 }
 \author{
 Freddy Hernandez, \email{fhernanb@unal.edu.co}

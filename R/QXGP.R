@@ -29,9 +29,11 @@
 #' @example examples/examples_QXGP.R
 #' 
 #' @references
-#' \insertRef{subhradev2018}{RelDists}
+#' Sen, S., Korkmaz, M. Ç., & Yousof, H. M. (2018). 
+#' The quasi XGamma-Poisson distribution: properties and
+#' application. Istatistik Journal of The Turkish Statistical 
+#' Association, 11(3), 65-76.
 #'
-#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

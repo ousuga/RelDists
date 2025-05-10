@@ -23,11 +23,13 @@
 #' @example examples/examples_RW.R
 #' 
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{Clifford1973}{RelDists}
+#' Cohen, A. C. (1973). The reflected Weibull distribution. 
+#' Technometrics, 15(4), 867-873.
 #'
-#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

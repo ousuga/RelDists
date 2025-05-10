@@ -23,11 +23,13 @@
 #' @example examples/examples_LW.R 
 #' 
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{Gumbel1958}{RelDists}
+#' Gumbel, E. J. (1958). Statistics of extremes. 
+#' Columbia university press.
 #'
-#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

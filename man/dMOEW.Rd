@@ -29,24 +29,24 @@ hMOEW(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dMOEW} gives the density, \code{pMOEW} gives the distribution 
+\code{dMOEW} gives the density, \code{pMOEW} gives the distribution
 function, \code{qMOEW} gives the quantile function, \code{rMOEW}
 generates random deviates and \code{hMOEW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
+Density, distribution function, quantile function,
 random generation and hazard function for the Marshall-Olkin Extended Weibull distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Marshall-Olkin Extended Weibull distribution \code{mu}, 
+The Marshall-Olkin Extended Weibull distribution \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma \nu (\nu x)^{\sigma - 1} exp\{{-(\nu x )^{\sigma}}\}}{\{1-(1-\mu) exp\{{-(\nu x )^{\sigma}}\} \}^{2}},}
@@ -87,9 +87,13 @@ curve(hMOEW(x, mu=0.5, sigma=0.7, nu=1), from=0.001, to=3,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{ghitany2005}{RelDists}
+Ghitany, M. E., Al-Hussaini, E. K., & Al-Jarallah, R. A. (2005).
+Marshall–Olkin extended Weibull distribution and its application
+to censored data. Journal of Applied Statistics, 32(10), 1025-1034.
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

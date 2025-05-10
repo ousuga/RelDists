@@ -24,9 +24,12 @@
 #' @example examples/examples_SZMW.R
 #' 
 #' @references
-#'\insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #'
-#'\insertRef{sarhan2009modified}{RelDists}
+#' Sarhan, A. M., & Zaindin, M. (2009). 
+#' Modified Weibull distribution. APPS. Applied Sciences, 11, 123-136.
 #' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot

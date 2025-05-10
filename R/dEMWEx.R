@@ -34,11 +34,14 @@
 #'
 #' @example examples/examples_dEMWEx.R
 #' 
-#' 
 #' @references
-#'\insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #'
-#'\insertRef{sarhan2013exponentiated}{RelDists}
+#' Sarhan, A. M., & Apaloo, J. (2013). Exponentiated modified 
+#' Weibull extension distribution. Reliability Engineering & 
+#' System Safety, 112, 137-144.
 #' 
 #' @export
 dEMWEx <- function(x, mu, sigma, nu, tau, log=FALSE){

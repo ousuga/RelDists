@@ -100,8 +100,8 @@ curve(dWALD(x, mu=mu, sigma=sigma), col="tomato", add=TRUE)
 
 }
 \references{
-Heathcote, A. (2004). Fitting Wald and ex-Wald distributions to 
-response time data: An example using functions for the S-PLUS package. 
+Heathcote, A. (2004). Fitting Wald and ex-Wald distributions to
+response time data: An example using functions for the S-PLUS package.
 Behavior Research Methods, Instruments, & Computers, 36, 678-694.
 }
 \seealso{

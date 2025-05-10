@@ -27,11 +27,8 @@
 #' @returns Returns a gamlss.family object which can be used to fit a EOFNH distribution in the \code{gamlss()} function.
 #'  
 #' @example examples/examples_EOFNH.R
-#'
-#' @references
-#'\insertRef{nasiru2018extended}{RelDists}
 #' 
-#'@importFrom gamlss.dist checklink
+#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 EOFNH <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log"){

@@ -13,8 +13,8 @@ LIN(mu.link = "log")
 Returns a gamlss.family object which can be used to fit a LIN distribution in the \code{gamlss()} function.
 }
 \description{
-The function \code{LIN()} defines the Lindley distribution with only one parameter 
-for a \code{gamlss.family} object to be used in GAMLSS fitting 
+The function \code{LIN()} defines the Lindley distribution with only one parameter
+for a \code{gamlss.family} object to be used in GAMLSS fitting
 using the function \code{gamlss()}.
 }
 \details{
@@ -53,9 +53,9 @@ coef(mod, what='mu')
 
 }
 \references{
-\insertRef{lindley1958fiducial}{RelDists}
-
-\insertRef{lindley1965introduction}{RelDists}
+Lindley, D. V. (1958). Fiducial distributions and Bayes' theorem.
+Journal of the Royal Statistical Society.
+Series B (Methodological), 102-107.
 }
 \author{
 Freddy Hernandez \email{fhernanb@unal.edu.co}

@@ -24,11 +24,15 @@
 #' @example examples/examples_KumIW.R
 #' 
 #' @references
-#'\insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #'
-#'\insertRef{shahbaz2012kumaraswamy}{RelDists}
+#' Shahbaz, M. Q., Shahbaz, S., & Butt, N. S. (2012). 
+#' The Kumaraswamy Inverse Weibull Distribution. 
+#' Pakistan journal of statistics and operation research, 479-489.
 #'
-#'@importFrom gamlss.dist checklink
+#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 KumIW <- function (mu.link="log", sigma.link="log", nu.link="log"){

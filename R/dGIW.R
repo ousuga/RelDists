@@ -33,11 +33,13 @@
 #' 
 #'
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{gusmao2009}{RelDists}
-#'
-#' @importFrom Rdpack reprompt
+#' De Gusmao, F. R., Ortega, E. M., & Cordeiro, G. M. (2011). 
+#' The generalized inverse Weibull distribution. Statistical 
+#' Papers, 52, 591-619.
 #'
 #' @export
 dGIW <- function(x, mu, sigma, nu, log=FALSE){

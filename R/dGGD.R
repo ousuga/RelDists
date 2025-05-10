@@ -31,7 +31,9 @@
 #' @example examples/examples_dGGD.R
 #' 
 #' @references
-#'\insertRef{el2013generalized}{RelDists}
+#' El-Gohary, A., Alshamrani, A., & Al-Otaibi, A. N. (2013). 
+#' The generalized Gompertz distribution. Applied mathematical 
+#' modelling, 37(1-2), 13-24.
 #'
 #' @export
 dGGD <- function(x, mu, sigma, nu, log=FALSE){

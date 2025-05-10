@@ -29,11 +29,9 @@
 #' @example examples/examples_dLIN.R  
 #'
 #' @references
-#' \insertRef{lindley1958fiducial}{RelDists}
-#' 
-#' \insertRef{lindley1965introduction}{RelDists}
-#'
-#' @importFrom Rdpack reprompt
+#' Lindley, D. V. (1958). Fiducial distributions and Bayes' theorem. 
+#' Journal of the Royal Statistical Society. 
+#' Series B (Methodological), 102-107.
 #'
 #' @export
 dLIN <- function (x, mu, log = FALSE) {

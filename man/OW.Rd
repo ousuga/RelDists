@@ -17,8 +17,8 @@ OW(mu.link = "log", sigma.link = "log", nu.link = "log")
 Returns a gamlss.family object which can be used to fit a OW distribution in the \code{gamlss()} function.
 }
 \description{
-The function \code{OW()} defines the Odd Weibull distribution, a three parameter 
-distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 
+The function \code{OW()} defines the Odd Weibull distribution, a three parameter
+distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting
 using the function \code{gamlss()}.
 }
 \details{
@@ -68,7 +68,8 @@ coef(mod, what="sigma")
 coef(mod, what="nu")
 }
 \references{
-\insertRef{Cooray2006}{RelDists}
+Cooray, K. (2006). Generalization of the Weibull distribution:
+the odd Weibull family. Statistical Modelling, 6(3), 265-277.
 }
 \author{
 Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}

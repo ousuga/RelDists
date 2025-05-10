@@ -22,12 +22,15 @@
 #' 
 #' @example examples/examples_IW.R 
 #'
-#'@references
-#'\insertRef{almalki2014modifications}{RelDists} 
+#' @references
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #'
-#'\insertRef{drapella1993complementary}{RelDists}
+#' Drapella, A. (1993). The complementary Weibull distribution: 
+#' unknown or just forgotten?. Quality and reliability engineering 
+#' international, 9(4), 383-385.
 #'
-#' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

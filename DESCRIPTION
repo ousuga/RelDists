@@ -36,11 +36,11 @@ License: GPL-3
 URL: http://ousuga.github.io/RelDists/
 BugReports: https://github.com/ousuga/RelDists/issues
 Encoding: UTF-8
-RdMacros: Rdpack
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
 Imports:
     gamlss,
     gamlss.dist,
-    Rdpack,
     zipfR,
     BBmisc,
     lamW,
@@ -53,5 +53,4 @@ Suggests:
     autoimage, 
     gamlss.cens, 
     V8
-RoxygenNote: 7.3.2
 VignetteBuilder: knitr

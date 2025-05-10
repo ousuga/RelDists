@@ -27,19 +27,19 @@ hEXL(x, mu, sigma, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dEXL} gives the density, \code{pEXL} gives the distribution 
+\code{dEXL} gives the density, \code{pEXL} gives the distribution
 function, \code{qEXL} gives the quantile function, \code{rEXL}
 generates random deviates and \code{hEXL} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
+Density, distribution function, quantile function,
 random generation and hazard function for the exponentiated XLindley distribution with
 parameters \code{mu} and \code{sigma}.
 }
@@ -187,8 +187,8 @@ curve(hEXL(x, mu=1.5, sigma=2), from=0.001, to=4,
       col="tomato", ylab="Hazard function", las=1)
 }
 \references{
-Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J. 
-(2024). An exponentiated XLindley distribution with properties, 
+Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J.
+(2024). An exponentiated XLindley distribution with properties,
 inference and applications. Heliyon, 10(3).
 }
 \seealso{

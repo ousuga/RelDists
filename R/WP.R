@@ -28,7 +28,6 @@
 #' the Weibull–Poisson distribution." Journal of applied 
 #' statistics 39.1 (2012): 21-38.
 #'
-#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

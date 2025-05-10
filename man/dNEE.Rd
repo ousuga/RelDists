@@ -27,33 +27,33 @@ hNEE(x, mu, sigma, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities 
-are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities
+are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dNEE} gives the density, \code{pNEE} gives the distribution 
+\code{dNEE} gives the density, \code{pNEE} gives the distribution
 function, \code{qNEE} gives the quantile function, \code{rNEE}
 generates random deviates and \code{hNEE} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
-random generation and hazard function for the  two-parameter 
+Density, distribution function, quantile function,
+random generation and hazard function for the  two-parameter
 Chris-Jerry distribution with
 parameters \code{mu} and \code{sigma}.
 }
 \details{
-The New Exponentiated Exponential distribution with parameters \code{mu} 
+The New Exponentiated Exponential distribution with parameters \code{mu}
 and \code{sigma} has density given by
 
 \eqn{
 f(x; \sigma, \mu) = necesitamos al formula de Juliana aqui \quad x > 0, \quad \mu > 0, \quad \sigma > 0
 }
 
-Note: In this implementation we changed the original parameters 
+Note: In this implementation we changed the original parameters
 \eqn{\theta} for \eqn{\mu} and \eqn{\alpha} for \eqn{\sigma},
 we did it to implement this distribution within gamlss framework.
 }
@@ -121,8 +121,8 @@ curve(dNEE(x, mu=mu, sigma=sigma), col="tomato", add=TRUE)
 
 }
 \references{
-Hassan, Anwar, I. H. Dar, and M. A. Lone. "A New Class of Probability 
-Distributions With An Application to Engineering Data." 
+Hassan, Anwar, I. H. Dar, and M. A. Lone. "A New Class of Probability
+Distributions With An Application to Engineering Data."
 Pakistan Journal of Statistics and Operation Research 20.2 (2024): 217-231.
 }
 \seealso{

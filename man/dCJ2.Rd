@@ -27,33 +27,33 @@ hCJ2(x, mu, sigma, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities 
-are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities
+are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dCJ2} gives the density, \code{pCJ2} gives the distribution 
+\code{dCJ2} gives the density, \code{pCJ2} gives the distribution
 function, \code{qCJ2} gives the quantile function, \code{rCJ2}
 generates random deviates and \code{hCJ2} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
-random generation and hazard function for the  two-parameter 
+Density, distribution function, quantile function,
+random generation and hazard function for the  two-parameter
 Chris-Jerry distribution with
 parameters \code{mu} and \code{sigma}.
 }
 \details{
-The two-parameter Chris-Jerry distribution with parameters \code{mu} 
+The two-parameter Chris-Jerry distribution with parameters \code{mu}
 and \code{sigma} has density given by
 
 \eqn{
 f(x; \sigma, \mu) = \frac{\mu^2}{\sigma \mu + 2} (\sigma + \mu x^2) e^{-\mu x}; \quad x > 0, \quad \mu > 0, \quad \sigma > 0
 }
 
-Note: In this implementation we changed the original parameters 
+Note: In this implementation we changed the original parameters
 \eqn{\theta} for \eqn{\mu} and \eqn{\lambda} for \eqn{\sigma},
 we did it to implement this distribution within gamlss framework.
 }
@@ -153,8 +153,8 @@ legend("bottomright", legend=c("mu=0.85, sigma=0.15",
        col=c( "red", "green","blue","lightblue"), lwd=2, cex=0.5)
 }
 \references{
-Chinedu, Eberechukwu Q., et al. "New lifetime distribution with applications 
-to single acceptance sampling plan and scenarios of increasing hazard 
+Chinedu, Eberechukwu Q., et al. "New lifetime distribution with applications
+to single acceptance sampling plan and scenarios of increasing hazard
 rates" Symmetry 15.10 (2023): 188.
 }
 \seealso{

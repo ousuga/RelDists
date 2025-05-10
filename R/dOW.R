@@ -35,7 +35,8 @@
 #' @example examples/examples_dOW.R
 #'
 #' @references
-#' \insertRef{Cooray2006}{RelDists}
+#' Cooray, K. (2006). Generalization of the Weibull distribution: 
+#' the odd Weibull family. Statistical Modelling, 6(3), 265-277.
 #'
 #' @export
 dOW <- function(x, mu, sigma, nu, log = FALSE) {

@@ -30,7 +30,7 @@ hGWF(x, mu, sigma, nu)
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
 \item{lower.tail}{logical; if TRUE (default), probabilities are
-P[T <= t], otherwise, P[T > t].}
+P\link{T <= t}, otherwise, P\link{T > t}.}
 
 \item{p}{vector of probabilities.}
 
@@ -112,8 +112,8 @@ curve(
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family: 
-a structural analysis. Communications in statistics-theory and methods, 
+Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family:
+a structural analysis. Communications in statistics-theory and methods,
 23(4), 1149-1171.
 }
 \author{

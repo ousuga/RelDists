@@ -26,7 +26,8 @@
 #' @example examples/examples_OW.R
 #' 
 #' @references
-#' \insertRef{Cooray2006}{RelDists}
+#' Cooray, K. (2006). Generalization of the Weibull distribution: 
+#' the odd Weibull family. Statistical Modelling, 6(3), 265-277.
 #' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot

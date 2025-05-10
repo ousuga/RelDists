@@ -34,7 +34,9 @@
 #' @example examples/examples_dWG.R
 #' 
 #' @references
-#'\insertRef{barreto2011weibull}{RelDists}
+#' Barreto-Souza, W., de Morais, A. L., & Cordeiro, G. M. (2011). 
+#' The Weibull-geometric distribution. Journal of Statistical 
+#' Computation and Simulation, 81(5), 645-657.
 #'
 #' @export
 dWG<-function(x, mu, sigma, nu, log=FALSE){

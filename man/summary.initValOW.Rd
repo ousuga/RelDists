@@ -7,14 +7,14 @@
 \method{summary}{initValOW}(object, ...)
 }
 \arguments{
-\item{object}{an object of class \code{initVal}, generated with 
+\item{object}{an object of class \code{initVal}, generated with
 \code{\link{initValuesOW}}.}
 
 \item{...}{extra arguments}
 }
 \value{
 No return value, it just prints out in the console the initial values and the
-search regions for \eqn{sigma} and \eqn{nu} from OW distribution (see 
+search regions for \eqn{sigma} and \eqn{nu} from OW distribution (see
 \code{\link{dOW}}).
 }
 \description{

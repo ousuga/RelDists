@@ -27,24 +27,24 @@ hGGD(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dGGD} gives the density, \code{pGGD} gives the distribution 
+\code{dGGD} gives the density, \code{pGGD} gives the distribution
 function, \code{qGGD} gives the quantile function, \code{rGGD}
 generates random deviates and \code{hGGD} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function, 
+Density, distribution function, quantile function,
 random generation and hazard function for the generalized Gompertz distribution with
 parameters \code{mu} \code{sigma} and \code{nu}.
 }
 \details{
-The Generalized Gompertz  Distribution with parameters \code{mu}, 
+The Generalized Gompertz  Distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)= \nu \mu \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))) (1 - \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))))^{(\nu - 1)} ,}
@@ -87,7 +87,9 @@ curve(hGGD(x, mu=1, sigma=0.3, nu=1.5), from = 0, to = 3, col = "red",
 par(old_par) # restore previous graphical parameters
 }
 \references{
-\insertRef{el2013generalized}{RelDists}
+El-Gohary, A., Alshamrani, A., & Al-Otaibi, A. N. (2013).
+The generalized Gompertz distribution. Applied mathematical
+modelling, 37(1-2), 13-24.
 }
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}

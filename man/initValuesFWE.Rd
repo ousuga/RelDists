@@ -10,7 +10,7 @@ initValuesFWE(y)
 \item{y}{vector with the random sample}
 }
 \value{
-A two-length numeric vector with initial estimates for \eqn{mu} and \eqn{sigma} 
+A two-length numeric vector with initial estimates for \eqn{mu} and \eqn{sigma}
 parameters from FWE distribution (see \code{\link{dFWE}}).
 }
 \description{

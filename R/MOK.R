@@ -25,9 +25,11 @@
 #' @example examples/examples_MOK.R
 #'
 #' @references
-#'\insertRef{javed2018marshall}{RelDists}
+#' Javed, M., Nawaz, T., & Irfan, M. (2019). The Marshall-Olkin 
+#' kappa distribution: properties and applications. 
+#' Journal of King Saud University-Science, 31(4), 684-691.
 #' 
-#'@importFrom gamlss.dist checklink
+#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 MOK <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log"){

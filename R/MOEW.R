@@ -24,11 +24,14 @@
 #' @example examples/examples_MOEW.R 
 #' 
 #' @references
-#' \insertRef{almalki2014modifications}{RelDists}
+#' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+#' Weibull distribution: A review. Reliability Engineering & 
+#' System Safety, 124, 32-55.
 #' 
-#' \insertRef{ghitany2005}{RelDists}
+#' Ghitany, M. E., Al-Hussaini, E. K., & Al-Jarallah, R. A. (2005). 
+#' Marshall–Olkin extended Weibull distribution and its application 
+#' to censored data. Journal of Applied Statistics, 32(10), 1025-1034.
 #'
-#' @importFrom Rdpack reprompt
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export

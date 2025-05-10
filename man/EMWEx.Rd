@@ -22,7 +22,7 @@ Returns a gamlss.family object which can be used to fit a EMWEx distribution in 
 The Exponentiated Modifien Weibull Extension family
 }
 \details{
-The Beta-Weibull distribution with parameters \code{mu}, 
+The Beta-Weibull distribution with parameters \code{mu},
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \nu \sigma \tau (\frac{x}{\mu})^{\sigma-1} \exp((\frac{x}{\mu})^\sigma +
@@ -70,9 +70,13 @@ exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{sarhan2013exponentiated}{RelDists}
+Sarhan, A. M., & Apaloo, J. (2013). Exponentiated modified
+Weibull extension distribution.
+Reliability Engineering & System Safety, 112, 137-144.
 }
 \seealso{
 \link{dEMWEx}

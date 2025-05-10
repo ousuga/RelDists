@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a MOEW distribution in t
 The Marshall-Olkin Extended Weibull family
 }
 \details{
-The Marshall-Olkin Extended Weibull distribution with parameters \code{mu}, 
+The Marshall-Olkin Extended Weibull distribution with parameters \code{mu},
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma \nu (\nu x)^{\sigma - 1} exp\{{-(\nu x )^{\sigma}}\}}{\{1-(1-\mu) exp\{{-(\nu x )^{\sigma}}\} \}^{2}},}
@@ -63,9 +63,13 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 }
 \references{
-\insertRef{almalki2014modifications}{RelDists}
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
+Weibull distribution: A review. Reliability Engineering &
+System Safety, 124, 32-55.
 
-\insertRef{ghitany2005}{RelDists}
+Ghitany, M. E., Al-Hussaini, E. K., & Al-Jarallah, R. A. (2005).
+Marshall–Olkin extended Weibull distribution and its application
+to censored data. Journal of Applied Statistics, 32(10), 1025-1034.
 }
 \seealso{
 \link{dMOEW}

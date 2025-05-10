@@ -15,17 +15,17 @@ function.}
 }
 \value{
 A length-one vector numeric value corresponding to the initial value of the
-parameter specified in \code{param} extracted from a \code{\link{initValuesOW}} 
+parameter specified in \code{param} extracted from a \code{\link{initValuesOW}}
 object specified in the \code{initValOW} input argument.
 }
 \description{
-This function can be used to extract initial values found with empirical 
-time on test transform (TTT) through  \code{\link{initValuesOW}} function. 
+This function can be used to extract initial values found with empirical
+time on test transform (TTT) through  \code{\link{initValuesOW}} function.
 This is used for parameter estimation in \code{OW} distribution.
 }
 \details{
-This function just gets initial values computed with \code{\link{initValuesOW}} 
-for \code{OW} family. It must be called in \code{sigma.start} and \code{nu.start} 
+This function just gets initial values computed with \code{\link{initValuesOW}}
+for \code{OW} family. It must be called in \code{sigma.start} and \code{nu.start}
 arguments from \code{\link[gamlss]{gamlss}} function. This function is useful only
 if user want to set start values automatically with TTT plot.
 See example for an illustration.
