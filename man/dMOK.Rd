@@ -31,7 +31,7 @@ hMOK(x, mu, sigma, nu, tau)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
@@ -93,8 +93,8 @@ curve(hMOK(x = x, mu = 1, sigma = 2.5, nu = 3, tau = 2), from = 0, to = 20,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Javed, M., Nawaz, T., & Irfan, M. (2019). The Marshall-Olkin
-kappa distribution: properties and applications.
+Javed, M., Nawaz, T., & Irfan, M. (2019). The Marshall-Olkin 
+kappa distribution: properties and applications. 
 Journal of King Saud University-Science, 31(4), 684-691.
 }
 \author{

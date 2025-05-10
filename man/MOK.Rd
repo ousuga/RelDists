@@ -22,7 +22,7 @@ Returns a gamlss.family object which can be used to fit a MOK distribution in th
 The Marshall-Olkin Kappa family
 }
 \details{
-The Marshall-Olkin Kappa distribution with parameters \code{mu},
+The Marshall-Olkin Kappa distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)=\frac{\tau\frac{\mu\nu}{\sigma}\left(\frac{x}{\sigma}\right)^{\nu-1} \left(\mu+\left(\frac{x}{\sigma}\right)^{\mu\nu}\right)^{-\frac{\mu+1}{\mu}}}{\left(\tau+(1-\tau)\left(\frac{\left(\frac{x}{\sigma}\right)^{\mu\nu}}{\mu+\left(\frac{x}{\sigma}\right)^{\mu\nu}}\right)^{\frac{1}{\mu}}\right)^2}}
@@ -68,8 +68,8 @@ exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
 }
 \references{
-Javed, M., Nawaz, T., & Irfan, M. (2019). The Marshall-Olkin
-kappa distribution: properties and applications.
+Javed, M., Nawaz, T., & Irfan, M. (2019). The Marshall-Olkin 
+kappa distribution: properties and applications. 
 Journal of King Saud University-Science, 31(4), 684-691.
 }
 \seealso{

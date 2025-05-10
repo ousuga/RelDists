@@ -31,24 +31,24 @@ hEMWEx(x, mu, sigma, nu, tau)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dEMWEx} gives the density, \code{pEMWEx} gives the distribution
+\code{dEMWEx} gives the density, \code{pEMWEx} gives the distribution 
 function, \code{qEMWEx} gives the quantile function, \code{rEMWEx}
 generates random deviates and \code{hEMWEx} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function,
-random generation and hazard function for the Exponentiated Modifien Weibull Extension distribution
+Density, distribution function, quantile function, 
+random generation and hazard function for the Exponentiated Modifien Weibull Extension distribution 
 with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 }
 \details{
-The Exponentiated Modifien Weibull Extension Distribution with parameters \code{mu},
+The Exponentiated Modifien Weibull Extension Distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \nu \sigma \tau (\frac{x}{\mu})^{\sigma-1} \exp((\frac{x}{\mu})^\sigma +
@@ -92,12 +92,12 @@ curve(hEMWEx(x, mu = 49.046, sigma =3.148, nu=0.00005, tau=0.1), from = 0, to = 
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-Sarhan, A. M., & Apaloo, J. (2013). Exponentiated modified
-Weibull extension distribution. Reliability Engineering &
+Sarhan, A. M., & Apaloo, J. (2013). Exponentiated modified 
+Weibull extension distribution. Reliability Engineering & 
 System Safety, 112, 137-144.
 }
 \author{

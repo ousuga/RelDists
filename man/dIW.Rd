@@ -27,19 +27,19 @@ hIW(x, mu, sigma)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dIW} gives the density, \code{pIW} gives the distribution
+\code{dIW} gives the density, \code{pIW} gives the distribution 
 function, \code{qIW} gives the quantile function, \code{rIW}
 generates random deviates and \code{hIW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function,
+Density, distribution function, quantile function, 
 random generation and hazard function for the inverse weibull distribution with
 parameters \code{mu} and \code{sigma}.
 }
@@ -84,12 +84,12 @@ curve(hIW(x, mu=5, sigma=2.5), from=0, to=15, ylim=c(0, 0.9),
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-Drapella, A. (1993). The complementary Weibull distribution:
-unknown or just forgotten?. Quality and reliability engineering
+Drapella, A. (1993). The complementary Weibull distribution: 
+unknown or just forgotten?. Quality and reliability engineering 
 international, 9(4), 383-385.
 }
 \author{

@@ -29,24 +29,24 @@ hGIW(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dGIW} gives the density, \code{pGIW} gives the distribution
+\code{dGIW} gives the density, \code{pGIW} gives the distribution 
 function, \code{qGIW} gives the quantile function, \code{rGIW}
 generates random deviates and \code{hGIW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function,
+Density, distribution function, quantile function, 
 random generation and hazard function for the Generalized Inverse Weibull distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Generalized Inverse Weibull distribution \code{mu},
+The Generalized Inverse Weibull distribution \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \nu \sigma \mu^{\sigma} x^{-(\sigma + 1)} exp \{-\nu (\frac{\mu}{x})^{\sigma}\},}
@@ -88,12 +88,12 @@ par(old_par) # restore previous graphical parameters
 
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-De Gusmao, F. R., Ortega, E. M., & Cordeiro, G. M. (2011).
-The generalized inverse Weibull distribution. Statistical
+De Gusmao, F. R., Ortega, E. M., & Cordeiro, G. M. (2011). 
+The generalized inverse Weibull distribution. Statistical 
 Papers, 52, 591-619.
 }
 \author{

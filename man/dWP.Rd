@@ -29,24 +29,24 @@ hWP(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dWP} gives the density, \code{pWP} gives the distribution
+\code{dWP} gives the density, \code{pWP} gives the distribution 
 function, \code{qWP} gives the quantile function, \code{rWP}
 generates random deviates and \code{hWP} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function,
+Density, distribution function, quantile function, 
 random generation and hazard function for the Weibull Poisson distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Weibull Poisson distribution with parameters \code{mu},
+The Weibull Poisson distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma \nu e^{-\nu}} {1-e^{-\nu}} x^{\mu-1} \exp({-\sigma x^{\mu}+\nu \exp({-\sigma} x^{\mu}) }),}
@@ -87,8 +87,8 @@ curve(hWP(x, mu=1.5, sigma=0.5, nu=10), from=0.001, to=5,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Lu, Wanbo, and Daimin Shi. "A new compounding life distribution:
-the Weibull–Poisson distribution." Journal of applied
+Lu, Wanbo, and Daimin Shi. "A new compounding life distribution: 
+the Weibull–Poisson distribution." Journal of applied 
 statistics 39.1 (2012): 21-38.
 }
 \author{

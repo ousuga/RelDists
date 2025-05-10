@@ -14,26 +14,26 @@ ExWALD(mu.link = "log", sigma.link = "log", nu.link = "log")
 \item{nu.link}{defines the nu.link, with "log" link as the default for the nu parameter.}
 }
 \value{
-Returns a gamlss.family object which can be used to fit a
+Returns a gamlss.family object which can be used to fit a 
 Ex-WALD distribution in the \code{gamlss()} function.
 }
 \description{
 The function \code{ExWALD()} defines the Ex-wALD distribution, three-parameter
-continuous distribution for a \code{gamlss.family} object to be used in
+continuous distribution for a \code{gamlss.family} object to be used in 
 GAMLSS fitting using the function \code{gamlss()}.
 }
 \details{
-The Ex-Wald distribution with parameters \eqn{\mu}, \eqn{\sigma}
+The Ex-Wald distribution with parameters \eqn{\mu}, \eqn{\sigma} 
 and \eqn{\nu} has density given by
 
 \eqn{f(x |\mu, \sigma, \nu) = \frac{1}{\nu} \exp(\frac{-x}{\nu} + \sigma(\mu-k)) F_W(x|k, \sigma) \, \text{for} \, k \geq 0}
 
 \eqn{f(x |\mu, \sigma, \nu) = \frac{1}{\nu} \exp\left( \frac{-(\sigma-\mu)^2}{2x} \right) Re \left( w(k^\prime \sqrt{x/2} + \frac{\sigma i}{\sqrt{2x}}) \right)  \, \text{for} \, k < 0}
 
-where \eqn{k=\sqrt{\mu^2-\frac{2}{\nu}}},
+where \eqn{k=\sqrt{\mu^2-\frac{2}{\nu}}}, 
 \eqn{k^\prime=\sqrt{\frac{2}{\nu}-\mu^2}} and
-\eqn{F_W} corresponds to the cumulative function of
-the Wald distribution.
+\eqn{F_W} corresponds to the cumulative function of 
+the Wald distribution. 
 
 More details about those expressions
 can be found on page 680 from Heathcote (2004).
@@ -88,8 +88,8 @@ summary(mod2)
 }
 }
 \references{
-Heathcote, A. (2004). Fitting Wald and ex-Wald distributions to
-response time data: An example using functions for the S-PLUS package.
+Heathcote, A. (2004). Fitting Wald and ex-Wald distributions to 
+response time data: An example using functions for the S-PLUS package. 
 Behavior Research Methods, Instruments, & Computers, 36, 678-694.
 }
 \seealso{

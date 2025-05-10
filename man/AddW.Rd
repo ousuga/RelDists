@@ -22,7 +22,7 @@ Returns a gamlss.family object which can be used to fit a AddW distribution in t
 The Additive Weibull distribution
 }
 \details{
-Additive Weibull distribution with parameters \code{mu},
+Additive Weibull distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x) = (\mu\nu x^{\nu - 1} + \sigma\tau x^{\tau - 1}) \exp({-\mu x^{\nu} - \sigma x^{\tau} }),}
@@ -76,11 +76,11 @@ exp(coef(mod, what="tau"))
 }
 }
 \references{
-Almalki, S. J. (2018). A reduced new modified Weibull distribution.
+Almalki, S. J. (2018). A reduced new modified Weibull distribution. 
 Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
 
-Xie, M., & Lai, C. D. (1996). Reliability analysis using an additive
-Weibull model with bathtub-shaped failure rate function.
+Xie, M., & Lai, C. D. (1996). Reliability analysis using an additive 
+Weibull model with bathtub-shaped failure rate function. 
 Reliability Engineering & System Safety, 52(1), 87-93.
 }
 \seealso{

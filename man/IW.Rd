@@ -18,7 +18,7 @@ Returns a gamlss.family object which can be used to fit a IW distribution in the
 The Inverse Weibull distribution
 }
 \details{
-The Inverse Weibull distribution with parameters \code{mu},
+The Inverse Weibull distribution with parameters \code{mu}, 
 \code{sigma} has density given by
 
 \eqn{f(x) = \mu \sigma x^{-\sigma-1} \exp(\mu x^{-\sigma})}
@@ -58,12 +58,12 @@ coef(mod, what="mu")
 coef(mod, what="sigma")
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-Drapella, A. (1993). The complementary Weibull distribution:
-unknown or just forgotten?. Quality and reliability engineering
+Drapella, A. (1993). The complementary Weibull distribution: 
+unknown or just forgotten?. Quality and reliability engineering 
 international, 9(4), 383-385.
 }
 \seealso{

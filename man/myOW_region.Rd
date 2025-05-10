@@ -11,7 +11,7 @@ myOW_region(family = OW, valid.values = "auto", initVal)
 modify input arguments of the family, like the \code{link}
 functions.}
 
-\item{valid.values}{a list of character elements specifying the region for
+\item{valid.values}{a list of character elements specifying the region for 
 \code{sigma} and/or \code{nu}. See \strong{Details} and \strong{Examples}
 section to learn about its use.}
 
@@ -19,15 +19,15 @@ section to learn about its use.}
 function.}
 }
 \value{
-Returns a \code{gamlss.family} object which can be used to fit an OW
+Returns a \code{gamlss.family} object which can be used to fit an OW 
 distribution in the \code{gamlss()} function.
 }
 \description{
-This function can be used to modify \code{OW} \code{gamlss.family} object
+This function can be used to modify \code{OW} \code{gamlss.family} object 
 in order to  set a customized region search for \code{gamlss()} function.
 }
 \details{
-This function was created to help users to fit \code{OW} distribution easily
+This function was created to help users to fit \code{OW} distribution easily 
 bounding the parametric space for \code{sigma} and \code{nu}.
 
 The \code{valid.values} must be defined as a list of characters containing a call

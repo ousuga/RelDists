@@ -31,24 +31,24 @@ hEOFNH(x, mu, sigma, nu, tau)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dEOFNH} gives the density, \code{pEOFNH} gives the distribution
+\code{dEOFNH} gives the density, \code{pEOFNH} gives the distribution 
 function, \code{qEOFNH} gives the quantile function, \code{rEOFNH}
 generates random numbers and \code{hEOFNH} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function,
+Density, distribution function, quantile function, 
 random generation and hazard function for the Extended Odd Fr?chet-Nadarajah-Haghighi distribution
 with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 }
 \details{
-Tthe Extended Odd Frechet-Nadarajah-Haghighi \code{mu},
+Tthe Extended Odd Frechet-Nadarajah-Haghighi \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \frac{\mu\sigma\nu\tau(1+\nu x)^{\sigma-1}e^{(1-(1+\nu x)^\sigma)}[1-(1-e^{(1-(1+\nu x)^\sigma)})^{\mu}]^{\tau-1}}{(1-e^{(1-(1+\nu x)^{\sigma})})^{\mu\tau+1}} e^{-[(1-e^{(1-(1+\nu x)^\sigma)})^{-\mu}-1]^{\tau}},}
@@ -91,7 +91,7 @@ curve(hEOFNH(x, mu=18.5, sigma=5.1, nu=0.1, tau=0.1), from=0, to=10, ylim=c(0, 1
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Nasiru, S. (2018). Extended Odd Fréchet‐G Family of Distributions
+Nasiru, S. (2018). Extended Odd Fréchet‐G Family of Distributions 
 Journal of Probability and Statistics, 2018(1), 2931326.
 }
 \author{

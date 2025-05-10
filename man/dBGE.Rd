@@ -31,24 +31,24 @@ hBGE(x, mu, sigma, nu, tau)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dBGE} gives the density, \code{pBGE} gives the distribution
+\code{dBGE} gives the density, \code{pBGE} gives the distribution 
 function, \code{qBGE} gives the quantile function, \code{rBGE}
 generates random deviates and \code{hBGE} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function,
-random generation and hazard function for the Beta Generalized Exponentiated  distribution
+Density, distribution function, quantile function, 
+random generation and hazard function for the Beta Generalized Exponentiated  distribution 
 with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 }
 \details{
-The Beta Generalized Exponentiated  Distribution with parameters \code{mu},
+The Beta Generalized Exponentiated  Distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \frac{\nu \tau}{B(\mu, \sigma)} \exp(-\nu x)(1- \exp(-\nu x))^{\tau \mu - 1} (1 - (1- \exp(-\nu x))^\tau)^{\sigma -1},}
@@ -90,12 +90,12 @@ curve(hBGE(x, mu = 0.9, sigma =0.5, nu=1, tau=1), from = 0, to = 2,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-Barreto-Souza, W., Santos, A. H., & Cordeiro, G. M. (2010).
-The beta generalized exponential distribution. Journal of
+Barreto-Souza, W., Santos, A. H., & Cordeiro, G. M. (2010). 
+The beta generalized exponential distribution. Journal of 
 statistical Computation and Simulation, 80(2), 159-172.
 }
 \author{

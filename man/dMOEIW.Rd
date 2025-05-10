@@ -29,24 +29,24 @@ hMOEIW(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P\link{X <= x}, otherwise, P\link{X > x}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
 }
 \value{
-\code{dMOEIW} gives the density, \code{pMOEIW} gives the distribution
+\code{dMOEIW} gives the density, \code{pMOEIW} gives the distribution 
 function, \code{qMOEIW} gives the quantile function, \code{rMOEIW}
 generates random deviates and \code{hMOEIW} gives the hazard function.
 }
 \description{
-Density, distribution function, quantile function,
+Density, distribution function, quantile function, 
 random generation and hazard function for the Marshall-Olkin Extended Inverse Weibull distribution
 with parameters \code{mu}, \code{sigma} and \code{nu}.
 }
 \details{
-The Marshall-Olkin Extended Inverse Weibull distribution \code{mu},
+The Marshall-Olkin Extended Inverse Weibull distribution \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma \nu x^{-(\sigma + 1)} exp\{{-\mu x^{-\sigma}}\}}{\{\nu -(\nu-1) exp\{{-\mu x ^{-\sigma}}\} \}^{2}},}
@@ -87,8 +87,8 @@ curve(hMOEIW(x, mu=0.5, sigma=0.7, nu=1), from=0.001, to=3,
 par(old_par) # restore previous graphical parameters
 }
 \references{
-Okasha, H. M., El-Baz, A. H., Tarabia, A. M. K., & Basheer, A. M. (2017).
-Extended inverse Weibull distribution with reliability application.
+Okasha, H. M., El-Baz, A. H., Tarabia, A. M. K., & Basheer, A. M. (2017). 
+Extended inverse Weibull distribution with reliability application. 
 Journal of the Egyptian Mathematical Society, 25(3), 343-349.
 }
 \author{

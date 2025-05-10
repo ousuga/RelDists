@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a GGD distribution in th
 The Generalized Gompertz  family
 }
 \details{
-The Generalized Gompertz  Distribution with parameters \code{mu},
+The Generalized Gompertz  Distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)= \nu \mu \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))) (1 - \exp(-\frac{\mu}{\sigma}(\exp(\sigma x - 1))))^{(\nu - 1)} ,}
@@ -63,8 +63,8 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 }
 \references{
-#' El-Gohary, A., Alshamrani, A., & Al-Otaibi, A. N. (2013).
-The generalized Gompertz distribution. Applied mathematical
+#' El-Gohary, A., Alshamrani, A., & Al-Otaibi, A. N. (2013). 
+The generalized Gompertz distribution. Applied mathematical 
 modelling, 37(1-2), 13-24.
 }
 \seealso{

@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a CS2e distribution in t
 The Cosine Sine Exponential family
 }
 \details{
-The Cosine Sine Exponential distribution with parameters \code{mu},
+The Cosine Sine Exponential distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)=\frac{\pi \sigma \mu \exp(\frac{-x} {\nu})}{2 \nu [(\mu\sin(\frac{\pi}{2} \exp(\frac{-x} {\nu})) + \sigma\cos(\frac{\pi}{2} \exp(\frac{-x} {\nu}))]^2}, }
@@ -63,9 +63,9 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 }
 \references{
-Chesneau, C., Bakouch, H. S., & Hussain, T. (2019). A new
-class of probability distributions via cosine and sine
-functions with applications. Communications in
+Chesneau, C., Bakouch, H. S., & Hussain, T. (2019). A new 
+class of probability distributions via cosine and sine 
+functions with applications. Communications in 
 Statistics-Simulation and Computation, 48(8), 2287-2300.
 }
 \seealso{

@@ -20,11 +20,11 @@ Returns a gamlss.family object which can be used to fit a ExW distribution in th
 The Extended Weibull family
 }
 \details{
-The Extended Weibull distribution with parameters \code{mu},
+The Extended Weibull distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma \nu x^{\sigma -1} exp({-\mu x^{\sigma}})} {[1 -(1-\nu) exp({-\mu x^{\sigma}})]^2},}
-
+ 
 for x > 0.
 }
 \examples{
@@ -63,12 +63,12 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-Zhang, T., & Xie, M. (2007). Failure data analysis with
-extended Weibull distribution. Communications in
+Zhang, T., & Xie, M. (2007). Failure data analysis with 
+extended Weibull distribution. Communications in 
 Statistics—Simulation and Computation, 36(3), 579-592.
 }
 \seealso{

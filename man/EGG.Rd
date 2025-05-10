@@ -22,7 +22,7 @@ Returns a gamlss.family object which can be used to fit a EGG distribution in th
 The four parameter Exponentiated Generalized Gamma distribution
 }
 \details{
-Four parameter Exponentiated Generalized Gamma distribution with parameters \code{mu},
+Four parameter Exponentiated Generalized Gamma distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x) = \frac{\nu \sigma}{\mu \Gamma(\tau)} \left(\frac{x}{\mu}\right)^{\sigma \tau -1} \exp\left\{ - \left( \frac{x}{\mu} \right)^\sigma \right\} \left\{ \gamma_1\left( \tau, \left( \frac{x}{\mu} \right)^\sigma \right) \right\}^{\nu-1} ,}
@@ -82,13 +82,13 @@ exp(coef(mod, what="tau"))
 }
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-Cordeiro, G. M., Ortega, E. M., & Silva, G. O. (2011).
-The exponentiated generalized gamma distribution with
-application to lifetime data. Journal of statistical
+Cordeiro, G. M., Ortega, E. M., & Silva, G. O. (2011). 
+The exponentiated generalized gamma distribution with 
+application to lifetime data. Journal of statistical 
 computation and simulation, 81(7), 827-842.
 }
 \seealso{

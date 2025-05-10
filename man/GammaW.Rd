@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a GammaW distribution in
 The Gamma Weibull family
 }
 \details{
-The Gamma Weibull distribution with parameters \code{mu},
+The Gamma Weibull distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma (\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
@@ -63,11 +63,11 @@ coef(mod, what="sigma")
 coef(mod, what='nu')
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-Stacy, E. W. (1962). A generalization of the gamma
+Stacy, E. W. (1962). A generalization of the gamma 
 distribution. The Annals of mathematical statistics, 1187-1192.
 }
 \seealso{

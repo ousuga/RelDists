@@ -22,7 +22,7 @@ Returns a gamlss.family object which can be used to fit a BGE distribution in th
 The Beta Generalized Exponentiated family
 }
 \details{
-The Beta Generalized Exponentiated distribution with parameters \code{mu},
+The Beta Generalized Exponentiated distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \frac{\nu \tau}{B(\mu, \sigma)} \exp(-\nu x)(1- \exp(-\nu x))^{\tau \mu - 1} (1 - (1- \exp(-\nu x))^\tau)^{\sigma -1},}
@@ -67,11 +67,11 @@ exp(coef(mod, what="nu"))
 exp(coef(mod, what="tau"))
 }
 \references{
-Almalki, S. J. (2018). A reduced new modified Weibull distribution.
+Almalki, S. J. (2018). A reduced new modified Weibull distribution. 
 Communications in Statistics-Theory and Methods, 47(10), 2297-2313.
 
-Barreto-Souza, W., Santos, A. H., & Cordeiro, G. M. (2010).
-The beta generalized exponential distribution. Journal of
+Barreto-Souza, W., Santos, A. H., & Cordeiro, G. M. (2010). 
+The beta generalized exponential distribution. Journal of 
 statistical Computation and Simulation, 80(2), 159-172.
 }
 \seealso{

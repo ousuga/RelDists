@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a QXGP distribution in t
 The Quasi XGamma Poisson family
 }
 \details{
-The Quasi XGamma Poisson distribution with parameters \code{mu},
+The Quasi XGamma Poisson distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)= K(\mu, \sigma, \nu)(\frac {\sigma^{2} x^{2}}{2} + \mu)
@@ -68,9 +68,9 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 }
 \references{
-Sen, S., Korkmaz, M. Ç., & Yousof, H. M. (2018).
+Sen, S., Korkmaz, M. Ç., & Yousof, H. M. (2018). 
 The quasi XGamma-Poisson distribution: properties and
-application. Istatistik Journal of The Turkish Statistical
+application. Istatistik Journal of The Turkish Statistical 
 Association, 11(3), 65-76.
 }
 \seealso{

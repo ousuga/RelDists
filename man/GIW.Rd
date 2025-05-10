@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a GIW distribution in th
 The Generalized Inverse Weibull family
 }
 \details{
-The Generalized Inverse Weibull distribution with parameters \code{mu},
+The Generalized Inverse Weibull distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x) = \nu \sigma \mu^{\sigma} x^{-(\sigma + 1)} exp \{-\nu (\frac{\mu}{x})^{\sigma}\},}
@@ -63,12 +63,12 @@ coef(mod, what="sigma")
 exp(coef(mod, what="nu"))
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-De Gusmao, F. R., Ortega, E. M., & Cordeiro, G. M. (2011).
-The generalized inverse Weibull distribution. Statistical
+De Gusmao, F. R., Ortega, E. M., & Cordeiro, G. M. (2011). 
+The generalized inverse Weibull distribution. Statistical 
 Papers, 52, 591-619.
 }
 \seealso{

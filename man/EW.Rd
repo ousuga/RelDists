@@ -20,7 +20,7 @@ Returns a gamlss.family object which can be used to fit a EW distribution in the
 The Exponentiated Weibull distribution
 }
 \details{
-The Exponentiated Weibull Distribution with parameters \code{mu},
+The Exponentiated Weibull Distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
 \eqn{f(x)=\nu \mu \sigma x^{\sigma-1} \exp(-\mu x^\sigma) (1-\exp(-\mu x^\sigma))^{\nu-1},}

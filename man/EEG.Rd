@@ -18,7 +18,7 @@ Returns a gamlss.family object which can be used to fit a EEG distribution in th
 The Extended Exponential Geometric family
 }
 \details{
-The Extended Exponential Geometric distribution with parameters \code{mu}
+The Extended Exponential Geometric distribution with parameters \code{mu} 
 and \code{sigma} has density given by
 
 \eqn{f(x)= \mu \sigma \exp(-\mu x)(1 - (1 - \sigma)\exp(-\mu x))^{-2},}
@@ -57,12 +57,12 @@ coef(mod, what="mu")
 coef(mod, what="sigma")
 }
 \references{
-Almalki, S. J., & Nadarajah, S. (2014). Modifications of the
-Weibull distribution: A review. Reliability Engineering &
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
+Weibull distribution: A review. Reliability Engineering & 
 System Safety, 124, 32-55.
 
-Adamidis, K., Dimitrakopoulou, T., & Loukas, S. (2005).
-On an extension of the exponential-geometric distribution.
+Adamidis, K., Dimitrakopoulou, T., & Loukas, S. (2005). 
+On an extension of the exponential-geometric distribution. 
 Statistics & probability letters, 73(3), 259-269.
 }
 \seealso{

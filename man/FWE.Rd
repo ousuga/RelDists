@@ -15,8 +15,8 @@ FWE(mu.link = "log", sigma.link = "log")
 Returns a gamlss.family object which can be used to fit a FWE distribution in the \code{gamlss()} function.
 }
 \description{
-The function \code{FWE()} defines the Flexible Weibull distribution, a two parameter
-distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting
+The function \code{FWE()} defines the Flexible Weibull distribution, a two parameter 
+distribution, for a \code{gamlss.family} object to be used in GAMLSS fitting 
 using the function \code{gamlss()}.
 }
 \details{
