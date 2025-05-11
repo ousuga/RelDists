@@ -14,7 +14,10 @@
 #' @param sigma parameter.
 #' @param nu parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
-#' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
+#' @param lower.tail logical; if TRUE (default), probabilities 
+#' are P[X <= x], otherwise, P[X > x].
+#' 
+#' @seealso \link{ExW}
 #' 
 #' @details 
 #' The Extended Weibull distribution with parameters \code{mu}, 
@@ -22,7 +25,7 @@
 #' 
 #' \eqn{f(x) = \frac{\mu \sigma \nu x^{\sigma -1} exp({-\mu x^{\sigma}})} {[1 -(1-\nu) exp({-\mu x^{\sigma}})]^2},}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}. 
 #' 
 #' @return 
 #' \code{dExW} gives the density, \code{pExW} gives the distribution 

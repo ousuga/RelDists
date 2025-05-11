@@ -13,14 +13,15 @@
 #' @param mu parameter.    
 #' @param sigma parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
-#' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
+#' @param lower.tail logical; if TRUE (default), probabilities are 
+#' P[X <= x], otherwise, P[X > x].
 #' 
 #' @references
 #' Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J. 
 #' (2024). An exponentiated XLindley distribution with properties, 
 #' inference and applications. Heliyon, 10(3).
 #' 
-#' @seealso \link{dEXL}.
+#' @seealso \link{EXL}.
 #' 
 #' @details 
 #' The exponentiated XLindley with parameters \code{mu} and \code{sigma}

@@ -27,7 +27,8 @@ hPL(x, mu, sigma)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are 
+P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
@@ -49,7 +50,7 @@ and \code{sigma} has density given by
 
 \eqn{f(x) = \frac{\mu \sigma^2}{\sigma + 1} (1 + x^\mu) x ^ {\mu - 1} \exp({-\sigma x ^\mu}),}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -92,6 +93,9 @@ Ghitany, M. E., Al-Mutairi, D. K., Balakrishnan, N., &
 Al-Enezi, L. J. (2013). Power Lindley distribution 
 and associated inference. Computational Statistics & Data 
 Analysis, 64, 20-33.
+}
+\seealso{
+\link{PL}
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

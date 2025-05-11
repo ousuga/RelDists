@@ -94,6 +94,9 @@ Barreto-Souza, W., de Morais, A. L., & Cordeiro, G. M. (2011).
 The Weibull-geometric distribution. Journal of Statistical 
 Computation and Simulation, 81(5), 645-657.
 }
+\seealso{
+\link{WG}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

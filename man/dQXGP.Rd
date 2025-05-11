@@ -29,7 +29,8 @@ hQXGP(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are 
+P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
@@ -96,6 +97,9 @@ Sen, S., Korkmaz, M. Ç., & Yousof, H. M. (2018).
 The quasi XGamma-Poisson distribution: properties and
 application. Istatistik Journal of The Turkish Statistical 
 Association, 11(3), 65-76.
+}
+\seealso{
+\link{QXGP}
 }
 \author{
 Simon Zapata

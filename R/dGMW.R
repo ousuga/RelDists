@@ -17,6 +17,8 @@
 #' @param lower.tail logical; if TRUE (default), probabilities are 
 #' P[X <= x], otherwise, P[X > x].
 #' 
+#' @seealso \link{GMW}
+#' 
 #' @details
 #' The generalized modified weibull with parameters \code{mu}, 
 #' \code{sigma}, \code{nu} and \code{tau} has density given by
@@ -24,7 +26,7 @@
 #' \eqn{f(x)= \mu \sigma x^{\nu - 1}(\nu + \tau x) \exp(\tau x - \mu x^{\nu} e^{\tau x})
 #' [1 - \exp(- \mu x^{\nu} e^{\tau x})]^{\sigma-1},}
 #' 
-#' for x>0.
+#' for \eqn{x > 0}.
 #' 
 #' @return 
 #' \code{dGMW} gives the density, \code{pGMW} gives the distribution 

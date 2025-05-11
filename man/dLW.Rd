@@ -49,7 +49,7 @@ and \code{sigma} has density given by
 
 \eqn{f(y)=(1/\sigma) e^{((y - \mu)/\sigma)} exp\{-e^{((y - \mu)/\sigma)}\},}
 
-for - \code{infty} < y < \code{infty}.
+for \eqn{-\infty < y < \infty}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -90,6 +90,9 @@ System Safety, 124, 32-55.
 
 Gumbel, E. J. (1958). Statistics of extremes. 
 Columbia university press.
+}
+\seealso{
+\link{LW}
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

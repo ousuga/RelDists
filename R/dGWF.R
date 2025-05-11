@@ -14,8 +14,8 @@
 #' @param sigma parameter two.
 #' @param nu parameter three.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).
-#' @param lower.tail logical; if TRUE (default), probabilities are
-#' P[T <= t], otherwise, P[T > t].
+#' @param lower.tail logical; if TRUE (default), probabilities are 
+#' P[X <= x], otherwise, P[X > x].
 #'
 #' @references
 #' Mudholkar, G. S., & Kollia, G. D. (1994). Generalized Weibull family: 

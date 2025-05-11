@@ -51,7 +51,7 @@ The Extended Weibull distribution with parameters \code{mu},
 
 \eqn{f(x) = \frac{\mu \sigma \nu x^{\sigma -1} exp({-\mu x^{\sigma}})} {[1 -(1-\nu) exp({-\mu x^{\sigma}})]^2},}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -94,6 +94,9 @@ System Safety, 124, 32-55.
 Zhang, T., & Xie, M. (2007). Failure data analysis with 
 extended Weibull distribution. Communications in 
 Statistics—Simulation and Computation, 36(3), 579-592.
+}
+\seealso{
+\link{ExW}
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

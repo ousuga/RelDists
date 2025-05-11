@@ -192,7 +192,7 @@ Alomair, A. M., Ahmed, M., Tariq, S., Ahsan-ul-Haq, M., & Talib, J.
 inference and applications. Heliyon, 10(3).
 }
 \seealso{
-\link{dEXL}.
+\link{EXL}.
 }
 \author{
 Manuel Gutierrez Tangarife, \email{mgutierrezta@unal.edu.co}

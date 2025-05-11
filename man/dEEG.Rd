@@ -95,6 +95,9 @@ Adamidis, K., Dimitrakopoulou, T., & Loukas, S. (2005).
 On an extension of the exponential-geometric distribution. 
 Statistics & probability letters, 73(3), 259-269.
 }
+\seealso{
+\link{EEG}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

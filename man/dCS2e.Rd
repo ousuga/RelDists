@@ -92,6 +92,9 @@ of probability distributions via cosine and sine functions
 with applications. Communications in Statistics-Simulation 
 and Computation, 48(8), 2287-2300.
 }
+\seealso{
+\link{CS2e}
+}
 \author{
 Juan Pablo Ramirez
 }

@@ -1,4 +1,4 @@
 url: http://ousuga.github.io/RelDists/
 template:
   bootstrap: 5
-
+  math-rendering: mathjax

@@ -13,7 +13,10 @@
 #' @param mu parameter.
 #' @param sigma parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
-#' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
+#' @param lower.tail logical; if TRUE (default), probabilities are 
+#' P[X <= x], otherwise, P[X > x].
+#' 
+#' @seealso \link{PL}
 #' 
 #' @details 
 #' The Power Lindley Distribution with parameters \code{mu} 
@@ -21,7 +24,7 @@
 #' 
 #' \eqn{f(x) = \frac{\mu \sigma^2}{\sigma + 1} (1 + x^\mu) x ^ {\mu - 1} \exp({-\sigma x ^\mu}),}
 #' 
-#' for x > 0.
+#' for \eqn{x > 0}.
 #' 
 #' @return 
 #' \code{dPL} gives the density, \code{pPL} gives the distribution 

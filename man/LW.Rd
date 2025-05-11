@@ -23,7 +23,7 @@ and \code{sigma} has density given by
 
 \eqn{f(y)=(1/\sigma) e^{((y - \mu)/\sigma)} exp\{-e^{((y - \mu)/\sigma)}\},}
 
-for - \code{infty} < y < \code{infty}.
+for \eqn{-\infty < y < \infty}.
 }
 \examples{
 # Example 1

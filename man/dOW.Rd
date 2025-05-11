@@ -54,7 +54,7 @@ and \code{nu} has density given by
      e^{(\mu x)^\sigma} \left(e^{(\mu x)^{\sigma}}-1\right)^{\nu-1}
      \left[ 1 + \left(e^{(\mu x)^{\sigma}}-1\right)^\nu \right]^{-2}}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -93,6 +93,9 @@ par(old_par) # restore previous graphical parameters
 \references{
 Cooray, K. (2006). Generalization of the Weibull distribution: 
 the odd Weibull family. Statistical Modelling, 6(3), 265-277.
+}
+\seealso{
+\link{OW}
 }
 \author{
 Jaime Mosquera Gutiérrez \email{jmosquerag@unal.edu.co}

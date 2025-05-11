@@ -16,6 +16,9 @@
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
 #' @param lower.tail logical; if TRUE (default), probabilities are 
 #' P[X <= x], otherwise, P[X > x].
+#' 
+#' @seealso \link{SZMW}
+#' 
 #' @details 
 #' The Sarhan and Zaindins modified weibull with parameters \code{mu}, 
 #' \code{sigma} and \code{nu} has density given by
@@ -40,7 +43,7 @@
 #' Modified Weibull distribution. APPS. Applied Sciences, 11, 123-136.
 #' 
 #' @export
-dSZMW<-function(x, mu, sigma, nu, log=FALSE){
+dSZMW <- function(x, mu, sigma, nu, log=FALSE) {
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0)) 
@@ -103,7 +106,7 @@ qSZMW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
 }
 #' @export
 #' @rdname dSZMW
-rSZMW<- function(n, mu, sigma, nu){
+rSZMW <- function(n, mu, sigma, nu){
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
@@ -118,7 +121,7 @@ rSZMW<- function(n, mu, sigma, nu){
 }
 #' @export
 #' @rdname dSZMW
-hSZMW<-function(x, mu, sigma, nu){
+hSZMW <- function(x, mu, sigma, nu){
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))
   if (any(mu <= 0 )) 

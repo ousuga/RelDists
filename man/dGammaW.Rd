@@ -95,6 +95,9 @@ System Safety, 124, 32-55.
 Stacy, E. W. (1962). A generalization of the gamma 
 distribution. The Annals of mathematical statistics, 1187-1192.
 }
+\seealso{
+\link{GammaW}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

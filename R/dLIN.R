@@ -12,14 +12,17 @@
 #' @param n number of observations. 
 #' @param mu parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
-#' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
+#' @param lower.tail logical; if TRUE (default), probabilities are 
+#' P[X <= x], otherwise, P[X > x].
+#' 
+#' @seealso \link{LIN}
 #' 
 #' @details 
 #' Lindley Distribution with parameter \code{mu} has density given by
 #' 
 #' \eqn{f(x) = \frac{\mu^2}{\mu+1} (1+x) \exp(-\mu x),}
 #' 
-#' for x > 0 and \eqn{\mu > 0}. These function were taken form LindleyR package.
+#' for \eqn{x > 0} and \eqn{\mu > 0}. These function were taken form LindleyR package.
 #' 
 #' @return 
 #' \code{dLIN} gives the density, \code{pLIN} gives the distribution 

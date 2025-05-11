@@ -6,7 +6,7 @@
 \alias{qEMWEx}
 \alias{rEMWEx}
 \alias{hEMWEx}
-\title{The Exponentiated Modifien Weibull Extension distribution}
+\title{The Exponentiated Modified Weibull Extension distribution}
 \usage{
 dEMWEx(x, mu, sigma, nu, tau, log = FALSE)
 
@@ -48,7 +48,7 @@ random generation and hazard function for the Exponentiated Modifien Weibull Ext
 with parameters \code{mu}, \code{sigma}, \code{nu} and \code{tau}.
 }
 \details{
-The Exponentiated Modifien Weibull Extension Distribution with parameters \code{mu}, 
+The Exponentiated Modified Weibull Extension Distribution with parameters \code{mu}, 
 \code{sigma}, \code{nu} and \code{tau} has density given by
 
 \eqn{f(x)= \nu \sigma \tau (\frac{x}{\mu})^{\sigma-1} \exp((\frac{x}{\mu})^\sigma +
@@ -99,6 +99,9 @@ System Safety, 124, 32-55.
 Sarhan, A. M., & Apaloo, J. (2013). Exponentiated modified 
 Weibull extension distribution. Reliability Engineering & 
 System Safety, 112, 137-144.
+}
+\seealso{
+\link{EMWEx}
 }
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}

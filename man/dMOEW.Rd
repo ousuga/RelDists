@@ -51,7 +51,7 @@ The Marshall-Olkin Extended Weibull distribution \code{mu},
 
 \eqn{f(x) = \frac{\mu \sigma \nu (\nu x)^{\sigma - 1} exp\{{-(\nu x )^{\sigma}}\}}{\{1-(1-\mu) exp\{{-(\nu x )^{\sigma}}\} \}^{2}},}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -94,6 +94,9 @@ System Safety, 124, 32-55.
 Ghitany, M. E., Al-Hussaini, E. K., & Al-Jarallah, R. A. (2005). 
 Marshall–Olkin extended Weibull distribution and its application 
 to censored data. Journal of Applied Statistics, 32(10), 1025-1034.
+}
+\seealso{
+\link{MOEW}
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

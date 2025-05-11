@@ -51,7 +51,7 @@ The Marshall-Olkin Extended Inverse Weibull distribution \code{mu},
 
 \eqn{f(x) = \frac{\mu \sigma \nu x^{-(\sigma + 1)} exp\{{-\mu x^{-\sigma}}\}}{\{\nu -(\nu-1) exp\{{-\mu x ^{-\sigma}}\} \}^{2}},}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -90,6 +90,9 @@ par(old_par) # restore previous graphical parameters
 Okasha, H. M., El-Baz, A. H., Tarabia, A. M. K., & Basheer, A. M. (2017). 
 Extended inverse Weibull distribution with reliability application. 
 Journal of the Egyptian Mathematical Society, 25(3), 343-349.
+}
+\seealso{
+\link{MOEIW}
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

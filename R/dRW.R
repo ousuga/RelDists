@@ -13,15 +13,18 @@
 #' @param mu parameter.
 #' @param sigma parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
-#' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
+#' @param lower.tail logical; if TRUE (default), probabilities are 
+#' P[X <= x], otherwise, P[X > x].
+#' 
+#' @seealso \link{RW}
 #' 
 #' @details 
 #' The Reflected Weibull Distribution with parameters \code{mu} 
 #' and \code{sigma} has density given by
 #' 
-#' \eqn{f(y) = \mu\sigma (-y) ^{\sigma - 1} e ^ {-\mu(-y)^\sigma},}
+#' \eqn{f(x) = \mu \sigma (-x) ^{\sigma - 1} e^{-\mu(-x)^\sigma},}
 #' 
-#' for y < 0.
+#' for \eqn{x < 0}.
 #' 
 #' @return 
 #' \code{dRW} gives the density, \code{pRW} gives the distribution 

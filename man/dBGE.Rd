@@ -98,6 +98,9 @@ Barreto-Souza, W., Santos, A. H., & Cordeiro, G. M. (2010).
 The beta generalized exponential distribution. Journal of 
 statistical Computation and Simulation, 80(2), 159-172.
 }
+\seealso{
+\link{BGE}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

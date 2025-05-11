@@ -24,7 +24,8 @@ rWALD(n, mu, sigma)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are \eqn{P[X <= x]}, otherwise, \eqn{P[X > x]}.}
+\item{lower.tail}{logical; if TRUE (default), probabilities are 
+P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
@@ -43,7 +44,9 @@ with parameter \eqn{\mu} and \eqn{\sigma}.
 \details{
 The Wald distribution with parameters \eqn{\mu} and \eqn{\sigma} has density given by
 
-\eqn{f(x |\mu, \sigma)=\frac{\sigma}{\sqrt{2 \pi x^3}} \exp \left[-\frac{(\sigma-\mu x)^2}{2x}\right ], x>0 }
+\eqn{f(x |\mu, \sigma)=\frac{\sigma}{\sqrt{2 \pi x^3}} \exp \left[-\frac{(\sigma-\mu x)^2}{2x}\right ],}
+
+for \eqn{x < 0}.
 }
 \examples{
 # Example 1
@@ -105,6 +108,8 @@ response time data: An example using functions for the S-PLUS package.
 Behavior Research Methods, Instruments, & Computers, 36, 678-694.
 }
 \seealso{
+\link{WALD}
+
 \link{WALD}.
 }
 \author{

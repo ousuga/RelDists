@@ -1,6 +1,6 @@
 #' The Generalized Inverse Weibull distribution
 #' 
-#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@@udea.edu.co}
+#' @author Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}
 #' 
 #' @description 
 #' Density, distribution function, quantile function, 
@@ -14,7 +14,10 @@
 #' @param sigma parameter.
 #' @param nu parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
-#' @param lower.tail logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].
+#' @param lower.tail logical; if TRUE (default), probabilities are 
+#' P[X <= x], otherwise, P[X > x].
+#' 
+#' @seealso \link{GIW}
 #' 
 #' @details 
 #' The Generalized Inverse Weibull distribution \code{mu}, 
@@ -22,7 +25,7 @@
 #' 
 #' \eqn{f(x) = \nu \sigma \mu^{\sigma} x^{-(\sigma + 1)} exp \{-\nu (\frac{\mu}{x})^{\sigma}\},}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}. 
 #' 
 #' @return 
 #' \code{dGIW} gives the density, \code{pGIW} gives the distribution 
@@ -31,7 +34,6 @@
 #'
 #' @example examples/examples_dGIW.R  
 #' 
-#'
 #' @references
 #' Almalki, S. J., & Nadarajah, S. (2014). Modifications of the 
 #' Weibull distribution: A review. Reliability Engineering & 

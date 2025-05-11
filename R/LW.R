@@ -16,7 +16,7 @@
 #' 
 #' \eqn{f(y)=(1/\sigma) e^{((y - \mu)/\sigma)} exp\{-e^{((y - \mu)/\sigma)}\},}
 #' 
-#' for - \code{infty} < y < \code{infty}.
+#' for \eqn{-\infty < y < \infty}.
 #' 
 #' @returns Returns a gamlss.family object which can be used to fit a LW distribution in the \code{gamlss()} function.
 #' 

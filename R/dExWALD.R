@@ -14,14 +14,15 @@
 #' @param nu vector of the nu parameter.
 #' @param n number of random values to return.
 #' @param log,log.p logical; if TRUE, probabilities p are given as log(p).
-#' @param lower.tail logical; if TRUE (default), probabilities are \eqn{P[X <= x]}, otherwise, \eqn{P[X > x]}.
+#' @param lower.tail logical; if TRUE (default), probabilities are 
+#' P[X <= x], otherwise, P[X > x].
+#' 
+#' @seealso \link{ExWALD}
 #'
 #' @references
 #' Heathcote, A. (2004). Fitting Wald and ex-Wald distributions to 
 #' response time data: An example using functions for the S-PLUS package. 
 #' Behavior Research Methods, Instruments, & Computers, 36, 678-694.
-#'
-#' @seealso \link{ExWALD}.
 #'
 #' @details
 #' The Wald distribution with parameters \eqn{\mu}, \eqn{\sigma} 

@@ -13,7 +13,10 @@
 #' @param sigma vector of the sigma parameter.
 #' @param n number of random values to return.
 #' @param log,log.p logical; if TRUE, probabilities p are given as log(p).
-#' @param lower.tail logical; if TRUE (default), probabilities are \eqn{P[X <= x]}, otherwise, \eqn{P[X > x]}.
+#' @param lower.tail logical; if TRUE (default), probabilities are 
+#' P[X <= x], otherwise, P[X > x].
+#' 
+#' @seealso \link{WALD}
 #'
 #' @references
 #' Heathcote, A. (2004). Fitting Wald and ex-Wald distributions to 
@@ -25,7 +28,9 @@
 #' @details
 #' The Wald distribution with parameters \eqn{\mu} and \eqn{\sigma} has density given by
 #'
-#' \eqn{f(x |\mu, \sigma)=\frac{\sigma}{\sqrt{2 \pi x^3}} \exp \left[-\frac{(\sigma-\mu x)^2}{2x}\right ], x>0 }
+#' \eqn{f(x |\mu, \sigma)=\frac{\sigma}{\sqrt{2 \pi x^3}} \exp \left[-\frac{(\sigma-\mu x)^2}{2x}\right ],}
+#' 
+#' for \eqn{x < 0}.
 #'
 #' @return
 #' \code{dWALD} gives the density, \code{pWALD} gives the distribution

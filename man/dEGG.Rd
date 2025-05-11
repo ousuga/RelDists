@@ -53,7 +53,7 @@ Four-Parameter Exponentiated Generalized Gamma distribution with parameters \cod
 
 \eqn{f(x) = \frac{\nu \sigma}{\mu \Gamma(\tau)} \left(\frac{x}{\mu}\right)^{\sigma \tau -1} \exp\left\{ - \left( \frac{x}{\mu} \right)^\sigma \right\} \left\{ \gamma_1\left( \tau, \left( \frac{x}{\mu} \right)^\sigma \right) \right\}^{\nu-1} ,}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -97,6 +97,9 @@ Cordeiro, G. M., Ortega, E. M., & Silva, G. O. (2011).
 The exponentiated generalized gamma distribution with 
 application to lifetime data. Journal of statistical 
 computation and simulation, 81(7), 827-842.
+}
+\seealso{
+\link{EGG}
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

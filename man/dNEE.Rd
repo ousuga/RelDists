@@ -27,8 +27,8 @@ hNEE(x, mu, sigma, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities 
-are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are 
+P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
@@ -124,9 +124,6 @@ curve(dNEE(x, mu=mu, sigma=sigma), col="tomato", add=TRUE)
 Hassan, Anwar, I. H. Dar, and M. A. Lone. "A New Class of Probability 
 Distributions With An Application to Engineering Data." 
 Pakistan Journal of Statistics and Operation Research 20.2 (2024): 217-231.
-}
-\seealso{
-\link{CJ2}
 }
 \author{
 Juliana Garcia, \email{xxxxx@udea.edu.co}

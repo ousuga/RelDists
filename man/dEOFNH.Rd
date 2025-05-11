@@ -94,6 +94,9 @@ par(old_par) # restore previous graphical parameters
 Nasiru, S. (2018). Extended Odd Fréchet‐G Family of Distributions 
 Journal of Probability and Statistics, 2018(1), 2931326.
 }
+\seealso{
+\link{EOFNH}
+}
 \author{
 Helber Santiago Padilla, \email{hspadillar@unal.edu.co}
 }

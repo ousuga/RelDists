@@ -16,6 +16,8 @@
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).
 #' @param lower.tail logical; if TRUE (default), probabilities are
 #' P[T <= t], otherwise, P[T > t].
+#' 
+#' @seealso \link{OW}
 #'
 #' @details
 #' The Odd Weibull with parameters \code{mu}, \code{sigma}
@@ -25,7 +27,7 @@
 #'      e^{(\mu x)^\sigma} \left(e^{(\mu x)^{\sigma}}-1\right)^{\nu-1}
 #'      \left[ 1 + \left(e^{(\mu x)^{\sigma}}-1\right)^\nu \right]^{-2}}
 #'
-#' for x > 0.
+#' for \eqn{x > 0}.
 #'
 #' @return
 #' \code{dOW} gives the density, \code{pOW} gives the distribution

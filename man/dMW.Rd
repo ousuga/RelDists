@@ -95,6 +95,9 @@ Lai, C. D., Xie, M., & Murthy, D. N. P. (2003).
 A modified Weibull distribution. 
 IEEE Transactions on reliability, 52(1), 33-37.
 }
+\seealso{
+\link{MW}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

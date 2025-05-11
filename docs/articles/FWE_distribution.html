@@ -10,7 +10,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="FWE distribution">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="../deps/MathJax-3.2.2/tex-chtml.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="FWE distribution">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -60,7 +60,7 @@
                         <h4 data-toc-skip class="author">Freddy
 Hernandez</h4>
             
-            <h4 data-toc-skip class="date">2025-05-10</h4>
+            <h4 data-toc-skip class="date">2025-05-11</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ousuga/RelDists/blob/HEAD/vignettes/FWE_distribution.Rmd" class="external-link"><code>vignettes/FWE_distribution.Rmd</code></a></small>
       <div class="d-none name"><code>FWE_distribution.Rmd</code></div>
@@ -103,24 +103,18 @@ Hernandez</h4>
 <div class="section level2">
 <h2 id="flexible-weibull-extension-distribution">Flexible Weibull extension distribution<a class="anchor" aria-label="anchor" href="#flexible-weibull-extension-distribution"></a>
 </h2>
-<p>This distribution was proposed by Bebbington <span class="citation">(2007)</span>. The probability density function
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math>
-and cumulative density function
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">F(x)</annotation></semantics></math>
-are given by:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>+</mo><mfrac><mi>σ</mi><msup><mi>x</mi><mn>2</mn></msup></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mi>μ</mi><mi>x</mi><mo>−</mo><mi>σ</mi><mi>/</mi><mi>x</mi></mrow></msup><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><msup><mi>e</mi><mrow><mi>μ</mi><mi>x</mi><mo>−</mo><mi>σ</mi><mi>/</mi><mi>x</mi></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">f(x) = \left( \mu+ \frac{\sigma}{x^2} \right) e^{\mu x - \sigma / x} \exp \left( -e^{\mu x - \sigma / x} \right),</annotation></semantics></math></p>
+<p>This distribution was proposed by Bebbington <span class="citation">(2007)</span>. The probability density function <span class="math inline">\(f(x)\)</span> and cumulative density function
+<span class="math inline">\(F(x)\)</span> are given by:</p>
+<p><span class="math display">\[f(x) = \left( \mu+ \frac{\sigma}{x^2}
+\right) e^{\mu x - \sigma / x} \exp \left( -e^{\mu x - \sigma / x}
+\right),\]</span></p>
 <p>and</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn><mo>−</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><msup><mi>e</mi><mrow><mi>μ</mi><mi>x</mi><mo>−</mo><mi>σ</mi><mi>/</mi><mi>x</mi></mrow></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="1.0em"></mspace><mi>x</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">F(x) = 1 - \exp[-e^{\mu x - \sigma / x}], \quad x &gt; 0.</annotation></semantics></math></p>
-<p>respectively, where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu &gt; 0</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma &gt; 0</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x &gt; 0</annotation></semantics></math>.</p>
-<p>Next figure shows possible shapes of the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">F(x)</annotation></semantics></math>
-for several values of the parameters.</p>
+<p><span class="math display">\[F(x) = 1 - \exp[-e^{\mu x - \sigma /
+x}], \quad x &gt; 0.\]</span></p>
+<p>respectively, where <span class="math inline">\(\mu &gt; 0\)</span>,
+<span class="math inline">\(\sigma &gt; 0\)</span> and <span class="math inline">\(x &gt; 0\)</span>.</p>
+<p>Next figure shows possible shapes of the <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(F(x)\)</span> for several values of the
+parameters.</p>
 <p><img src="FWE_distribution_files/figure-html/unnamed-chunk-2-1.png" alt="Pdf and cdf for the FWE distribution." width="768"></p>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Bebbington2007" class="csl-entry">

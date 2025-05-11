@@ -83,3 +83,6 @@ curve(hFWE(x, mu=0.75, sigma=0.5), from=0, to=2, ylim=c(0, 2.5),
 
 par(old_par) # restore previous graphical parameters
 }
+\seealso{
+\link{FWE}
+}

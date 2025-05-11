@@ -91,6 +91,9 @@ El-Gohary, A., Alshamrani, A., & Al-Otaibi, A. N. (2013).
 The generalized Gompertz distribution. Applied mathematical 
 modelling, 37(1-2), 13-24.
 }
+\seealso{
+\link{GGD}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

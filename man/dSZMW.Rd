@@ -93,6 +93,9 @@ System Safety, 124, 32-55.
 Sarhan, A. M., & Zaindin, M. (2009). 
 Modified Weibull distribution. APPS. Applied Sciences, 11, 123-136.
 }
+\seealso{
+\link{SZMW}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

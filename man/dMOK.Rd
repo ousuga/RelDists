@@ -31,7 +31,8 @@ hMOK(x, mu, sigma, nu, tau)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are 
+P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
@@ -53,7 +54,7 @@ The Marshall-Olkin Kappa distribution with parameters \code{mu},
 
 \eqn{f(x)=\frac{\tau\frac{\mu\nu}{\sigma}\left(\frac{x}{\sigma}\right)^{\nu-1} \left(\mu+\left(\frac{x}{\sigma}\right)^{\mu\nu}\right)^{-\frac{\mu+1}{\mu}}}{\left[\tau+(1-\tau)\left(\frac{\left(\frac{x}{\sigma}\right)^{\mu\nu}}{\mu+\left(\frac{x}{\sigma}\right)^{\mu\nu}}\right)^{\frac{1}{\mu}}\right]^2}}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -96,6 +97,9 @@ par(old_par) # restore previous graphical parameters
 Javed, M., Nawaz, T., & Irfan, M. (2019). The Marshall-Olkin 
 kappa distribution: properties and applications. 
 Journal of King Saud University-Science, 31(4), 684-691.
+}
+\seealso{
+\link{MOK}
 }
 \author{
 Angel Muñoz,

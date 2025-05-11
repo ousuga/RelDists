@@ -92,6 +92,9 @@ Drapella, A. (1993). The complementary Weibull distribution:
 unknown or just forgotten?. Quality and reliability engineering 
 international, 9(4), 383-385.
 }
+\seealso{
+\link{IW}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

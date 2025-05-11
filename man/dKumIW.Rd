@@ -97,6 +97,9 @@ Shahbaz, M. Q., Shahbaz, S., & Butt, N. S. (2012).
 The Kumaraswamy Inverse Weibull Distribution. 
 Pakistan journal of statistics and operation research, 479-489.
 }
+\seealso{
+\link{KumIW}
+}
 \author{
 Johan David Marin Benjumea, \email{johand.marin@udea.edu.co}
 }

@@ -29,7 +29,8 @@ hWP(x, mu, sigma, nu)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities are 
+P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
@@ -90,6 +91,9 @@ par(old_par) # restore previous graphical parameters
 Lu, Wanbo, and Daimin Shi. "A new compounding life distribution: 
 the Weibull–Poisson distribution." Journal of applied 
 statistics 39.1 (2012): 21-38.
+}
+\seealso{
+\link{WP}
 }
 \author{
 Amylkar Urrea Montoya, \email{amylkar.urrea@udea.edu.co}

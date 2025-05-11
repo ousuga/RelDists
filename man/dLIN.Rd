@@ -46,7 +46,7 @@ Lindley Distribution with parameter \code{mu} has density given by
 
 \eqn{f(x) = \frac{\mu^2}{\mu+1} (1+x) \exp(-\mu x),}
 
-for x > 0 and \eqn{\mu > 0}. These function were taken form LindleyR package.
+for \eqn{x > 0} and \eqn{\mu > 0}. These function were taken form LindleyR package.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
@@ -79,6 +79,9 @@ par(old_par) # restore previous graphical parameters
 Lindley, D. V. (1958). Fiducial distributions and Bayes' theorem. 
 Journal of the Royal Statistical Society. 
 Series B (Methodological), 102-107.
+}
+\seealso{
+\link{LIN}
 }
 \author{
 Freddy Hernandez, \email{fhernanb@unal.edu.co}
