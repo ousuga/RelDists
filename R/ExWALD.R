@@ -12,6 +12,10 @@
 #' @param nu.link defines the nu.link, with "log" link as the default for the nu parameter.
 #'
 #' @references
+#' Schwarz, W. (2001). The ex-Wald distribution as a descriptive model 
+#' of response times. Behavior Research Methods, 
+#' Instruments, & Computers, 33, 457-469.
+#' 
 #' Heathcote, A. (2004). Fitting Wald and ex-Wald distributions to 
 #' response time data: An example using functions for the S-PLUS package. 
 #' Behavior Research Methods, Instruments, & Computers, 36, 678-694.

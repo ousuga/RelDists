@@ -27,7 +27,8 @@ hCJ2(x, mu, sigma, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
-\item{lower.tail}{logical; if TRUE (default), probabilities are P[X <= x], otherwise, P[X > x].}
+\item{lower.tail}{logical; if TRUE (default), probabilities 
+are P[X <= x], otherwise, P[X > x].}
 
 \item{p}{vector of probabilities.}
 
