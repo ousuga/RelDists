@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   FWE_distribution: FWE_distribution.html
   OW_distribution: OW_distribution.html
-last_built: 2025-05-11T23:11Z
+last_built: 2025-05-12T14:32Z
 urls:
   reference: http://ousuga.github.io/RelDists/reference
   article: http://ousuga.github.io/RelDists/articles
