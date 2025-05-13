@@ -1,5 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/ousuga/RelDists/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ousuga/RelDists/actions/workflows/R-CMD-check.yaml)
@@ -27,12 +28,11 @@ To install the `RelDists` package, follow the instructions below:
 
 ``` r
 # Installing from CRAN:
-install.packages("DiscreteDists")
+install.packages("RelDists")
 
 # Or the development version from GitHub:
-if (!require("devtools")) install.packages("devtools")
-devtools::install_github("ousuga/RelDists", force=TRUE)
-require(RelDists)
+# install.packages("pak")
+pak::pak("ousuga/RelDists")
 ```
 
 You can visit the [package

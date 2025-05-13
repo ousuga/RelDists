@@ -33,12 +33,11 @@ To install the `RelDists` package, follow the instructions below:
 
 ```r
 # Installing from CRAN:
-install.packages("DiscreteDists")
+install.packages("RelDists")
 
 # Or the development version from GitHub:
-if (!require("devtools")) install.packages("devtools")
-devtools::install_github("ousuga/RelDists", force=TRUE)
-require(RelDists)
+# install.packages("pak")
+pak::pak("ousuga/RelDists")
 ```
 You can visit the [package website](https://fhernanb.github.io/RelDists/) to explore the vignettes (articles) and function reference. 
 
