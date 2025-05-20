@@ -18,9 +18,10 @@
 #' 
 #' \eqn{f(x) = (\mu\nu x^{\nu - 1} + \sigma\tau x^{\tau - 1}) \exp({-\mu x^{\nu} - \sigma x^{\tau} }),}
 #' 
-#' for x > 0. 
+#' for \eqn{x > 0}. 
 #' 
-#' @returns Returns a gamlss.family object which can be used to fit a AddW distribution in the \code{gamlss()} function.
+#' @returns Returns a gamlss.family object which can be used to fit a 
+#' AddW distribution in the \code{gamlss()} function.
 #' 
 #' @example examples/examples_AddW.R 
 #' 

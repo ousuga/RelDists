@@ -9,7 +9,7 @@ require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=CJ2,
                control=gamlss.control(n.cyc=5000, trace=TRUE))
 
-# Extracting the fitted values for mu, sigma, nu and tau
+# Extracting the fitted values for mu, sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 exp(coef(mod1, what="sigma"))

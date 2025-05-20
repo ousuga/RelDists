@@ -16,7 +16,8 @@ AddW(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
 \item{tau.link}{defines the tau.link, with "log" link as the default for the tau parameter.}
 }
 \value{
-Returns a gamlss.family object which can be used to fit a AddW distribution in the \code{gamlss()} function.
+Returns a gamlss.family object which can be used to fit a 
+AddW distribution in the \code{gamlss()} function.
 }
 \description{
 The Additive Weibull distribution
@@ -27,7 +28,7 @@ Additive Weibull distribution with parameters \code{mu},
 
 \eqn{f(x) = (\mu\nu x^{\nu - 1} + \sigma\tau x^{\tau - 1}) \exp({-\mu x^{\nu} - \sigma x^{\tau} }),}
 
-for x > 0.
+for \eqn{x > 0}.
 }
 \examples{
 # Example 1

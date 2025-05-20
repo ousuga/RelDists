@@ -53,6 +53,7 @@
 <url><loc>http://ousuga.github.io/RelDists/reference/EOFNH.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/equipment.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/estim_mu_sigma_CJ2.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/estim_mu_sigma_NEE.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/EW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/EXL.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/ExW.html</loc></url>
@@ -71,6 +72,7 @@
 <url><loc>http://ousuga.github.io/RelDists/reference/KumIW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/LIN.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/logLik_CJ2.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/logLik_NEE.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/LW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/mice.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/MOEIW.html</loc></url>
@@ -78,6 +80,7 @@
 <url><loc>http://ousuga.github.io/RelDists/reference/MOK.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/MW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/myOW_region.html</loc></url>
+<url><loc>http://ousuga.github.io/RelDists/reference/NEE.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/negllexw.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/OW.html</loc></url>
 <url><loc>http://ousuga.github.io/RelDists/reference/param.startOW.html</loc></url>

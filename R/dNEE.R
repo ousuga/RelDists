@@ -1,11 +1,11 @@
 #' The New Exponentiated Exponential distribution
 #' 
-#' @author Juliana Garcia, \email{xxxxx@udea.edu.co}
+#' @author Juliana Garcia, \email{juliana.garciav@udea.edu.co}
 #' 
 #' @description
 #' Density, distribution function, quantile function, 
-#' random generation and hazard function for the  two-parameter 
-#' Chris-Jerry distribution with
+#' random generation and hazard function for the two-parameter 
+#' New Exponentiated Exponential with
 #' parameters \code{mu} and \code{sigma}.
 #' 
 #' @param x,q	vector of quantiles.
@@ -15,20 +15,17 @@
 #' @param sigma parameter.
 #' @param log,log.p	logical; if TRUE, probabilities p are given as log(p).	
 #' @param lower.tail logical; if TRUE (default), probabilities are 
-#' P[X <= x], otherwise, P[X > x].
+#' \eqn{P[X <= x]}, otherwise, \eqn{P[X > x]}.
 #' 
-#' @references
-#' Hassan, Anwar, I. H. Dar, and M. A. Lone. "A New Class of Probability 
-#' Distributions With An Application to Engineering Data." 
-#' Pakistan Journal of Statistics and Operation Research 20.2 (2024): 217-231.
+#' @seealso \link{NEE}
 #' 
 #' @details 
 #' The New Exponentiated Exponential distribution with parameters \code{mu} 
 #' and \code{sigma} has density given by
 #' 
-#' \eqn{
-#' f(x; \sigma, \mu) = necesitamos al formula de Juliana aqui \quad x > 0, \quad \mu > 0, \quad \sigma > 0
-#' }
+#' \eqn{f(x | \mu, \sigma) = \log(2^\sigma) \mu \exp(-\mu x) (1-\exp(-\mu x))^{\sigma-1} 2^{(1-\exp(-\mu x))^\sigma}, }
+#' 
+#' for \eqn{x>0}, \eqn{\mu>0} and \eqn{\sigma>0}.
 #' 
 #' Note: In this implementation we changed the original parameters 
 #' \eqn{\theta} for \eqn{\mu} and \eqn{\alpha} for \eqn{\sigma},
@@ -40,6 +37,11 @@
 #' generates random deviates and \code{hNEE} gives the hazard function.
 #' 
 #' @example examples/examples_dNEE.R
+#' 
+#' @references
+#' Hassan, Anwar, I. H. Dar, and M. A. Lone. "A New Class of Probability 
+#' Distributions With An Application to Engineering Data." 
+#' Pakistan Journal of Statistics and Operation Research 20.2 (2024): 217-231.
 #' 
 #' @export
 dNEE <- function(x, mu=1, sigma=1, log=FALSE) {
