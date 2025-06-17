@@ -44,7 +44,7 @@ y <- rEXL(n=300, mu=0.75, sigma=1.3)
 # Fitting the model
 require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=EXL,
-              control=gamlss.control(n.cyc=5000, trace=FALSE))
+               control=gamlss.control(n.cyc=5000, trace=FALSE))
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
@@ -62,7 +62,7 @@ gendat <- function(n) {
   mu <- exp(1.45 - 3 * x1)
   sigma <- exp(2 - 1.5 * x2)
   y <- rEXL(n=n, mu=mu, sigma=sigma)
-  data.frame(y=y, x1=x1, x2)
+  data.frame(y=y, x1=x1, x2=x2)
 }
 
 set.seed(1234)
@@ -95,12 +95,15 @@ exp(coef(mod3, what="sigma"))
 # Replicating figure 4 from Alomair et al. (2024)
 # Hist and estimated pdf
 hist(x, freq=FALSE)
-curve(dEXL(x, mu=0.4089915, sigma=2.710467), add=TRUE, col="tomato", lwd=2)
+curve(dEXL(x, mu=0.4089915, sigma=2.710467), add=TRUE, 
+      col="tomato", lwd=2)
 # Empirical cdf and estimated ecdf
 plot(ecdf(x))
-curve(pEXL(x, mu=0.4089915, sigma=2.710467), add=TRUE, col="tomato", lwd=2)
+curve(pEXL(x, mu=0.4089915, sigma=2.710467), add=TRUE, 
+      col="tomato", lwd=2)
 # QQplot
-qqplot(x, rEXL(n=30, mu=0.4089915, sigma=2.710467), col="tomato")
+qqplot(x, rEXL(n=30, mu=0.4089915, sigma=2.710467), 
+       col="tomato")
 qqline(x, distribution=function(p) qEXL(p, mu=0.4089915, sigma=2.710467))
 
 

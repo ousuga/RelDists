@@ -116,16 +116,16 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-in"><span><span class="co"># Fitting the model</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">EXL</span>,</span></span>
-<span class="r-in"><span>              control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">5000</span>, trace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>               control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">5000</span>, trace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extracting the fitted values for mu and sigma</span></span></span>
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.7545664 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.7396678 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.322152 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.254606 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
@@ -138,7 +138,7 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-in"><span>  <span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fl">1.45</span> <span class="op">-</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">x1</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> <span class="va">x2</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="dEXL.html">rEXL</a></span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span>, mu<span class="op">=</span><span class="va">mu</span>, sigma<span class="op">=</span><span class="va">sigma</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">y</span>, x1<span class="op">=</span><span class="va">x1</span>, <span class="va">x2</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">y</span>, x1<span class="op">=</span><span class="va">x1</span>, x2<span class="op">=</span><span class="va">x2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span></span></span>
@@ -166,7 +166,7 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  1.68780    0.09469   17.82   &lt;2e-16 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> x1          -3.27523    0.18328  -17.87   &lt;2e-16 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sigma link function:  log</span>
@@ -175,7 +175,7 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   2.3398     0.1808  12.939  &lt; 2e-16 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> x2           -1.6885     0.2583  -6.537 2.85e-09 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> No. of observations in the fit:  100 </span>
@@ -213,14 +213,17 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-in"><span><span class="co"># Replicating figure 4 from Alomair et al. (2024)</span></span></span>
 <span class="r-in"><span><span class="co"># Hist and estimated pdf</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">x</span>, freq<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu"><a href="dEXL.html">dEXL</a></span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.4089915</span>, sigma<span class="op">=</span><span class="fl">2.710467</span><span class="op">)</span>, add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"tomato"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu"><a href="dEXL.html">dEXL</a></span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.4089915</span>, sigma<span class="op">=</span><span class="fl">2.710467</span><span class="op">)</span>, add<span class="op">=</span><span class="cn">TRUE</span>, </span></span>
+<span class="r-in"><span>      col<span class="op">=</span><span class="st">"tomato"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="EXL-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># Empirical cdf and estimated ecdf</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/ecdf.html" class="external-link">ecdf</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu"><a href="dEXL.html">pEXL</a></span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.4089915</span>, sigma<span class="op">=</span><span class="fl">2.710467</span><span class="op">)</span>, add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"tomato"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu"><a href="dEXL.html">pEXL</a></span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.4089915</span>, sigma<span class="op">=</span><span class="fl">2.710467</span><span class="op">)</span>, add<span class="op">=</span><span class="cn">TRUE</span>, </span></span>
+<span class="r-in"><span>      col<span class="op">=</span><span class="st">"tomato"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="EXL-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># QQplot</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html" class="external-link">qqplot</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="dEXL.html">rEXL</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">30</span>, mu<span class="op">=</span><span class="fl">0.4089915</span>, sigma<span class="op">=</span><span class="fl">2.710467</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"tomato"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html" class="external-link">qqplot</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="dEXL.html">rEXL</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">30</span>, mu<span class="op">=</span><span class="fl">0.4089915</span>, sigma<span class="op">=</span><span class="fl">2.710467</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>       col<span class="op">=</span><span class="st">"tomato"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html" class="external-link">qqline</a></span><span class="op">(</span><span class="va">x</span>, distribution<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">p</span><span class="op">)</span> <span class="fu"><a href="dEXL.html">qEXL</a></span><span class="op">(</span><span class="va">p</span>, mu<span class="op">=</span><span class="fl">0.4089915</span>, sigma<span class="op">=</span><span class="fl">2.710467</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="EXL-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
