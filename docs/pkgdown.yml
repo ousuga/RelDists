@@ -1,10 +1,10 @@
 pandoc: '3.4'
-pkgdown: 2.1.2
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   FWE_distribution: FWE_distribution.html
   OW_distribution: OW_distribution.html
-last_built: 2025-06-17T21:17Z
+last_built: 2025-08-31T23:33Z
 urls:
   reference: http://ousuga.github.io/RelDists/reference
   article: http://ousuga.github.io/RelDists/articles

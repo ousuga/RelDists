@@ -12,6 +12,9 @@
 #' for the sigma.
 #' 
 #' @references
+#' Birnbaum, Z.W. and Saunders, S.C. (1969a). A new family of life 
+#' distributions. J. Appl. Prob., 6, 319-327.
+#' 
 #' Roquim, F. V., Ramires, T. G., Nakamura, L. R., Righetto, A. J., 
 #' Lima, R. R., & Gomes, R. A. (2021). Building flexible regression 
 #' models: including the Birnbaum-Saunders distribution in the 
@@ -24,7 +27,7 @@
 #' The Birnbaum-Saunders with parameters \code{mu} and \code{sigma}
 #' has density given by
 #' 
-#' \eqn{f(x) = \frac{x^{-3/2}(x+\mu)}{2\sigma\sqrt{2\pi\mu}} \exp\left(\frac{-1}{2\sigma^2}(\frac{x}{\mu}+\frac{\mu}{x}-2)\right)}
+#' \eqn{f(x|\mu,\sigma) = \frac{x^{-3/2}(x+\mu)}{2\sigma\sqrt{2\pi\mu}} \exp\left(\frac{-1}{2\sigma^2}(\frac{x}{\mu}+\frac{\mu}{x}-2)\right)}
 #' 
 #' for \eqn{x>0}, \eqn{\mu>0} and \eqn{\sigma>0}. In this 
 #' parameterization \eqn{\mu} is the median of \eqn{X}, 
@@ -50,7 +53,7 @@ BS <- function(mu.link = "log", sigma.link = "log"){
                       c("inverse", "log", "identity", "own"))
   structure(
     list(family = c("BS", "Birnbaum-Saunders"),
-         parameters = list(mu=TRUE,sigma=TRUE),
+         parameters = list(mu=TRUE, sigma=TRUE),
          nopar = 2,
          type = "Continuous",
          mu.link = as.character(substitute(mu.link)),
@@ -62,11 +65,11 @@ BS <- function(mu.link = "log", sigma.link = "log"){
          mu.dr = mstats$mu.eta,
          sigma.dr = dstats$mu.eta,
          
-         # First derivates
+         # First derivatives
          dldm = function(y,sigma,mu) 1/(y+mu)-1/(2*mu)-1/(2*sigma^2)*(1/y-y/mu^2),
          dldd = function(y,sigma,mu) 1/sigma^3*(y/mu+mu/y-2)-1/sigma,
          
-         # Second derivates
+         # Second derivatives
          d2ldm2 = function(y,sigma,mu) -(1/(y+mu)-1/(2*mu)-1/(2*sigma^2)*(1/y-y/mu^2))^2,
          d2ldd2 = function(y,sigma,mu) -2/sigma^2,
          

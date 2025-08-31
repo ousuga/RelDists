@@ -16,6 +16,9 @@
 #' P[X <= x], otherwise, P[X > x].
 #' 
 #' @references
+#' Birnbaum, Z.W. and Saunders, S.C. (1969a). A new family of life 
+#' distributions. J. Appl. Prob., 6, 319-327.
+#' 
 #' Roquim, F. V., Ramires, T. G., Nakamura, L. R., Righetto, A. J., 
 #' Lima, R. R., & Gomes, R. A. (2021). Building flexible regression 
 #' models: including the Birnbaum-Saunders distribution in the 
@@ -103,7 +106,7 @@ rBS <- function(n, mu=1, sigma=1){
   if (any(n <= 0)) stop(paste("n must be a positive integer", "\n", ""))
   n <- ceiling(n)
   p <- runif(n)
-  r <- qBS(p,mu=mu,sigma=sigma)
+  r <- qBS(p, mu=mu, sigma=sigma)
   r
 }
 #' @export

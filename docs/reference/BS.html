@@ -84,7 +84,7 @@ BS distribution in the <code><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The Birnbaum-Saunders with parameters <code>mu</code> and <code>sigma</code>
 has density given by</p>
-<p>\(f(x) = \frac{x^{-3/2}(x+\mu)}{2\sigma\sqrt{2\pi\mu}} \exp\left(\frac{-1}{2\sigma^2}(\frac{x}{\mu}+\frac{\mu}{x}-2)\right)\)</p>
+<p>\(f(x|\mu,\sigma) = \frac{x^{-3/2}(x+\mu)}{2\sigma\sqrt{2\pi\mu}} \exp\left(\frac{-1}{2\sigma^2}(\frac{x}{\mu}+\frac{\mu}{x}-2)\right)\)</p>
 <p>for \(x&gt;0\), \(\mu&gt;0\) and \(\sigma&gt;0\). In this
 parameterization \(\mu\) is the median of \(X\),
 \(E(X)=\mu(1+\sigma^2/2)\) and
@@ -96,7 +96,9 @@ and random samples.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Roquim, F. V., Ramires, T. G., Nakamura, L. R., Righetto, A. J.,
+    <p>Birnbaum, Z.W. and Saunders, S.C. (1969a). A new family of life
+distributions. J. Appl. Prob., 6, 319-327.</p>
+<p>Roquim, F. V., Ramires, T. G., Nakamura, L. R., Righetto, A. J.,
 Lima, R. R., &amp; Gomes, R. A. (2021). Building flexible regression
 models: including the Birnbaum-Saunders distribution in the
 gamlss package. Semina: Ciências Exatas e Tecnológicas,
@@ -104,7 +106,7 @@ gamlss package. Semina: Ciências Exatas e Tecnológicas,
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>BS.</p></div>
+    <div class="dont-index"><p><a href="dBS.html">dBS</a>.</p></div>
     </div>
 
     <div class="section level2">
@@ -117,19 +119,18 @@ gamlss package. Semina: Ciências Exatas e Tecnológicas,
 <span class="r-in"><span><span class="co"># Fitting the model</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">BS</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 237.3994 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 237.3972 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 237.3972 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 238.6615 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 238.6572 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 238.6572 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extracting the fitted values for mu and sigma</span></span></span>
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.7713414 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.7808877 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.243161 </span>
-<span class="r-in"><span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.258863 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Generating random values for a regression model</span></span></span>
@@ -177,7 +178,7 @@ gamlss package. Semina: Ciências Exatas e Tecnológicas,
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)    1.476      0.236   6.256 1.37e-09 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> x1            -3.274      0.376  -8.707  &lt; 2e-16 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sigma link function:  log</span>
@@ -186,7 +187,7 @@ gamlss package. Semina: Ciências Exatas e Tecnológicas,
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  2.01922    0.08094   24.95   &lt;2e-16 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> x2          -1.52035    0.14010  -10.85   &lt;2e-16 ***</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> No. of observations in the fit:  300 </span>
@@ -200,6 +201,67 @@ gamlss package. Semina: Ciências Exatas e Tecnológicas,
 <span class="r-out co"><span class="r-pr">#&gt;</span> ******************************************************************</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 3</span></span></span>
+<span class="r-in"><span><span class="co"># Fatigue life (T) measures in cycles (×10−3) of n 101</span></span></span>
+<span class="r-in"><span><span class="co"># aluminum coupons (specimens) of type 6061-T6.</span></span></span>
+<span class="r-in"><span><span class="co"># Taken from Leiva et al. (2006) page 37.</span></span></span>
+<span class="r-in"><span><span class="co"># https://journal.r-project.org/articles/RN-2006-033/RN-2006-033.pdf</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">70</span>, <span class="fl">90</span>, <span class="fl">96</span>, <span class="fl">97</span>, <span class="fl">99</span>, <span class="fl">100</span>, <span class="fl">103</span>, <span class="fl">104</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">104</span>, <span class="fl">105</span>, <span class="fl">107</span>, <span class="fl">108</span>, <span class="fl">108</span>, <span class="fl">108</span>, <span class="fl">109</span>, <span class="fl">109</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">112</span>, <span class="fl">112</span>, <span class="fl">113</span>, <span class="fl">114</span>, <span class="fl">114</span>, <span class="fl">114</span>, <span class="fl">116</span>, <span class="fl">119</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">120</span>, <span class="fl">120</span>, <span class="fl">120</span>, <span class="fl">121</span>, <span class="fl">121</span>, <span class="fl">123</span>, <span class="fl">124</span>, <span class="fl">124</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">124</span>, <span class="fl">124</span>, <span class="fl">124</span>, <span class="fl">128</span>, <span class="fl">128</span>, <span class="fl">129</span>, <span class="fl">129</span>, <span class="fl">130</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">130</span>, <span class="fl">130</span>, <span class="fl">131</span>, <span class="fl">131</span>, <span class="fl">131</span>, <span class="fl">131</span>, <span class="fl">131</span>, <span class="fl">132</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">132</span>, <span class="fl">132</span>, <span class="fl">133</span>, <span class="fl">134</span>, <span class="fl">134</span>, <span class="fl">134</span>, <span class="fl">134</span>, <span class="fl">134</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">136</span>, <span class="fl">136</span>, <span class="fl">137</span>, <span class="fl">138</span>, <span class="fl">138</span>, <span class="fl">138</span>, <span class="fl">139</span>, <span class="fl">139</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">141</span>, <span class="fl">141</span>, <span class="fl">142</span>, <span class="fl">142</span>, <span class="fl">142</span>, <span class="fl">142</span>, <span class="fl">142</span>, <span class="fl">142</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">144</span>, <span class="fl">144</span>, <span class="fl">145</span>, <span class="fl">146</span>, <span class="fl">148</span>, <span class="fl">148</span>, <span class="fl">149</span>, <span class="fl">151</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">151</span>, <span class="fl">152</span>, <span class="fl">155</span>, <span class="fl">156</span>, <span class="fl">157</span>, <span class="fl">157</span>, <span class="fl">157</span>, <span class="fl">157</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">158</span>, <span class="fl">159</span>, <span class="fl">162</span>, <span class="fl">163</span>, <span class="fl">163</span>, <span class="fl">164</span>, <span class="fl">166</span>, <span class="fl">166</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">168</span>, <span class="fl">170</span>, <span class="fl">174</span>, <span class="fl">196</span>, <span class="fl">212</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mod3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">BS</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 914.5494 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 914.5411 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 914.5411 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Extracting the fitted values for mu and sigma</span></span></span>
+<span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod3</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    131.8188 </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod3</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.1703847 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Example 4</span></span></span>
+<span class="r-in"><span><span class="co"># Aggregate payments by the insurer</span></span></span>
+<span class="r-in"><span><span class="co"># in thousand Skr (Swedish currency).</span></span></span>
+<span class="r-in"><span><span class="co"># Taken from Balakrishnan and Kundu (2019) page 65.</span></span></span>
+<span class="r-in"><span><span class="co"># https://onlinelibrary.wiley.com/doi/abs/10.1002/asmb.2348</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5014</span>, <span class="fl">5855</span>, <span class="fl">6486</span>, <span class="fl">6540</span>, <span class="fl">6656</span>, <span class="fl">6656</span>, <span class="fl">7212</span>, <span class="fl">7541</span>, <span class="fl">7558</span>, </span></span>
+<span class="r-in"><span>       <span class="fl">7797</span>, <span class="fl">8546</span>, <span class="fl">9345</span>, <span class="fl">11762</span>, <span class="fl">12478</span>, <span class="fl">13624</span>, <span class="fl">14451</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">14940</span>, <span class="fl">14963</span>, <span class="fl">15092</span>, <span class="fl">16203</span>, <span class="fl">16229</span>, <span class="fl">16730</span>, <span class="fl">18027</span>, </span></span>
+<span class="r-in"><span>       <span class="fl">18343</span>, <span class="fl">19365</span>, <span class="fl">21782</span>, <span class="fl">24248</span>, <span class="fl">29069</span>, <span class="fl">34267</span>, <span class="fl">38993</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">/</span><span class="fl">10000</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mod4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">BS</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 61.4839 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 61.4837 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Extracting the fitted values for mu and sigma</span></span></span>
+<span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod4</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.256498 </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod4</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.5595511 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -211,7 +273,7 @@ gamlss package. Semina: Ciências Exatas e Tecnológicas,
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>

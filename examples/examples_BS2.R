@@ -1,0 +1,73 @@
+# Example 1
+# Generating some random values with
+# known mu and sigma
+y <- rBS2(n=50, mu=5, sigma=3)
+
+# Fitting the model
+require(gamlss)
+mod1 <- gamlss(y~1, sigma.fo=~1, family=BS2)
+
+# Extracting the fitted values for mu and sigma
+# using the inverse link function
+exp(coef(mod1, what="mu"))
+exp(coef(mod1, what="sigma"))
+
+# Example 2
+# Generating random values for a regression model
+
+# A function to simulate a data set with Y ~ BS2
+gendat <- function(n) {
+  x1 <- runif(n)
+  x2 <- runif(n)
+  mu <- exp(1.45 - 3 * x1)
+  sigma <- exp(2 - 1.5 * x2)
+  y <- rBS2(n=n, mu=mu, sigma=sigma)
+  data.frame(y=y, x1=x1, x2=x2)
+}
+
+set.seed(123)
+dat <- gendat(n=100)
+
+mod2 <- gamlss(y~x1, sigma.fo=~x2, 
+               family=BS2, data=dat)
+
+summary(mod2)
+
+# Example 3
+# Household expenditures for food in the United States (US) expressed
+# in thousands of US dollars (M$)
+# Santos-Neto et al. (2014) page 266.
+
+y <- c(15.998, 16.652, 21.741, 7.431, 10.481, 13.548, 23.256, 17.976, 
+       14.161, 8.825, 14.184, 19.604, 13.728, 21.141, 17.446, 9.629, 
+       14.005, 9.160, 18.831, 7.641, 13.882, 9.670, 21.604, 10.866, 
+       28.980, 10.882, 18.561, 11.629, 18.067, 14.539, 19.192, 25.918, 
+       28.833, 15.869, 14.910, 9.550, 23.066, 14.751)
+
+mod3 <- gamlss(y~1, sigma.fo=~1, family=BS2)
+
+# Extracting the fitted values for mu and sigma
+# using the inverse link function
+exp(coef(mod3, what="mu"))
+exp(coef(mod3, what="sigma"))
+
+# Example 4
+# lifetimes of 6061-T6 aluminum coupons expressed in cycles (×10−3)
+# at a maximum stress level of 3.1 psi (×104), until the failure to occur.
+# Santos-Neto et al. (2014) page 267.
+
+y <- c(70, 90, 96, 97, 99, 100, 103, 104, 104, 105, 107, 108, 108, 108, 109,
+       109, 112, 112, 113, 114, 114, 114, 116, 119, 120, 120, 120, 121, 121, 
+       123, 124, 124, 124, 124, 124, 128, 128, 129, 129, 130, 130, 130, 131, 
+       131, 131, 131, 131, 132, 132, 132, 133, 134, 134, 134, 134, 134, 136, 
+       136, 137, 138, 138, 138, 139, 139, 141, 141, 142, 142, 142, 142, 142, 
+       142, 144, 144, 145, 146, 148, 148, 149, 151, 151, 152, 155, 156, 157, 
+       157, 157, 157, 158, 159, 162, 163, 163, 164, 166, 166, 168, 170, 174, 
+       196, 212)
+
+mod4 <- gamlss(y~1, sigma.fo=~1, family=BS2)
+
+# Extracting the fitted values for mu and sigma
+# using the inverse link function
+exp(coef(mod4, what="mu"))
+exp(coef(mod4, what="sigma"))
