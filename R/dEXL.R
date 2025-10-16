@@ -47,48 +47,64 @@
 #' 
 #' @export
 dEXL <- function(x, mu, sigma, log=FALSE){
-  if(any(x<0))     stop("Parameter x has to be positive or zero")
   if(any(mu<0))    stop("Parameter mu has to be positive or zero")
   if(any(sigma<0)) stop("Parameter sigma has to be positive or zero")
-
-  p1 <- (1 + ((mu*x)/(1+mu)^2))
-  p2 <- exp(-mu*x)
-  p3 <- (1-(p1*p2))^(sigma-1) 
-  p4 <- ((sigma*(mu^2))*(2+mu+x)) / ((1+mu)^2)
-  p5 <- exp(-mu*x)
-
-  pdf <- p4*p5*p3
-
-  if(log)
-    pdf <- log(pdf)
-  else
-    pdf <- pdf
-
-  return(pdf)
+  
+  # Ensure same length vector
+  ly    <- max(length(x), length(mu), length(sigma))
+  xx    <- rep(x, length=ly)
+  mu    <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
+  
+  # Temporal change for invalid x's
+  xx[x < 0] <- 0.5
+  xx[is.infinite(x)] <- 0.5
+  
+  # pdf in log-scale
+  p1 <- log(sigma) + 2*log(mu) + log(2+mu+xx)
+  p2 <- -mu*xx - 2*log(1+mu)
+  p3 <- (sigma-1)*log(1-(1+mu*xx/(1+mu)^2)*exp(-mu*xx))
+  p <- p1 + p2 + p3
+  
+  # Assign values for invalid x's
+  p[x < 0] <- -Inf
+  p[is.infinite(x)] <- -Inf
+  
+  if (log == FALSE)
+    p <- exp(p)
+  
+  return(p)
 }
 #' @export
 #' @rdname dEXL
 pEXL <- function(q, mu, sigma, log.p=FALSE, lower.tail=TRUE){
-  if(any(q < 0))   stop(paste("q must be positive", "\n", ""))
   if(any(mu<0))    stop("Parameter mu has to be positive or zero")
   if(any(sigma<0)) stop("Parameter sigma has to be positive or zero")
   
-  p1 <- (1 + ((mu * q) / (1 + mu)^2))
-  p2 <- exp(-mu * q)
+  # Ensure same length vector
+  ly    <- max(length(q), length(mu), length(sigma))
+  qq    <- rep(q, length=ly)
+  mu    <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
+  
+  # Temporal change for invalid x's
+  qq[q < 0] <- 0.5
+  qq[q == Inf] <- 0.5
+  
+  # The cumulative
+  p1 <- (1 + ((mu * qq) / (1 + mu)^2))
+  p2 <- exp(-mu * qq)
   p3 <- 1 - (p1 * p2)
   cdf <- p3^sigma
   
-  if (lower.tail == TRUE){
-    cdf <- cdf
-  } else {
-    cdf <- 1 - cdf
-  }
+  # Assign values for invalid x's
+  cdf[q < 0] <- 0
+  cdf[q == Inf] <- 1
   
-  if (log.p == FALSE){
-    cdf <- cdf
-  } else {
+  if (lower.tail == FALSE)
+    cdf <- 1 - cdf
+  if (log.p == TRUE)
     cdf <- log(cdf)
-  }
   
   return(cdf)
 }
@@ -96,23 +112,53 @@ pEXL <- function(q, mu, sigma, log.p=FALSE, lower.tail=TRUE){
 #' @export
 #' @rdname dEXL
 qEXL <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
-  if(any(p < 0 | p > 1)) stop("Parameter p has to be beetwen 0 and 1")
   if(any(mu<=0))         stop("Parameter mu has to be positive")
   if(any(sigma<=0))      stop("Parameter sigma has to be positive")
+  
+  # To adjust the probability
+  if (log.p == TRUE)
+    p <- exp(p)
+  if (lower.tail == FALSE)
+    p <- 1 - p
+  
+  # Ensure same length vector
+  ly <- max(length(p), length(mu), length(sigma))
+  pp <- rep(p, length=ly)
+  mu <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
+  
+  # Temporal change for invalid p's
+  pp[p < 0]  <-  0.5
+  pp[p > 1]  <-  0.5
+  pp[p == 1] <-  0.5
+  pp[p == 0] <-  0.5
+  
+  # The quantile
   p1 <- -(1+mu)^2 / mu
   p2 <- 1/mu
-  temp <- (1+mu)^2  * (p^(1/sigma)-1) / exp((1+mu)^2)
+  temp <- (1+mu)^2  * (pp^(1/sigma)-1) / exp((1+mu)^2)
   p3 <- lambertWm1(temp)
-  result <- p1 - p2 * p3
-  return(result)
+  q <- p1 - p2 * p3
+  
+  # To deal with invalid p's
+  q[p <  0] <- NaN
+  q[p >  1] <- NaN
+  q[p == 1] <- Inf
+  q[p == 0] <- 0
+  
+  return(q)
 }
 #' @export
 #' @rdname dEXL
 rEXL <- function(n, mu, sigma){
   if(any(mu<=0))    stop("Parameter mu has to be positive ")
   if(any(sigma<=0)) stop("Parameter sigma has to be positive")
-  u <- runif(n)
-  return(qEXL(p=u, mu=mu, sigma=sigma))
+  if (any(n <= 0))  stop(paste("n must be a positive integer", "\n", ""))
+  
+  n <- ceiling(n)
+  u <- runif(n=n)
+  x <- qEXL(p=u, mu=mu, sigma=sigma)
+  return(x)
 }
 #' @export
 #' @rdname dEXL

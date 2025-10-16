@@ -54,14 +54,27 @@ dBS <- function(x, mu=1, sigma=1, log=FALSE){
   if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) stop(paste("sigma must be positive", "\n", ""))
   
-  res <- ifelse(x<=0, -9999999,
-                -1.5*log(x)+log(x+mu)-log(2*sigma)-0.5*log(2*pi*mu)-0.5*(x/mu+mu/x-2)/sigma^2)
+  # Ensure same length vector
+  ly    <- max(length(x), length(mu), length(sigma))
+  xx    <- rep(x, length=ly)
+  mu    <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
   
-  if (log == TRUE)
-    result <- res
-  else
-    result <- exp(res)
-  return(result)
+  # Temporal change for invalid x's
+  xx[x <= 0] <- 0.5
+  xx[is.infinite(x)] <- 0.5
+  
+  # pdf in log-scale
+  p <- -1.5*log(xx)+log(xx+mu)-log(2*sigma)-0.5*log(2*pi*mu)-0.5*(xx/mu+mu/xx-2)/sigma^2
+  
+  # Assign values for invalid x's
+  p[x <= 0] <- -Inf
+  p[is.infinite(x)] <- -Inf
+  
+  if (log == FALSE)
+    p <- exp(p)
+  
+  return(p)
 }
 #' @export
 #' @importFrom stats pnorm
@@ -71,17 +84,28 @@ pBS <- function(q, mu=1, sigma=1, lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0))    stop("parameter mu has to be positive!")
   if (any(sigma <= 0)) stop("parameter sigma has to be positive!")
   
-  cdf <- pnorm(((q/mu)^0.5-(mu/q)^0.5)/sigma)
+  # Ensure same length vector
+  ly    <- max(length(q), length(mu), length(sigma))
+  qq    <- rep(q, length=ly)
+  mu    <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
   
-  if (lower.tail == TRUE) 
-    cdf <- cdf
-  else 
-    cdf = 1 - cdf
-  if (log.p == FALSE) 
-    cdf <- cdf
-  else 
+  # Temporal change for invalid x's
+  qq[q <= 0] <- 0.5
+  qq[q == Inf] <- 0.5
+  
+  # The cumulative
+  cdf <- pnorm(((qq/mu)^0.5-(mu/qq)^0.5)/sigma)
+  
+  # Assign values for invalid x's
+  cdf[q <= 0] <- 0
+  cdf[q == Inf] <- 1
+  
+  if (lower.tail == FALSE)
+    cdf <- 1 - cdf
+  if (log.p == TRUE)
     cdf <- log(cdf)
-  cdf <- ifelse(q < 0, 0, cdf)
+  
   return(cdf)
 }
 #' @importFrom stats uniroot qnorm
@@ -90,24 +114,49 @@ pBS <- function(q, mu=1, sigma=1, lower.tail=TRUE, log.p=FALSE){
 qBS <- function(p, mu=1, sigma=1, lower.tail = TRUE, log.p = FALSE){
   if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) stop(paste("sigma must be positive", "\n", ""))
-  if (log.p==TRUE) p <- log(p)
-  if (lower.tail==FALSE) p <- 1-p
-  if (any(p < 0)|any(p > 1)) stop(paste("p must be between 0 and 1", "\n", ""))
-  w <- sigma * qnorm(p)/2
+
+  # To adjust the probability
+  if (log.p == TRUE)
+    p <- exp(p)
+  if (lower.tail == FALSE)
+    p <- 1 - p
+  
+  # Ensure same length vector
+  ly <- max(length(p), length(mu), length(sigma))
+  pp <- rep(p, length=ly)
+  mu <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
+  
+  # Temporal change for invalid p's
+  pp[p < 0]  <-  0.5
+  pp[p > 1]  <-  0.5
+  pp[p == 1] <-  0.5
+  pp[p == 0] <-  0.5
+  
+  # The quantile
+  w <- sigma * qnorm(pp)/2
   q <- mu * (w + sqrt(w^2+1))^2
+  
+  # To deal with invalid p's
+  q[p <  0] <- NaN
+  q[p >  1] <- NaN
+  q[p == 1] <- Inf
+  q[p == 0] <- 0
+  
   return(q)
 }
 #' @importFrom stats runif
 #' @export
 #' @rdname dBS
 rBS <- function(n, mu=1, sigma=1){
-  if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma <= 0)) stop(paste("sigma must be positive", "\n", ""))
-  if (any(n <= 0)) stop(paste("n must be a positive integer", "\n", ""))
+  if (any(mu <= 0))     stop("parameter mu has to be positive!")
+  if (any(sigma <= 0))  stop("parameter sigma has to be positive!")
+  if (any(n <= 0))      stop(paste("n must be a positive integer", "\n", ""))
+  
   n <- ceiling(n)
-  p <- runif(n)
-  r <- qBS(p, mu=mu, sigma=sigma)
-  r
+  u <- runif(n=n)
+  x <- qBS(p=u, mu=mu, sigma=sigma)
+  return(x)
 }
 #' @export
 #' @rdname dBS
