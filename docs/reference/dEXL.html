@@ -135,10 +135,10 @@ inference and applications. Heliyon, 10(3).</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#Example 1</span></span></span>
-<span class="r-in"><span><span class="co">#Plotting the mass function for different parameter values</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example 1</span></span></span>
+<span class="r-in"><span><span class="co"># Plotting the mass function for different parameter values</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">dEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.5</span>, sigma<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0.001</span>, to<span class="op">=</span><span class="fl">5</span>,</span></span>
+<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">5</span>,</span></span>
 <span class="r-in"><span>      ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>      col<span class="op">=</span><span class="st">"royalblue1"</span>, lwd<span class="op">=</span><span class="fl">2</span>, </span></span>
 <span class="r-in"><span>      main<span class="op">=</span><span class="st">"Density function"</span>,</span></span>
@@ -159,7 +159,7 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">dEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.5</span>, sigma<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0.001</span>, to<span class="op">=</span><span class="fl">5</span>,</span></span>
+<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">5</span>,</span></span>
 <span class="r-in"><span>      ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>      col<span class="op">=</span><span class="st">"royalblue1"</span>, lwd<span class="op">=</span><span class="fl">2</span>, </span></span>
 <span class="r-in"><span>      main<span class="op">=</span><span class="st">"Density function"</span>,</span></span>
@@ -180,7 +180,7 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">dEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.5</span>, sigma<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0.001</span>, to<span class="op">=</span><span class="fl">8</span>,</span></span>
+<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0.</span>, to<span class="op">=</span><span class="fl">8</span>,</span></span>
 <span class="r-in"><span>      ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>      col<span class="op">=</span><span class="st">"royalblue1"</span>, lwd<span class="op">=</span><span class="fl">2</span>, </span></span>
 <span class="r-in"><span>      main<span class="op">=</span><span class="st">"Density function"</span>,</span></span>
@@ -202,7 +202,7 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Checking if the cumulative curves converge to 1</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">pEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.5</span>, sigma<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0.001</span>, to<span class="op">=</span><span class="fl">5</span>,</span></span>
+<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">5</span>,</span></span>
 <span class="r-in"><span>      ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>      col<span class="op">=</span><span class="st">"royalblue1"</span>, lwd<span class="op">=</span><span class="fl">2</span>, </span></span>
 <span class="r-in"><span>      main<span class="op">=</span><span class="st">"Cumulative Distribution Function"</span>,</span></span>
@@ -220,38 +220,21 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-in"><span>                               <span class="st">"mu=1.5, sigma=0.5"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"royalblue1"</span>, <span class="st">"tomato"</span>, <span class="st">"seagreen"</span><span class="op">)</span>, lwd<span class="op">=</span><span class="fl">2</span>, cex<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="dEXL-4.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">pEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.5</span>, sigma<span class="op">=</span><span class="fl">0.5</span>, lower.tail<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0.001</span>, to<span class="op">=</span><span class="fl">5</span>,</span></span>
-<span class="r-in"><span>      ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>      col<span class="op">=</span><span class="st">"royalblue1"</span>, lwd<span class="op">=</span><span class="fl">2</span>, </span></span>
-<span class="r-in"><span>      main<span class="op">=</span><span class="st">"Cumulative Distribution Function"</span>,</span></span>
-<span class="r-in"><span>      xlab<span class="op">=</span><span class="st">"x"</span>, ylab<span class="op">=</span><span class="st">"f(x)"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">pEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">1</span>, sigma<span class="op">=</span><span class="fl">0.5</span>, lower.tail<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>      col<span class="op">=</span><span class="st">"tomato"</span>, </span></span>
-<span class="r-in"><span>      lwd<span class="op">=</span><span class="fl">2</span>,</span></span>
-<span class="r-in"><span>      add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">pEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">1.5</span>, sigma<span class="op">=</span><span class="fl">0.5</span>, lower.tail<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>      col<span class="op">=</span><span class="st">"seagreen"</span>,</span></span>
-<span class="r-in"><span>      lwd<span class="op">=</span><span class="fl">2</span>,</span></span>
-<span class="r-in"><span>      add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mu=0.5, sigma=0.5"</span>, </span></span>
-<span class="r-in"><span>                            <span class="st">"mu=1.0, sigma=0.5"</span>,</span></span>
-<span class="r-in"><span>                            <span class="st">"mu=1.5, sigma=0.5"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"royalblue1"</span>, <span class="st">"tomato"</span>, <span class="st">"seagreen"</span><span class="op">)</span>, lwd<span class="op">=</span><span class="fl">2</span>, cex<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="dEXL-5.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">#example 3</span></span></span>
-<span class="r-in"><span><span class="co">## The quantile function</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Example 3</span></span></span>
+<span class="r-in"><span><span class="co"># The quantile function</span></span></span>
 <span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">0.99999</span>, length.out<span class="op">=</span><span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu">qEXL</span><span class="op">(</span><span class="va">p</span>, mu<span class="op">=</span><span class="fl">2.3</span>, sigma<span class="op">=</span><span class="fl">1.7</span><span class="op">)</span>, y<span class="op">=</span><span class="va">p</span>, xlab<span class="op">=</span><span class="st">"Quantile"</span>,</span></span>
 <span class="r-in"><span>     las<span class="op">=</span><span class="fl">1</span>, ylab<span class="op">=</span><span class="st">"Probability"</span>, main<span class="op">=</span><span class="st">"Quantile function "</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">pEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">2.3</span>, sigma<span class="op">=</span><span class="fl">1.7</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>      from<span class="op">=</span><span class="fl">0</span>, add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"tomato"</span>, lwd<span class="op">=</span><span class="fl">2.5</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="dEXL-6.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="dEXL-5.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">#some values</span></span></span>
+<span class="r-in"><span><span class="co"># Comparing quantile, density and cumulative</span></span></span>
 <span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">quantile</span> <span class="op">&lt;-</span> <span class="fu">qEXL</span><span class="op">(</span>p<span class="op">=</span><span class="va">p</span>, mu<span class="op">=</span><span class="fl">2.3</span>, sigma<span class="op">=</span><span class="fl">1.7</span><span class="op">)</span> </span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">quantile</span><span class="op">)</span><span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html" class="external-link">integrate</a></span><span class="op">(</span><span class="va">dEXL</span>, lower<span class="op">=</span><span class="fl">0</span>, upper<span class="op">=</span><span class="va">i</span>, mu<span class="op">=</span><span class="fl">2.3</span>, sigma<span class="op">=</span><span class="fl">1.7</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
@@ -259,19 +242,22 @@ inference and applications. Heliyon, 10(3).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.5 with absolute error &lt; 4.4e-05</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.7500001 with absolute error &lt; 0.00012</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">#example 4</span></span></span>
-<span class="r-in"><span><span class="co">## The random function</span></span></span>
+<span class="r-in"><span><span class="fu">pEXL</span><span class="op">(</span>q<span class="op">=</span><span class="va">quantile</span>, mu<span class="op">=</span><span class="fl">2.3</span>, sigma<span class="op">=</span><span class="fl">1.7</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.25 0.50 0.75</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Example 4</span></span></span>
+<span class="r-in"><span><span class="co"># The random function</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">rEXL</span><span class="op">(</span>n<span class="op">=</span><span class="fl">10000</span>, mu<span class="op">=</span><span class="fl">1.5</span>, sigma<span class="op">=</span><span class="fl">2.5</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">x</span>, freq<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">dEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">1.5</span>, sigma<span class="op">=</span><span class="fl">2.5</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">20</span>, </span></span>
 <span class="r-in"><span>      add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"tomato"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="dEXL-7.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="dEXL-6.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">#example 5</span></span></span>
-<span class="r-in"><span><span class="co">## The Hazard function</span></span></span>
+<span class="r-in"><span><span class="co"># Example 5</span></span></span>
+<span class="r-in"><span><span class="co"># The Hazard function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">hEXL</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">1.5</span>, sigma<span class="op">=</span><span class="fl">2</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0.001</span>, to<span class="op">=</span><span class="fl">4</span>,</span></span>
 <span class="r-in"><span>      col<span class="op">=</span><span class="st">"tomato"</span>, ylab<span class="op">=</span><span class="st">"Hazard function"</span>, las<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="dEXL-8.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="dEXL-7.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -283,7 +269,7 @@ inference and applications. Heliyon, 10(3).</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer></div>
