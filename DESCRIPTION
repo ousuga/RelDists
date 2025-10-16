@@ -1,6 +1,6 @@
 Package: RelDists
 Title: Estimation for some Reliability Distributions
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(
     person(given="Freddy", 
            family="Hernandez-Barajas",
@@ -56,4 +56,3 @@ Suggests:
     alr4
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
-
