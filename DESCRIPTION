@@ -2,7 +2,7 @@ Package: RelDists
 Title: Estimation for some Reliability Distributions
 Version: 1.0.1
 Authors@R: c(
-    person(given="Freddy", 
+    person(given="Freddddy", 
            family="Hernandez-Barajas",
            email="fhernanb@unal.edu.co",
            role = c("aut", "cre"), 
@@ -20,11 +20,7 @@ Authors@R: c(
            family="Mosquera",
            email="jmosquerag@unal.edu.co", 
            role = c("aut"),
-           comment = c(ORCID = "0000-0002-1684-4756")),
-    person(given="Amylkar", 
-           family="Urrea", 
-           email="amylkar.urrea@udea.edu.co", 
-           role = "aut")
+           comment = c(ORCID = "0000-0002-1684-4756"))
   )
 Description: Parameters estimation and linear regression models for Reliability 
     distributions families reviewed by Almalki & Nadarajah (2014)
@@ -33,8 +29,8 @@ Description: Parameters estimation and linear regression models for Reliability
     (2005) <doi:10.1111/j.1467-9876.2005.00510.x>.
 Depends: R (>= 3.5.0), survival, EstimationTools (>= 4.0.0)
 License: GPL-3
-URL: http://ousuga.github.io/RelDists/
-BugReports: https://github.com/ousuga/RelDists/issues
+URL: https://fhernanb.github.io/RelDists/
+BugReports: https://github.com/fhernanb/RelDists/issues
 Encoding: UTF-8
 RdMacros: Rdpack
 Imports:
